@@ -125,17 +125,20 @@
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[MyNavigationController alloc] initWithRootViewController:director_];
-	navController_.navigationBarHidden = YES;
-
-	// for rotation and other messages
+    navController_.navigationBarHidden = YES;
+	
+    // for rotation and other messages
 	[director_ setDelegate:navController_];
 	
+    
 	// set the Navigation Controller as the root view controller
 	[window_ setRootViewController:navController_];
 	
+
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	
+    
+    
 	return YES;
 }
 

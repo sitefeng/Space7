@@ -161,6 +161,18 @@
 		5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6FB17EFE4E100DAB13D /* NewGameTouched.png */; };
 		5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70617EFEAD000DAB13D /* AboutButtonNormal.png */; };
 		5D3FF70917EFEB6700DAB13D /* AboutButtonTouched.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70817EFEB6700DAB13D /* AboutButtonTouched.png */; };
+		5D3FF71117EFF1C100DAB13D /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */; };
+		5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */; };
+		5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70D17EFF1C100DAB13D /* level1.mp3 */; };
+		5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */; };
+		5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70F17EFF1C100DAB13D /* level3.mp3 */; };
+		5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF71017EFF1C100DAB13D /* level4.mp3 */; };
+		5D3FF71A17EFF37F00DAB13D /* homePage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF71917EFF37F00DAB13D /* homePage.mp3 */; };
+		5D3FF72317F0001F00DAB13D /* GameSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */; };
+		5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */; };
+		5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */; };
+		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
+		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -464,6 +476,21 @@
 		5D3FF6FB17EFE4E100DAB13D /* NewGameTouched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewGameTouched.png; sourceTree = "<group>"; };
 		5D3FF70617EFEAD000DAB13D /* AboutButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutButtonNormal.png; sourceTree = "<group>"; };
 		5D3FF70817EFEB6700DAB13D /* AboutButtonTouched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutButtonTouched.png; sourceTree = "<group>"; };
+		5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
+		5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = infoScene.mp3; sourceTree = "<group>"; };
+		5D3FF70D17EFF1C100DAB13D /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
+		5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Level2.mp3; sourceTree = "<group>"; };
+		5D3FF70F17EFF1C100DAB13D /* level3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level3.mp3; sourceTree = "<group>"; };
+		5D3FF71017EFF1C100DAB13D /* level4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level4.mp3; sourceTree = "<group>"; };
+		5D3FF71917EFF37F00DAB13D /* homePage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = homePage.mp3; sourceTree = "<group>"; };
+		5D3FF72117F0001F00DAB13D /* GameSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLayer.h; sourceTree = "<group>"; };
+		5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLayer.m; sourceTree = "<group>"; };
+		5D3FF72417F0010500DAB13D /* GameSceneControlsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneControlsLayer.h; sourceTree = "<group>"; };
+		5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneControlsLayer.m; sourceTree = "<group>"; };
+		5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneBackgroundLayer.h; sourceTree = "<group>"; };
+		5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneBackgroundLayer.m; sourceTree = "<group>"; };
+		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
+		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +555,12 @@
 				5D3FF6CB17EFB8E600DAB13D /* AppDelegate.m */,
 				5D3FF6F117EFD55B00DAB13D /* MenuSceneLayer.h */,
 				5D3FF6F217EFD55B00DAB13D /* MenuSceneLayer.m */,
+				5D3FF72117F0001F00DAB13D /* GameSceneLayer.h */,
+				5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */,
+				5D3FF72417F0010500DAB13D /* GameSceneControlsLayer.h */,
+				5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */,
+				5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */,
+				5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
 				5D3FF55217EFB8E300DAB13D /* libs */,
 				5D3FF6C617EFB8E600DAB13D /* Supporting Files */,
@@ -538,8 +571,11 @@
 		5D3FF53A17EFB8E300DAB13D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D8E998117F0135700F5E574 /* ship4.png */,
+				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
 				5D3FF6F417EFDBC400DAB13D /* SpaceSevenBackground.png */,
 				5D3FF70217EFE4E900DAB13D /* MenuItems */,
+				5D3FF71817EFF1C700DAB13D /* Background Music */,
 				5D3FF6D817EFBB0900DAB13D /* Sound effects */,
 				5D3FF53B17EFB8E300DAB13D /* Default.png */,
 				5D3FF53D17EFB8E300DAB13D /* Default@2x.png */,
@@ -953,6 +989,20 @@
 			name = MenuItems;
 			sourceTree = "<group>";
 		};
+		5D3FF71817EFF1C700DAB13D /* Background Music */ = {
+			isa = PBXGroup;
+			children = (
+				5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */,
+				5D3FF71917EFF37F00DAB13D /* homePage.mp3 */,
+				5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */,
+				5D3FF70D17EFF1C100DAB13D /* level1.mp3 */,
+				5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */,
+				5D3FF70F17EFF1C100DAB13D /* level3.mp3 */,
+				5D3FF71017EFF1C100DAB13D /* level4.mp3 */,
+			);
+			name = "Background Music";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1005,6 +1055,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3FF6FE17EFE4E100DAB13D /* LoadGameNormal.png in Resources */,
+				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
 				5D3FF54C17EFB8E300DAB13D /* Icon.png in Resources */,
@@ -1014,28 +1065,36 @@
 				5D3FF6FF17EFE4E100DAB13D /* LoadGameTouched.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
 				5D3FF53E17EFB8E300DAB13D /* Default@2x.png in Resources */,
+				5D3FF71A17EFF37F00DAB13D /* homePage.mp3 in Resources */,
 				5D3FF6FD17EFE4E100DAB13D /* HighScoresTouched.png in Resources */,
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
 				5D3FF54817EFB8E300DAB13D /* Icon-Small.png in Resources */,
 				5D3FF6F517EFDBC400DAB13D /* SpaceSevenBackground.png in Resources */,
+				5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */,
 				5D3FF6FC17EFE4E100DAB13D /* HighScoresNormal.png in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
+				5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */,
 				5D3FF70017EFE4E100DAB13D /* NewGameNormal.png in Resources */,
+				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				5D3FF54417EFB8E300DAB13D /* Icon-72.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
 				5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
+				5D3FF71117EFF1C100DAB13D /* gameOver.mp3 in Resources */,
 				5D3FF55117EFB8E300DAB13D /* iTunesArtwork in Resources */,
 				5D3FF6EB17EFBB0900DAB13D /* revive.mp3 in Resources */,
 				5D3FF54A17EFB8E300DAB13D /* Icon-Small@2x.png in Resources */,
 				5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */,
 				5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */,
 				5D3FF6E917EFBB0900DAB13D /* getBomb.mp3 in Resources */,
+				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5D3FF54017EFB8E300DAB13D /* Default-568h@2x.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
 				5D3FF54E17EFB8E300DAB13D /* Icon@2x.png in Resources */,
+				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
+				5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */,
 				5D3FF6E417EFBB0900DAB13D /* bombActivate.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1055,6 +1114,7 @@
 				5D3FF6B417EFB8E600DAB13D /* mat4.c in Sources */,
 				5D3FF59017EFB8E400DAB13D /* ccDeprecated.m in Sources */,
 				5D3FF64B17EFB8E500DAB13D /* CCDirectorMac.m in Sources */,
+				5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */,
 				5D3FF5A517EFB8E400DAB13D /* ccGLStateCache.m in Sources */,
 				5D3FF67717EFB8E500DAB13D /* TransformUtils.m in Sources */,
 				5D3FF5C417EFB8E400DAB13D /* CCNode+Debug.m in Sources */,
@@ -1066,6 +1126,7 @@
 				5D3FF57A17EFB8E400DAB13D /* CCActionTween.m in Sources */,
 				5D3FF5B117EFB8E400DAB13D /* CCLabelBMFont.m in Sources */,
 				5D3FF65E17EFB8E500DAB13D /* ccCArray.m in Sources */,
+				5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */,
 				5D3FF68817EFB8E600DAB13D /* CDXMacOSXSupport.m in Sources */,
 				5D3FF67C17EFB8E600DAB13D /* ZipUtils.m in Sources */,
 				5D3FF56E17EFB8E400DAB13D /* CCActionManager.m in Sources */,
@@ -1143,6 +1204,7 @@
 				5D3FF65417EFB8E500DAB13D /* CCWindow.m in Sources */,
 				5D3FF63217EFB8E500DAB13D /* cocos2d.m in Sources */,
 				5D3FF5DF17EFB8E500DAB13D /* CCProgressTimer.m in Sources */,
+				5D3FF72317F0001F00DAB13D /* GameSceneLayer.m in Sources */,
 				5D3FF5B417EFB8E400DAB13D /* CCLabelTTF.m in Sources */,
 				5D3FF66117EFB8E500DAB13D /* CCFileUtils.m in Sources */,
 				5D3FF64E17EFB8E500DAB13D /* CCEventDispatcher.m in Sources */,
@@ -1263,6 +1325,7 @@
 				5D3FF6D717EFB8E600DAB13D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

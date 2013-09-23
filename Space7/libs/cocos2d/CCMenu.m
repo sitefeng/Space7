@@ -183,6 +183,8 @@ enum {
 
 -(CCMenuItem *) itemForTouch: (UITouch *) touch
 {
+    
+    
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
 
@@ -203,6 +205,7 @@ enum {
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    
 	if( _state != kCCMenuStateWaiting || !_visible || ! _enabled)
 		return NO;
 
