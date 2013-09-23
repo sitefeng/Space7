@@ -27,6 +27,10 @@ There are 5 items to help during the game:
 * **Health**: Increase the health level of the main spaceship (ver 2.0)
 * **Shield**: Prevents the spaceship from all damages for a limited amount of time (ver 2.0)
 
+##Score Tracking  
+* **Main Score**: Positively affected by time elapsed and number of UFOs destroyed
+* **UFOs destyed**: Tracks the number since level 1
+* **Time Elapsed**: The total time between level 1 and when the player finishes the game. This time does not appear in the game scene
 
 ##Game Scene Inputs
 * A *Joystick* for spaceship movement control
@@ -44,7 +48,7 @@ There are 5 items to help during the game:
 
 ##Misc Features
 * Redirect link to the "Space 7 Glide" which will be the paid version of the game intended for one-handed controls. (ver 1.1)
-* An About page
+* About page
 * Intro scene
 * Main menu
 * Game Over scene
