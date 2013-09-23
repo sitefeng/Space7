@@ -21,18 +21,18 @@ To fight aliens in different galaxies until the spaceship returns to the Milky W
 
 ##Collectables  
 There are 5 items to help during the game:
-* Anti-matter: Increase the energy bar lebel to help advance to the next level
-* Invincible: Make the spaceship bigger so it can destroy UFOs upon collision
-* Plutonium Bomb: Distroy all UFOs within the vincinity
-* Health: Increase the health level of the main spaceship (ver 2.0)
-* Shield: Prevents the spaceship from all damages for a limited amount of time (ver 2.0)
+* **Anti-matter**: Increase the energy bar lebel to help advance to the next level
+* **Invincible**: Make the spaceship bigger so it can destroy UFOs upon collision
+* **Plutonium Bomb**: Distroy all UFOs within the vincinity
+* **Health**: Increase the health level of the main spaceship (ver 2.0)
+* **Shield**: Prevents the spaceship from all damages for a limited amount of time (ver 2.0)
 
 
 ##Game Scene Inputs
-* A Joystick for spaceship movement control
-* A button to release bombs
-* A button to pause the game/ return to home screen 
-* A button to reveal current galaxy information 
+* A *Joystick* for spaceship movement control
+* A *button* to release bombs
+* A *button* to pause the game/ return to home screen 
+* A *button* to reveal current galaxy information 
 
 ##Game Scene Output
 * Health bar and energy bar
