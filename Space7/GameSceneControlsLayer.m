@@ -53,8 +53,10 @@
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [[CCDirector sharedDirector] pushScene:[MenuSceneLayer scene]];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
+    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+
     
 }
 

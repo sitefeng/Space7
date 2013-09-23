@@ -27,6 +27,12 @@
     [layer addChild:background z:-1];
     
     [scene addChild: layer];
+    
+    //Play the background music
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
 	
 	// return the scene
 	return scene;
@@ -40,11 +46,7 @@
         
         self.touchEnabled = YES;
         
-        //Play the background music
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
-        
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
+
         
         
         //Getting the window size
@@ -98,8 +100,9 @@
 -(void) newGameTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] pushScene:[GameSceneLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
 }
 
