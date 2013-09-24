@@ -37,13 +37,11 @@
         self.touchEnabled =YES;
         
         //Getting the window size
-        CGSize windowSize = [[CCDirector sharedDirector] winSize];
+        //CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
         [self initJoystick];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
-        
-        
         
     }
     
@@ -62,10 +60,6 @@
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime);
     
     [gameLayer.mySpaceship setPosition: newPosition];
-    
-   
-    
-    
     
 }
 
@@ -90,8 +84,6 @@
     [self addChild:joystickBase];
     
     myJoystick = joystickBase.joystick;
-    
-    
     
 }
 

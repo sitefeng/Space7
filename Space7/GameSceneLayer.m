@@ -18,22 +18,17 @@
 
 +(CCScene*) scene
 {
-    
     CCScene *scene = [CCScene node];
     
     GameSceneLayer *gameSceneLayer = [GameSceneLayer node];
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
     
-    
     [scene addChild: gameSceneControlsLayer z:2];
     [scene addChild: gameSceneLayer z:1];
     [scene addChild: gameSceneBackgroundLayer z:0];
     
-
-    
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"level1.mp3" loop:YES ];
-    
     
     return scene;
     
@@ -48,21 +43,13 @@
         self.touchEnabled =NO;
         
       
-        
         mySpaceship = [CCSprite spriteWithFile:@"ship4.png"];
         
         mySpaceship.position = ccp(200,200);
         
         [self addChild:mySpaceship];
         
-        
-        
-        
-        
-        
-
-        
-        
+      
         
     }
     
@@ -81,3 +68,9 @@
 }
 
 @end
+
+
+
+
+
+
