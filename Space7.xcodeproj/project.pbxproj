@@ -172,6 +172,7 @@
 		5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */; };
 		5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */; };
 		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
+		5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */; };
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
 		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
 		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
@@ -496,6 +497,7 @@
 		5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneBackgroundLayer.h; sourceTree = "<group>"; };
 		5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneBackgroundLayer.m; sourceTree = "<group>"; };
 		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
+		5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameSceneBackground.png; sourceTree = "<group>"; };
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				5DAF377717F10CAD003326F0 /* circle1.png */,
 				5DAF377517F10CA5003326F0 /* plus.png */,
 				5D8E998117F0135700F5E574 /* ship4.png */,
+				5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */,
 				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
 				5D3FF6F417EFDBC400DAB13D /* SpaceSevenBackground.png */,
 				5D3FF70217EFE4E900DAB13D /* MenuItems */,
@@ -1113,6 +1116,7 @@
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				5D3FF54417EFB8E300DAB13D /* Icon-72.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
+				5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */,
 				5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
 				5D3FF71117EFF1C100DAB13D /* gameOver.mp3 in Resources */,

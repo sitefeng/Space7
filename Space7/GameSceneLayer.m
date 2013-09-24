@@ -24,6 +24,14 @@
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
     
+    
+    
+    CCSprite *background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
+    background.anchorPoint = ccp(0,0);
+    
+    [gameSceneBackgroundLayer addChild:background];
+    
+    
     [scene addChild: gameSceneControlsLayer z:2];
     [scene addChild: gameSceneLayer z:1];
     [scene addChild: gameSceneBackgroundLayer z:0];

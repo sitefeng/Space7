@@ -18,10 +18,9 @@
     
     CCScene *scene = [[CCScene alloc] init];
     
-    CCLayer *gameSceneLayer = [[CCLayer alloc] init];
+    GameSceneBackgroundLayer *layer = [GameSceneBackgroundLayer node];
     
-    
-    [scene addChild: gameSceneLayer];
+    [scene addChild: layer];
     
     return scene;
     

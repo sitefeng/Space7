@@ -19,11 +19,10 @@
 	
     CCScene *scene = [CCScene node];
     
-    CCSprite *background = [CCSprite spriteWithFile:@"SpaceSevenBackgroundLowResolution.png"];
+    CCSprite *background = [CCSprite spriteWithFile:@"SpaceSevenBackground.png"];
     
     background.anchorPoint = ccp(0,0);
     
-    [background setScale:2];
     [layer addChild:background z:-1];
     
     [scene addChild: layer];
