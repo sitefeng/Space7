@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SneakyJoystick.h"
+#import "SneakyJoystickSkinnedBase.h"
 
 @interface GameSceneControlsLayer : CCLayer {
+    
+    SneakyJoystick *myJoystick;
     
 }
 
 
 
 +(CCScene*) scene;
+
+
 
 
 

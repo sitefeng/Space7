@@ -173,6 +173,12 @@
 		5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */; };
 		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
+		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
+		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
+		5DAF377117F10B23003326F0 /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376C17F10B23003326F0 /* SneakyJoystick.m */; };
+		5DAF377217F10B23003326F0 /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376E17F10B23003326F0 /* SneakyJoystickSkinnedBase.m */; };
+		5DAF377617F10CA5003326F0 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377517F10CA5003326F0 /* plus.png */; };
+		5DAF377817F10CAD003326F0 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377717F10CAD003326F0 /* circle1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -491,6 +497,16 @@
 		5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneBackgroundLayer.m; sourceTree = "<group>"; };
 		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
+		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
+		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
+		5DAF376917F10B23003326F0 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
+		5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButtonSkinnedBase.m; sourceTree = "<group>"; };
+		5DAF376B17F10B23003326F0 /* SneakyJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystick.h; sourceTree = "<group>"; };
+		5DAF376C17F10B23003326F0 /* SneakyJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystick.m; sourceTree = "<group>"; };
+		5DAF376D17F10B23003326F0 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
+		5DAF376E17F10B23003326F0 /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
+		5DAF377517F10CA5003326F0 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		5DAF377717F10CAD003326F0 /* circle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +587,8 @@
 		5D3FF53A17EFB8E300DAB13D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DAF377717F10CAD003326F0 /* circle1.png */,
+				5DAF377517F10CA5003326F0 /* plus.png */,
 				5D8E998117F0135700F5E574 /* ship4.png */,
 				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
 				5D3FF6F417EFDBC400DAB13D /* SpaceSevenBackground.png */,
@@ -596,6 +614,7 @@
 		5D3FF55217EFB8E300DAB13D /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5DAF377417F10B3A003326F0 /* Sneakyness */,
 				5D3FF67D17EFB8E600DAB13D /* LICENSE_cocos2d.txt */,
 				5D3FF69317EFB8E600DAB13D /* LICENSE_CocosDenshion.txt */,
 				5D3FF6C517EFB8E600DAB13D /* LICENSE_Kazmath.txt */,
@@ -1003,6 +1022,21 @@
 			name = "Background Music";
 			sourceTree = "<group>";
 		};
+		5DAF377417F10B3A003326F0 /* Sneakyness */ = {
+			isa = PBXGroup;
+			children = (
+				5DAF376717F10B23003326F0 /* SneakyButton.h */,
+				5DAF376817F10B23003326F0 /* SneakyButton.m */,
+				5DAF376917F10B23003326F0 /* SneakyButtonSkinnedBase.h */,
+				5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */,
+				5DAF376B17F10B23003326F0 /* SneakyJoystick.h */,
+				5DAF376C17F10B23003326F0 /* SneakyJoystick.m */,
+				5DAF376D17F10B23003326F0 /* SneakyJoystickSkinnedBase.h */,
+				5DAF376E17F10B23003326F0 /* SneakyJoystickSkinnedBase.m */,
+			);
+			name = Sneakyness;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1087,6 +1121,8 @@
 				5D3FF54A17EFB8E300DAB13D /* Icon-Small@2x.png in Resources */,
 				5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */,
 				5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */,
+				5DAF377817F10CAD003326F0 /* circle1.png in Resources */,
+				5DAF377617F10CA5003326F0 /* plus.png in Resources */,
 				5D3FF6E917EFBB0900DAB13D /* getBomb.mp3 in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
@@ -1110,6 +1146,7 @@
 				5D3FF66617EFB8E500DAB13D /* ccUtils.c in Sources */,
 				5D3FF5B717EFB8E400DAB13D /* CCLayer.m in Sources */,
 				5D3FF61917EFB8E500DAB13D /* CCTileMapAtlas.m in Sources */,
+				5DAF377217F10B23003326F0 /* SneakyJoystickSkinnedBase.m in Sources */,
 				5D3FF61C17EFB8E500DAB13D /* CCTMXLayer.m in Sources */,
 				5D3FF6B417EFB8E600DAB13D /* mat4.c in Sources */,
 				5D3FF59017EFB8E400DAB13D /* ccDeprecated.m in Sources */,
@@ -1140,6 +1177,7 @@
 				5D3FF5CD17EFB8E400DAB13D /* CCParticleBatchNode.m in Sources */,
 				5D3FF61017EFB8E500DAB13D /* CCTextureAtlas.m in Sources */,
 				5D3FF6BE17EFB8E600DAB13D /* utility.c in Sources */,
+				5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */,
 				5D3FF66A17EFB8E500DAB13D /* CCVertex.m in Sources */,
 				5D3FF67017EFB8E500DAB13D /* NSThread+performBlock.m in Sources */,
 				5D3FF57717EFB8E400DAB13D /* CCActionTiledGrid.m in Sources */,
@@ -1188,8 +1226,10 @@
 				5D3FF65117EFB8E500DAB13D /* CCGLView.m in Sources */,
 				5D3FF68517EFB8E600DAB13D /* CDOpenALSupport.m in Sources */,
 				5D3FF56817EFB8E400DAB13D /* CCActionInstant.m in Sources */,
+				5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */,
 				5D3FF58917EFB8E400DAB13D /* CCClippingNode.m in Sources */,
 				5D3FF60D17EFB8E500DAB13D /* CCTexture2D.m in Sources */,
+				5DAF377117F10B23003326F0 /* SneakyJoystick.m in Sources */,
 				5D3FF62217EFB8E500DAB13D /* CCTMXTiledMap.m in Sources */,
 				5D3FF5E317EFB8E500DAB13D /* CCRenderTexture.m in Sources */,
 				5D3FF56B17EFB8E400DAB13D /* CCActionInterval.m in Sources */,

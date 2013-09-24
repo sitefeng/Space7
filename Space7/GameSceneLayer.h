@@ -9,10 +9,17 @@
 
 @interface GameSceneLayer : CCLayer {
     
+    
 }
 
 
+@property (nonatomic, retain) CCSprite *mySpaceship;
+
+
+
 +(CCScene*) scene;
+
+
 
 
 @end
