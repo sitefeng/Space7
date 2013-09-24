@@ -23,7 +23,7 @@ To fight aliens in different galaxies until the spaceship returns to the Milky W
 There are 5 items to help during the game:
 * **Anti-matter**: Increase the energy bar lebel to help advance to the next level
 * **Invincible**: Make the spaceship bigger so it can destroy UFOs upon collision
-* **Plutonium Bomb**: Distroy all UFOs within the vincinity
+* **Plutonium Bomb**: Destroy all UFOs within the vincinity
 * **Health**: Increase the health level of the main spaceship (ver 2.0)
 * **Shield**: Prevents the spaceship from all damages for a limited amount of time (ver 2.0)
 
@@ -52,6 +52,7 @@ There are 5 items to help during the game:
 * Intro scene
 * Main menu
 * Game Over scene
+* A Hexagonal shaped medal will be awarded for after the completion of each level
 * Advertisements only placed after the game has ended (ver 3.0)
 
 
