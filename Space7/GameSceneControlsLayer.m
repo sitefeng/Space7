@@ -71,6 +71,23 @@
     
     [gameLayer.mySpaceship setPosition: newPosition];
     
+    
+    //Rotating the spaceship to the joystick orientation
+    float x= myJoystick.velocity.x;
+    float y = myJoystick.velocity.y;
+    float rotation= gameLayer.mySpaceship.rotation;
+    
+    if(x==0 && y == 0)
+    {
+        //Do nothing
+    }
+    else
+    {
+        rotation = (-atan2(y , x))*180.0/M_PI;
+    }
+    gameLayer.mySpaceship.rotation = rotation;
+    
+    
 }
 
 
