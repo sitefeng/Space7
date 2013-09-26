@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "SneakyJoystick.h"
 #import "SneakyJoystickSkinnedBase.h"
+#import "SneakyButton.h"
+#import "SneakyButtonSkinnedBase.h"
 
 @interface GameSceneControlsLayer : CCLayer {
     

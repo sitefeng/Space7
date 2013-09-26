@@ -36,20 +36,11 @@
         
         self.touchEnabled =YES;
         
-        //Getting the window size
-        CGSize windowSize = [[CCDirector sharedDirector] winSize];
+                [self initJoystick];
         
-        [self initJoystick];
+        [self initBombButton];
         
-        CCMenuItemImage *bombButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonNormal.png" selectedImage:@"gameButtonPressed.png" disabledImage:@"gameButtonDisabled.png" target:self selector:@selector(didPressBombButton)];
         
-        CGSize buttonSize = bombButtonImg.contentSize;
-        
-        CCMenu *bombButton = [CCMenu menuWithItems:bombButtonImg, nil];
-        
-        bombButton.position = ccp(windowSize.width - buttonSize.width, buttonSize.height);
-        
-        [self addChild: bombButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         
@@ -114,6 +105,26 @@
     [self addChild:joystickBase];
     
     myJoystick = joystickBase.joystick;
+    
+}
+
+
+-(void) initBombButton
+{
+    
+    //Getting the window size
+    CGSize windowSize = [[CCDirector sharedDirector] winSize];
+    
+    CCMenuItemImage *bombButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonNormal.png" selectedImage:@"gameButtonPressed.png" disabledImage:@"gameButtonDisabled.png" target:self selector:@selector(didPressBombButton)];
+    
+    CGSize buttonSize = bombButtonImg.contentSize;
+    
+    CCMenu *bombButton = [CCMenu menuWithItems:bombButtonImg, nil];
+    
+    bombButton.position = ccp(windowSize.width - buttonSize.width, buttonSize.height);
+    
+    [self addChild: bombButton];
+    
     
 }
 
