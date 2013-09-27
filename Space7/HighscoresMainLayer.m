@@ -7,6 +7,7 @@
 //
 
 #import "HighscoresMainLayer.h"
+#import "MenuSceneLayer.h"
 
 
 @implementation HighscoresMainLayer
@@ -62,7 +63,14 @@
 }
 
 
-
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
+    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    
+    
+}
 
 
 
