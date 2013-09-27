@@ -174,6 +174,7 @@
 		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
 		5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */; };
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
+		5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */; };
 		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
 		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
 		5DAF377117F10B23003326F0 /* SneakyJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376C17F10B23003326F0 /* SneakyJoystick.m */; };
@@ -181,7 +182,7 @@
 		5DAF377617F10CA5003326F0 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377517F10CA5003326F0 /* plus.png */; };
 		5DAF377817F10CAD003326F0 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377717F10CAD003326F0 /* circle1.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
-		5DFD62AF17F2A69400E0055F /* LoadGameDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* LoadGameDisabled.png */; };
+		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
 		5DFD62B317F2A8B100E0055F /* gameButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B217F2A8B100E0055F /* gameButtonPressed.png */; };
 		5DFD62B517F2A92900E0055F /* gameButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B417F2A92900E0055F /* gameButtonDisabled.png */; };
@@ -504,6 +505,7 @@
 		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
 		5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameSceneBackground.png; sourceTree = "<group>"; };
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
+		5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameDisabled.png; sourceTree = "<group>"; };
 		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
 		5DAF376917F10B23003326F0 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
@@ -515,7 +517,7 @@
 		5DAF377517F10CA5003326F0 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		5DAF377717F10CAD003326F0 /* circle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle1.png; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
-		5DFD62AE17F2A69400E0055F /* LoadGameDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameDisabled.png; sourceTree = "<group>"; };
+		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
 		5DFD62B217F2A8B100E0055F /* gameButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonPressed.png; sourceTree = "<group>"; };
 		5DFD62B417F2A92900E0055F /* gameButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonDisabled.png; sourceTree = "<group>"; };
@@ -1013,7 +1015,8 @@
 				5DFD62B217F2A8B100E0055F /* gameButtonPressed.png */,
 				5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */,
 				5DFD62B417F2A92900E0055F /* gameButtonDisabled.png */,
-				5DFD62AE17F2A69400E0055F /* LoadGameDisabled.png */,
+				5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */,
+				5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */,
 				5D3FF70617EFEAD000DAB13D /* AboutButtonNormal.png */,
 				5D3FF6F617EFE4E100DAB13D /* HighScoresNormal.png */,
 				5D3FF6F717EFE4E100DAB13D /* HighScoresTouched.png */,
@@ -1109,6 +1112,7 @@
 				5D3FF6FE17EFE4E100DAB13D /* LoadGameNormal.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
+				5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */,
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
 				5D3FF54C17EFB8E300DAB13D /* Icon.png in Resources */,
 				5D3FF70917EFEB6700DAB13D /* AboutButtonTouched.png in Resources */,
@@ -1149,7 +1153,7 @@
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5D3FF54017EFB8E300DAB13D /* Default-568h@2x.png in Resources */,
-				5DFD62AF17F2A69400E0055F /* LoadGameDisabled.png in Resources */,
+				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
 				5D3FF54E17EFB8E300DAB13D /* Icon@2x.png in Resources */,
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
