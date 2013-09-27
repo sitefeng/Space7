@@ -181,6 +181,7 @@
 		5DAF377217F10B23003326F0 /* SneakyJoystickSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376E17F10B23003326F0 /* SneakyJoystickSkinnedBase.m */; };
 		5DAF377617F10CA5003326F0 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377517F10CA5003326F0 /* plus.png */; };
 		5DAF377817F10CAD003326F0 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377717F10CAD003326F0 /* circle1.png */; };
+		5DBA5C3317F51EF8007D6D61 /* HighscoresMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -516,6 +517,8 @@
 		5DAF376E17F10B23003326F0 /* SneakyJoystickSkinnedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyJoystickSkinnedBase.m; sourceTree = "<group>"; };
 		5DAF377517F10CA5003326F0 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		5DAF377717F10CAD003326F0 /* circle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle1.png; sourceTree = "<group>"; };
+		5DBA5C3117F51EF8007D6D61 /* HighscoresMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresMainLayer.h; sourceTree = "<group>"; };
+		5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresMainLayer.m; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -591,6 +594,8 @@
 				5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */,
 				5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */,
 				5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */,
+				5DBA5C3117F51EF8007D6D61 /* HighscoresMainLayer.h */,
+				5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
 				5D3FF55217EFB8E300DAB13D /* libs */,
 				5D3FF6C617EFB8E600DAB13D /* Supporting Files */,
@@ -1282,6 +1287,7 @@
 				5D3FF63917EFB8E500DAB13D /* CCDirectorIOS.m in Sources */,
 				5D3FF5BB17EFB8E400DAB13D /* CCMenu.m in Sources */,
 				5D3FF6C417EFB8E600DAB13D /* vec4.c in Sources */,
+				5DBA5C3317F51EF8007D6D61 /* HighscoresMainLayer.m in Sources */,
 				5D3FF58617EFB8E400DAB13D /* CCCamera.m in Sources */,
 				5D3FF58017EFB8E400DAB13D /* CCAnimationCache.m in Sources */,
 				5D3FF5A217EFB8E400DAB13D /* CCGLProgram.m in Sources */,

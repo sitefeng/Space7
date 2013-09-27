@@ -8,6 +8,7 @@
 
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
+#import "HighscoresMainLayer.h"
 
 @implementation MenuSceneLayer
 
@@ -122,6 +123,8 @@
 -(void) highscoresTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
+    [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
     
     
 }
