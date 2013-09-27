@@ -47,13 +47,26 @@ There are 5 items to help during the game:
 * Sound effects
 
 ##Misc Features
-* Redirect link to the "Space 7 Glide" which will be the paid version of the game intended for one-handed controls. (ver 1.1)
 * About page
 * Intro scene
 * Main menu
 * Game Over scene
+* Level Summary Scene
+* Loading Scene (ver. 1.1)
+
+--------
+
 * A Hexagonal shaped medal will be awarded for after the completion of each level
+* The galaxy's name disappears after a while
+* The Joystick gradually disappears after 5 seconds
+* Redirect link to the "Space 7 Glide" which will be the paid version of the game intended for one-handed controls. (ver 1.1)
 * Advertisements only placed after the game has ended (ver 3.0)
+
+##Contact
+Email: technochimera@gmail.com  
+
+=======
+
 
 
 
