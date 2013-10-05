@@ -34,6 +34,7 @@ enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids 
 
 - (void)fire;
 - (void)starParallax: (ccTime)deltaTime velocity: (CGPoint)velocity;
+- (void)asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity;
 
 +(CCScene*) scene;
 
