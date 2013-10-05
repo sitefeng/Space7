@@ -9,6 +9,7 @@
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
 #import "HighscoresMainLayer.h"
+#import "AboutSceneMainLayer.h"
 
 @implementation MenuSceneLayer
 
@@ -133,6 +134,9 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
+    
+    [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
+
     
 }
 
