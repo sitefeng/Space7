@@ -13,9 +13,12 @@
 #import "SneakyButton.h"
 #import "SneakyButtonSkinnedBase.h"
 
-@interface GameSceneControlsLayer : CCLayer {
+@interface GameSceneControlsLayer : CCLayer <UIAlertViewDelegate>
+{
     
     SneakyJoystick *myJoystick;
+    
+    
     
 }
 

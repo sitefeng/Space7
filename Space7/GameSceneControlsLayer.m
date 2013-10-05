@@ -36,6 +36,12 @@
         
         [self initJoystick];
         
+        
+        
+        [self initPauseButton];
+        
+        
+        
         [self initBombButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
@@ -63,10 +69,7 @@
     [gameLayer.mySpaceship setPosition: newPosition];
     [gameLayer starParallax:deltaTime velocity:scaledVelocity];
     
-//    newPosition = ccp(gameLayer.target.position.x + scaledVelocity.x *deltaTime, gameLayer.target.position.y + scaledVelocity.y *deltaTime); // new position for target
-//    
-//    [gameLayer.target setPosition:newPosition];
-    
+
     
     //Rotating the spaceship to the joystick orientation
     float x= myJoystick.velocity.x;
@@ -82,10 +85,6 @@
         rotation = (-atan2(y , x))*180.0/M_PI;
     }
     
-//    float npx = gameLayer.target.position.x * cos(rotation) - gameLayer.target.position.y *sin(rotation);
-//    float npy = gameLayer.target.position.x * sin(rotation) + gameLayer.target.position.y *cos(rotation);
-//    
-//    [gameLayer.target setPosition:CGPointMake(npx, npy)];
     
     gameLayer.mySpaceship.rotation = rotation;
     
@@ -139,8 +138,37 @@
     
 }
 
+- (void)initPauseButton
+{
+    CCMenuItemImage *pauseButtonImg = [CCMenuItemImage itemWithNormalImage:@"pauseButtonNormal.png" selectedImage:@"pauseButtonPressed.png" disabledImage:@"pauseButtonDisabled.png" target:self selector:@selector(didPressPauseButton)];
+    
+    
+    CCMenu *pauseButton = [CCMenu menuWithItems:pauseButtonImg, nil];
+    
+    pauseButton.position = ccp(525, 250);
+    
+    [self addChild: pauseButton];
+    
+}
 
 
+-(void) didPressPauseButton
+{
+    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"All data will be saved when you return to Menu" delegate:self cancelButtonTitle:@"Resume Game" otherButtonTitles:@"Return to Menu", nil];
+    
+    
+    [pauseAlert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
+    }
+
+}
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -153,11 +181,6 @@
     
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    
-    
-}
 
 
 

@@ -19,6 +19,10 @@ enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids 
     
     float global_x;
     float global_y;
+    
+    unsigned int gameScore;
+    unsigned int enemiesKilled;
+    
 }
 
 
@@ -27,6 +31,14 @@ enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids 
 @property (nonatomic, retain) NSMutableArray *_asteroids;
 @property (nonatomic, retain) NSMutableArray *_projectiles;
 @property (nonatomic, retain) NSMutableArray *_stars;
+
+@property (nonatomic, retain) CCProgressTimer* energyBar;
+@property (nonatomic, retain) CCProgressTimer* healthBar;
+
+@property (nonatomic, retain) CCLabelBMFont* gameScoreValueLabel;
+@property (nonatomic, retain) CCLabelBMFont* enemiesKilledValueLabel;
+
+
 
 - (void)fire;
 - (void)starParallax: (ccTime)deltaTime velocity: (CGPoint)velocity;
