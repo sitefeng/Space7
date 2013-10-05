@@ -61,6 +61,7 @@
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime); //new position for ship
     
     [gameLayer.mySpaceship setPosition: newPosition];
+    [gameLayer starParallax:deltaTime velocity:scaledVelocity];
     
 //    newPosition = ccp(gameLayer.target.position.x + scaledVelocity.x *deltaTime, gameLayer.target.position.y + scaledVelocity.y *deltaTime); // new position for target
 //    

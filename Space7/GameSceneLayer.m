@@ -18,7 +18,7 @@
 
 @implementation GameSceneLayer
 
-@synthesize mySpaceship, target, _asteroids, _projectiles;
+@synthesize mySpaceship, target, _asteroids, _projectiles, _stars;
 
 +(CCScene*) scene
 {
@@ -54,13 +54,15 @@
         
         _asteroids = [[NSMutableArray alloc] init];
         _projectiles = [[NSMutableArray alloc] init];
+        _stars = [[NSMutableArray alloc] init];
+
         
         self.touchEnabled =NO;
       
         //INITIALIZE THE SPACESHIP
         mySpaceship = [CCSprite spriteWithFile:@"ship1.png"];
         target = [CCSprite spriteWithFile:@"target-red.png"];
-        target.scale = 0.2;
+        target.scale = 0.1;
         
         mySpaceship.position = ccp(100,200);
         
@@ -126,8 +128,8 @@
     
     for (int i = 0; i < 8 ; ++i){ //create many stars
         
-    CCSprite * star = [CCSprite spriteWithFile:@"star.png"];
-        star.scale = 0.5;
+        CCSprite * star = [CCSprite spriteWithFile:@"star.png"];
+        star.scale = 0.25;
     
         // Determine where to spawn the asteroid along the Y axis
         CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -139,6 +141,8 @@
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
         star.position = ccp(winSize.width + star.contentSize.width/2, actualY);
+        star.tag = 3;
+        [_stars addObject:star];
         [self addChild:star z:0];
         
         // Determine speed of the asteroid
@@ -163,6 +167,25 @@
     }
 }
 
+- (void) starParallax: (ccTime)deltaTime velocity: (CGPoint)velocity
+{
+    //NSMutableArray *starsToMove = [[NSMutableArray alloc] init];
+    for (CCSprite *star in _stars) {
+        
+        CGPoint newPosition = ccp(star.position.x - (velocity.x * 0.25) *deltaTime, star.position.y - (velocity.y * 0.25) *deltaTime); //new position for ship
+        
+        [star setPosition: newPosition];
+        
+
+//        starsToMove addObject:star
+//        for (CCSprite *star in starsToMove) {
+//            
+//        }
+    }
+
+}
+
+
 - (void) asteroid {//By Karim Kawambwa
     
     NSInteger r = (arc4random() % 5); //Used for asteroid type randomizing
@@ -172,33 +195,56 @@
     if (r==0)
     {
         asteroid = [CCSprite spriteWithFile:@"blueroid.png"];
+        asteroid.tag = blueroid;
     }
     else if (r ==1)
     {
         asteroid = [CCSprite spriteWithFile:@"greenroid.png"];
+        asteroid.tag = greenroid;
     }
     else if (r == 2)
     {
         asteroid = [CCSprite spriteWithFile:@"yellowroid.png"];
+        asteroid.tag = yellowroid;
     }
     else
     {
         asteroid = [CCSprite spriteWithFile:@"redroid.png"];
+        asteroid.tag = redroid;
     }
     
-    // Determine where to spawn the asteroid along the Y axis
+    NSInteger spawn = (arc4random() % 4);
+
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    int minY = asteroid.contentSize.height / 2;
-    int maxY = winSize.height - asteroid.contentSize.height/2;
-    int rangeY = maxY - minY;
-    int actualY = (arc4random() % rangeY) + minY;
-    
-    // Create the asteroid slightly off-screen along the right edge,
-    // and along a random position along the Y axis as calculated above
-    asteroid.position = ccp(winSize.width + asteroid.contentSize.width/2, actualY);
-    asteroid.tag = 1;
-    [_asteroids addObject:asteroid];
-    [self addChild:asteroid z:0];
+    int actualX;
+    int actualY;
+    if (spawn == 1 || spawn == 2 ) {
+        // Determine where to spawn the asteroid along the X axis
+        int minX = asteroid.contentSize.width / 2;
+        int maxX = winSize.width - asteroid.contentSize.width/2;
+        int rangeX = maxX - minX;
+        actualX = (arc4random() % rangeX) + minX;
+        
+        // Create the asteroid slightly off-screen along the right edge,
+        // and along a random position along the Y axis as calculated above
+        asteroid.position = ccp(actualX, winSize.height + asteroid.contentSize.height/2);
+        [_asteroids addObject:asteroid];
+        [self addChild:asteroid z:1];
+    }
+    else
+    {
+        // Determine where to spawn the asteroid along the Y axis
+        int minY = asteroid.contentSize.height / 2;
+        int maxY = winSize.height - asteroid.contentSize.height/2;
+        int rangeY = maxY - minY;
+        actualY = (arc4random() % rangeY) + minY;
+        
+        // Create the asteroid slightly off-screen along the right edge,
+        // and along a random position along the Y axis as calculated above
+        asteroid.position = ccp(winSize.width + asteroid.contentSize.width/2, actualY);
+        [_asteroids addObject:asteroid];
+        [self addChild:asteroid z:1];
+    }
     
     
     // Determine speed of the asteroid
@@ -207,10 +253,21 @@
     int rangeDuration = maxDuration - minDuration;
     int actualDuration = (arc4random() % rangeDuration) + minDuration;
     
-    // Create the actions
-    //CCMoveTo: You use the CCMoveTo action to direct the object to move off-screen to the left.
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration
-                                                position:ccp(-asteroid.contentSize.width/2, actualY)];
+    CCMoveTo * actionMove;
+    if (spawn == 1 || spawn == 2) {
+        // Create the actions
+        //CCMoveTo: You use the CCMoveTo action to direct the object to move off-screen to the left.
+        actionMove = [CCMoveTo actionWithDuration:actualDuration
+                                         position:ccp(-asteroid.contentSize.width/2 - (arc4random() % (int)winSize.width) ,
+                                                      -asteroid.contentSize.height/2 - (arc4random() % (int)winSize.height))];
+    }
+    else
+    {
+        // Create the actions
+        //CCMoveTo: You use the CCMoveTo action to direct the object to move off-screen to the left.
+        actionMove = [CCMoveTo actionWithDuration:actualDuration
+                                         position:ccp(-asteroid.contentSize.width/2, actualY)];
+    }
     
     //CCCallBlockN: The CCCallBlockN function allows us to specify a callback block to run when the action is performed. In this game, you’re going to set up this action to run after the monster goes offscreen to the left – and you’ll remove the monster from the layer when this occurs.
     CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
@@ -292,6 +349,7 @@
     
     CCLOG(@"target, postion x %f %f", target.x, projectile.position.x);
     CCLOG(@"target, postion y %f %f", target.y, projectile.position.y);
+    
     CGPoint offset = ccpSub(target , projectile.position);
     CCLOG(@"offset %f %f", offset.x, offset.y);
     // Bail out if you are shooting down or backwards
@@ -330,9 +388,13 @@
     
     
     [_asteroids release];
-    _asteroids = nil;
     [_projectiles release];
+    [_stars release];
+    
     _projectiles = nil;
+    _asteroids = nil;
+    _stars = nil;
+    
     [super dealloc];
 }
 

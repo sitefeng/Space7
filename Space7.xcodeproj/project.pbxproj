@@ -17,6 +17,7 @@
 		4B9948EC17FFC1D200B5DF86 /* redroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948E817FFC1D200B5DF86 /* redroid.png */; };
 		4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948E917FFC1D200B5DF86 /* yellowroid.png */; };
 		4B9948EF17FFCD2800B5DF86 /* target-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948EE17FFCD2800B5DF86 /* target-red.png */; };
+		4B9948F91800B13500B5DF86 /* Asteroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9948F81800B13500B5DF86 /* Asteroid.m */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C217FFB20B0009918C /* closeIcon.png */; };
 		5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C417FFB2110009918C /* ReportBugIcon.png */; };
@@ -217,6 +218,8 @@
 		4B9948E817FFC1D200B5DF86 /* redroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redroid.png; sourceTree = "<group>"; };
 		4B9948E917FFC1D200B5DF86 /* yellowroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowroid.png; sourceTree = "<group>"; };
 		4B9948EE17FFCD2800B5DF86 /* target-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-red.png"; sourceTree = "<group>"; };
+		4B9948F71800B13500B5DF86 /* Asteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asteroid.h; sourceTree = "<group>"; };
+		4B9948F81800B13500B5DF86 /* Asteroid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asteroid.m; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36C217FFB20B0009918C /* closeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeIcon.png; sourceTree = "<group>"; };
@@ -583,9 +586,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B9948F61800B10A00B5DF86 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4B9948F71800B13500B5DF86 /* Asteroid.h */,
+				4B9948F81800B13500B5DF86 /* Asteroid.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		5D3FF51917EFB8E300DAB13D = {
 			isa = PBXGroup;
 			children = (
+				4B9948F61800B10A00B5DF86 /* Objects */,
 				5D3FF53917EFB8E300DAB13D /* Space7 */,
 				5D3FF52417EFB8E300DAB13D /* Frameworks */,
 				5D3FF52317EFB8E300DAB13D /* Products */,
@@ -1286,6 +1299,7 @@
 				5D3FF5D017EFB8E400DAB13D /* CCParticleExamples.m in Sources */,
 				5D3FF5CD17EFB8E400DAB13D /* CCParticleBatchNode.m in Sources */,
 				5D3FF61017EFB8E500DAB13D /* CCTextureAtlas.m in Sources */,
+				4B9948F91800B13500B5DF86 /* Asteroid.m in Sources */,
 				5D3FF6BE17EFB8E600DAB13D /* utility.c in Sources */,
 				5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */,
 				5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */,
