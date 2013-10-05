@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2013EF61-E1EF-43C8-AE5E-2301149CFCF2</string>
+	<string>DC76581F-83D3-4C5E-9798-D05D3E774645</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Space7</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F694EA8D-E4E8-430E-9778-B28CE188FEF0</key>
+		<key>B81E178A-19FE-49DB-91CB-3E06A88F38BD</key>
 		<string>https://github.com/sitefeng/Space7.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Space7.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F694EA8D-E4E8-430E-9778-B28CE188FEF0</key>
+		<key>B81E178A-19FE-49DB-91CB-3E06A88F38BD</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F694EA8D-E4E8-430E-9778-B28CE188FEF0</string>
+	<string>B81E178A-19FE-49DB-91CB-3E06A88F38BD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F694EA8D-E4E8-430E-9778-B28CE188FEF0</string>
+			<string>B81E178A-19FE-49DB-91CB-3E06A88F38BD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Space7</string>
+			<string>space7</string>
 		</dict>
 	</array>
 </dict>

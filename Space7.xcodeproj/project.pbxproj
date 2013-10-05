@@ -25,7 +25,7 @@
 		5D0E36C717FFB2160009918C /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C617FFB2160009918C /* facebookIcon.png */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D0E36D617FFD87C0009918C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36D517FFD87C0009918C /* Default-568h@2x.png */; };
->>>>>>> afe65d20af231f0aa289adbdcac99b047de72d95
+
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
 		5D3FF52817EFB8E300DAB13D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */; };
 		5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52917EFB8E300DAB13D /* OpenAL.framework */; };
