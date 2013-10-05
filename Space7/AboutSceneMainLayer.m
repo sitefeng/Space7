@@ -42,9 +42,21 @@
         self.touchEnabled =YES;
         
         //Creating the UIKit Scrollable text
-        aboutViewController = [[AboutSceneViewController alloc] initWithNibName:@"AboutSceneViewController" bundle:nil];
+//        AboutSceneViewController* aboutViewController = [[AboutSceneViewController alloc] initWithNibName:@"AboutSceneViewController" bundle:nil];
         
-        [[[CCDirector sharedDirector] view] addSubview:aboutViewController.view];
+        dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
+        
+        dText.text = @"Well, hi there, commander!\nWe are now lost in a galaxy far far away from Earth. We have an urgent objective to find our way back to the Milky Way Galaxy. During our adventure, we'll explore gorgeous galaxies while trying to avoid evil alien spaceships.\nI hope you'll enjoy!\n\nSincerely,\niOS game devs\n\n-----\n\nPlease email us at technochimera@gmail.com if you have any questions or suggestions about the game. If you like this game, please spread the word and share this on Facebook. \n\nThank you for your support!\n\n October 5th, 2013\n";
+        
+        [dText setEditable:NO];
+        
+        dText.font = [UIFont fontWithName:@"Helvetica" size:18];
+        
+        dText.backgroundColor = [UIColor clearColor];
+        
+        dText.textColor = [UIColor whiteColor];
+        
+        [[[CCDirector sharedDirector] view] addSubview:dText];
         
         
         //Creating the tappable 3 Icons on the right side
@@ -112,11 +124,10 @@
 -(void) closeIconPressed
 {
     
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
 
-    [aboutViewController.view removeFromSuperview];
+    [dText removeFromSuperview];
     
 }
 

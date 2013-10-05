@@ -11,10 +11,8 @@
 		5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C217FFB20B0009918C /* closeIcon.png */; };
 		5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C417FFB2110009918C /* ReportBugIcon.png */; };
 		5D0E36C717FFB2160009918C /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C617FFB2160009918C /* facebookIcon.png */; };
-		5D0E36CB17FFB24D0009918C /* AboutSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */; };
-		5D0E36CC17FFB24D0009918C /* AboutSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
-		5D0E36D417FFD49D0009918C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36D317FFD49D0009918C /* Default-568h@2x.png */; };
+		5D0E36D617FFD87C0009918C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36D517FFD87C0009918C /* Default-568h@2x.png */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
 		5D3FF52817EFB8E300DAB13D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */; };
 		5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52917EFB8E300DAB13D /* OpenAL.framework */; };
@@ -202,11 +200,8 @@
 		5D0E36C217FFB20B0009918C /* closeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeIcon.png; sourceTree = "<group>"; };
 		5D0E36C417FFB2110009918C /* ReportBugIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReportBugIcon.png; sourceTree = "<group>"; };
 		5D0E36C617FFB2160009918C /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIcon.png; sourceTree = "<group>"; };
-		5D0E36C817FFB24D0009918C /* AboutSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneViewController.h; sourceTree = "<group>"; };
-		5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneViewController.m; sourceTree = "<group>"; };
-		5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutSceneViewController.xib; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		5D0E36D317FFD49D0009918C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5D0E36D517FFD87C0009918C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5D3FF52217EFB8E300DAB13D /* Space7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Space7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -616,9 +611,6 @@
 				5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */,
 				5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */,
 				5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */,
-				5D0E36C817FFB24D0009918C /* AboutSceneViewController.h */,
-				5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */,
-				5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
 				5D3FF55217EFB8E300DAB13D /* libs */,
 				5D3FF6C617EFB8E600DAB13D /* Supporting Files */,
@@ -645,11 +637,11 @@
 				5D3FF53B17EFB8E300DAB13D /* Default.png */,
 				5D3FF53D17EFB8E300DAB13D /* Default@2x.png */,
 				5D3FF54117EFB8E300DAB13D /* Default-Landscape~ipad.png */,
-				5D0E36D317FFD49D0009918C /* Default-568h@2x.png */,
 				5D3FF54317EFB8E300DAB13D /* Icon-72.png */,
 				5D3FF54517EFB8E300DAB13D /* Icon-Small-50.png */,
 				5D3FF54717EFB8E300DAB13D /* Icon-Small.png */,
 				5D3FF54917EFB8E300DAB13D /* Icon-Small@2x.png */,
+				5D0E36D517FFD87C0009918C /* Default-568h@2x.png */,
 				5D3FF54B17EFB8E300DAB13D /* Icon.png */,
 				5D3FF54D17EFB8E300DAB13D /* Icon@2x.png */,
 				5D3FF54F17EFB8E300DAB13D /* Info.plist */,
@@ -1163,13 +1155,12 @@
 				5D3FF6FC17EFE4E100DAB13D /* HighScoresNormal.png in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
-				5D0E36D417FFD49D0009918C /* Default-568h@2x.png in Resources */,
+				5D0E36D617FFD87C0009918C /* Default-568h@2x.png in Resources */,
 				5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */,
 				5D3FF70017EFE4E100DAB13D /* NewGameNormal.png in Resources */,
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				5D3FF54417EFB8E300DAB13D /* Icon-72.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
-				5D0E36CC17FFB24D0009918C /* AboutSceneViewController.xib in Resources */,
 				5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */,
 				5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
@@ -1213,7 +1204,6 @@
 				5D3FF61C17EFB8E500DAB13D /* CCTMXLayer.m in Sources */,
 				5D3FF6B417EFB8E600DAB13D /* mat4.c in Sources */,
 				5D3FF59017EFB8E400DAB13D /* ccDeprecated.m in Sources */,
-				5D0E36CB17FFB24D0009918C /* AboutSceneViewController.m in Sources */,
 				5D3FF64B17EFB8E500DAB13D /* CCDirectorMac.m in Sources */,
 				5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */,
 				5D3FF5A517EFB8E400DAB13D /* ccGLStateCache.m in Sources */,
