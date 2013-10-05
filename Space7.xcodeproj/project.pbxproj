@@ -18,6 +18,8 @@
 		4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948E917FFC1D200B5DF86 /* yellowroid.png */; };
 		4B9948EF17FFCD2800B5DF86 /* target-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948EE17FFCD2800B5DF86 /* target-red.png */; };
 		4B9948F91800B13500B5DF86 /* Asteroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9948F81800B13500B5DF86 /* Asteroid.m */; };
+		4B9948FF1800CD3A00B5DF86 /* BatttleShips.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9948FE1800CD3A00B5DF86 /* BatttleShips.m */; };
+		4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9949001800D3B900B5DF86 /* bg-cloudy.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C217FFB20B0009918C /* closeIcon.png */; };
 		5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C417FFB2110009918C /* ReportBugIcon.png */; };
@@ -224,6 +226,9 @@
 		4B9948EE17FFCD2800B5DF86 /* target-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-red.png"; sourceTree = "<group>"; };
 		4B9948F71800B13500B5DF86 /* Asteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asteroid.h; sourceTree = "<group>"; };
 		4B9948F81800B13500B5DF86 /* Asteroid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asteroid.m; sourceTree = "<group>"; };
+		4B9948FD1800CD3A00B5DF86 /* BatttleShips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatttleShips.h; sourceTree = "<group>"; };
+		4B9948FE1800CD3A00B5DF86 /* BatttleShips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatttleShips.m; sourceTree = "<group>"; };
+		4B9949001800D3B900B5DF86 /* bg-cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-cloudy.png"; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36C217FFB20B0009918C /* closeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeIcon.png; sourceTree = "<group>"; };
@@ -599,6 +604,8 @@
 			children = (
 				4B9948F71800B13500B5DF86 /* Asteroid.h */,
 				4B9948F81800B13500B5DF86 /* Asteroid.m */,
+				4B9948FD1800CD3A00B5DF86 /* BatttleShips.h */,
+				4B9948FE1800CD3A00B5DF86 /* BatttleShips.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -672,6 +679,7 @@
 				5D90B2041800A12B0042F3D8 /* ControlItems */,
 				5D90B2051800A1400042F3D8 /* GameObjects */,
 				4B9948DC17FF91FE00B5DF86 /* ship1.png */,
+				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
 				5D8E998117F0135700F5E574 /* ship4.png */,
 				4B9948E017FF9F4800B5DF86 /* bg.png */,
 				5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */,
@@ -1234,6 +1242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */,
+				4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */,
 				5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */,
 				5D3FF6FE17EFE4E100DAB13D /* LoadGameNormal.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
@@ -1327,6 +1336,7 @@
 				5D3FF67717EFB8E500DAB13D /* TransformUtils.m in Sources */,
 				5D3FF5C417EFB8E400DAB13D /* CCNode+Debug.m in Sources */,
 				5D3FF59F17EFB8E400DAB13D /* ccFPSImages.m in Sources */,
+				4B9948FF1800CD3A00B5DF86 /* BatttleShips.m in Sources */,
 				5D3FF62517EFB8E500DAB13D /* CCTMXXMLParser.m in Sources */,
 				5D3FF6BC17EFB8E600DAB13D /* ray2.c in Sources */,
 				5D3FF6F317EFD55B00DAB13D /* MenuSceneLayer.m in Sources */,

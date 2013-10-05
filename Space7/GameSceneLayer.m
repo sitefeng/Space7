@@ -10,7 +10,7 @@
 #import "GameSceneControlsLayer.h"
 #import "GameSceneBackgroundLayer.h"
 #import "Asteroid.h"
-
+#import "BatttleShips.h"
 
 #define kHealthBar 56
 #define kEnergyBar 57
@@ -65,7 +65,7 @@
         self.touchEnabled =NO;
       
         //INITIALIZE THE SPACESHIP
-        mySpaceship = [CCSprite spriteWithFile:@"ship1.png"];
+        mySpaceship = [[BigDog alloc] init];
         target = [CCSprite spriteWithFile:@"target-red.png"];
         target.scale = 0.1;
         
@@ -213,6 +213,8 @@
     }
 }
 
+
+
 - (void) starParallax: (ccTime)deltaTime velocity: (CGPoint)velocity
 {
     //NSMutableArray *starsToMove = [[NSMutableArray alloc] init];
@@ -248,16 +250,16 @@
 
 - (void) asteroid {//By Karim Kawambwa
     
-    NSInteger r = (arc4random() % 5); //Used for asteroid type randomizing
+   // NSInteger r = (arc4random() % 5);
     
     Asteroid *  asteroid;
-    if (arc4random() % 2 == 0) {
+    if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
         asteroid = [[[WeakAndFastAsteroid alloc] init] autorelease];
     } else {
         asteroid = [[[StrongAndSlowAsteroid alloc] init] autorelease];
     }
     
-//outdated
+//Outdated
 //    if (r==0)
 //    {
 //        asteroid = [CCSprite spriteWithFile:@"blueroid.png"];
@@ -360,12 +362,19 @@
         for (Asteroid *asteroid in _asteroids) {
             
             if (CGRectIntersectsRect(projectile.boundingBox, asteroid.boundingBox)) {
-                //[asteroidToAnnialate addObject:asteroid];
+                
                 asteroidHit = TRUE;
                 asteroid.hp --;
                 if (asteroid.hp <= 0) {
                     [asteroidToAnnialate addObject:asteroid];
                 }
+                
+                
+                if (asteroidHit) {
+                    [projectilesToDelete addObject:projectile];
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.caf"];
+                }
+
                 break;
 
             }
@@ -376,9 +385,7 @@
             [self removeChild:asteroid cleanup:YES];
         }
         
-        if (asteroidToAnnialate.count > 0) {
-            [projectilesToDelete addObject:projectile];
-        }
+        
         [asteroidToAnnialate release];
     }
     
@@ -389,6 +396,61 @@
     [projectilesToDelete release];
 }
 
+
+- (void)updateShip:(ccTime)dt {
+    
+    
+    BOOL asteroidHit = FALSE;
+    NSMutableArray *asteroidToAnnialate = [[NSMutableArray alloc] init];
+        
+    for (Asteroid *asteroid in _asteroids) {
+        
+        if (CGRectIntersectsRect(mySpaceship.boundingBox, asteroid.boundingBox)) {
+            
+            asteroidHit = TRUE;
+            asteroid.hp --;
+            if (asteroid.hp <= 0) {
+                [asteroidToAnnialate addObject:asteroid];
+            }
+            
+            if (asteroidHit) {
+                if (asteroid.type == StrongAndFastroid){
+                    mySpaceship.hp -= 15;
+                }
+                else if (asteroid.type == StrongAndSlowroid)
+                {
+                    mySpaceship.hp -= 10;
+                }
+                else if (asteroid.type == WeakAndSlowroid)
+                {
+                    mySpaceship.hp -= 2;
+                }
+                else if (asteroid.type == WeakAndFastroid)
+                {
+                    mySpaceship.hp -= 5;
+                }
+                else{
+                    //nothing
+                }
+                
+                //[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.caf"];
+            }
+            
+            break;
+            
+        }
+    }
+        
+        for (Asteroid *asteroid in asteroidToAnnialate) {
+            [_asteroids removeObject:asteroid];
+            [self removeChild:asteroid cleanup:YES];
+        }
+        
+        
+        [asteroidToAnnialate release];
+    
+
+}
 
 - (void)fire
 {
@@ -409,17 +471,20 @@
     
     if (mySpaceship.rotation <= 0.0f) {
         CCLOG(@"rotation %f", -mySpaceship.rotation);
-        x = ((cos(-mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
-        y = ((sin(-mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
+        
+        x = (cos(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
+        y = (sin(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
         
     }else{
         CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
-        x = ((cos((360.0f - mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
-        y = ((sin((360.0f - mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
+        
+        x = (cos(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
+        y = (sin(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
     }
     
     CCLOG(@"x %f", x);
     CCLOG(@"y %f", y);
+    
     CGPoint target = CGPointMake(mySpaceship.position.x + x,
                                  mySpaceship.position.y + y );
     
