@@ -16,8 +16,6 @@
 @interface GameSceneControlsLayer : CCLayer {
     
     SneakyJoystick *myJoystick;
-    float global_x;
-    float global_y;
     
 }
 

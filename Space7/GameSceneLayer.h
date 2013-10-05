@@ -10,12 +10,17 @@
 @interface GameSceneLayer : CCLayer {
     
     UIView *starsView;
+    float global_x;
+    float global_y;
 }
 
 
 @property (nonatomic, retain) CCSprite *mySpaceship;
 @property (nonatomic, retain) CCSprite *target;
+@property (nonatomic, retain) NSMutableArray *_asteroids;
+@property (nonatomic, retain) NSMutableArray *_projectiles;
 
+- (void)fire;
 
 +(CCScene*) scene;
 

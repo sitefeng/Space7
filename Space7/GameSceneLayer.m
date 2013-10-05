@@ -14,7 +14,7 @@
 
 @implementation GameSceneLayer
 
-@synthesize mySpaceship, target;
+@synthesize mySpaceship, target, _asteroids, _projectiles;
 
 +(CCScene*) scene
 {
@@ -48,6 +48,9 @@
     
 	if( self=[super init] ) {
         
+        _asteroids = [[NSMutableArray alloc] init];
+        _projectiles = [[NSMutableArray alloc] init];
+        
         self.touchEnabled =NO;
       
         mySpaceship = [CCSprite spriteWithFile:@"ship1.png"];
@@ -62,6 +65,7 @@
         [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
         
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
+        [self schedule:@selector(update:) interval:1.0/30.0];
       
     }
     
@@ -148,7 +152,10 @@
     // Create the asteroid slightly off-screen along the right edge,
     // and along a random position along the Y axis as calculated above
     asteroid.position = ccp(winSize.width + asteroid.contentSize.width/2, actualY);
+    asteroid.tag = 1;
+    [_asteroids addObject:asteroid];
     [self addChild:asteroid z:0];
+    
     
     // Determine speed of the asteroid
     int minDuration = 3.0;
@@ -164,6 +171,7 @@
     //CCCallBlockN: The CCCallBlockN function allows us to specify a callback block to run when the action is performed. In this game, you’re going to set up this action to run after the monster goes offscreen to the left – and you’ll remove the monster from the layer when this occurs.
     CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node removeFromParentAndCleanup:YES];
+        [_asteroids removeObject:node];
     }];
     
     //CCSequence: The CCSequence action allows us to chain together a sequence of actions that are performed in order, one at a time.
@@ -171,11 +179,116 @@
 
 }
 
+
+- (void)update:(ccTime)dt {
+    
+    NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
+    for (CCSprite *projectile in _projectiles) {
+        
+        NSMutableArray *asteroidToAnnialate = [[NSMutableArray alloc] init];
+        
+        for (CCSprite *asteroid in _asteroids) {
+            
+            if (CGRectIntersectsRect(projectile.boundingBox, asteroid.boundingBox)) {
+                [asteroidToAnnialate addObject:asteroid];
+            }
+        }
+        
+        for (CCSprite *asteroid in asteroidToAnnialate) {
+            [_asteroids removeObject:asteroid];
+            [self removeChild:asteroid cleanup:YES];
+        }
+        
+        if (asteroidToAnnialate.count > 0) {
+            [asteroidToAnnialate addObject:projectile];
+        }
+        [asteroidToAnnialate release];
+    }
+    
+    for (CCSprite *projectile in projectilesToDelete) {
+        [_projectiles removeObject:projectile];
+        [self removeChild:projectile cleanup:YES];
+    }
+    [projectilesToDelete release];
+}
+
+
+- (void)fire
+{
+    //    // Choose one of the touches to work with
+    //    UITouch *touch = [touches anyObject];
+    //    CGPoint location = [self convertTouchToNodeSpace:touch];
+    
+    // Set up initial location of projectile
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
+    projectile.position = mySpaceship.position;
+    
+    // Determine offset of location to projectile
+    CCLOG(@"rotation %f",mySpaceship.rotation);
+    
+    float x ; //= 200 - (sin(gameLayer.mySpaceship.rotation) * 200);
+    float y ; //= 200 - (cos(gameLayer.mySpaceship.rotation) * 200);
+    
+    if (mySpaceship.rotation <= 0.0f) {
+        CCLOG(@"rotation %f", -mySpaceship.rotation);
+        x = ((cos(-mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
+        y = ((sin(-mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
+        
+    }else{
+        CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
+        x = ((cos((360.0f - mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
+        y = ((sin((360.0f - mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
+    }
+    
+    CCLOG(@"x %f", x);
+    CCLOG(@"y %f", y);
+    CGPoint target = CGPointMake(mySpaceship.position.x + x,
+                                 mySpaceship.position.y + y );
+    
+    CCLOG(@"target, postion x %f %f", target.x, projectile.position.x);
+    CCLOG(@"target, postion y %f %f", target.y, projectile.position.y);
+    CGPoint offset = ccpSub(target , projectile.position);
+    CCLOG(@"offset %f %f", offset.x, offset.y);
+    // Bail out if you are shooting down or backwards
+    if (offset.x <= 0) return;
+    
+    // Ok to add now - we've double checked position
+    projectile.tag = 2;
+    [_projectiles addObject:projectile];
+    [self addChild:projectile];
+    
+    int realX = winSize.width + (projectile.contentSize.width/2);
+    float ratio = (float) offset.y / (float) offset.x;
+    int realY = (realX * ratio) + projectile.position.y;
+    CGPoint realDest = ccp(realX, realY);
+    
+    // Determine the length of how far you're shooting
+    int offRealX = realX - projectile.position.x;
+    int offRealY = realY - projectile.position.y;
+    float length = sqrtf((offRealX*offRealX)+(offRealY*offRealY));
+    float velocity = 480/1; // 480pixels/1sec
+    float realMoveDuration = length/velocity;
+    
+    // Move projectile to actual endpoint
+    [projectile runAction:
+     [CCSequence actions:
+      [CCMoveTo actionWithDuration:realMoveDuration position:realDest],
+      [CCCallBlockN actionWithBlock:^(CCNode *node) {
+         [node removeFromParentAndCleanup:YES];
+         [_projectiles removeObject:node];
+     }],
+      nil]];
+}
+
 -(void) dealloc
 {
     
     
-    
+    [_asteroids release];
+    _asteroids = nil;
+    [_projectiles release];
+    _projectiles = nil;
     [super dealloc];
 }
 

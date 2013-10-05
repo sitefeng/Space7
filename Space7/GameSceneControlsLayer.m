@@ -13,7 +13,6 @@
 @implementation GameSceneControlsLayer
 
 
-
 +(CCScene*) scene
 {
     
@@ -39,9 +38,8 @@
         
         [self initBombButton];
         
-        
-        
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
+        [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         
     }
     
@@ -50,14 +48,16 @@
     
 }
 
+-(void)gameLogic:(ccTime)dt {//By Karim Kawambwa
+}
+
+
 - (void) joystickUpdate: (ccTime)deltaTime
 {
     CCScene * scene = [[CCDirector sharedDirector] runningScene];
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
     
     CGPoint scaledVelocity = ccpMult(myJoystick.velocity, 200);
-    global_x = scaledVelocity.x;
-    global_y = scaledVelocity.y;
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime); //new position for ship
     
     [gameLayer.mySpaceship setPosition: newPosition];
@@ -158,72 +158,6 @@
     
 }
 
-- (void)fire
-{
-//    // Choose one of the touches to work with
-//    UITouch *touch = [touches anyObject];
-//    CGPoint location = [self convertTouchToNodeSpace:touch];
-    
-    // Set up initial location of projectile
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CCScene * scene = [[CCDirector sharedDirector] runningScene];
-    GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
-    CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
-    projectile.position = gameLayer.mySpaceship.position;
-    
-    // Determine offset of location to projectile
-    CCLOG(@"rotation %f", gameLayer.mySpaceship.rotation);
-    
-    float x ; //= 200 - (sin(gameLayer.mySpaceship.rotation) * 200);
-    float y ; //= 200 - (cos(gameLayer.mySpaceship.rotation) * 200);
-    
-    if (gameLayer.mySpaceship.rotation <= 0.0f) {
-        CCLOG(@"rotation %f", -gameLayer.mySpaceship.rotation);
-        x = ((cos(-gameLayer.mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
-        y = ((sin(-gameLayer.mySpaceship.rotation*M_PI/180.0f)) * 50.0f);
-        
-    }else{
-        CCLOG(@"rotation %f", 360.0f - gameLayer.mySpaceship.rotation);
-        x = ((cos((360.0f - gameLayer.mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
-        y = ((sin((360.0f - gameLayer.mySpaceship.rotation)*M_PI/180.0f)) * 50.0f);
-    }
-    
-    CCLOG(@"x %f", x);
-    CCLOG(@"y %f", y);
-    CGPoint target = CGPointMake(gameLayer.mySpaceship.position.x + x,
-                                 gameLayer.mySpaceship.position.y + y );
-    
-    CCLOG(@"target, postion x %f %f", target.x, projectile.position.x);
-    CCLOG(@"target, postion y %f %f", target.y, projectile.position.y);
-    CGPoint offset = ccpSub(target , projectile.position);
-    CCLOG(@"offset %f %f", offset.x, offset.y);
-    // Bail out if you are shooting down or backwards
-    if (offset.x <= 0) return;
-    
-    // Ok to add now - we've double checked position
-    [self addChild:projectile];
-    
-    int realX = winSize.width + (projectile.contentSize.width/2);
-    float ratio = (float) offset.y / (float) offset.x;
-    int realY = (realX * ratio) + projectile.position.y;
-    CGPoint realDest = ccp(realX, realY);
-    
-    // Determine the length of how far you're shooting
-    int offRealX = realX - projectile.position.x;
-    int offRealY = realY - projectile.position.y;
-    float length = sqrtf((offRealX*offRealX)+(offRealY*offRealY));
-    float velocity = 480/1; // 480pixels/1sec
-    float realMoveDuration = length/velocity;
-    
-    // Move projectile to actual endpoint
-    [projectile runAction:
-     [CCSequence actions:
-      [CCMoveTo actionWithDuration:realMoveDuration position:realDest],
-      [CCCallBlockN actionWithBlock:^(CCNode *node) {
-         [node removeFromParentAndCleanup:YES];
-     }],
-      nil]];
-}
 
 
 -(void) didPressBombButton
@@ -232,16 +166,20 @@
     
     CCLOG(@"Button was pressed");
     
-    [self fire]; //Karim Kawambwa
+    [[self gameLayer] fire]; //Karim Kawambwa
     
 }
 
-
+- (GameSceneLayer *) gameLayer
+{
+    CCScene * scene = [[CCDirector sharedDirector] runningScene];
+    GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
+    return gameLayer;
+}
 
 
 -(void) dealloc
 {
-    
     
     
     [super dealloc];
