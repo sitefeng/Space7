@@ -21,8 +21,8 @@
 
 @end
 
-@interface WeakAndFastMonster : Monster
+@interface WeakAndFastAsteroid : Asteroid
 @end
 
-@interface StrongAndSlowMonster : Monster
+@interface StrongAndSlowAsteroid : Asteroid
 @end
