@@ -14,6 +14,7 @@
 #define kHealthBar 56
 #define kEnergyBar 57
 #define kProfilePicture 58
+#define kGameScoreLabel 59
 
 
 @implementation GameSceneLayer
@@ -55,6 +56,9 @@
         _asteroids = [[NSMutableArray alloc] init];
         _projectiles = [[NSMutableArray alloc] init];
         
+        gameScore = 0;
+        enemiesKilled = 0;
+        
         self.touchEnabled =NO;
       
         //INITIALIZE THE SPACESHIP
@@ -75,24 +79,24 @@
         //Making the top-left corner items
         CCSprite* healthBarSprite = [CCSprite spriteWithFile:@"healthBar.png"];
         
-        CCProgressTimer* healthBar = [CCProgressTimer progressWithSprite:healthBarSprite];
+        self.healthBar = [CCProgressTimer progressWithSprite:healthBarSprite];
         
-        healthBar.type = kCCProgressTimerTypeBar;
-        healthBar.percentage = 100;
-        healthBar.anchorPoint = ccp(0,0);
-        healthBar.position = ccp(60,300);
+        self.healthBar.type = kCCProgressTimerTypeBar;
+        self.healthBar.percentage = 100;
+        self.healthBar.anchorPoint = ccp(0,0);
+        self.healthBar.position = ccp(60,300);
         
         CCSprite* energyBarSprite = [CCSprite spriteWithFile:@"energyBar.png"];
         
-        CCProgressTimer* energyBar = [CCProgressTimer progressWithSprite:energyBarSprite];
+        self.energyBar = [CCProgressTimer progressWithSprite:energyBarSprite];
         
-        energyBar.type = kCCProgressTimerTypeBar;
-        energyBar.percentage = 100;
-        energyBar.anchorPoint = ccp(0,0);
-        energyBar.position = ccp(60,285);
+        self.energyBar.type = kCCProgressTimerTypeBar;
+        self.energyBar.percentage = 100;
+        self.energyBar.anchorPoint = ccp(0,0);
+        self.energyBar.position = ccp(60,285);
         
-        [self addChild:healthBar z:5 tag:kHealthBar];
-        [self addChild:energyBar z:5 tag:kEnergyBar];
+        [self addChild:self.healthBar z:5 tag:kHealthBar];
+        [self addChild:self.energyBar z:5 tag:kEnergyBar];
         
         CCSprite* profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
         
@@ -101,8 +105,36 @@
         profileSprite.anchorPoint = ccp(0,0);
         profileSprite.position = ccp(50, 280);
         
-        
         [self addChild: profileSprite z:5 tag:kProfilePicture];
+        
+        
+        //Making the top right elements
+        
+        CCLabelBMFont* gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
+        
+        gameScoreSLabel.position = ccp(490,310);
+        
+        CCLabelBMFont* enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
+        
+        enemiesKilledKLabel.position = ccp(490,290);
+        
+        
+        self.gameScoreValueLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"gameScoreFont-hd.fnt"];
+        
+        self.gameScoreValueLabel.position = ccp(530,310);
+        
+        self.enemiesKilledValueLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"gameScoreFont-hd.fnt"];
+        
+        self.enemiesKilledValueLabel.position = ccp(530,290);
+        
+        
+        [self addChild:gameScoreSLabel z:5 tag:kGameScoreLabel];
+        [self addChild:self.gameScoreValueLabel z:5 tag:kGameScoreLabel];
+        [self addChild:enemiesKilledKLabel z:5 tag:kGameScoreLabel];
+        [self addChild:self.enemiesKilledValueLabel z:5 tag:kGameScoreLabel];
+        
+        
+        [self schedule:@selector(updateScore:) interval:0.3];
         
         
         
@@ -116,6 +148,19 @@
     return self;
     
 }
+
+- (void)updateScore: (ccTime)delta
+{
+    
+    self.GameScoreValueLabel= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%u",gameScore] fntFile:@"gameScoreFont-hd.fnt"];
+    
+    
+    self.enemiesKilledValueLabel= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%u",enemiesKilled] fntFile:@"gameScoreFont-hd.fnt"];
+    
+}
+
+
+
 
 -(void)gameLogic:(ccTime)dt {//By Karim Kawambwa
     [self star];
@@ -323,6 +368,9 @@
          [_projectiles removeObject:node];
      }],
       nil]];
+    
+//DELETE THIS!!!!
+    gameScore++;
 }
 
 -(void) dealloc

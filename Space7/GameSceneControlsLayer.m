@@ -36,6 +36,12 @@
         
         [self initJoystick];
         
+        
+        
+        
+        
+        
+        
         [self initBombButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
@@ -62,10 +68,7 @@
     
     [gameLayer.mySpaceship setPosition: newPosition];
     
-//    newPosition = ccp(gameLayer.target.position.x + scaledVelocity.x *deltaTime, gameLayer.target.position.y + scaledVelocity.y *deltaTime); // new position for target
-//    
-//    [gameLayer.target setPosition:newPosition];
-    
+
     
     //Rotating the spaceship to the joystick orientation
     float x= myJoystick.velocity.x;
@@ -81,10 +84,6 @@
         rotation = (-atan2(y , x))*180.0/M_PI;
     }
     
-//    float npx = gameLayer.target.position.x * cos(rotation) - gameLayer.target.position.y *sin(rotation);
-//    float npy = gameLayer.target.position.x * sin(rotation) + gameLayer.target.position.y *cos(rotation);
-//    
-//    [gameLayer.target setPosition:CGPointMake(npx, npy)];
     
     gameLayer.mySpaceship.rotation = rotation;
     

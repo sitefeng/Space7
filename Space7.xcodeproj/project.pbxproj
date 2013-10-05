@@ -191,6 +191,8 @@
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
 		5D90B1FB180094560042F3D8 /* energyBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FA180094560042F3D8 /* energyBar.png */; };
 		5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FC1800945A0042F3D8 /* healthBar.png */; };
+		5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */; };
+		5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */; };
 		5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */; };
 		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
 		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
@@ -541,6 +543,8 @@
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 		5D90B1FA180094560042F3D8 /* energyBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = energyBar.png; sourceTree = "<group>"; };
 		5D90B1FC1800945A0042F3D8 /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthBar.png; sourceTree = "<group>"; };
+		5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gameScoreFont-hd.fnt"; sourceTree = "<group>"; };
+		5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameScoreFont-hd.png"; sourceTree = "<group>"; };
 		5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameDisabled.png; sourceTree = "<group>"; };
 		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
@@ -645,20 +649,11 @@
 		5D3FF53A17EFB8E300DAB13D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5D90B1FC1800945A0042F3D8 /* healthBar.png */,
-				5D90B1FA180094560042F3D8 /* energyBar.png */,
 				5D90B1F9180090070042F3D8 /* About Scene */,
-				5DAF377717F10CAD003326F0 /* circle1.png */,
-				5DFD62AA17F2A14500E0055F /* circle2.png */,
-				5DAF377517F10CA5003326F0 /* plus.png */,
-				4B9948E617FFC1D200B5DF86 /* blueroid.png */,
-				4B9948E717FFC1D200B5DF86 /* greenroid.png */,
-				4B9948EE17FFCD2800B5DF86 /* target-red.png */,
-				4B9948E817FFC1D200B5DF86 /* redroid.png */,
-				4B9948E917FFC1D200B5DF86 /* yellowroid.png */,
-				4B9948E417FFC0BE00B5DF86 /* rock1.png */,
-				4B9948E217FFBEE300B5DF86 /* rock4.png */,
-				4B9948DE17FF9CB000B5DF86 /* star.png */,
+				5D90B2021800A0FA0042F3D8 /* BMFonts */,
+				5D90B2031800A1190042F3D8 /* GameSceneItems */,
+				5D90B2041800A12B0042F3D8 /* ControlItems */,
+				5D90B2051800A1400042F3D8 /* GameObjects */,
 				4B9948DC17FF91FE00B5DF86 /* ship1.png */,
 				5D8E998117F0135700F5E574 /* ship4.png */,
 				4B9948E017FF9F4800B5DF86 /* bg.png */,
@@ -1110,6 +1105,49 @@
 			name = "About Scene";
 			sourceTree = "<group>";
 		};
+		5D90B2021800A0FA0042F3D8 /* BMFonts */ = {
+			isa = PBXGroup;
+			children = (
+				5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */,
+				5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */,
+			);
+			name = BMFonts;
+			sourceTree = "<group>";
+		};
+		5D90B2031800A1190042F3D8 /* GameSceneItems */ = {
+			isa = PBXGroup;
+			children = (
+				5D90B1FC1800945A0042F3D8 /* healthBar.png */,
+				5D90B1FA180094560042F3D8 /* energyBar.png */,
+			);
+			name = GameSceneItems;
+			sourceTree = "<group>";
+		};
+		5D90B2041800A12B0042F3D8 /* ControlItems */ = {
+			isa = PBXGroup;
+			children = (
+				5DAF377717F10CAD003326F0 /* circle1.png */,
+				5DFD62AA17F2A14500E0055F /* circle2.png */,
+				5DAF377517F10CA5003326F0 /* plus.png */,
+			);
+			name = ControlItems;
+			sourceTree = "<group>";
+		};
+		5D90B2051800A1400042F3D8 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4B9948E617FFC1D200B5DF86 /* blueroid.png */,
+				4B9948E717FFC1D200B5DF86 /* greenroid.png */,
+				4B9948EE17FFCD2800B5DF86 /* target-red.png */,
+				4B9948E817FFC1D200B5DF86 /* redroid.png */,
+				4B9948E917FFC1D200B5DF86 /* yellowroid.png */,
+				4B9948E417FFC0BE00B5DF86 /* rock1.png */,
+				4B9948E217FFBEE300B5DF86 /* rock4.png */,
+				4B9948DE17FF9CB000B5DF86 /* star.png */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
 		5DAF377417F10B3A003326F0 /* Sneakyness */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,10 +1238,12 @@
 				5D3FF6FD17EFE4E100DAB13D /* HighScoresTouched.png in Resources */,
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
 				5D3FF54817EFB8E300DAB13D /* Icon-Small.png in Resources */,
+				5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */,
 				5D3FF6F517EFDBC400DAB13D /* SpaceSevenBackground.png in Resources */,
 				5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */,
 				5D3FF6FC17EFE4E100DAB13D /* HighScoresNormal.png in Resources */,
 				4B9948E117FF9F4800B5DF86 /* bg.png in Resources */,
+				5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
 				5D0E36D617FFD87C0009918C /* Default-568h@2x.png in Resources */,
