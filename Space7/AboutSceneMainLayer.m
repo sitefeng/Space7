@@ -100,11 +100,11 @@
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
     picker.mailComposeDelegate = self;
     
-    [picker setSubject:@"iOS Augmented Reality - Chapter 6"];
+    [picker setSubject:@"Space 7 Bug Report"];
     
     [picker setToRecipients:[NSArray arrayWithObjects:@"technochimera@gmail.com", nil]];
     
-    NSString *emailBody = @"Bug Report: \n";
+    NSString *emailBody = @"Please describe the problems that you were experiencing during the game: \n";
     
     [picker setMessageBody:emailBody isHTML:NO];
     

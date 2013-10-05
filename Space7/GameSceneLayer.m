@@ -9,6 +9,9 @@
 #import "GameSceneLayer.h"
 #import "GameSceneControlsLayer.h"
 #import "GameSceneBackgroundLayer.h"
+<<<<<<< HEAD
+#import "GameSceneDisplayLayer.h"
+=======
 #import "Asteroid.h"
 #import "BatttleShips.h"
 
@@ -16,6 +19,7 @@
 #define kEnergyBar 57
 #define kProfilePicture 58
 #define kGameScoreLabel 59
+>>>>>>> b89c5183b965bdee3fa1346710799bd3e68fa01a
 
 
 @implementation GameSceneLayer
@@ -29,15 +33,14 @@
     GameSceneLayer *gameSceneLayer = [GameSceneLayer node];
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
-    
-    
+    GameSceneDisplayLayer *gameSceneDisplayLayer = [GameSceneDisplayLayer node];
     
     CCSprite *background = [CCSprite spriteWithFile:@"bg.png"];
     background.anchorPoint = ccp(0,0);
     
     [gameSceneBackgroundLayer addChild:background];
     
-    
+    [scene addChild: gameSceneDisplayLayer z:3 tag:66];
     [scene addChild: gameSceneControlsLayer z:2];
     [scene addChild: gameSceneLayer z:1];
     [scene addChild: gameSceneBackgroundLayer z:0];
@@ -59,9 +62,6 @@
         _stars = [[NSMutableArray alloc] init];
 
         
-        gameScore = 0;
-        enemiesKilled = 0;
-        
         self.touchEnabled =NO;
       
         //INITIALIZE THE SPACESHIP
@@ -77,71 +77,6 @@
         [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
         
         
-        //INITIALIZING THE GAME STATUS DISPLAYS
-        
-        //Making the top-left corner items
-        CCSprite* healthBarSprite = [CCSprite spriteWithFile:@"healthBar.png"];
-        
-        self.healthBar = [CCProgressTimer progressWithSprite:healthBarSprite];
-        
-        self.healthBar.type = kCCProgressTimerTypeBar;
-        self.healthBar.percentage = 100;
-        self.healthBar.anchorPoint = ccp(0,0);
-        self.healthBar.position = ccp(60,300);
-        
-        CCSprite* energyBarSprite = [CCSprite spriteWithFile:@"energyBar.png"];
-        
-        self.energyBar = [CCProgressTimer progressWithSprite:energyBarSprite];
-        
-        self.energyBar.type = kCCProgressTimerTypeBar;
-        self.energyBar.percentage = 100;
-        self.energyBar.anchorPoint = ccp(0,0);
-        self.energyBar.position = ccp(60,285);
-        
-        [self addChild:self.healthBar z:5 tag:kHealthBar];
-        [self addChild:self.energyBar z:5 tag:kEnergyBar];
-        
-        CCSprite* profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
-        
-        [profileSprite setRotation:270];
-        [profileSprite setScale:0.5];
-        profileSprite.anchorPoint = ccp(0,0);
-        profileSprite.position = ccp(50, 280);
-        
-        [self addChild: profileSprite z:5 tag:kProfilePicture];
-        
-        
-        //Making the top right elements
-        
-        CCLabelBMFont* gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
-        
-        gameScoreSLabel.position = ccp(490,310);
-        
-        CCLabelBMFont* enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
-        
-        enemiesKilledKLabel.position = ccp(490,290);
-        
-        
-        self.gameScoreValueLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"gameScoreFont-hd.fnt"];
-        
-        self.gameScoreValueLabel.position = ccp(530,310);
-        
-        self.enemiesKilledValueLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"gameScoreFont-hd.fnt"];
-        
-        self.enemiesKilledValueLabel.position = ccp(530,290);
-        
-        
-        [self addChild:gameScoreSLabel z:5 tag:kGameScoreLabel];
-        [self addChild:self.gameScoreValueLabel z:5 tag:kGameScoreLabel];
-        [self addChild:enemiesKilledKLabel z:5 tag:kGameScoreLabel];
-        [self addChild:self.enemiesKilledValueLabel z:5 tag:kGameScoreLabel];
-        
-        
-        [self schedule:@selector(updateScore:) interval:0.3];
-        
-        
-        
-        
         
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         [self schedule:@selector(update:) interval:1.0/30.0];
@@ -151,17 +86,6 @@
     return self;
     
 }
-
-- (void)updateScore: (ccTime)delta
-{
-    
-    self.GameScoreValueLabel= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%u",gameScore] fntFile:@"gameScoreFont-hd.fnt"];
-    
-    
-    self.enemiesKilledValueLabel= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%u",enemiesKilled] fntFile:@"gameScoreFont-hd.fnt"];
-    
-}
-
 
 
 
@@ -523,8 +447,7 @@
      }],
       nil]];
     
-//DELETE THIS!!!!
-    gameScore++;
+
 }
 
 -(void) dealloc

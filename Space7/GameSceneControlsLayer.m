@@ -9,6 +9,7 @@
 #import "GameSceneControlsLayer.h"
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
+#import "GameSceneDisplayLayer.h"
 
 @implementation GameSceneControlsLayer
 
@@ -154,8 +155,7 @@
 
 -(void) didPressPauseButton
 {
-    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"All data will be saved when you return to Menu" delegate:self cancelButtonTitle:@"Resume Game" otherButtonTitles:@"Return to Menu", nil];
-    
+    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be lost when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
     
     [pauseAlert show];
     
@@ -187,10 +187,16 @@
 -(void) didPressBombButton
 {
     
-    
     CCLOG(@"Button was pressed");
     
     [[self gameLayer] fire]; //Karim Kawambwa
+    
+    GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
+    
+    layer.gameScore++;
+    
+    
+    
     
 }
 

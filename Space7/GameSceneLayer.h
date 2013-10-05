@@ -14,9 +14,6 @@
     float global_x;
     float global_y;
     
-    unsigned int gameScore;
-    unsigned int enemiesKilled;
-    
 }
 
 
@@ -26,11 +23,6 @@
 @property (nonatomic, retain) NSMutableArray *_projectiles;
 @property (nonatomic, retain) NSMutableArray *_stars;
 
-@property (nonatomic, retain) CCProgressTimer* energyBar;
-@property (nonatomic, retain) CCProgressTimer* healthBar;
-
-@property (nonatomic, retain) CCLabelBMFont* gameScoreValueLabel;
-@property (nonatomic, retain) CCLabelBMFont* enemiesKilledValueLabel;
 
 
 

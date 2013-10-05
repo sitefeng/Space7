@@ -70,7 +70,6 @@
     
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
     
-    
 }
 
 
