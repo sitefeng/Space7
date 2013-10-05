@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
+		5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C217FFB20B0009918C /* closeIcon.png */; };
+		5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C417FFB2110009918C /* ReportBugIcon.png */; };
+		5D0E36C717FFB2160009918C /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C617FFB2160009918C /* facebookIcon.png */; };
+		5D0E36CB17FFB24D0009918C /* AboutSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */; };
+		5D0E36CC17FFB24D0009918C /* AboutSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */; };
+		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
 		5D3FF52817EFB8E300DAB13D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */; };
 		5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52917EFB8E300DAB13D /* OpenAL.framework */; };
@@ -190,6 +197,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
+		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
+		5D0E36C217FFB20B0009918C /* closeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeIcon.png; sourceTree = "<group>"; };
+		5D0E36C417FFB2110009918C /* ReportBugIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReportBugIcon.png; sourceTree = "<group>"; };
+		5D0E36C617FFB2160009918C /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIcon.png; sourceTree = "<group>"; };
+		5D0E36C817FFB24D0009918C /* AboutSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneViewController.h; sourceTree = "<group>"; };
+		5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneViewController.m; sourceTree = "<group>"; };
+		5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutSceneViewController.xib; sourceTree = "<group>"; };
+		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5D3FF52217EFB8E300DAB13D /* Space7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Space7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -531,6 +547,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */,
 				5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */,
 				5D3FF53017EFB8E300DAB13D /* UIKit.framework in Frameworks */,
 				5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */,
@@ -567,6 +584,7 @@
 		5D3FF52417EFB8E300DAB13D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D0E36CD17FFC86A0009918C /* MessageUI.framework */,
 				5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */,
 				5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */,
 				5D3FF52917EFB8E300DAB13D /* OpenAL.framework */,
@@ -596,6 +614,11 @@
 				5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */,
 				5DBA5C3117F51EF8007D6D61 /* HighscoresMainLayer.h */,
 				5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */,
+				5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */,
+				5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */,
+				5D0E36C817FFB24D0009918C /* AboutSceneViewController.h */,
+				5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */,
+				5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
 				5D3FF55217EFB8E300DAB13D /* libs */,
 				5D3FF6C617EFB8E600DAB13D /* Supporting Files */,
@@ -606,6 +629,9 @@
 		5D3FF53A17EFB8E300DAB13D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D0E36C617FFB2160009918C /* facebookIcon.png */,
+				5D0E36C417FFB2110009918C /* ReportBugIcon.png */,
+				5D0E36C217FFB20B0009918C /* closeIcon.png */,
 				5DAF377717F10CAD003326F0 /* circle1.png */,
 				5DFD62AA17F2A14500E0055F /* circle2.png */,
 				5DAF377517F10CA5003326F0 /* plus.png */,
@@ -1114,9 +1140,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */,
 				5D3FF6FE17EFE4E100DAB13D /* LoadGameNormal.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
+				5D0E36C717FFB2160009918C /* facebookIcon.png in Resources */,
 				5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */,
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
 				5D3FF54C17EFB8E300DAB13D /* Icon.png in Resources */,
@@ -1140,6 +1168,7 @@
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				5D3FF54417EFB8E300DAB13D /* Icon-72.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
+				5D0E36CC17FFB24D0009918C /* AboutSceneViewController.xib in Resources */,
 				5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */,
 				5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
@@ -1149,6 +1178,7 @@
 				5D3FF6EB17EFBB0900DAB13D /* revive.mp3 in Resources */,
 				5D3FF54A17EFB8E300DAB13D /* Icon-Small@2x.png in Resources */,
 				5DFD62B517F2A92900E0055F /* gameButtonDisabled.png in Resources */,
+				5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */,
 				5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */,
 				5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */,
 				5DAF377817F10CAD003326F0 /* circle1.png in Resources */,
@@ -1183,6 +1213,7 @@
 				5D3FF61C17EFB8E500DAB13D /* CCTMXLayer.m in Sources */,
 				5D3FF6B417EFB8E600DAB13D /* mat4.c in Sources */,
 				5D3FF59017EFB8E400DAB13D /* ccDeprecated.m in Sources */,
+				5D0E36CB17FFB24D0009918C /* AboutSceneViewController.m in Sources */,
 				5D3FF64B17EFB8E500DAB13D /* CCDirectorMac.m in Sources */,
 				5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */,
 				5D3FF5A517EFB8E400DAB13D /* ccGLStateCache.m in Sources */,
@@ -1210,6 +1241,7 @@
 				5D3FF5CD17EFB8E400DAB13D /* CCParticleBatchNode.m in Sources */,
 				5D3FF61017EFB8E500DAB13D /* CCTextureAtlas.m in Sources */,
 				5D3FF6BE17EFB8E600DAB13D /* utility.c in Sources */,
+				5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */,
 				5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */,
 				5D3FF66A17EFB8E500DAB13D /* CCVertex.m in Sources */,
 				5D3FF67017EFB8E500DAB13D /* NSThread+performBlock.m in Sources */,
@@ -1350,6 +1382,7 @@
 				GCC_PREFIX_HEADER = Space7/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Space7/libs/kazmath/include\"";
 				INFOPLIST_FILE = Space7/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -1369,6 +1402,7 @@
 				GCC_PREFIX_HEADER = Space7/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Space7/libs/kazmath/include\"";
 				INFOPLIST_FILE = Space7/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
