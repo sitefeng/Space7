@@ -38,7 +38,7 @@
         
         
         
-        
+        [self initPauseButton];
         
         
         
@@ -137,8 +137,37 @@
     
 }
 
+- (void)initPauseButton
+{
+    CCMenuItemImage *pauseButtonImg = [CCMenuItemImage itemWithNormalImage:@"pauseButtonNormal.png" selectedImage:@"pauseButtonPressed.png" disabledImage:@"pauseButtonDisabled.png" target:self selector:@selector(didPressPauseButton)];
+    
+    
+    CCMenu *pauseButton = [CCMenu menuWithItems:pauseButtonImg, nil];
+    
+    pauseButton.position = ccp(525, 250);
+    
+    [self addChild: pauseButton];
+    
+}
 
 
+-(void) didPressPauseButton
+{
+    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"All data will be saved when you return to Menu" delegate:self cancelButtonTitle:@"Resume Game" otherButtonTitles:@"Return to Menu", nil];
+    
+    
+    [pauseAlert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
+    }
+
+}
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -151,11 +180,6 @@
     
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    
-    
-}
 
 
 

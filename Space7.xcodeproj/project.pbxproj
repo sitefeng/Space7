@@ -193,6 +193,8 @@
 		5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FC1800945A0042F3D8 /* healthBar.png */; };
 		5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */; };
 		5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */; };
+		5D90B20F1800AD670042F3D8 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */; };
+		5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */; };
 		5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */; };
 		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
 		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
@@ -545,6 +547,8 @@
 		5D90B1FC1800945A0042F3D8 /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthBar.png; sourceTree = "<group>"; };
 		5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gameScoreFont-hd.fnt"; sourceTree = "<group>"; };
 		5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameScoreFont-hd.png"; sourceTree = "<group>"; };
+		5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
+		5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
 		5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameDisabled.png; sourceTree = "<group>"; };
 		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
@@ -1126,6 +1130,8 @@
 		5D90B2041800A12B0042F3D8 /* ControlItems */ = {
 			isa = PBXGroup;
 			children = (
+				5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */,
+				5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */,
 				5DAF377717F10CAD003326F0 /* circle1.png */,
 				5DFD62AA17F2A14500E0055F /* circle2.png */,
 				5DAF377517F10CA5003326F0 /* plus.png */,
@@ -1215,6 +1221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */,
+				5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */,
 				5D3FF6FE17EFE4E100DAB13D /* LoadGameNormal.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				4B9948DF17FF9CB000B5DF86 /* star.png in Resources */,
@@ -1276,6 +1283,7 @@
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
+				5D90B20F1800AD670042F3D8 /* pauseButtonNormal.png in Resources */,
 				5D3FF54E17EFB8E300DAB13D /* Icon@2x.png in Resources */,
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
 				5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */,
