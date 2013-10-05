@@ -35,6 +35,11 @@
     
 }
 
++(void) removeView
+{
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
@@ -55,15 +60,16 @@
 
 - (void)dealloc {
     [descriptionScroll release];
-    [aboutVIew release];
+    [self.aboutView release];
     [descriptionScroll release];
     [super dealloc];
 }
 - (void)viewDidUnload {
-    [aboutVIew release];
-    aboutVIew = nil;
+    [self.aboutView release];
+    self.aboutView = nil;
     [descriptionScroll release];
     descriptionScroll = nil;
+    [self setAboutView:nil];
     [super viewDidUnload];
 }
 @end

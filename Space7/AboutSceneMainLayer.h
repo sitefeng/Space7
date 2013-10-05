@@ -11,11 +11,13 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
+#import "AboutSceneViewController.h"
 
 @interface AboutSceneMainLayer : CCLayer <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 {
     
     UITextField* exTextField;
+    AboutSceneViewController* aboutViewController;
     
 }
 

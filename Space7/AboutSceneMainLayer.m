@@ -7,8 +7,9 @@
 //
 
 #import "AboutSceneMainLayer.h"
-#import "AboutSceneViewController.h"
+
 #import "AppDelegate.h"
+#import "MenuSceneLayer.h"
 
 
 @implementation AboutSceneMainLayer
@@ -18,6 +19,7 @@
 {
     
     CCScene *scene = [CCScene node];
+    
     AboutSceneMainLayer* aboutMainLayer = [AboutSceneMainLayer node];
     
     CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
@@ -40,9 +42,9 @@
         self.touchEnabled =YES;
         
         //Creating the UIKit Scrollable text
-        AboutSceneViewController* aboutView = [[AboutSceneViewController alloc] initWithNibName:@"AboutSceneViewController" bundle:nil];
+        aboutViewController = [[AboutSceneViewController alloc] initWithNibName:@"AboutSceneViewController" bundle:nil];
         
-        [[[CCDirector sharedDirector] view] addSubview:aboutView.view];
+        [[[CCDirector sharedDirector] view] addSubview:aboutViewController.view];
         
         
         //Creating the tappable 3 Icons on the right side
@@ -110,6 +112,11 @@
 -(void) closeIconPressed
 {
     
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        
+    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+
+    [aboutViewController.view removeFromSuperview];
     
 }
 

@@ -30,6 +30,7 @@
 {
     if(self=[super init])
     {
+        self.touchEnabled=YES;
         
         CCSprite* timerSprite = [CCSprite spriteWithFile:@"circle2.png"];
  

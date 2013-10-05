@@ -14,6 +14,7 @@
 		5D0E36CB17FFB24D0009918C /* AboutSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */; };
 		5D0E36CC17FFB24D0009918C /* AboutSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
+		5D0E36D417FFD49D0009918C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36D317FFD49D0009918C /* Default-568h@2x.png */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
 		5D3FF52817EFB8E300DAB13D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */; };
 		5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52917EFB8E300DAB13D /* OpenAL.framework */; };
@@ -26,7 +27,6 @@
 		5D3FF53817EFB8E300DAB13D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF53717EFB8E300DAB13D /* GameKit.framework */; };
 		5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF53B17EFB8E300DAB13D /* Default.png */; };
 		5D3FF53E17EFB8E300DAB13D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF53D17EFB8E300DAB13D /* Default@2x.png */; };
-		5D3FF54017EFB8E300DAB13D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF53F17EFB8E300DAB13D /* Default-568h@2x.png */; };
 		5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF54117EFB8E300DAB13D /* Default-Landscape~ipad.png */; };
 		5D3FF54417EFB8E300DAB13D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF54317EFB8E300DAB13D /* Icon-72.png */; };
 		5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF54517EFB8E300DAB13D /* Icon-Small-50.png */; };
@@ -206,6 +206,7 @@
 		5D0E36C917FFB24D0009918C /* AboutSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneViewController.m; sourceTree = "<group>"; };
 		5D0E36CA17FFB24D0009918C /* AboutSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutSceneViewController.xib; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5D0E36D317FFD49D0009918C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5D3FF52217EFB8E300DAB13D /* Space7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Space7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -219,7 +220,6 @@
 		5D3FF53717EFB8E300DAB13D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5D3FF53B17EFB8E300DAB13D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		5D3FF53D17EFB8E300DAB13D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
-		5D3FF53F17EFB8E300DAB13D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		5D3FF54117EFB8E300DAB13D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		5D3FF54317EFB8E300DAB13D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		5D3FF54517EFB8E300DAB13D /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -644,8 +644,8 @@
 				5D3FF6D817EFBB0900DAB13D /* Sound effects */,
 				5D3FF53B17EFB8E300DAB13D /* Default.png */,
 				5D3FF53D17EFB8E300DAB13D /* Default@2x.png */,
-				5D3FF53F17EFB8E300DAB13D /* Default-568h@2x.png */,
 				5D3FF54117EFB8E300DAB13D /* Default-Landscape~ipad.png */,
+				5D0E36D317FFD49D0009918C /* Default-568h@2x.png */,
 				5D3FF54317EFB8E300DAB13D /* Icon-72.png */,
 				5D3FF54517EFB8E300DAB13D /* Icon-Small-50.png */,
 				5D3FF54717EFB8E300DAB13D /* Icon-Small.png */,
@@ -1163,6 +1163,7 @@
 				5D3FF6FC17EFE4E100DAB13D /* HighScoresNormal.png in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
+				5D0E36D417FFD49D0009918C /* Default-568h@2x.png in Resources */,
 				5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */,
 				5D3FF70017EFE4E100DAB13D /* NewGameNormal.png in Resources */,
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
@@ -1187,7 +1188,6 @@
 				5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
-				5D3FF54017EFB8E300DAB13D /* Default-568h@2x.png in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
 				5D3FF54E17EFB8E300DAB13D /* Icon@2x.png in Resources */,

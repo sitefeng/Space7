@@ -14,7 +14,13 @@
 
     IBOutlet UITextView *descriptionScroll;
 
-    IBOutlet UIView *aboutVIew;
 }
+
+@property (retain, nonatomic) IBOutlet UIView *aboutView;
+
+
++ (void) removeView;
+
+
 
 @end
