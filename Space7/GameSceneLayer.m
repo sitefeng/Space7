@@ -9,6 +9,7 @@
 #import "GameSceneLayer.h"
 #import "GameSceneControlsLayer.h"
 #import "GameSceneBackgroundLayer.h"
+#import "Asteroid.h"
 
 
 #define kHealthBar 56
@@ -230,33 +231,53 @@
 
 }
 
+- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity
+{
+    
+    for (Asteroid *asteroid in _asteroids) {
+        
+        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.5) *deltaTime, asteroid.position.y - (velocity.y * 0.5) *deltaTime); //new position for ship
+        
+        [asteroid setPosition: newPosition];
+        
+        
+    }
+    
+}
+
 
 - (void) asteroid {//By Karim Kawambwa
     
     NSInteger r = (arc4random() % 5); //Used for asteroid type randomizing
     
-    CCSprite *  asteroid;
+    Asteroid *  asteroid;
+    if (arc4random() % 2 == 0) {
+        asteroid = [[[WeakAndFastAsteroid alloc] init] autorelease];
+    } else {
+        asteroid = [[[StrongAndSlowAsteroid alloc] init] autorelease];
+    }
     
-    if (r==0)
-    {
-        asteroid = [CCSprite spriteWithFile:@"blueroid.png"];
-        asteroid.tag = blueroid;
-    }
-    else if (r ==1)
-    {
-        asteroid = [CCSprite spriteWithFile:@"greenroid.png"];
-        asteroid.tag = greenroid;
-    }
-    else if (r == 2)
-    {
-        asteroid = [CCSprite spriteWithFile:@"yellowroid.png"];
-        asteroid.tag = yellowroid;
-    }
-    else
-    {
-        asteroid = [CCSprite spriteWithFile:@"redroid.png"];
-        asteroid.tag = redroid;
-    }
+//outdated
+//    if (r==0)
+//    {
+//        asteroid = [CCSprite spriteWithFile:@"blueroid.png"];
+//        asteroid.tag = blueroid;
+//    }
+//    else if (r ==1)
+//    {
+//        asteroid = [CCSprite spriteWithFile:@"greenroid.png"];
+//        asteroid.tag = greenroid;
+//    }
+//    else if (r == 2)
+//    {
+//        asteroid = [CCSprite spriteWithFile:@"yellowroid.png"];
+//        asteroid.tag = yellowroid;
+//    }
+//    else
+//    {
+//        asteroid = [CCSprite spriteWithFile:@"redroid.png"];
+//        asteroid.tag = redroid;
+//    }
     
     NSInteger spawn = (arc4random() % 4);
 
@@ -293,8 +314,8 @@
     
     
     // Determine speed of the asteroid
-    int minDuration = 3.0;
-    int maxDuration = 5.0;
+    int minDuration = asteroid.minMoveDuration; //3.0f
+    int maxDuration = asteroid.maxMoveDuration; //5.0f
     int rangeDuration = maxDuration - minDuration;
     int actualDuration = (arc4random() % rangeDuration) + minDuration;
     
@@ -328,25 +349,35 @@
 
 - (void)update:(ccTime)dt {
     
+    
     NSMutableArray *projectilesToDelete = [[NSMutableArray alloc] init];
+    
     for (CCSprite *projectile in _projectiles) {
         
+        BOOL asteroidHit = FALSE;
         NSMutableArray *asteroidToAnnialate = [[NSMutableArray alloc] init];
         
-        for (CCSprite *asteroid in _asteroids) {
+        for (Asteroid *asteroid in _asteroids) {
             
             if (CGRectIntersectsRect(projectile.boundingBox, asteroid.boundingBox)) {
-                [asteroidToAnnialate addObject:asteroid];
+                //[asteroidToAnnialate addObject:asteroid];
+                asteroidHit = TRUE;
+                asteroid.hp --;
+                if (asteroid.hp <= 0) {
+                    [asteroidToAnnialate addObject:asteroid];
+                }
+                break;
+
             }
         }
         
-        for (CCSprite *asteroid in asteroidToAnnialate) {
+        for (Asteroid *asteroid in asteroidToAnnialate) {
             [_asteroids removeObject:asteroid];
             [self removeChild:asteroid cleanup:YES];
         }
         
         if (asteroidToAnnialate.count > 0) {
-            [asteroidToAnnialate addObject:projectile];
+            [projectilesToDelete addObject:projectile];
         }
         [asteroidToAnnialate release];
     }

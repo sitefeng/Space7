@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Space7/GameSceneLayer.m"
-            timestampString = "402698173.256"
+            timestampString = "402701499.04705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-asteroid"
             landmarkType = "5">
             <Locations>

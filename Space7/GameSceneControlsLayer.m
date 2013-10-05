@@ -64,11 +64,11 @@
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
     
     CGPoint scaledVelocity = ccpMult(myJoystick.velocity, 200);
-    CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime); //new position for ship
-    
-    [gameLayer.mySpaceship setPosition: newPosition];
+//    CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime); //new position for ship
+//    
+//    [gameLayer.mySpaceship setPosition: newPosition];
     [gameLayer starParallax:deltaTime velocity:scaledVelocity];
-    
+    [gameLayer asteroidParallax:deltaTime velocity:scaledVelocity];
 
     
     //Rotating the spaceship to the joystick orientation
