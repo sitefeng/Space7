@@ -11,6 +11,10 @@
 #import "GameSceneBackgroundLayer.h"
 
 
+#define kHealthBar 56
+#define kEnergyBar 57
+#define kProfilePicture 58
+
 
 @implementation GameSceneLayer
 
@@ -53,6 +57,7 @@
         
         self.touchEnabled =NO;
       
+        //INITIALIZE THE SPACESHIP
         mySpaceship = [CCSprite spriteWithFile:@"ship1.png"];
         target = [CCSprite spriteWithFile:@"target-red.png"];
         target.scale = 0.2;
@@ -63,6 +68,45 @@
         
         [self addChild:mySpaceship z:1];
         [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
+        
+        
+        //INITIALIZING THE GAME STATUS DISPLAYS
+        
+        //Making the top-left corner items
+        CCSprite* healthBarSprite = [CCSprite spriteWithFile:@"healthBar.png"];
+        
+        CCProgressTimer* healthBar = [CCProgressTimer progressWithSprite:healthBarSprite];
+        
+        healthBar.type = kCCProgressTimerTypeBar;
+        healthBar.percentage = 100;
+        healthBar.anchorPoint = ccp(0,0);
+        healthBar.position = ccp(60,300);
+        
+        CCSprite* energyBarSprite = [CCSprite spriteWithFile:@"energyBar.png"];
+        
+        CCProgressTimer* energyBar = [CCProgressTimer progressWithSprite:energyBarSprite];
+        
+        energyBar.type = kCCProgressTimerTypeBar;
+        energyBar.percentage = 100;
+        energyBar.anchorPoint = ccp(0,0);
+        energyBar.position = ccp(60,285);
+        
+        [self addChild:healthBar z:5 tag:kHealthBar];
+        [self addChild:energyBar z:5 tag:kEnergyBar];
+        
+        CCSprite* profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
+        
+        [profileSprite setRotation:270];
+        [profileSprite setScale:0.5];
+        profileSprite.anchorPoint = ccp(0,0);
+        profileSprite.position = ccp(50, 280);
+        
+        
+        [self addChild: profileSprite z:5 tag:kProfilePicture];
+        
+        
+        
+        
         
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         [self schedule:@selector(update:) interval:1.0/30.0];
