@@ -183,7 +183,6 @@
 		5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */; };
 		5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70F17EFF1C100DAB13D /* level3.mp3 */; };
 		5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF71017EFF1C100DAB13D /* level4.mp3 */; };
-		5D3FF71A17EFF37F00DAB13D /* homePage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF71917EFF37F00DAB13D /* homePage.mp3 */; };
 		5D3FF72317F0001F00DAB13D /* GameSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */; };
 		5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */; };
 		5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */; };
@@ -196,6 +195,7 @@
 		5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */; };
 		5D90B20F1800AD670042F3D8 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */; };
 		5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */; };
+		5D90B2141800C1E00042F3D8 /* GameSceneDisplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D90B2131800C1E00042F3D8 /* GameSceneDisplayLayer.m */; };
 		5D95EC8117F47A7500E9A7C1 /* LoadGameDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */; };
 		5DAF376F17F10B23003326F0 /* SneakyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376817F10B23003326F0 /* SneakyButton.m */; };
 		5DAF377017F10B23003326F0 /* SneakyButtonSkinnedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF376A17F10B23003326F0 /* SneakyButtonSkinnedBase.m */; };
@@ -536,7 +536,6 @@
 		5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Level2.mp3; sourceTree = "<group>"; };
 		5D3FF70F17EFF1C100DAB13D /* level3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level3.mp3; sourceTree = "<group>"; };
 		5D3FF71017EFF1C100DAB13D /* level4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level4.mp3; sourceTree = "<group>"; };
-		5D3FF71917EFF37F00DAB13D /* homePage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = homePage.mp3; sourceTree = "<group>"; };
 		5D3FF72117F0001F00DAB13D /* GameSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLayer.h; sourceTree = "<group>"; };
 		5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLayer.m; sourceTree = "<group>"; };
 		5D3FF72417F0010500DAB13D /* GameSceneControlsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneControlsLayer.h; sourceTree = "<group>"; };
@@ -552,6 +551,8 @@
 		5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameScoreFont-hd.png"; sourceTree = "<group>"; };
 		5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
 		5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
+		5D90B2121800C1E00042F3D8 /* GameSceneDisplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneDisplayLayer.h; sourceTree = "<group>"; };
+		5D90B2131800C1E00042F3D8 /* GameSceneDisplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneDisplayLayer.m; sourceTree = "<group>"; };
 		5D95EC8017F47A7500E9A7C1 /* LoadGameDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameDisabled.png; sourceTree = "<group>"; };
 		5DAF376717F10B23003326F0 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		5DAF376817F10B23003326F0 /* SneakyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SneakyButton.m; sourceTree = "<group>"; };
@@ -650,6 +651,8 @@
 				5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */,
 				5D3FF72417F0010500DAB13D /* GameSceneControlsLayer.h */,
 				5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */,
+				5D90B2121800C1E00042F3D8 /* GameSceneDisplayLayer.h */,
+				5D90B2131800C1E00042F3D8 /* GameSceneDisplayLayer.m */,
 				5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */,
 				5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */,
 				5DBA5C3117F51EF8007D6D61 /* HighscoresMainLayer.h */,
@@ -1102,7 +1105,6 @@
 			isa = PBXGroup;
 			children = (
 				5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */,
-				5D3FF71917EFF37F00DAB13D /* homePage.mp3 */,
 				5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */,
 				5D3FF70D17EFF1C100DAB13D /* level1.mp3 */,
 				5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */,
@@ -1254,7 +1256,6 @@
 				5D3FF6FF17EFE4E100DAB13D /* LoadGameTouched.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
 				5D3FF53E17EFB8E300DAB13D /* Default@2x.png in Resources */,
-				5D3FF71A17EFF37F00DAB13D /* homePage.mp3 in Resources */,
 				5D3FF6FD17EFE4E100DAB13D /* HighScoresTouched.png in Resources */,
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
 				5D3FF54817EFB8E300DAB13D /* Icon-Small.png in Resources */,
@@ -1360,6 +1361,7 @@
 				5D3FF65B17EFB8E500DAB13D /* CCArray.m in Sources */,
 				5D3FF6B817EFB8E600DAB13D /* plane.c in Sources */,
 				5D3FF66417EFB8E500DAB13D /* CCProfiling.m in Sources */,
+				5D90B2141800C1E00042F3D8 /* GameSceneDisplayLayer.m in Sources */,
 				5D3FF5FB17EFB8E500DAB13D /* CCShaderCache.m in Sources */,
 				5D3FF60117EFB8E500DAB13D /* CCSprite.m in Sources */,
 				5D3FF5A817EFB8E400DAB13D /* CCGrabber.m in Sources */,
