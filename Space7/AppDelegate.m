@@ -61,6 +61,8 @@
 {
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
 	
 	// CCGLView creation
@@ -144,6 +146,7 @@
 	return YES;
 }
 
+
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
 {
@@ -188,6 +191,7 @@
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
+
 
 - (void) dealloc
 {
