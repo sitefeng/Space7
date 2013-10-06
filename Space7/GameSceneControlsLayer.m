@@ -161,7 +161,10 @@
 {
     if ([self gameLayer].mySpaceship.hp <= 0) {
         [[CCDirector sharedDirector] startAnimation];
-        [[CCDirector sharedDirector] replaceScene: [GameOverLayer scene]];
+        
+        GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
+        
+        [[CCDirector sharedDirector] replaceScene: [GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]];
     }
     
 }

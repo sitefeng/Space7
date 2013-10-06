@@ -17,6 +17,16 @@
 }
 
 
-+(CCScene*) scene;
+@property (nonatomic, assign) float gameScore;
+@property (nonatomic, assign) unsigned int enemiesKilled;
+@property (nonatomic, assign) float timeScore;
+
+
+
+
+
+
+
++(CCScene*) sceneWithGameScore: (float)score enemiesKilled: (unsigned int) enemies andTimeScore:(float)time;
 
 @end

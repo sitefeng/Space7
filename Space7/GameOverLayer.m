@@ -13,20 +13,29 @@
 
 @implementation GameOverLayer
 
-+(CCScene*) scene
++(CCScene*) sceneWithGameScore:(float)score enemiesKilled:(unsigned int)enemies andTimeScore:(float)time
 {
     
     CCScene *scene = [CCScene node];
     
     GameOverLayer* gameOverLayer = [GameOverLayer node];
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameoverbg.png"];
+    gameOverLayer.gameScore = score;
+    
+    gameOverLayer.enemiesKilled = enemies;
+    
+    gameOverLayer.timeScore = time;
+
+    
+    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
     
     background.anchorPoint= ccp(0,0);
     
     [gameOverLayer addChild:background z:-1];
     
-    [scene addChild: gameOverLayer];
+    [scene addChild: gameOverLayer z:1 tag:22];
+    
+    
     
     return scene;
     
@@ -38,6 +47,19 @@
     if(self=[super init])
     {
         self.touchEnabled =YES;
+        
+        if(!self.gameScore)
+        {
+            self.gameScore = 0;
+        }
+        if(!self.enemiesKilled)
+        {
+            self.enemiesKilled = 0;
+        }
+        if(!self.timeScore)
+        {
+            self.timeScore = 0;
+        }
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
@@ -88,6 +110,164 @@
 
 - (void)gameOver
 {
+    
+    
+    [self unschedule:@selector(_cmd)];
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    
+    CCSprite* title = [CCSprite spriteWithFile:@"gameOverTitle.png"];
+    title.position = ccp(winSize.width/2, winSize.height + 50);
+    
+    
+    [self addChild:title];
+    
+    
+    CCMoveTo *titleMove = [CCMoveTo actionWithDuration:1.5 position: ccp(winSize.width/2, winSize.height - 40)];
+    
+    CCEaseBounceOut *titleDrop = [CCEaseBounceOut actionWithAction:titleMove];
+    
+    [title runAction:titleDrop];
+    
+    
+    
+    
+    
+    [self scheduleOnce:@selector(setExplosion) delay:2.0];
+    
+    
+    [self scheduleOnce:@selector(displayStats1) delay:4.0];
+    
+    
+    
+    
+    
+}
+
+
+
+
+-(void) setExplosion
+{
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    CCParticleExplosion* fire = [[CCParticleExplosion alloc] init];
+    
+    fire.texture =[[CCSprite spriteWithFile:@"bg-cloudy.png"] texture];
+    
+    [fire setDuration:0.5];
+    
+    fire.position =ccp(winSize.width/2, winSize.height - 50);
+    
+    [self addChild: fire z:6];
+
+    
+}
+
+
+
+-(void) displayStats1
+{
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+//
+//    CCSprite *ship = [CCSprite spriteWithFile:@"ship4.png"];
+//    
+//    [ship setPosition: ccp(-100, winSize.height-40)];
+//    
+//    [self addChild:ship z:7];
+//    
+//    CCMoveTo* move = [CCMoveTo actionWithDuration:1 position:ccp(winSize.width+100, winSize.height -40)];
+//    
+//    [ship runAction:[CCEaseIn actionWithAction:move]];
+    
+    
+    
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Time Elapsed" fntFile:@"spaceshipNameFont-hd.fnt"];
+    [titleLabel setScale:0.9];
+    titleLabel.position =ccp(winSize.width/2, winSize.height - 90);
+    
+    [self addChild:titleLabel];
+    
+    [self scheduleOnce:@selector(displayStats2) delay:1.0];
+    
+    
+    
+}
+
+
+-(void) displayStats2
+{
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:30];
+
+    valueLabel.position =ccp(winSize.width/2, winSize.height - 127.5);
+    
+    [self addChild:valueLabel];
+    
+    
+    [self scheduleOnce:@selector(displayStats3) delay:1.0];
+
+}
+
+-(void) displayStats3
+{
+    
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Units Destroyed" fntFile:@"spaceshipNameFont-hd.fnt"];
+    [titleLabel setScale:0.9];
+    titleLabel.position =ccp(winSize.width/2, winSize.height - 165);
+    
+    [self addChild:titleLabel];
+    
+    [self scheduleOnce:@selector(displayStats4) delay:1.0];
+}
+
+-(void) displayStats4
+{
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%u",self.enemiesKilled] fontName:@"Marker Felt" fontSize:30];
+    
+    valueLabel.position =ccp(winSize.width/2, winSize.height - 202.5);
+    
+    [self addChild:valueLabel];
+    
+    
+    
+    [self scheduleOnce:@selector(displayStats5) delay:1.2];
+
+    
+}
+
+-(void) displayStats5
+{
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Total Score" fntFile:@"spaceshipNameFont-hd.fnt"];
+    
+    titleLabel.position =ccp(winSize.width/2, winSize.height - 240);
+    
+    [self addChild:titleLabel];
+    
+    [self scheduleOnce:@selector(displayStats6) delay:0.6];
+    
+}
+
+-(void) displayStats6
+{
+    
+    CGSize winSize= [[CCDirector sharedDirector] winSize];
+    
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:32];
+    
+    valueLabel.position =ccp(winSize.width/2, winSize.height - 280);
+    
+    [self addChild:valueLabel];
+    
+    
     
 }
 

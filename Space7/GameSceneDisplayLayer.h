@@ -28,7 +28,7 @@
 
 
 - (void)updateHealth: (float)newhealth;
-
+- (void)checkHealth;
 
 
 
