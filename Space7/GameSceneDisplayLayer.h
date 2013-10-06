@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface GameSceneDisplayLayer : CCLayer {
-    
+    CCLabelBMFont* gameScoreSLabel;
+    CCLabelBMFont* enemiesKilledKLabel;
     
 }
 
@@ -29,6 +30,8 @@
 
 - (void)updateHealth: (float)newhealth;
 - (void)checkHealth;
+- (void)updatescore: (float)score;
+- (void)updatekill;
 
 
 

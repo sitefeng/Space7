@@ -267,7 +267,7 @@
 
 }
 
-- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity
+- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity //KK not used
 {
     
     for (Asteroid *asteroid in _asteroids) {
@@ -289,8 +289,17 @@
     Asteroid *  asteroid;
     if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
         asteroid = [[WeakAndFastAsteroid alloc] init];
-    } else {
-        asteroid = [[StrongAndSlowAsteroid alloc] init];
+    }else {
+        
+        if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
+            asteroid = [[WeakAndSlowAsteroid alloc] init];
+        }else {
+            if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
+                asteroid = [[StrongAndFastwAsteroid alloc] init];
+            }else {
+                asteroid = [[StrongAndSlowAsteroid alloc] init];
+            }
+        }
     }
     
     
@@ -386,8 +395,24 @@
                     //By SiTe to update Score on the Display layer
                 
                     GameSceneDisplayLayer *updateLayer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
+                    [updateLayer updatekill];
                     
-                    updateLayer.enemiesKilled++;
+                    switch (asteroid.type) { //Bonus point on each Kill
+                        case WeakAndFastroid:
+                            [updateLayer updatescore:2];
+                            break;
+                        case WeakAndSlowroid:
+                            [updateLayer updatescore:1];
+                            break;
+                        case StrongAndFastroid:
+                            [updateLayer updatescore:6];
+                            break;
+                        case StrongAndSlowroid:
+                            [updateLayer updatescore:4];
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 else
                 {
@@ -465,7 +490,7 @@
                 CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
                 
-               // [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
+                [mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion 2.mp3"];
             }
             

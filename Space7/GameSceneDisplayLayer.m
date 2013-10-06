@@ -73,11 +73,11 @@
         
         //Making the top right elements
         
-        CCLabelBMFont* gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
+        gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
         
         gameScoreSLabel.position = ccp(490,310);
         
-        CCLabelBMFont* enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
+        enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
         
         enemiesKilledKLabel.position = ccp(490,290);
         
@@ -133,12 +133,28 @@
     self.healthBar.percentage = newhealth;
 }
 
+- (void)updatescore: (float)score
+{
+    self.gameScore += score;
+    //[self.gameScoreValueLabel runAction:[CCBlink actionWithDuration:.5 blinks:1]];
+    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:1 scaleX:2.0 scaleY:2.0] rate:2.0];
+    id scaleDownAction = [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5 scaleX:0.8 scaleY:0.8] rate:2.0];
+    CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
+    [self.gameScoreValueLabel runAction:[CCRepeatForever actionWithAction:scaleSeq]];
+}
 
+- (void)updatekill
+{
+    self.enemiesKilled++;
+   // [self.enemiesKilledValueLabel runAction:[CCBlink actionWithDuration:.5 blinks:1]];
+    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:1 scaleX:2.0 scaleY:2.0] rate:2.0];
+    id scaleDownAction = [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5 scaleX:0.8 scaleY:0.8] rate:2.0];
+    CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
+    [self.gameScoreValueLabel runAction:[CCRepeatForever actionWithAction:scaleSeq]];
+}
 
 -(void) dealloc
 {
-    
-
     [super dealloc];
 }
 
