@@ -60,16 +60,16 @@
         
         
         //Creating the tappable 3 Icons on the right side
-        CCMenuItemImage *reportBug = [CCMenuItemImage itemWithNormalImage:@"ReportBugIcon.png" selectedImage:@"closeIcon.png" target:self selector:@selector(reportBugIconPressed)];
+        CCMenuItemImage *reportBug = [CCMenuItemImage itemWithNormalImage:@"DebugIconNormal.png" selectedImage:@"DebugIconPressed.png" target:self selector:@selector(reportBugIconPressed)];
         
-        [reportBug setScale:2];
+        [reportBug setScale:0.6];
         
-        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIconNormal.png" selectedImage:@"facebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
+        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"FacebookIconNormal.png" selectedImage:@"FacebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
         
-        [facebookIcon setScale:2];
+        [facebookIcon setScale:0.8];
         
-        CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeIcon.png" selectedImage:@"facebookIcon.png" target:self selector:@selector(closeIconPressed)];
-        [closeIcon setScale:2];
+        CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeButtonNormal.png" selectedImage:@"closeButtonPressed.png" target:self selector:@selector(closeIconPressed)];
+        [closeIcon setScale:0.7];
         
         CCMenu *iconsMenu = [CCMenu menuWithItems:reportBug, facebookIcon, closeIcon, nil];
         
@@ -85,7 +85,7 @@
         title.color = ccc3(255,255,255);
         
         title.anchorPoint = ccp(0,0);
-        title.position = ccp(140,270);
+        title.position = ccp(40,270);
         
         [self addChild:title];
         
