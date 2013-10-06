@@ -68,8 +68,8 @@
         
         [facebookIcon setScale:0.8];
         
-        CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeIcon.png" selectedImage:@"facebookIcon.png" target:self selector:@selector(closeIconPressed)];
-        [closeIcon setScale:2];
+        CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeButtonNormal.png" selectedImage:@"closeButtonPressed.png" target:self selector:@selector(closeIconPressed)];
+        [closeIcon setScale:0.7];
         
         CCMenu *iconsMenu = [CCMenu menuWithItems:reportBug, facebookIcon, closeIcon, nil];
         

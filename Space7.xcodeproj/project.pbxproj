@@ -54,7 +54,6 @@
 		4B99494218012FBE00B5DF86 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B99493818012FBB00B5DF86 /* iTunesArtwork.png */; };
 		4B99494318012FBE00B5DF86 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B99493918012FBB00B5DF86 /* iTunesArtwork@2x.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
-		5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E36C217FFB20B0009918C /* closeIcon.png */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
 		5D3FF52817EFB8E300DAB13D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52717EFB8E300DAB13D /* OpenGLES.framework */; };
@@ -210,6 +209,8 @@
 		5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */; };
 		5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */; };
 		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
+		5D435CF318017CBB001078E7 /* closeButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D435CF218017CBB001078E7 /* closeButtonNormal.png */; };
+		5D435CF518017CC5001078E7 /* closeButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D435CF418017CC5001078E7 /* closeButtonPressed.png */; };
 		5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */; };
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
 		5D90B1FB180094560042F3D8 /* energyBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FA180094560042F3D8 /* energyBar.png */; };
@@ -309,7 +310,6 @@
 		4B99493918012FBB00B5DF86 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
-		5D0E36C217FFB20B0009918C /* closeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeIcon.png; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5D3FF52217EFB8E300DAB13D /* Space7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Space7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -614,6 +614,8 @@
 		5D3FF72717F0012500DAB13D /* GameSceneBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneBackgroundLayer.h; sourceTree = "<group>"; };
 		5D3FF72817F0012500DAB13D /* GameSceneBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneBackgroundLayer.m; sourceTree = "<group>"; };
 		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
+		5D435CF218017CBB001078E7 /* closeButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButtonNormal.png; sourceTree = "<group>"; };
+		5D435CF418017CC5001078E7 /* closeButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButtonPressed.png; sourceTree = "<group>"; };
 		5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameSceneBackground.png; sourceTree = "<group>"; };
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 		5D90B1FA180094560042F3D8 /* energyBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = energyBar.png; sourceTree = "<group>"; };
@@ -1287,9 +1289,10 @@
 			children = (
 				5DD60EC3180177360097FED8 /* DebugIconPressed.png */,
 				5DD60EC51801783A0097FED8 /* DebugIconNormal.png */,
+				5D435CF218017CBB001078E7 /* closeButtonNormal.png */,
 				5DD60EBD1801759A0097FED8 /* FacebookIconNormal.png */,
+				5D435CF418017CC5001078E7 /* closeButtonPressed.png */,
 				5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */,
-				5D0E36C217FFB20B0009918C /* closeIcon.png */,
 			);
 			name = "About Scene";
 			sourceTree = "<group>";
@@ -1422,7 +1425,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */,
 				5DD60EB318013AA70097FED8 /* gameOverTitle.png in Resources */,
 				5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */,
 				4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */,
@@ -1487,6 +1489,7 @@
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
 				5DD60EC4180177360097FED8 /* DebugIconPressed.png in Resources */,
 				5DD60EBC180157310097FED8 /* shoot2.mp3 in Resources */,
+				5D435CF318017CBB001078E7 /* closeButtonNormal.png in Resources */,
 				5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */,
 				5DBFEA281800F6C8008141F9 /* mainMenuButtonPressed.png in Resources */,
 				5D90B2161800E3CA0042F3D8 /* HighScoresNormal.png in Resources */,
@@ -1519,6 +1522,7 @@
 				4B99494118012FBE00B5DF86 /* Icon@2x.png in Resources */,
 				4B99493E18012FBE00B5DF86 /* Icon-Small.png in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
+				5D435CF518017CC5001078E7 /* closeButtonPressed.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
