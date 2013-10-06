@@ -19,14 +19,14 @@
 
 @end
 
-@interface BigDog : BatttleShips
+@interface Geronimo : BatttleShips
 @end
 
-@interface MadDog : BatttleShips
+@interface Hyperion : BatttleShips
 @end
 
-@interface Annialator : BatttleShips
+@interface Annihilator : BatttleShips
 @end
 
-@interface Ridiculous : BatttleShips
+@interface Prometheus : BatttleShips
 @end

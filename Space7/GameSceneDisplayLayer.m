@@ -120,9 +120,9 @@
     
     updateTime+=delta;
     
-    self.timeScore = self.timeScore+ delta *10;
+    self.timeScore = self.timeScore+ delta *3;
     
-    self.gameScore = self.timeScore + self.enemiesKilled*10;
+    self.gameScore = self.timeScore + self.enemiesKilled*20;
     
     
     
