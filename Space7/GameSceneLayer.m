@@ -490,7 +490,7 @@
                 CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
                 
-                [mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];
+                //[mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion 2.mp3"];
             }
             
