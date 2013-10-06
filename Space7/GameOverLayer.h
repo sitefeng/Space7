@@ -11,8 +11,8 @@
 
 @interface GameOverLayer : CCLayer {
     
-    
-    
+    CCMenuItemImage* _tryAgainItem;
+    CCMenuItemImage* _mainMenuItem;
     
 }
 

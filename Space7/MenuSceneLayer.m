@@ -130,7 +130,7 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    [[CCDirector sharedDirector] replaceScene:[GameOverLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
     
     
 }

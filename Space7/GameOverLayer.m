@@ -63,21 +63,24 @@
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        CCMenuItemImage *tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" target:self selector:@selector(tryAgain)];
+        _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
 
+        [_tryAgainItem setIsEnabled:NO];
         
-        CCMenuItemImage *mainMenuItem = [CCMenuItemImage itemWithNormalImage:@"mainMenuButtonNormal.png" selectedImage:@"mainMenuButtonPressed.png" target:self selector:@selector(mainMenu)];
+        _mainMenuItem = [CCMenuItemImage itemWithNormalImage:@"mainMenuButtonNormal.png" selectedImage:@"mainMenuButtonPressed.png" disabledImage:@"mainMenuButtonDisabled.png" target:self selector:@selector(mainMenu)];
         
-        CCMenu* menuTry = [CCMenu menuWithItems:tryAgainItem, nil];
+        [_mainMenuItem setIsEnabled:NO];
         
-        
-        menuTry.position = ccp(winSize.width - [tryAgainItem contentSize].width/2.0,[tryAgainItem contentSize].height/2.0);
-        
-        CCMenu* menuMenu = [CCMenu menuWithItems:mainMenuItem, nil];
+        CCMenu* menuTry = [CCMenu menuWithItems:_tryAgainItem, nil];
         
         
+        menuTry.position = ccp(winSize.width - [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0);
         
-        menuMenu.position =ccp([mainMenuItem contentSize].width/2.0,[mainMenuItem contentSize].height/2.0);
+        CCMenu* menuMenu = [CCMenu menuWithItems:_mainMenuItem, nil];
+        
+        
+        
+        menuMenu.position =ccp([_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0);
         
         [self addChild: menuMenu];
         [self addChild: menuTry];
@@ -261,12 +264,14 @@
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:32];
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.timeScore] fontName:@"Marker Felt" fontSize:32];
     
     valueLabel.position =ccp(winSize.width/2, winSize.height - 280);
     
     [self addChild:valueLabel];
     
+    [_tryAgainItem setIsEnabled:YES];
+    [_mainMenuItem setIsEnabled:YES];
     
     
 }

@@ -235,6 +235,8 @@
 		5DD60EAF1801244A0097FED8 /* spaceshipNameFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EAD1801244A0097FED8 /* spaceshipNameFont-hd.fnt */; };
 		5DD60EB01801244A0097FED8 /* spaceshipNameFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EAE1801244A0097FED8 /* spaceshipNameFont-hd.png */; };
 		5DD60EB318013AA70097FED8 /* gameOverTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB218013AA70097FED8 /* gameOverTitle.png */; };
+		5DD60EB5180150A40097FED8 /* mainMenuButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB4180150A40097FED8 /* mainMenuButtonDisabled.png */; };
+		5DD60EB8180150D50097FED8 /* tryAgainButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -631,6 +633,8 @@
 		5DD60EAD1801244A0097FED8 /* spaceshipNameFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "spaceshipNameFont-hd.fnt"; sourceTree = "<group>"; };
 		5DD60EAE1801244A0097FED8 /* spaceshipNameFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaceshipNameFont-hd.png"; sourceTree = "<group>"; };
 		5DD60EB218013AA70097FED8 /* gameOverTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameOverTitle.png; sourceTree = "<group>"; };
+		5DD60EB4180150A40097FED8 /* mainMenuButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenuButtonDisabled.png; sourceTree = "<group>"; };
+		5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonDisabled.png; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -1305,6 +1309,8 @@
 		5DBFEA291800F6D3008141F9 /* GameOver Scene */ = {
 			isa = PBXGroup;
 			children = (
+				5DD60EB4180150A40097FED8 /* mainMenuButtonDisabled.png */,
+				5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */,
 				5DD60EB218013AA70097FED8 /* gameOverTitle.png */,
 				4B99490F180109DA00B5DF86 /* gameoverbg.png */,
 				5DBFEA211800F6A3008141F9 /* mainMenuButtonNormal.png */,
@@ -1373,6 +1379,7 @@
 				5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				4B9948DF17FF9CB000B5DF86 /* star.png in Resources */,
+				5DD60EB5180150A40097FED8 /* mainMenuButtonDisabled.png in Resources */,
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
 				5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */,
 				4B9948E517FFC0BE00B5DF86 /* rock1.png in Resources */,
@@ -1430,6 +1437,7 @@
 				5D3FF55117EFB8E300DAB13D /* iTunesArtwork in Resources */,
 				5D3FF6EB17EFBB0900DAB13D /* revive.mp3 in Resources */,
 				5DFD62B517F2A92900E0055F /* gameButtonDisabled.png in Resources */,
+				5DD60EB8180150D50097FED8 /* tryAgainButtonDisabled.png in Resources */,
 				5D0E36C517FFB2110009918C /* ReportBugIcon.png in Resources */,
 				5D90B1FB180094560042F3D8 /* energyBar.png in Resources */,
 				4B99494018012FBE00B5DF86 /* Icon.png in Resources */,
