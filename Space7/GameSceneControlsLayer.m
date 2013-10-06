@@ -43,7 +43,6 @@
         [self initPauseButton];
         
         
-        
         [self initBombButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
@@ -173,9 +172,10 @@
 
 -(void) didPressPauseButton
 {
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     [[CCDirector sharedDirector] stopAnimation];
-
+    
 
     UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be lost when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
     
@@ -187,11 +187,13 @@
 {
     if(buttonIndex==1)
     {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[CCDirector sharedDirector] startAnimation];
         [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
     }
     else
     {
+        [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
         [[CCDirector sharedDirector] startAnimation];
     }
 

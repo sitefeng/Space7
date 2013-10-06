@@ -121,6 +121,8 @@
 
 -(void) loadGameTouched
 {
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
@@ -129,6 +131,7 @@
 -(void) highscoresTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
     
@@ -138,7 +141,7 @@
 -(void) aboutButtonTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
 
