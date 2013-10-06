@@ -35,7 +35,7 @@
     
     [scene addChild: gameOverLayer z:1 tag:22];
     
-    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
     
     return scene;
     
@@ -98,6 +98,8 @@
 - (void) tryAgain
 {
     
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
 }
@@ -106,6 +108,8 @@
 
 - (void)mainMenu
 {
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
     
 }
@@ -152,6 +156,7 @@
 
 -(void) setExplosion
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"gameOverSceneExplode.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCParticleExplosion* fire = [[CCParticleExplosion alloc] init];
