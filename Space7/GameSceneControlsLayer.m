@@ -48,7 +48,14 @@
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         
-        self.accelerationMode = YES;
+        
+        ////////////////////////
+        /////////////////////////
+        //VERY IMPORTANT SWITCH
+        self.accelerationMode = NO;
+        /////////////////////////
+        //////////////////////////
+        
         
         self.scaledVelocityX = 0;
         self.scaledVelocityY = 0;
