@@ -23,6 +23,8 @@
 @property (nonatomic, retain) NSMutableArray *_projectiles;
 @property (nonatomic, retain) NSMutableArray *_stars;
 
+@property (nonatomic, strong) CCSprite *boom;
+@property (nonatomic, strong) CCAction *blowupAction;
 
 
 

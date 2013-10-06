@@ -77,28 +77,62 @@
         
         
         
-        CCParticleExplosion* explosion = [CCParticleExplosion node];
-        explosion.autoRemoveOnFinish = YES;
-        //explosion.texture = [tempElement texture];
-        explosion.startSize = 5.0f;
-        explosion.endSize = 1.0f;
-        explosion.duration = 0.1f;
-        explosion.speed = 30.0f;
-        explosion.anchorPoint = ccp(0.5f,0.5f);
-       // explosion.position = tempElement.position;
-        [self addChild: explosion z: self.zOrder+1];
-        
-        
+//        CCParticleExplosion* explosion = [CCParticleExplosion node];
+//        explosion.autoRemoveOnFinish = YES;
+//        //explosion.texture = [tempElement texture];
+//        explosion.startSize = 5.0f;
+//        explosion.endSize = 1.0f;
+//        explosion.duration = 0.1f;
+//        explosion.speed = 30.0f;
+//        explosion.anchorPoint = ccp(0.5f,0.5f);
+//       // explosion.position = tempElement.position;
+//        [self addChild: explosion z: self.zOrder+1];
         
         
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         [self schedule:@selector(update:) interval:1.0/30.0];
         [self schedule:@selector(updateShip:) interval:1.0/30.0];
+        
       
     }
     
     return self;
     
+}
+
+- (void)blowUpAtPosition: (CGPoint)position
+{
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"explosion.png"];
+    [self addChild:spriteSheet];
+    
+    NSMutableArray *exlodeFrames = [NSMutableArray array];
+    for (int i=1; i<=32; i++) {
+        NSString *string;
+        if (i/10 == 0){
+            string = [NSString stringWithFormat:@"slice0%d_0%d.png",i,i];
+        }else{
+            string = [NSString stringWithFormat:@"slice%d_%d.png",i,i];
+        }
+        
+        [exlodeFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          string]];
+    }
+    
+    CCAnimation *explode = [CCAnimation
+                             animationWithSpriteFrames:exlodeFrames delay:0.025f];
+    
+   // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.boom = [CCSprite spriteWithSpriteFrameName:@"slice01_01.png"];
+    self.boom.position = position;
+   
+    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explode], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [node removeFromParentAndCleanup:YES];
+    }],nil] ];
+    self.boom.scale = 2.5;
+    [spriteSheet addChild:self.boom];
+
 }
 
 
@@ -304,6 +338,7 @@
                 asteroidHit = TRUE;
                 asteroid.hp --;
                 if (asteroid.hp <= 0) {
+                    [self blowUpAtPosition:asteroid.position];
                     [asteroidToAnnialate addObject:asteroid];
                 }
                 
@@ -375,7 +410,7 @@
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
                 [displayLayer updateHealth:mySpaceship.hp];
-                [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
+               // [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"gotHit.mp3"];
             }
             
