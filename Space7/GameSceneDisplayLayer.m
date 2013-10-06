@@ -15,6 +15,9 @@
 #define kGameScoreLabel 59
 
 @implementation GameSceneDisplayLayer
+{
+    float updateTime;
+}
 
 
 - (id) init
@@ -22,8 +25,10 @@
     
 	if( self=[super init] ) {
         
-        gameScore = 1;
-        enemiesKilled = 1;
+        self.gameScore = 0;
+        self.enemiesKilled = 0;
+        updateTime = 0;
+        self.timeScore = 0;
         
         self.touchEnabled = NO;
         
@@ -77,11 +82,11 @@
         enemiesKilledKLabel.position = ccp(490,290);
         
         
-        self.gameScoreValueLabel = [CCLabelBMFont labelWithString:@"1" fntFile:@"gameScoreFont-hd.fnt"];
+        self.gameScoreValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
         self.gameScoreValueLabel.position = ccp(530,310);
         
-        self.enemiesKilledValueLabel = [CCLabelBMFont labelWithString:@"1" fntFile:@"gameScoreFont-hd.fnt"];
+        self.enemiesKilledValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
         self.enemiesKilledValueLabel.position = ccp(530,290);
         
@@ -92,8 +97,6 @@
         [self addChild:self.enemiesKilledValueLabel z:5 tag:kGameScoreLabel];
         
         [self scheduleUpdate];
-        
-
         
     }
     
@@ -106,14 +109,22 @@
 
 - (void)update: (ccTime)delta
 {
-    if (gameScore%30 == 0) {
-        [gameScoreValueLabel setString:[NSString stringWithFormat:@"%u",gameScore]];
+    
+    if (updateTime>0.5) {
+        [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%.0f",self.gameScore]];
+        
+        [self.enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",self.enemiesKilled]];
+        
+        updateTime =0;
     }
     
+    updateTime+=delta;
     
-    gameScore++;
+    self.timeScore = self.timeScore+ delta *10;
     
-    [enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",enemiesKilled]];
+    self.gameScore = self.timeScore + self.enemiesKilled*10;
+    
+    
     
 }
 

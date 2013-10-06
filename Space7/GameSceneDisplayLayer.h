@@ -11,22 +11,18 @@
 
 @interface GameSceneDisplayLayer : CCLayer {
     
-    unsigned int gameScore;
-    unsigned int enemiesKilled;
-    
-    CCLabelBMFont* gameScoreValueLabel;
-    CCLabelBMFont* enemiesKilledValueLabel;
     
 }
 
-@property (nonatomic, assign) unsigned int gameScore;
+@property (nonatomic, assign) float gameScore;
 @property (nonatomic, assign) unsigned int enemiesKilled;
+@property (nonatomic, assign) float timeScore;
 
 @property (nonatomic, retain) CCProgressTimer* energyBar;
 @property (nonatomic, retain) CCProgressTimer* healthBar;
 
-@property (nonatomic, retain) CCLabelBMFont* gameScoreValueLabel;
-@property (nonatomic, retain) CCLabelBMFont* enemiesKilledValueLabel;
+@property (nonatomic, retain) CCLabelTTF* gameScoreValueLabel;
+@property (nonatomic, retain) CCLabelTTF* enemiesKilledValueLabel;
 
 
 
