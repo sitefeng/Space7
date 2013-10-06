@@ -423,7 +423,7 @@
                 else{
                     //nothing
                 }
-                [self blowUpAtPosition:mySpaceship.position];
+                [self blowUpAtPosition:asteroid.position];
               //  [self hitExplosionAt:mySpaceship.position];
                 
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
@@ -494,17 +494,30 @@
     
     CGPoint offset = ccpSub(target , projectile.position);
     CCLOG(@"offset %f %f", offset.x, offset.y);
+    
     // Bail out if you are shooting down or backwards
-    if (offset.x <= 0) return;
+    //if (offset.x <= 0) return; //doesn't allow back shooting
     
     // Ok to add now - we've double checked position
     projectile.tag = 2;
     [_projectiles addObject:projectile];
     [self addChild:projectile];
     
-    int realX = winSize.width + (projectile.contentSize.width/2);
-    float ratio = (float) offset.y / (float) offset.x;
-    int realY = (realX * ratio) + projectile.position.y;
+    int realX ;
+    float ratio;
+    int realY;
+    if (target.x > projectile.position.x) {
+       realX = winSize.width + (projectile.contentSize.width/2);
+       ratio = (float) offset.y / (float) offset.x;
+       realY = (realX * ratio) + projectile.position.y;
+    }
+    else
+    {
+        realX = 0 - (projectile.contentSize.width/2);
+        ratio = (float) offset.y / (float) offset.x;
+        realY = (realX * ratio) - projectile.position.y;
+    }
+
     CGPoint realDest = ccp(realX, realY);
     
     // Determine the length of how far you're shooting
@@ -523,7 +536,6 @@
          [_projectiles removeObject:node];
      }],
       nil]];
-    
 
 }
 
