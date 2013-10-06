@@ -7,7 +7,8 @@
 //
 
 #import "GameSceneDisplayLayer.h"
-
+#import "AppDelegate.h"
+#import "BatttleShips.h"
 
 #define kHealthBar 56
 #define kEnergyBar 57
@@ -61,8 +62,30 @@
         [self addChild:self.healthBar z:5 tag:kHealthBar];
         [self addChild:self.energyBar z:5 tag:kEnergyBar];
         
-        CCSprite* profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
+        AppController *appC = [UIApplication sharedApplication].delegate;
+        CCSprite* profileSprite;
         
+        switch (appC.shipToStart) {
+            case _Geronimo:
+                profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
+                break;
+                
+            case _Hyperion:
+                profileSprite = [CCSprite spriteWithFile:@"ship2.png"];
+                break;
+                
+            case _Annihilator:
+                profileSprite = [CCSprite spriteWithFile:@"ship4.png"];
+                break;
+                
+            case _Prometheus:
+                
+                break;
+                
+            default:
+                break;
+        }
+    
         [profileSprite setRotation:270];
         [profileSprite setScale:0.5];
         profileSprite.anchorPoint = ccp(0,0);
