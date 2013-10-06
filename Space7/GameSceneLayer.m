@@ -340,6 +340,12 @@
                 if (asteroid.hp <= 0) {
                     [self blowUpAtPosition:asteroid.position];
                     [asteroidToAnnialate addObject:asteroid];
+                    
+                    //By SiTe to update Score on the Display layer
+                
+                    GameSceneDisplayLayer *updateLayer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
+                    
+                    updateLayer.enemiesKilled++;
                 }
                 
                 
