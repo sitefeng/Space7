@@ -116,16 +116,16 @@
             break;
     }
     
-    target = [CCSprite spriteWithFile:@"target-red.png"];
-    target.scale = 0.1;
+   // target = [CCSprite spriteWithFile:@"target-red.png"];
+    //target.scale = 0.1;
     mySpaceship.position = ccp(100,200);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     mySpaceship.position = ccp(winSize.width/2,winSize.height/2);
     
-    target.position = ccp(300, mySpaceship.contentSize.height/2);
+    //target.position = ccp(300, mySpaceship.contentSize.height/2);
     
-    [self addChild:mySpaceship z:1];
-    [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
+        [self addChild:mySpaceship z:1];
+    //[mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
     
 
 }
@@ -518,9 +518,11 @@
     //    CGPoint location = [self convertTouchToNodeSpace:touch];
     
     // Set up initial location of projectile
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Laser Shot 4.mp3"];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
     projectile.position = mySpaceship.position;
+    projectile.scaleX = 2;
     
     // Determine offset of location to projectile
     CCLOG(@"rotation %f",mySpaceship.rotation);

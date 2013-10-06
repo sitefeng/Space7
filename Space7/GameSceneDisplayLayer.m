@@ -137,20 +137,20 @@
 {
     self.gameScore += score;
     //[self.gameScoreValueLabel runAction:[CCBlink actionWithDuration:.5 blinks:1]];
-    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:1 scaleX:2.0 scaleY:2.0] rate:2.0];
+    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:.5 scaleX:1.2 scaleY:1.2] rate:2.0];
     id scaleDownAction = [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5 scaleX:0.8 scaleY:0.8] rate:2.0];
     CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
-    [self.gameScoreValueLabel runAction:[CCRepeatForever actionWithAction:scaleSeq]];
+    [self.gameScoreValueLabel runAction:scaleSeq];
 }
 
 - (void)updatekill
 {
     self.enemiesKilled++;
    // [self.enemiesKilledValueLabel runAction:[CCBlink actionWithDuration:.5 blinks:1]];
-    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:1 scaleX:2.0 scaleY:2.0] rate:2.0];
+    id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:.5 scaleX:1.2 scaleY:1.2] rate:2.0];
     id scaleDownAction = [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5 scaleX:0.8 scaleY:0.8] rate:2.0];
     CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
-    [self.gameScoreValueLabel runAction:[CCRepeatForever actionWithAction:scaleSeq]];
+    [self.enemiesKilledValueLabel runAction:scaleSeq];
 }
 
 -(void) dealloc
