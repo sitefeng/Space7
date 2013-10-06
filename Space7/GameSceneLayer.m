@@ -226,9 +226,9 @@
     
     Asteroid *  asteroid;
     if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-        asteroid = [[[WeakAndFastAsteroid alloc] init] autorelease];
+        asteroid = [[WeakAndFastAsteroid alloc] init];
     } else {
-        asteroid = [[[StrongAndSlowAsteroid alloc] init] autorelease];
+        asteroid = [[StrongAndSlowAsteroid alloc] init];
     }
     
 //Outdated

@@ -77,11 +77,11 @@
         enemiesKilledKLabel.position = ccp(490,290);
         
         
-        self.gameScoreValueLabel = [CCLabelBMFont labelWithString:@"1" fntFile:@"gameScoreFont-hd.fnt"];
+        self.gameScoreValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
         self.gameScoreValueLabel.position = ccp(530,310);
         
-        self.enemiesKilledValueLabel = [CCLabelBMFont labelWithString:@"1" fntFile:@"gameScoreFont-hd.fnt"];
+        self.enemiesKilledValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
         self.enemiesKilledValueLabel.position = ccp(530,290);
         
@@ -107,13 +107,13 @@
 - (void)update: (ccTime)delta
 {
     if (gameScore%30 == 0) {
-        [gameScoreValueLabel setString:[NSString stringWithFormat:@"%u",gameScore]];
+        [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%u",gameScore]];
     }
     
     
     gameScore++;
     
-    [enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",enemiesKilled]];
+    [self.enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",enemiesKilled]];
     
 }
 
