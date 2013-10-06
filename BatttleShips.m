@@ -20,7 +20,7 @@
 
 @end
 
-@implementation BigDog
+@implementation Geronimo
 
 - (id)init {
     if ((self = [super initWithFile:@"ship1.png" hp:100 ])) {
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation MadDog
+@implementation Hyperion
 
 - (id)init {
     if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {
@@ -40,7 +40,7 @@
 
 @end
 
-@implementation Ridiculous
+@implementation Annihilator
 
 - (id)init {
     if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {
@@ -50,7 +50,7 @@
 
 @end
 
-@implementation Annialator
+@implementation Prometheus
 
 - (id)init {
     if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {

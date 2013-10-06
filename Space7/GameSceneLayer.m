@@ -63,7 +63,7 @@
         self.touchEnabled =NO;
       
         //INITIALIZE THE SPACESHIP
-        mySpaceship = [[BigDog alloc] init];
+        mySpaceship = [[Geronimo alloc] init];
         target = [CCSprite spriteWithFile:@"target-red.png"];
         target.scale = 0.1;
         

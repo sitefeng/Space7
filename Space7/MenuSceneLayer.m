@@ -10,6 +10,7 @@
 #import "GameSceneLayer.h"
 #import "HighscoresMainLayer.h"
 #import "AboutSceneMainLayer.h"
+#import "SelectShipLayer.h"
 
 //delete after
 #import "GameOverLayer.h"
@@ -114,7 +115,7 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[SelectShipLayer scene]];
     
 }
 

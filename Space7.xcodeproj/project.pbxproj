@@ -228,6 +228,9 @@
 		5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA231800F6AD008141F9 /* tryAgainButtonNormal.png */; };
 		5DBFEA261800F6C3008141F9 /* tryAgainButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA251800F6C3008141F9 /* tryAgainButtonPressed.png */; };
 		5DBFEA281800F6C8008141F9 /* mainMenuButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA271800F6C8008141F9 /* mainMenuButtonPressed.png */; };
+		5DD60EAC1801175D0097FED8 /* SelectShipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD60EAB1801175D0097FED8 /* SelectShipLayer.m */; };
+		5DD60EAF1801244A0097FED8 /* spaceshipNameFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EAD1801244A0097FED8 /* spaceshipNameFont-hd.fnt */; };
+		5DD60EB01801244A0097FED8 /* spaceshipNameFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EAE1801244A0097FED8 /* spaceshipNameFont-hd.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -616,6 +619,10 @@
 		5DBFEA231800F6AD008141F9 /* tryAgainButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonNormal.png; sourceTree = "<group>"; };
 		5DBFEA251800F6C3008141F9 /* tryAgainButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonPressed.png; sourceTree = "<group>"; };
 		5DBFEA271800F6C8008141F9 /* mainMenuButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenuButtonPressed.png; sourceTree = "<group>"; };
+		5DD60EAA1801175D0097FED8 /* SelectShipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectShipLayer.h; sourceTree = "<group>"; };
+		5DD60EAB1801175D0097FED8 /* SelectShipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectShipLayer.m; sourceTree = "<group>"; };
+		5DD60EAD1801244A0097FED8 /* spaceshipNameFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "spaceshipNameFont-hd.fnt"; sourceTree = "<group>"; };
+		5DD60EAE1801244A0097FED8 /* spaceshipNameFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spaceshipNameFont-hd.png"; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -725,6 +732,8 @@
 				5D3FF6CB17EFB8E600DAB13D /* AppDelegate.m */,
 				5D3FF6F117EFD55B00DAB13D /* MenuSceneLayer.h */,
 				5D3FF6F217EFD55B00DAB13D /* MenuSceneLayer.m */,
+				5DD60EAA1801175D0097FED8 /* SelectShipLayer.h */,
+				5DD60EAB1801175D0097FED8 /* SelectShipLayer.m */,
 				5D3FF72117F0001F00DAB13D /* GameSceneLayer.h */,
 				5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */,
 				5D3FF72417F0010500DAB13D /* GameSceneControlsLayer.h */,
@@ -1215,6 +1224,8 @@
 		5D90B2021800A0FA0042F3D8 /* BMFonts */ = {
 			isa = PBXGroup;
 			children = (
+				5DD60EAD1801244A0097FED8 /* spaceshipNameFont-hd.fnt */,
+				5DD60EAE1801244A0097FED8 /* spaceshipNameFont-hd.png */,
 				5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */,
 				5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */,
 			);
@@ -1357,6 +1368,7 @@
 				4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */,
 				5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */,
 				4B99490D1800F53500B5DF86 /* explosion-hd.plist in Resources */,
+				5DD60EB01801244A0097FED8 /* spaceshipNameFont-hd.png in Resources */,
 				4B9948EA17FFC1D200B5DF86 /* blueroid.png in Resources */,
 				5D3FF6FF17EFE4E100DAB13D /* LoadGameTouched.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
@@ -1366,6 +1378,7 @@
 				4B994910180109DA00B5DF86 /* gameoverbg.png in Resources */,
 				4B99492D1801215E00B5DF86 /* hit.plist in Resources */,
 				5D3FF54817EFB8E300DAB13D /* Icon-Small.png in Resources */,
+				5DD60EAF1801244A0097FED8 /* spaceshipNameFont-hd.fnt in Resources */,
 				5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */,
 				5D90B21A1800E3E00042F3D8 /* NewGameNormal.png in Resources */,
 				5D3FF6F517EFDBC400DAB13D /* SpaceSevenBackground.png in Resources */,
@@ -1514,6 +1527,7 @@
 				5D3FF64017EFB8E500DAB13D /* CCGLView.m in Sources */,
 				5D3FF66D17EFB8E500DAB13D /* CGPointExtension.m in Sources */,
 				5D3FF57117EFB8E400DAB13D /* CCActionPageTurn3D.m in Sources */,
+				5DD60EAC1801175D0097FED8 /* SelectShipLayer.m in Sources */,
 				5D3FF6C217EFB8E600DAB13D /* vec3.c in Sources */,
 				5D3FF67417EFB8E500DAB13D /* TGAlib.m in Sources */,
 				5D3FF57D17EFB8E400DAB13D /* CCAnimation.m in Sources */,
