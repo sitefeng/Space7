@@ -11,6 +11,9 @@
 #import "HighscoresMainLayer.h"
 #import "AboutSceneMainLayer.h"
 
+//delete after
+#import "GameOverLayer.h"
+
 @implementation MenuSceneLayer
 
 +(CCScene *) scene
@@ -126,7 +129,7 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[GameOverLayer scene]];
     
     
 }
