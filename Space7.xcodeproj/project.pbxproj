@@ -216,6 +216,11 @@
 		5DBFEA181800F041008141F9 /* gotHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA171800F041008141F9 /* gotHit.mp3 */; };
 		5DBFEA1A1800F04C008141F9 /* shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA191800F04C008141F9 /* shoot.mp3 */; };
 		5DBFEA1C1800F054008141F9 /* radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA1B1800F054008141F9 /* radio.mp3 */; };
+		5DBFEA1F1800F306008141F9 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBFEA1E1800F306008141F9 /* GameOverLayer.m */; };
+		5DBFEA221800F6A3008141F9 /* mainMenuButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA211800F6A3008141F9 /* mainMenuButtonNormal.png */; };
+		5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA231800F6AD008141F9 /* tryAgainButtonNormal.png */; };
+		5DBFEA261800F6C3008141F9 /* tryAgainButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA251800F6C3008141F9 /* tryAgainButtonPressed.png */; };
+		5DBFEA281800F6C8008141F9 /* mainMenuButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA271800F6C8008141F9 /* mainMenuButtonPressed.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -591,6 +596,12 @@
 		5DBFEA171800F041008141F9 /* gotHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gotHit.mp3; sourceTree = "<group>"; };
 		5DBFEA191800F04C008141F9 /* shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot.mp3; sourceTree = "<group>"; };
 		5DBFEA1B1800F054008141F9 /* radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio.mp3; sourceTree = "<group>"; };
+		5DBFEA1D1800F306008141F9 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		5DBFEA1E1800F306008141F9 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		5DBFEA211800F6A3008141F9 /* mainMenuButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenuButtonNormal.png; sourceTree = "<group>"; };
+		5DBFEA231800F6AD008141F9 /* tryAgainButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonNormal.png; sourceTree = "<group>"; };
+		5DBFEA251800F6C3008141F9 /* tryAgainButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonPressed.png; sourceTree = "<group>"; };
+		5DBFEA271800F6C8008141F9 /* mainMenuButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainMenuButtonPressed.png; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -699,6 +710,8 @@
 				5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */,
 				5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */,
 				5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */,
+				5DBFEA1D1800F306008141F9 /* GameOverLayer.h */,
+				5DBFEA1E1800F306008141F9 /* GameOverLayer.m */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
 				5D3FF55217EFB8E300DAB13D /* libs */,
 				5D3FF6C617EFB8E600DAB13D /* Supporting Files */,
@@ -710,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				4B9949021800F52400B5DF86 /* Explosion */,
+				5DBFEA291800F6D3008141F9 /* GameOver Scene */,
 				5D90B1F9180090070042F3D8 /* About Scene */,
 				5D90B2021800A0FA0042F3D8 /* BMFonts */,
 				5D90B2031800A1190042F3D8 /* GameSceneItems */,
@@ -1230,6 +1244,17 @@
 			name = Sneakyness;
 			sourceTree = "<group>";
 		};
+		5DBFEA291800F6D3008141F9 /* GameOver Scene */ = {
+			isa = PBXGroup;
+			children = (
+				5DBFEA211800F6A3008141F9 /* mainMenuButtonNormal.png */,
+				5DBFEA231800F6AD008141F9 /* tryAgainButtonNormal.png */,
+				5DBFEA251800F6C3008141F9 /* tryAgainButtonPressed.png */,
+				5DBFEA271800F6C8008141F9 /* mainMenuButtonPressed.png */,
+			);
+			name = "GameOver Scene";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1290,12 +1315,14 @@
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
 				5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */,
 				4B9948E517FFC0BE00B5DF86 /* rock1.png in Resources */,
+				5DBFEA221800F6A3008141F9 /* mainMenuButtonNormal.png in Resources */,
 				5D0E36C717FFB2160009918C /* facebookIcon.png in Resources */,
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
 				5D3FF54C17EFB8E300DAB13D /* Icon.png in Resources */,
 				5D3FF70917EFEB6700DAB13D /* AboutButtonTouched.png in Resources */,
 				4B9948E317FFBEE300B5DF86 /* rock4.png in Resources */,
 				5D3FF6E517EFBB0900DAB13D /* button.mp3 in Resources */,
+				5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */,
 				4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */,
 				5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */,
 				4B99490D1800F53500B5DF86 /* explosion-hd.plist in Resources */,
@@ -1326,6 +1353,7 @@
 				4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
 				5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */,
+				5DBFEA281800F6C8008141F9 /* mainMenuButtonPressed.png in Resources */,
 				5D90B2161800E3CA0042F3D8 /* HighScoresNormal.png in Resources */,
 				5D3FF54617EFB8E300DAB13D /* Icon-Small-50.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
@@ -1347,6 +1375,7 @@
 				4B9949091800F53500B5DF86 /* explosion-ipadhd.plist in Resources */,
 				4B9948EC17FFC1D200B5DF86 /* redroid.png in Resources */,
 				5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */,
+				5DBFEA261800F6C3008141F9 /* tryAgainButtonPressed.png in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
@@ -1452,6 +1481,7 @@
 				5D3FF6C217EFB8E600DAB13D /* vec3.c in Sources */,
 				5D3FF67417EFB8E500DAB13D /* TGAlib.m in Sources */,
 				5D3FF57D17EFB8E400DAB13D /* CCAnimation.m in Sources */,
+				5DBFEA1F1800F306008141F9 /* GameOverLayer.m in Sources */,
 				5D3FF6A817EFB8E600DAB13D /* aabb.c in Sources */,
 				5D3FF61F17EFB8E500DAB13D /* CCTMXObjectGroup.m in Sources */,
 				5D3FF68117EFB8E600DAB13D /* CDAudioManager.m in Sources */,
