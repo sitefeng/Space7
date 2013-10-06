@@ -33,7 +33,7 @@
 @implementation Hyperion
 
 - (id)init {
-    if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {
+    if ((self = [super initWithFile:@"ship2.png" hp:100 ])) {
     }
     return self;
 }

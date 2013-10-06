@@ -25,4 +25,7 @@
 @property (readonly) MyNavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 
+
+@property (nonatomic) NSInteger shipToStart;
+
 @end

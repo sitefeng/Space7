@@ -16,6 +16,7 @@
 		4B6888D518015CF300406F33 /* Explosion 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B6888CD18015CF300406F33 /* Explosion 3.mp3 */; };
 		4B6888D618015CF300406F33 /* Explosion Loud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B6888CE18015CF300406F33 /* Explosion Loud.mp3 */; };
 		4B6888D718015CF300406F33 /* Mortar Explosions x3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4B6888CF18015CF300406F33 /* Mortar Explosions x3.mp3 */; };
+		4B6888D91801668100406F33 /* ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6888D81801668100406F33 /* ship2.png */; };
 		4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948DC17FF91FE00B5DF86 /* ship1.png */; };
 		4B9948DF17FF9CB000B5DF86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948DE17FF9CB000B5DF86 /* star.png */; };
 		4B9948E117FF9F4800B5DF86 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948E017FF9F4800B5DF86 /* bg.png */; };
@@ -265,6 +266,7 @@
 		4B6888CD18015CF300406F33 /* Explosion 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Explosion 3.mp3"; sourceTree = "<group>"; };
 		4B6888CE18015CF300406F33 /* Explosion Loud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Explosion Loud.mp3"; sourceTree = "<group>"; };
 		4B6888CF18015CF300406F33 /* Mortar Explosions x3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mortar Explosions x3.mp3"; sourceTree = "<group>"; };
+		4B6888D81801668100406F33 /* ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship2.png; sourceTree = "<group>"; };
 		4B9948DC17FF91FE00B5DF86 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship1.png; sourceTree = "<group>"; };
 		4B9948DE17FF9CB000B5DF86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		4B9948E017FF9F4800B5DF86 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 				5D90B2041800A12B0042F3D8 /* ControlItems */,
 				5D90B2051800A1400042F3D8 /* GameObjects */,
 				4B9948DC17FF91FE00B5DF86 /* ship1.png */,
+				4B6888D81801668100406F33 /* ship2.png */,
 				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
 				5D8E998117F0135700F5E574 /* ship4.png */,
 				4B9948E017FF9F4800B5DF86 /* bg.png */,
@@ -1480,6 +1483,7 @@
 				5D90B2161800E3CA0042F3D8 /* HighScoresNormal.png in Resources */,
 				4B99493F18012FBE00B5DF86 /* Icon-Small@2x.png in Resources */,
 				5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */,
+				4B6888D91801668100406F33 /* ship2.png in Resources */,
 				4B6888D418015CF300406F33 /* Explosion 2.mp3 in Resources */,
 				4B9948EB17FFC1D200B5DF86 /* greenroid.png in Resources */,
 				5DFD62AB17F2A14500E0055F /* circle2.png in Resources */,

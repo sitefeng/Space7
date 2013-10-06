@@ -29,6 +29,7 @@
 
 
 - (void)fire;
+- (void)initializeShip: (NSInteger) type;
 - (void)starParallax: (ccTime)deltaTime velocity: (CGPoint)velocity;
 - (void)asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity;
 

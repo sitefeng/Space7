@@ -13,6 +13,7 @@
 #import "Asteroid.h"
 #import "BatttleShips.h"
 #import "GameSceneDisplayLayer.h"
+#import "AppDelegate.h"
 
 #define kHealthBar 56
 #define kEnergyBar 57
@@ -61,20 +62,10 @@
 
         
         self.touchEnabled =NO;
-      
-        //INITIALIZE THE SPACESHIP
-        mySpaceship = [[Geronimo alloc] init];
-        target = [CCSprite spriteWithFile:@"target-red.png"];
-        target.scale = 0.1;
+        AppController *appC = [UIApplication sharedApplication].delegate;
+        [self initializeShip:appC.shipToStart];
         
-        mySpaceship.position = ccp(100,200);
-        
-        target.position = ccp(300, mySpaceship.contentSize.height/2);
-        
-        [self addChild:mySpaceship z:1];
-        [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
-        
-//        CCParticleExplosion* explosion = [CCParticleExplosion node];
+        //        CCParticleExplosion* explosion = [CCParticleExplosion node];
 //        explosion.autoRemoveOnFinish = YES;
 //        //explosion.texture = [tempElement texture];
 //        explosion.startSize = 5.0f;
@@ -95,6 +86,42 @@
     
     return self;
     
+}
+
+- (void)initializeShip: (NSInteger) type
+{
+    //INITIALIZE THE SPACESHIP
+    switch (type) {
+        case _Geronimo:
+            mySpaceship = [[Geronimo alloc] init];
+            break;
+            
+        case _Hyperion:
+            mySpaceship = [[Hyperion alloc] init];
+            break;
+            
+        case _Annihilator:
+            mySpaceship = [[Annihilator alloc] init];
+            break;
+        
+        case _Prometheus:
+            mySpaceship = [[Prometheus alloc] init];
+            break;
+            
+        default:
+            break;
+    }
+    
+    target = [CCSprite spriteWithFile:@"target-red.png"];
+    target.scale = 0.1;
+    mySpaceship.position = ccp(100,200);
+    
+    target.position = ccp(300, mySpaceship.contentSize.height/2);
+    
+    [self addChild:mySpaceship z:1];
+    [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
+    
+
 }
 
 - (void)blowUpAtPosition: (CGPoint)position
@@ -364,7 +391,7 @@
                 
                 if (asteroidHit) {
                     [projectilesToDelete addObject:projectile];
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion 1.mp3"];
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"Distant Boom.mp3"];
                 }
                 
                 asteroidHit = FALSE;
@@ -433,7 +460,7 @@
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                // [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
-                [[SimpleAudioEngine sharedEngine] playEffect:@"Blast.mp3"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion 2.mp3"];
             }
             
             shipHit = FALSE;

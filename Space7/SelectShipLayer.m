@@ -8,7 +8,8 @@
 
 #import "SelectShipLayer.h"
 #import "GameSceneLayer.h"
-
+#import "BatttleShips.h"
+#import "AppDelegate.h"
 
 @implementation SelectShipLayer
 +(CCScene*) scene
@@ -74,11 +75,8 @@
 - (void)getGeronimo{
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-    
-    
-    
+    [[self controller] setShipToStart:_Geronimo];
+    [[CCDirector sharedDirector] replaceScene: [GameSceneLayer scene]];
     
 }
 
@@ -86,32 +84,28 @@
 
 - (void)getHyperion{
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    
+    [[self controller] setShipToStart:_Hyperion];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-    
-    
-    
-    
 }
 
 - (void)getAnnihilator{
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    
+    [[self controller] setShipToStart:_Annihilator];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-    
-    
-    
-    
 }
 
 - (void)getPrometheus{
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[self controller] setShipToStart:_Prometheus];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-    
-    
-    
-    
 }
+
+- (AppController *) controller
+{
+    AppController *app = [UIApplication sharedApplication].delegate;
+    return app;
+}
+
 
 @end
