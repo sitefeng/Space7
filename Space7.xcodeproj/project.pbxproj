@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B6888C61801578100406F33 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6888C51801578100406F33 /* Misc.m */; };
 		4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948DC17FF91FE00B5DF86 /* ship1.png */; };
 		4B9948DF17FF9CB000B5DF86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948DE17FF9CB000B5DF86 /* star.png */; };
 		4B9948E117FF9F4800B5DF86 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9948E017FF9F4800B5DF86 /* bg.png */; };
@@ -245,6 +246,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B6888C41801578100406F33 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Misc.h; sourceTree = "<group>"; };
+		4B6888C51801578100406F33 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		4B9948DC17FF91FE00B5DF86 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship1.png; sourceTree = "<group>"; };
 		4B9948DE17FF9CB000B5DF86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		4B9948E017FF9F4800B5DF86 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 				4B9948F81800B13500B5DF86 /* Asteroid.m */,
 				4B9948FD1800CD3A00B5DF86 /* BatttleShips.h */,
 				4B9948FE1800CD3A00B5DF86 /* BatttleShips.m */,
+				4B6888C41801578100406F33 /* Misc.h */,
+				4B6888C51801578100406F33 /* Misc.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1484,6 +1489,7 @@
 				5D3FF61617EFB8E500DAB13D /* CCTexturePVR.m in Sources */,
 				5D3FF66617EFB8E500DAB13D /* ccUtils.c in Sources */,
 				5D3FF5B717EFB8E400DAB13D /* CCLayer.m in Sources */,
+				4B6888C61801578100406F33 /* Misc.m in Sources */,
 				5D3FF61917EFB8E500DAB13D /* CCTileMapAtlas.m in Sources */,
 				5DAF377217F10B23003326F0 /* SneakyJoystickSkinnedBase.m in Sources */,
 				5D3FF61C17EFB8E500DAB13D /* CCTMXLayer.m in Sources */,
