@@ -20,7 +20,7 @@
     
     GameOverLayer* gameOverLayer = [GameOverLayer node];
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
+    CCSprite * background = [CCSprite spriteWithFile:@"gameoverbg.png"];
     
     background.anchorPoint= ccp(0,0);
     

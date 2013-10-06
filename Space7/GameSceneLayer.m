@@ -74,9 +74,6 @@
         [self addChild:mySpaceship z:1];
         [mySpaceship addChild:target z:1]; //inorder to allow rotation of target with the ship as an achor point
         
-        
-        
-        
 //        CCParticleExplosion* explosion = [CCParticleExplosion node];
 //        explosion.autoRemoveOnFinish = YES;
 //        //explosion.texture = [tempElement texture];
@@ -134,6 +131,38 @@
     [spriteSheet addChild:self.boom];
 
 }
+
+- (void)hitExplosionAt: (CGPoint)position
+{
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"hit.plist"];
+    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"hit.png"];
+    [self addChild:spriteSheet z:2];
+    
+    NSMutableArray *exlodeFrames = [NSMutableArray array];
+    for (int i=1; i<=52; i++) {
+        NSString *string;
+        string = [NSString stringWithFormat:@"hit_%d.png",i];
+        
+        [exlodeFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          string]];
+    }
+    
+    CCAnimation *explode = [CCAnimation
+                            animationWithSpriteFrames:exlodeFrames delay:0.025f];
+    
+    // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    self.boom = [CCSprite spriteWithSpriteFrameName:@"hit_1.png"];
+    self.boom.position = position;
+    
+    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explode], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [node removeFromParentAndCleanup:YES];
+    }],nil] ];
+    self.boom.scale = 1;
+    [spriteSheet addChild:self.boom];
+    
+}
+
 
 
 
@@ -210,7 +239,7 @@
     
     for (Asteroid *asteroid in _asteroids) {
         
-        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.5) *deltaTime, asteroid.position.y - (velocity.y * 0.5) *deltaTime); //new position for ship
+        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.8) *deltaTime, asteroid.position.y - (velocity.y * 0.8) *deltaTime); //new position for ship
         
         [asteroid setPosition: newPosition];
         
@@ -231,27 +260,6 @@
         asteroid = [[[StrongAndSlowAsteroid alloc] init] autorelease];
     }
     
-//Outdated
-//    if (r==0)
-//    {
-//        asteroid = [CCSprite spriteWithFile:@"blueroid.png"];
-//        asteroid.tag = blueroid;
-//    }
-//    else if (r ==1)
-//    {
-//        asteroid = [CCSprite spriteWithFile:@"greenroid.png"];
-//        asteroid.tag = greenroid;
-//    }
-//    else if (r == 2)
-//    {
-//        asteroid = [CCSprite spriteWithFile:@"yellowroid.png"];
-//        asteroid.tag = yellowroid;
-//    }
-//    else
-//    {
-//        asteroid = [CCSprite spriteWithFile:@"redroid.png"];
-//        asteroid.tag = redroid;
-//    }
     
     NSInteger spawn = (arc4random() % 4);
 
@@ -260,7 +268,7 @@
     int actualY;
     if (spawn == 1 || spawn == 2 ) {
         // Determine where to spawn the asteroid along the X axis
-        int minX = asteroid.contentSize.width / 2;
+        int minX = winSize.width /2;
         int maxX = winSize.width - asteroid.contentSize.width/2;
         int rangeX = maxX - minX;
         actualX = (arc4random() % rangeX) + minX;
@@ -337,9 +345,14 @@
                 
                 asteroidHit = TRUE;
                 asteroid.hp --;
+                
                 if (asteroid.hp <= 0) {
                     [self blowUpAtPosition:asteroid.position];
                     [asteroidToAnnialate addObject:asteroid];
+                }
+                else
+                {
+                    [self hitExplosionAt:asteroid.position];
                 }
                 
                 
@@ -347,6 +360,8 @@
                     [projectilesToDelete addObject:projectile];
                     [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.caf"];
                 }
+                
+                asteroidHit = FALSE;
 
                 break;
 
@@ -373,60 +388,62 @@
 - (void)updateShip:(ccTime)dt {
     
     
-    BOOL asteroidHit = FALSE;
+    BOOL shipHit = FALSE;
     NSMutableArray *asteroidToAnnialate = [[NSMutableArray alloc] init];
         
     for (Asteroid *asteroid in _asteroids) {
         
         if (CGRectIntersectsRect(mySpaceship.boundingBox, asteroid.boundingBox)) {
             
-            asteroidHit = TRUE;
-            asteroid.hp --;
-            if (asteroid.hp <= 0) {
-                [asteroidToAnnialate addObject:asteroid];
-            }
+            shipHit = TRUE;
+            [asteroidToAnnialate addObject:asteroid];
             
-            if (asteroidHit) {
+            if (shipHit) {
                 if (asteroid.type == StrongAndFastroid){
-                    mySpaceship.hp -= 15;
+                    mySpaceship.hp -= 10;
                 }
                 else if (asteroid.type == StrongAndSlowroid)
                 {
-                    mySpaceship.hp -= 10;
+                    mySpaceship.hp -= 5;
                 }
                 else if (asteroid.type == WeakAndSlowroid)
                 {
-                    mySpaceship.hp -= 2;
+                    mySpaceship.hp -= 1;
                 }
                 else if (asteroid.type == WeakAndFastroid)
                 {
-                    mySpaceship.hp -= 5;
+                    mySpaceship.hp -= 2;
                 }
                 else{
                     //nothing
                 }
                 
+                [self hitExplosionAt:mySpaceship.position];
+                
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
+                CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
+                
                // [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"gotHit.mp3"];
             }
             
+            shipHit = FALSE;
             break;
             
         }
+        
     }
-        
-        for (Asteroid *asteroid in asteroidToAnnialate) {
-            [_asteroids removeObject:asteroid];
-            [self removeChild:asteroid cleanup:YES];
-        }
-        
-        
-        [asteroidToAnnialate release];
     
+    for (Asteroid *asteroid in asteroidToAnnialate) {
+        [_asteroids removeObject:asteroid];
+        [self removeChild:asteroid cleanup:YES];
+    }
+    
+    
+    [asteroidToAnnialate release];
 
 }
 

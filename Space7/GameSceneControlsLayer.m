@@ -10,6 +10,7 @@
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
 #import "GameSceneDisplayLayer.h"
+#import "GameOverLayer.h"
 
 @implementation GameSceneControlsLayer
 
@@ -56,6 +57,7 @@
 }
 
 -(void)gameLogic:(ccTime)dt {//By Karim Kawambwa
+    [self checkHealth];
 }
 
 
@@ -152,6 +154,14 @@
     
 }
 
+- (void)checkHealth
+{
+    if ([self gameLayer].mySpaceship.hp <= 0) {
+        [[CCDirector sharedDirector] startAnimation];
+        [[CCDirector sharedDirector] replaceScene: [GameOverLayer scene]];
+    }
+    
+}
 
 -(void) didPressPauseButton
 {
