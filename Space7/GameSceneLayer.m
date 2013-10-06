@@ -364,7 +364,7 @@
                 
                 if (asteroidHit) {
                     [projectilesToDelete addObject:projectile];
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.caf"];
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"Explosion 1.mp3"];
                 }
                 
                 asteroidHit = FALSE;
@@ -433,7 +433,7 @@
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                // [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
-                [[SimpleAudioEngine sharedEngine] playEffect:@"gotHit.mp3"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"Blast.mp3"];
             }
             
             shipHit = FALSE;
