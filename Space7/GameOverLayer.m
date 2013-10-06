@@ -257,7 +257,7 @@
     
     
     
-    [self scheduleOnce:@selector(displayStats5) delay:1.2];
+    [self scheduleOnce:@selector(displayStats5) delay:1.0];
 
     
 }
@@ -274,7 +274,7 @@
     
     [self addChild:titleLabel];
     
-    [self scheduleOnce:@selector(displayStats6) delay:0.6];
+    [self scheduleOnce:@selector(displayStats6) delay:1.0];
     
 }
 
