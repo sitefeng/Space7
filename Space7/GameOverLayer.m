@@ -100,7 +100,7 @@
     
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 
@@ -111,7 +111,7 @@
 - (void)mainMenu
 {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
@@ -194,7 +194,7 @@
 //    
 //    [ship runAction:[CCEaseIn actionWithAction:move]];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Time Elapsed" fntFile:@"spaceshipNameFont-hd.fnt"];
     [titleLabel setScale:0.9];
@@ -212,7 +212,7 @@
 -(void) displayStats2
 {
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
@@ -229,7 +229,7 @@
 
 -(void) displayStats3
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Units Destroyed" fntFile:@"spaceshipNameFont-hd.fnt"];
@@ -244,7 +244,7 @@
 -(void) displayStats4
 {
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
@@ -265,7 +265,7 @@
 -(void) displayStats5
 {
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Total Score" fntFile:@"spaceshipNameFont-hd.fnt"];
@@ -281,7 +281,7 @@
 -(void) displayStats6
 {
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     

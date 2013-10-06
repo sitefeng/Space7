@@ -65,6 +65,10 @@
         AppController *appC = [UIApplication sharedApplication].delegate;
         [self initializeShip:appC.shipToStart];
         
+        
+        //INITIALIZE THE SPACESHIP
+        
+        
         //        CCParticleExplosion* explosion = [CCParticleExplosion node];
 //        explosion.autoRemoveOnFinish = YES;
 //        //explosion.texture = [tempElement texture];
@@ -115,6 +119,8 @@
     target = [CCSprite spriteWithFile:@"target-red.png"];
     target.scale = 0.1;
     mySpaceship.position = ccp(100,200);
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    mySpaceship.position = ccp(winSize.width/2,winSize.height/2);
     
     target.position = ccp(300, mySpaceship.contentSize.height/2);
     
