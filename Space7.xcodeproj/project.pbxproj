@@ -164,7 +164,7 @@
 		5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6DD17EFBB0900DAB13D /* enlarge.mp3 */; };
 		5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6DE17EFBB0900DAB13D /* gained.mp3 */; };
 		5D3FF6E917EFBB0900DAB13D /* getBomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6DF17EFBB0900DAB13D /* getBomb.mp3 */; };
-		5D3FF6EA17EFBB0900DAB13D /* gotHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6E017EFBB0900DAB13D /* gotHit.mp3 */; };
+		5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6E017EFBB0900DAB13D /* gotHitBad.mp3 */; };
 		5D3FF6EB17EFBB0900DAB13D /* revive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6E117EFBB0900DAB13D /* revive.mp3 */; };
 		5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6E217EFBB0900DAB13D /* shrink.mp3 */; };
 		5D3FF6EE17EFBB6700DAB13D /* click2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF6ED17EFBB6700DAB13D /* click2.mp3 */; };
@@ -207,6 +207,9 @@
 		5DAF377817F10CAD003326F0 /* circle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF377717F10CAD003326F0 /* circle1.png */; };
 		5DBA5C3317F51EF8007D6D61 /* HighscoresMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */; };
 		5DBFEA161800EB84008141F9 /* homePage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA151800EB84008141F9 /* homePage.mp3 */; };
+		5DBFEA181800F041008141F9 /* gotHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA171800F041008141F9 /* gotHit.mp3 */; };
+		5DBFEA1A1800F04C008141F9 /* shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA191800F04C008141F9 /* shoot.mp3 */; };
+		5DBFEA1C1800F054008141F9 /* radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFEA1B1800F054008141F9 /* radio.mp3 */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -520,7 +523,7 @@
 		5D3FF6DD17EFBB0900DAB13D /* enlarge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enlarge.mp3; sourceTree = "<group>"; };
 		5D3FF6DE17EFBB0900DAB13D /* gained.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gained.mp3; sourceTree = "<group>"; };
 		5D3FF6DF17EFBB0900DAB13D /* getBomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = getBomb.mp3; sourceTree = "<group>"; };
-		5D3FF6E017EFBB0900DAB13D /* gotHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gotHit.mp3; sourceTree = "<group>"; };
+		5D3FF6E017EFBB0900DAB13D /* gotHitBad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gotHitBad.mp3; sourceTree = "<group>"; };
 		5D3FF6E117EFBB0900DAB13D /* revive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = revive.mp3; sourceTree = "<group>"; };
 		5D3FF6E217EFBB0900DAB13D /* shrink.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shrink.mp3; sourceTree = "<group>"; };
 		5D3FF6ED17EFBB6700DAB13D /* click2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click2.mp3; sourceTree = "<group>"; };
@@ -573,6 +576,9 @@
 		5DBA5C3117F51EF8007D6D61 /* HighscoresMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresMainLayer.h; sourceTree = "<group>"; };
 		5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresMainLayer.m; sourceTree = "<group>"; };
 		5DBFEA151800EB84008141F9 /* homePage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = homePage.mp3; sourceTree = "<group>"; };
+		5DBFEA171800F041008141F9 /* gotHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gotHit.mp3; sourceTree = "<group>"; };
+		5DBFEA191800F04C008141F9 /* shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot.mp3; sourceTree = "<group>"; };
+		5DBFEA1B1800F054008141F9 /* radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio.mp3; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -1083,8 +1089,11 @@
 				5D3FF6DC17EFBB0900DAB13D /* countDown.mp3 */,
 				5D3FF6DD17EFBB0900DAB13D /* enlarge.mp3 */,
 				5D3FF6DE17EFBB0900DAB13D /* gained.mp3 */,
+				5DBFEA1B1800F054008141F9 /* radio.mp3 */,
+				5DBFEA191800F04C008141F9 /* shoot.mp3 */,
+				5DBFEA171800F041008141F9 /* gotHit.mp3 */,
 				5D3FF6DF17EFBB0900DAB13D /* getBomb.mp3 */,
-				5D3FF6E017EFBB0900DAB13D /* gotHit.mp3 */,
+				5D3FF6E017EFBB0900DAB13D /* gotHitBad.mp3 */,
 				5D3FF6E117EFBB0900DAB13D /* revive.mp3 */,
 				5D3FF6E217EFBB0900DAB13D /* shrink.mp3 */,
 			);
@@ -1261,7 +1270,7 @@
 				4B9948E317FFBEE300B5DF86 /* rock4.png in Resources */,
 				5D3FF6E517EFBB0900DAB13D /* button.mp3 in Resources */,
 				4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */,
-				5D3FF6EA17EFBB0900DAB13D /* gotHit.mp3 in Resources */,
+				5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */,
 				4B9948EA17FFC1D200B5DF86 /* blueroid.png in Resources */,
 				5D3FF6FF17EFE4E100DAB13D /* LoadGameTouched.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
@@ -1273,6 +1282,7 @@
 				5D90B21A1800E3E00042F3D8 /* NewGameNormal.png in Resources */,
 				5D3FF6F517EFDBC400DAB13D /* SpaceSevenBackground.png in Resources */,
 				5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */,
+				5DBFEA1A1800F04C008141F9 /* shoot.mp3 in Resources */,
 				4B9948E117FF9F4800B5DF86 /* bg.png in Resources */,
 				5D90B2181800E3D30042F3D8 /* LoadGameNormal.png in Resources */,
 				5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */,
@@ -1301,6 +1311,7 @@
 				5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */,
 				5DAF377817F10CAD003326F0 /* circle1.png in Resources */,
 				5DAF377617F10CA5003326F0 /* plus.png in Resources */,
+				5DBFEA181800F041008141F9 /* gotHit.mp3 in Resources */,
 				5D3FF6E917EFBB0900DAB13D /* getBomb.mp3 in Resources */,
 				4B9948EC17FFC1D200B5DF86 /* redroid.png in Resources */,
 				5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */,
@@ -1316,6 +1327,7 @@
 				5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */,
 				5D3FF6E417EFBB0900DAB13D /* bombActivate.mp3 in Resources */,
 				4B9948EF17FFCD2800B5DF86 /* target-red.png in Resources */,
+				5DBFEA1C1800F054008141F9 /* radio.mp3 in Resources */,
 				5DFD62B317F2A8B100E0055F /* gameButtonPressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
