@@ -513,9 +513,9 @@
     }
     else
     {
-        realX = 0 - (projectile.contentSize.width/2);
-        ratio = (float) offset.y / (float) offset.x;
-        realY = (realX * ratio) - projectile.position.y;
+        realX = -winSize.width - (projectile.contentSize.width/2);
+        ratio = (float) offset.y / (float) - offset.x;
+        realY =  projectile.position.y + ((-realX) * ratio);
     }
 
     CGPoint realDest = ccp(realX, realY);
