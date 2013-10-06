@@ -31,7 +31,7 @@
 
 
 
-
+- (void)updateHealth: (float)newhealth;
 
 
 

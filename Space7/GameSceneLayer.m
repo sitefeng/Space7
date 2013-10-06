@@ -9,17 +9,15 @@
 #import "GameSceneLayer.h"
 #import "GameSceneControlsLayer.h"
 #import "GameSceneBackgroundLayer.h"
-<<<<<<< HEAD
 #import "GameSceneDisplayLayer.h"
-=======
 #import "Asteroid.h"
 #import "BatttleShips.h"
+#import "GameSceneDisplayLayer.h"
 
 #define kHealthBar 56
 #define kEnergyBar 57
 #define kProfilePicture 58
 #define kGameScoreLabel 59
->>>>>>> b89c5183b965bdee3fa1346710799bd3e68fa01a
 
 
 @implementation GameSceneLayer
@@ -78,8 +76,24 @@
         
         
         
+        
+        CCParticleExplosion* explosion = [CCParticleExplosion node];
+        explosion.autoRemoveOnFinish = YES;
+        //explosion.texture = [tempElement texture];
+        explosion.startSize = 5.0f;
+        explosion.endSize = 1.0f;
+        explosion.duration = 0.1f;
+        explosion.speed = 30.0f;
+        explosion.anchorPoint = ccp(0.5f,0.5f);
+       // explosion.position = tempElement.position;
+        [self addChild: explosion z: self.zOrder+1];
+        
+        
+        
+        
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         [self schedule:@selector(update:) interval:1.0/30.0];
+        [self schedule:@selector(updateShip:) interval:1.0/30.0];
       
     }
     
@@ -357,7 +371,12 @@
                     //nothing
                 }
                 
-                //[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.caf"];
+                CCScene * scene = [[CCDirector sharedDirector] runningScene];
+                GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
+                
+                [displayLayer updateHealth:mySpaceship.hp];
+                [mySpaceship runAction:[CCBlink actionWithDuration:.25 blinks:4]];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"gotHit.mp3"];
             }
             
             break;

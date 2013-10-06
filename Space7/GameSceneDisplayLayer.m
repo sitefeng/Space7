@@ -36,6 +36,8 @@
         self.healthBar = [CCProgressTimer progressWithSprite:healthBarSprite];
         
         self.healthBar.type = kCCProgressTimerTypeBar;
+        self.healthBar.barChangeRate=ccp(1,0);
+        self.healthBar.midpoint=ccp(0.0,0.0f);
         self.healthBar.percentage = 100;
         self.healthBar.anchorPoint = ccp(0,0);
         self.healthBar.position = ccp(60,300);
@@ -45,6 +47,8 @@
         self.energyBar = [CCProgressTimer progressWithSprite:energyBarSprite];
         
         self.energyBar.type = kCCProgressTimerTypeBar;
+        self.energyBar.barChangeRate=ccp(1,0);
+        self.energyBar.midpoint=ccp(0.0,0.0f);
         self.energyBar.percentage = 100;
         self.energyBar.anchorPoint = ccp(0,0);
         self.energyBar.position = ccp(60,285);
@@ -113,7 +117,10 @@
     
 }
 
-
+- (void)updateHealth: (float)newhealth
+{
+    self.healthBar.percentage = newhealth;
+}
 
 
 -(void) dealloc
