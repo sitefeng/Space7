@@ -35,11 +35,11 @@ enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids 
 @interface theExWife : Misc
 @end
 
-@interface  : Misc
+@interface seismicCharge: Misc
 @end
 
-@interface WeakAndSlowAsteroid : Misc
+@interface arc : Misc
 @end
 
-@interface StrongAndFastwAsteroid : Misc
+@interface noisyCricket : Misc
 @end
