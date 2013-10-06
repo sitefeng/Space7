@@ -22,7 +22,9 @@
     
 }
 
+@property (nonatomic, assign) float scaledVelocityX;
 
+@property (nonatomic, assign) float scaledVelocityY;
 
 +(CCScene*) scene;
 

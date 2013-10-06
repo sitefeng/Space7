@@ -62,12 +62,14 @@
         
         self.touchEnabled =NO;
       
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
         //INITIALIZE THE SPACESHIP
         mySpaceship = [[Geronimo alloc] init];
         target = [CCSprite spriteWithFile:@"target-red.png"];
         target.scale = 0.1;
         
-        mySpaceship.position = ccp(100,200);
+        mySpaceship.position = ccp(winSize.width/2,winSize.height/2);
         
         target.position = ccp(300, mySpaceship.contentSize.height/2);
         

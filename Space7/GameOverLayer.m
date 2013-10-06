@@ -100,7 +100,7 @@
     
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 
@@ -111,7 +111,7 @@
 - (void)mainMenu
 {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
