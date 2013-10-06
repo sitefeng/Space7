@@ -264,7 +264,7 @@
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.timeScore] fontName:@"Marker Felt" fontSize:32];
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.timeScore] fontName:@"Marker Felt" fontSize:35];
     
     valueLabel.position =ccp(winSize.width/2, winSize.height - 280);
     
