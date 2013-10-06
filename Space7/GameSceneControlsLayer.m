@@ -173,6 +173,7 @@
 -(void) didPressPauseButton
 {
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
     
     [[CCDirector sharedDirector] stopAnimation];
     
