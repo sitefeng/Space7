@@ -90,6 +90,8 @@
         [self addChild:title];
         
         
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"about.mp3"];
+        
     }
     
     return self;
@@ -97,6 +99,8 @@
 
 -(void) reportBugIconPressed
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
     picker.mailComposeDelegate = self;
     
@@ -117,14 +121,17 @@
 
 -(void) facebookIconPressed
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
 }
 
 
 -(void) closeIconPressed
 {
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-        
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
 
     [dText removeFromSuperview];

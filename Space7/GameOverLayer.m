@@ -100,8 +100,10 @@
     
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
     
+    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+
 }
 
 
@@ -109,15 +111,18 @@
 - (void)mainMenu
 {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    
     
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    
+    
     
 }
 
 
 - (void)gameOver
 {
-    
     
     [self unschedule:@selector(_cmd)];
     
@@ -189,7 +194,7 @@
 //    
 //    [ship runAction:[CCEaseIn actionWithAction:move]];
     
-    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
     
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Time Elapsed" fntFile:@"spaceshipNameFont-hd.fnt"];
     [titleLabel setScale:0.9];
@@ -206,9 +211,12 @@
 
 -(void) displayStats2
 {
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:30];
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.timeScore] fontName:@"Marker Felt" fontSize:30];
 
     valueLabel.position =ccp(winSize.width/2, winSize.height - 127.5);
     
@@ -221,7 +229,7 @@
 
 -(void) displayStats3
 {
-    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Units Destroyed" fntFile:@"spaceshipNameFont-hd.fnt"];
@@ -235,6 +243,10 @@
 
 -(void) displayStats4
 {
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    
+    
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
     CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%u",self.enemiesKilled] fontName:@"Marker Felt" fontSize:30];
@@ -253,6 +265,8 @@
 -(void) displayStats5
 {
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.png"];
+    
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Total Score" fntFile:@"spaceshipNameFont-hd.fnt"];
     
@@ -267,9 +281,11 @@
 -(void) displayStats6
 {
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.png"];
+    
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.timeScore] fontName:@"Marker Felt" fontSize:35];
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:35];
     
     valueLabel.position =ccp(winSize.width/2, winSize.height - 280);
     

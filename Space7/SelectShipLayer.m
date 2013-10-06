@@ -27,6 +27,7 @@
     [scene addChild: gameOverLayer];
     
     return scene;
+
     
 }
 
@@ -60,7 +61,7 @@
         [self addChild:shipChoiceMenu];
         
         
-        
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
         
         
     }
@@ -72,6 +73,8 @@
 
 - (void)getGeronimo{
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
     
@@ -82,6 +85,7 @@
 
 
 - (void)getHyperion{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
@@ -91,6 +95,7 @@
 }
 
 - (void)getAnnihilator{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
@@ -101,6 +106,7 @@
 
 - (void)getPrometheus{
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
     

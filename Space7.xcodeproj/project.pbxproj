@@ -202,10 +202,10 @@
 		5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70617EFEAD000DAB13D /* AboutButtonNormal.png */; };
 		5D3FF70917EFEB6700DAB13D /* AboutButtonTouched.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70817EFEB6700DAB13D /* AboutButtonTouched.png */; };
 		5D3FF71117EFF1C100DAB13D /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */; };
-		5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */; };
+		5D3FF71317EFF1C100DAB13D /* selectScene.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70C17EFF1C100DAB13D /* selectScene.mp3 */; };
 		5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70D17EFF1C100DAB13D /* level1.mp3 */; };
-		5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */; };
-		5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70F17EFF1C100DAB13D /* level3.mp3 */; };
+		5D3FF71517EFF1C100DAB13D /* about.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70E17EFF1C100DAB13D /* about.mp3 */; };
+		5D3FF71617EFF1C100DAB13D /* universe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF70F17EFF1C100DAB13D /* universe.mp3 */; };
 		5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF71017EFF1C100DAB13D /* level4.mp3 */; };
 		5D3FF72317F0001F00DAB13D /* GameSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */; };
 		5D3FF72617F0010500DAB13D /* GameSceneControlsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3FF72517F0010500DAB13D /* GameSceneControlsLayer.m */; };
@@ -600,10 +600,10 @@
 		5D3FF70617EFEAD000DAB13D /* AboutButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutButtonNormal.png; sourceTree = "<group>"; };
 		5D3FF70817EFEB6700DAB13D /* AboutButtonTouched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutButtonTouched.png; sourceTree = "<group>"; };
 		5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
-		5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = infoScene.mp3; sourceTree = "<group>"; };
+		5D3FF70C17EFF1C100DAB13D /* selectScene.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = selectScene.mp3; sourceTree = "<group>"; };
 		5D3FF70D17EFF1C100DAB13D /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
-		5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Level2.mp3; sourceTree = "<group>"; };
-		5D3FF70F17EFF1C100DAB13D /* level3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level3.mp3; sourceTree = "<group>"; };
+		5D3FF70E17EFF1C100DAB13D /* about.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = about.mp3; sourceTree = "<group>"; };
+		5D3FF70F17EFF1C100DAB13D /* universe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = universe.mp3; sourceTree = "<group>"; };
 		5D3FF71017EFF1C100DAB13D /* level4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level4.mp3; sourceTree = "<group>"; };
 		5D3FF72117F0001F00DAB13D /* GameSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLayer.h; sourceTree = "<group>"; };
 		5D3FF72217F0001F00DAB13D /* GameSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLayer.m; sourceTree = "<group>"; };
@@ -1265,11 +1265,11 @@
 			isa = PBXGroup;
 			children = (
 				5D3FF70A17EFF1C100DAB13D /* gameOver.mp3 */,
-				5D3FF70C17EFF1C100DAB13D /* infoScene.mp3 */,
+				5D3FF70C17EFF1C100DAB13D /* selectScene.mp3 */,
 				5DBFEA151800EB84008141F9 /* homePage.mp3 */,
 				5D3FF70D17EFF1C100DAB13D /* level1.mp3 */,
-				5D3FF70E17EFF1C100DAB13D /* Level2.mp3 */,
-				5D3FF70F17EFF1C100DAB13D /* level3.mp3 */,
+				5D3FF70E17EFF1C100DAB13D /* about.mp3 */,
+				5D3FF70F17EFF1C100DAB13D /* universe.mp3 */,
 				5D3FF71017EFF1C100DAB13D /* level4.mp3 */,
 			);
 			name = "Background Music";
@@ -1454,7 +1454,7 @@
 				5D90B21A1800E3E00042F3D8 /* NewGameNormal.png in Resources */,
 				4B6888D218015CF300406F33 /* Distant Boom.mp3 in Resources */,
 				5D3FF6F517EFDBC400DAB13D /* SpaceSevenBackground.png in Resources */,
-				5D3FF71617EFF1C100DAB13D /* level3.mp3 in Resources */,
+				5D3FF71617EFF1C100DAB13D /* universe.mp3 in Resources */,
 				4B99492C1801215E00B5DF86 /* hit-ipadhd.png in Resources */,
 				4B99490E1800F53500B5DF86 /* explosion-hd.png in Resources */,
 				5DBFEA1A1800F04C008141F9 /* shoot.mp3 in Resources */,
@@ -1468,7 +1468,7 @@
 				4B99493B18012FBE00B5DF86 /* Icon-76@2x.png in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
 				4B99490B1800F53500B5DF86 /* explosion-ipadhd.png in Resources */,
-				5D3FF71317EFF1C100DAB13D /* infoScene.mp3 in Resources */,
+				5D3FF71317EFF1C100DAB13D /* selectScene.mp3 in Resources */,
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */,
 				4B6888D318015CF300406F33 /* Explosion 1.mp3 in Resources */,
@@ -1514,7 +1514,7 @@
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
 				5DBFEA161800EB84008141F9 /* homePage.mp3 in Resources */,
 				5D90B21E1800E4E00042F3D8 /* LoadGameDisabled.png in Resources */,
-				5D3FF71517EFF1C100DAB13D /* Level2.mp3 in Resources */,
+				5D3FF71517EFF1C100DAB13D /* about.mp3 in Resources */,
 				4B99493C18012FBE00B5DF86 /* Icon-Small-50.png in Resources */,
 				5D3FF6E417EFBB0900DAB13D /* bombActivate.mp3 in Resources */,
 				4B9948EF17FFCD2800B5DF86 /* target-red.png in Resources */,
