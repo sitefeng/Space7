@@ -216,8 +216,6 @@
 		5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FC1800945A0042F3D8 /* healthBar.png */; };
 		5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */; };
 		5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */; };
-		5D90B20F1800AD670042F3D8 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */; };
-		5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */; };
 		5D90B2141800C1E00042F3D8 /* GameSceneDisplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D90B2131800C1E00042F3D8 /* GameSceneDisplayLayer.m */; };
 		5D90B2161800E3CA0042F3D8 /* HighScoresNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B2151800E3CA0042F3D8 /* HighScoresNormal.png */; };
 		5D90B2181800E3D30042F3D8 /* LoadGameNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B2171800E3D30042F3D8 /* LoadGameNormal.png */; };
@@ -250,6 +248,8 @@
 		5DD60EC0180175D60097FED8 /* FacebookIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */; };
 		5DD60EC4180177360097FED8 /* DebugIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC3180177360097FED8 /* DebugIconPressed.png */; };
 		5DD60EC61801783A0097FED8 /* DebugIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC51801783A0097FED8 /* DebugIconNormal.png */; };
+		5DD60EC818017AE40097FED8 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */; };
+		5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */; };
@@ -620,8 +620,6 @@
 		5D90B1FC1800945A0042F3D8 /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthBar.png; sourceTree = "<group>"; };
 		5D90B20A1800A4CA0042F3D8 /* gameScoreFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gameScoreFont-hd.fnt"; sourceTree = "<group>"; };
 		5D90B20B1800A4CA0042F3D8 /* gameScoreFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameScoreFont-hd.png"; sourceTree = "<group>"; };
-		5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
-		5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
 		5D90B2121800C1E00042F3D8 /* GameSceneDisplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneDisplayLayer.h; sourceTree = "<group>"; };
 		5D90B2131800C1E00042F3D8 /* GameSceneDisplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneDisplayLayer.m; sourceTree = "<group>"; };
 		5D90B2151800E3CA0042F3D8 /* HighScoresNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresNormal.png; sourceTree = "<group>"; };
@@ -662,6 +660,8 @@
 		5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookIconPressed.png; sourceTree = "<group>"; };
 		5DD60EC3180177360097FED8 /* DebugIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconPressed.png; sourceTree = "<group>"; };
 		5DD60EC51801783A0097FED8 /* DebugIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconNormal.png; sourceTree = "<group>"; };
+		5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
+		5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B017F2A8AC00E0055F /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
@@ -1317,9 +1317,9 @@
 		5D90B2041800A12B0042F3D8 /* ControlItems */ = {
 			isa = PBXGroup;
 			children = (
-				5D90B2101800ADC50042F3D8 /* pauseButtonPressed.png */,
-				5D90B20E1800AD670042F3D8 /* pauseButtonNormal.png */,
 				5DAF377717F10CAD003326F0 /* circle1.png */,
+				5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */,
+				5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */,
 				5DFD62AA17F2A14500E0055F /* circle2.png */,
 				5DAF377517F10CA5003326F0 /* plus.png */,
 			);
@@ -1424,9 +1424,9 @@
 			files = (
 				5D0E36C317FFB20B0009918C /* closeIcon.png in Resources */,
 				5DD60EB318013AA70097FED8 /* gameOverTitle.png in Resources */,
+				5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */,
 				4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */,
 				4B99490A1800F53500B5DF86 /* explosion.plist in Resources */,
-				5D90B2111800ADC50042F3D8 /* pauseButtonPressed.png in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
 				4B9948DF17FF9CB000B5DF86 /* star.png in Resources */,
 				5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */,
@@ -1458,6 +1458,7 @@
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
 				4B994910180109DA00B5DF86 /* gameoverbg.png in Resources */,
 				4B99492D1801215E00B5DF86 /* hit.plist in Resources */,
+				5DD60EC818017AE40097FED8 /* pauseButtonNormal.png in Resources */,
 				5DD60EAF1801244A0097FED8 /* spaceshipNameFont-hd.fnt in Resources */,
 				5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */,
 				5D90B21A1800E3E00042F3D8 /* NewGameNormal.png in Resources */,
@@ -1521,7 +1522,6 @@
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
-				5D90B20F1800AD670042F3D8 /* pauseButtonNormal.png in Resources */,
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
 				5DD60EBE1801759A0097FED8 /* FacebookIconNormal.png in Resources */,
 				5DBFEA161800EB84008141F9 /* homePage.mp3 in Resources */,
