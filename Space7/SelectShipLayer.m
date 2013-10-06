@@ -46,7 +46,7 @@
         [self addChild:title];
         
         CCMenuItemLabel *geronimoLabel = [CCMenuItemLabel itemWithLabel:[CCLabelBMFont labelWithString:@"Geronimo" fntFile:@"spaceshipNameFont.fnt"] target:self selector:@selector(getGeronimo)];
-        CCMenuItemLabel *hyperionLabel = [CCMenuItemLabel itemWithLabel:[CCLabelBMFont labelWithString:@"Hyperion" fntFile:@"spaceshipNameFont.fnt"]target:self selector:@selector(gethyperion)];
+        CCMenuItemLabel *hyperionLabel = [CCMenuItemLabel itemWithLabel:[CCLabelBMFont labelWithString:@"Hyperion" fntFile:@"spaceshipNameFont.fnt"]target:self selector:@selector(getHyperion)];
         CCMenuItemLabel *annihilatorLabel = [CCMenuItemLabel itemWithLabel:[CCLabelBMFont labelWithString:@"Annihilator" fntFile:@"spaceshipNameFont.fnt"]target:self selector:@selector(getAnnihilator)];
         CCMenuItemLabel *prometheusLabel = [CCMenuItemLabel itemWithLabel:[CCLabelBMFont labelWithString:@"Prometheus" fntFile:@"spaceshipNameFont.fnt"]target:self selector:@selector(getPrometheusLabel)];
         
