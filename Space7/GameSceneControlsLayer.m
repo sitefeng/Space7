@@ -48,6 +48,8 @@
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         
+        self.accelerationMode = YES;
+        
         self.scaledVelocityX = 0;
         self.scaledVelocityY = 0;
         
@@ -69,30 +71,37 @@
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
     CGSize windowSize = [[CCDirector sharedDirector] winSize];
     
-//    CGPoint scaledVelocity = ccpMult(myJoystick.velocity, 200);
-//
-//    CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + scaledVelocity.x *deltaTime, gameLayer.mySpaceship.position.y + scaledVelocity.y *deltaTime); //new position for ship
-    
-    CGPoint scaledAcceleration = ccpMult(myJoystick.velocity,20);
-    
-    self.scaledVelocityX = self.scaledVelocityX + scaledAcceleration.x;
-    self.scaledVelocityY = self.scaledVelocityY + scaledAcceleration.y;
-    
-    //Apply friction
-    
-    if(self.scaledVelocityX > 0)
+    if(!self.accelerationMode)
     {
-        self.scaledVelocityX = self.scaledVelocityX -15 ;
+        
+        self.scaledVelocityX = myJoystick.velocity.x * 200;
+        self.scaledVelocityY = myJoystick.velocity.y * 200;
+
     }
-    if(self.scaledVelocityY > 0)
+    else
     {
-        self.scaledVelocityY = self.scaledVelocityY -15 ;
+        CGPoint scaledAcceleration = ccpMult(myJoystick.velocity,20);
+    
+        self.scaledVelocityX = self.scaledVelocityX + scaledAcceleration.x;
+        self.scaledVelocityY = self.scaledVelocityY + scaledAcceleration.y;
+    
+        //Apply friction
+    
+        if(self.scaledVelocityX > 0)
+        {
+            self.scaledVelocityX = self.scaledVelocityX -15 ;
+        }
+        if(self.scaledVelocityY > 0)
+        {
+            self.scaledVelocityY = self.scaledVelocityY -15 ;
+        }
     }
     
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime); //new position for ship
     
     
-    if (newPosition.y < windowSize.height && newPosition.y > 0 && newPosition.x < windowSize.width && newPosition.x > 0){ //bounds
+    if (newPosition.y < windowSize.height && newPosition.y > 0 && newPosition.x < windowSize.width && newPosition.x > 0)
+    { //bounds
         [gameLayer.mySpaceship setPosition: newPosition];
     }
     

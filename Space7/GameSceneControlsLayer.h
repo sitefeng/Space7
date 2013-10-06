@@ -26,6 +26,10 @@
 
 @property (nonatomic, assign) float scaledVelocityY;
 
+@property (nonatomic, assign) BOOL accelerationMode;
+
+
+
 +(CCScene*) scene;
 
 
