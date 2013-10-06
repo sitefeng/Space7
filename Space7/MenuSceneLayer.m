@@ -54,10 +54,10 @@
         //Creating the Main Menu:
         
         CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"NewGameNormal.png" selectedImage:@"NewGameTouched.png" target:self selector:@selector(newGameTouched) ];
-        newGame.scale = 0.5;
+        newGame.scale = 0.7;
         
         CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"LoadGameNormal.png"  selectedImage:@"LoadGameTouched.png" disabledImage:@"LoadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
-        loadGame.scale = 0.5;
+        loadGame.scale = 0.7;
         
         if(true)
         {
@@ -67,14 +67,14 @@
         }
         
         CCMenuItemImage* highscores = [CCMenuItemImage itemWithNormalImage:@"HighScoresNormal.png"  selectedImage:@"HighScoresTouched.png" target:self selector:@selector(highscoresTouched) ];
-		highscores.scale = 0.5;
+		highscores.scale = 0.7;
         
         
         CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, highscores, nil];
         
-        mainMenu.position = ccp(windowSize.width/2, (windowSize.height/2) - 70);
+        mainMenu.position = ccp(windowSize.width/2, (windowSize.height/2) - 60);
         
-        [mainMenu alignItemsVerticallyWithPadding: 15];
+        [mainMenu alignItemsVerticallyWithPadding: 12];
         
         //Creating the About button
         

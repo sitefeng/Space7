@@ -9,9 +9,7 @@
 #import "GameSceneLayer.h"
 #import "GameSceneControlsLayer.h"
 #import "GameSceneBackgroundLayer.h"
-<<<<<<< HEAD
 #import "GameSceneDisplayLayer.h"
-=======
 #import "Asteroid.h"
 #import "BatttleShips.h"
 
@@ -19,7 +17,6 @@
 #define kEnergyBar 57
 #define kProfilePicture 58
 #define kGameScoreLabel 59
->>>>>>> b89c5183b965bdee3fa1346710799bd3e68fa01a
 
 
 @implementation GameSceneLayer
