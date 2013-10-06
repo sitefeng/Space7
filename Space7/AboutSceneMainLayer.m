@@ -64,7 +64,7 @@
         
         [reportBug setScale:2];
         
-        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIcon.png" selectedImage:@"closeIcon.png" target:self selector:@selector(facebookIconPressed)];
+        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIconNormal.png" selectedImage:@"facebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
         
         [facebookIcon setScale:2];
         
