@@ -164,6 +164,8 @@
         
         GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
         
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        
         [[CCDirector sharedDirector] replaceScene: [GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]];
     }
     
@@ -171,7 +173,6 @@
 
 -(void) didPressPauseButton
 {
-    
     
     [[CCDirector sharedDirector] stopAnimation];
 
@@ -216,6 +217,8 @@
     CCLOG(@"Button was pressed");
     
     [[self gameLayer] fire]; //Karim Kawambwa
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"shoot2.mp3"];
     
     GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
     
