@@ -48,10 +48,18 @@
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
         
-        self.accelerationMode = YES;
+        
+        ////////////////////////
+        /////////////////////////
+        //VERY IMPORTANT SWITCH
+        self.accelerationMode = NO;
+        /////////////////////////
+        //////////////////////////
+        
         
         self.scaledVelocityX = 0;
         self.scaledVelocityY = 0;
+        _lastPosition = ccp(568,320);
         
     }
     
@@ -80,7 +88,7 @@
     }
     else
     {
-        CGPoint scaledAcceleration = ccpMult(myJoystick.velocity,20);
+        CGPoint scaledAcceleration = ccpMult(myJoystick.velocity,16);
     
         self.scaledVelocityX = self.scaledVelocityX + scaledAcceleration.x;
         self.scaledVelocityY = self.scaledVelocityY + scaledAcceleration.y;
@@ -89,12 +97,31 @@
     
         if(self.scaledVelocityX > 0)
         {
-            self.scaledVelocityX = self.scaledVelocityX -15 ;
+            self.scaledVelocityX = self.scaledVelocityX -3 ;
         }
         if(self.scaledVelocityY > 0)
         {
-            self.scaledVelocityY = self.scaledVelocityY -15 ;
+            self.scaledVelocityY = self.scaledVelocityY -3 ;
         }
+        
+        if(self.scaledVelocityX<0)
+        {
+            self.scaledVelocityX += 3;
+            
+        }
+        if(self.scaledVelocityY<0)
+        {
+            self.scaledVelocityX += 3;
+            
+        }
+        
+        if((self.scaledVelocityX!=0 || self.scaledVelocityY != 0) && (gameLayer.mySpaceship.position.x == _lastPosition.x && gameLayer.mySpaceship.position.y == _lastPosition.y))
+        {
+            self.scaledVelocityX = 0;
+            self.scaledVelocityY = 0;
+        }
+        
+        
     }
     
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime); //new position for ship
