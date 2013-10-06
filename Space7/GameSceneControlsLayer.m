@@ -155,6 +155,11 @@
 
 -(void) didPressPauseButton
 {
+    
+    
+    [[CCDirector sharedDirector] stopAnimation];
+
+
     UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be lost when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
     
     [pauseAlert show];
@@ -166,6 +171,10 @@
     if(buttonIndex==1)
     {
         [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
+    }
+    else
+    {
+        [[CCDirector sharedDirector] startAnimation];
     }
 
 }
