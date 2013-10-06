@@ -52,6 +52,7 @@
         
         self.scaledVelocityX = 0;
         self.scaledVelocityY = 0;
+        _lastPosition = ccp(568,320);
         
     }
     
@@ -105,6 +106,12 @@
         {
             self.scaledVelocityX += 3;
             
+        }
+        
+        if((self.scaledVelocityX!=0 || self.scaledVelocityY != 0) && (gameLayer.mySpaceship.position.x == _lastPosition.x && gameLayer.mySpaceship.position.y == _lastPosition.y))
+        {
+            self.scaledVelocityX = 0;
+            self.scaledVelocityY = 0;
         }
         
         

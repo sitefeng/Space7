@@ -18,7 +18,7 @@
     
     SneakyJoystick *myJoystick;
     
-    
+    CGPoint _lastPosition;
     
 }
 
