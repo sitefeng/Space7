@@ -423,8 +423,8 @@
                 else{
                     //nothing
                 }
-                
-                [self hitExplosionAt:mySpaceship.position];
+                [self blowUpAtPosition:mySpaceship.position];
+              //  [self hitExplosionAt:mySpaceship.position];
                 
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
