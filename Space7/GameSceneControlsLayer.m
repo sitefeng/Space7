@@ -170,6 +170,7 @@
 {
     if(buttonIndex==1)
     {
+        [[CCDirector sharedDirector] startAnimation];
         [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
     }
     else
