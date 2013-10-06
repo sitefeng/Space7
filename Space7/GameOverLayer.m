@@ -156,7 +156,7 @@
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     CCParticleExplosion* fire = [[CCParticleExplosion alloc] init];
     
-    fire.texture =[[CCSprite spriteWithFile:@"bg-cloudy.png"] texture];
+    fire.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
     
     [fire setDuration:0.5];
     
