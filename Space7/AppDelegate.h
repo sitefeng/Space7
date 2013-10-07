@@ -13,7 +13,7 @@
 @interface MyNavigationController : UINavigationController <CCDirectorDelegate>
 @end
 
-@interface AppController : NSObject <UIApplicationDelegate>
+@interface AppController : NSObject <UIApplicationDelegate, UIAlertViewDelegate>
 {
 	UIWindow *window_;
 	MyNavigationController *navController_;
