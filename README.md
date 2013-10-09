@@ -5,7 +5,9 @@ Space7
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).  
 
-The game will be made available for iPhone 5, 5S, and 5th Gen iPod
+The game will be made available for iPhone 5, 5S, and 5th Gen iPod  
+
+Currently, the temporary release date for version 1.0 of the game is set to be December 5th, 2013. Stay tuned.
 
 
 ##Goal  
