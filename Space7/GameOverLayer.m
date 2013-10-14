@@ -13,6 +13,20 @@
 #import "AnimatedCloudBackground.h"
 
 
+
+#define kWinSize [[CCDirector sharedDirector] winSize]
+
+
+#define kTitleBorderOrder 6
+
+#define kMenuButtonOrder 5
+
+
+
+#define kMenuButtonTag 10
+#define kTryAgainButtonTag 11
+
+
 @implementation GameOverLayer
 
 +(CCScene*) sceneWithGameScore:(float)score enemiesKilled:(unsigned int)enemies andTimeScore:(float)time
@@ -60,8 +74,6 @@
             self.timeScore = 0;
         }
         
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        
         _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
 
         [_tryAgainItem setIsEnabled:NO];
@@ -73,16 +85,16 @@
         CCMenu* menuTry = [CCMenu menuWithItems:_tryAgainItem, nil];
         
         
-        menuTry.position = ccp(winSize.width - [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0);
+        menuTry.position = ccp(kWinSize.width + [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0);
         
         CCMenu* menuMenu = [CCMenu menuWithItems:_mainMenuItem, nil];
         
         
         
-        menuMenu.position =ccp([_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0);
+        menuMenu.position =ccp(-1 * [_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0);
         
-        [self addChild: menuMenu];
-        [self addChild: menuTry];
+        [self addChild: menuMenu z:kMenuButtonOrder tag:kMenuButtonTag];
+        [self addChild: menuTry z:kMenuButtonOrder tag:kTryAgainButtonTag];
         
         [self scheduleOnce:@selector(gameOver) delay:0.5];
         
@@ -125,16 +137,16 @@
     
     [self unschedule:@selector(_cmd)];
     
-    CGSize winSize= [[CCDirector sharedDirector] winSize];
+
     
     CCSprite* title = [CCSprite spriteWithFile:@"gameOverTitle.png"];
-    title.position = ccp(winSize.width/2, winSize.height + 50);
+    title.position = ccp(kWinSize.width/2, kWinSize.height + 50);
     
     
     [self addChild:title];
     
     
-    CCMoveTo *titleMove = [CCMoveTo actionWithDuration:1.5 position: ccp(winSize.width/2, winSize.height - 40)];
+    CCMoveTo *titleMove = [CCMoveTo actionWithDuration:1.5 position: ccp(kWinSize.width/2, kWinSize.height - 40)];
     
     CCEaseBounceOut *titleDrop = [CCEaseBounceOut actionWithAction:titleMove];
     
@@ -171,7 +183,7 @@
     
     circles.position =ccp(winSize.width/2, winSize.height - 50);
     
-    [self addChild: circles z:6];
+    [self addChild: circles z: kTitleBorderOrder];
 
     
 }
@@ -295,11 +307,41 @@
     
     [self addChild:valueLabel];
     
-    [_tryAgainItem setIsEnabled:YES];
-    [_mainMenuItem setIsEnabled:YES];
+    
+    [self scheduleOnce:@selector(showMenuButtons) delay:0.5];
     
 }
 
+
+
+-(void) showMenuButtons
+{
+    
+    
+    CCMenu* menu = (CCMenu*)[self getChildByTag:kMenuButtonTag];
+    CCMenu* tryAgain = (CCMenu*)[self getChildByTag: kTryAgainButtonTag];
+    
+    CCMoveTo* menuMove = [CCMoveTo actionWithDuration:1.0 position:ccp([_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0)];
+    CCMoveTo* tryAgainMove = [CCMoveTo actionWithDuration:1.0 position:ccp(kWinSize.width - [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0)];
+    
+    
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    
+    [menu runAction:menuMove];
+    [tryAgain runAction: tryAgainMove];
+    
+    
+    [_tryAgainItem setIsEnabled:YES];
+    [_mainMenuItem setIsEnabled:YES];
+    
+    
+    
+    
+    
+    
+    
+}
 
 
 @end

@@ -15,6 +15,10 @@
 //delete after
 #import "GameOverLayer.h"
 
+
+#define kWinSize [[CCDirector sharedDirector] winSize]
+
+
 @implementation MenuSceneLayer
 
 +(CCScene *) scene
