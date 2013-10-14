@@ -12,6 +12,8 @@
 #import "GameSceneDisplayLayer.h"
 #import "GameOverLayer.h"
 
+#define kWinSize [[CCDirector sharedDirector] winSize]
+
 @implementation GameSceneControlsLayer
 
 
@@ -188,16 +190,13 @@
 -(void) initBombButton
 {
     
-    //Getting the window size
-    CGSize windowSize = [[CCDirector sharedDirector] winSize];
-    
-    CCMenuItemImage *bombButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonNormal.png" selectedImage:@"gameButtonPressed.png" disabledImage:@"gameButtonDisabled.png" target:self selector:@selector(didPressBombButton)];
+    CCMenuItemImage *bombButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonShootNormal.png" selectedImage:@"gameButtonShootPressed.png" target:self selector:@selector(didPressBombButton)];
     
     CGSize buttonSize = bombButtonImg.contentSize;
     
     CCMenu *bombButton = [CCMenu menuWithItems:bombButtonImg, nil];
     
-    bombButton.position = ccp(windowSize.width - buttonSize.width, buttonSize.height);
+    bombButton.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
     
     [self addChild: bombButton];
     

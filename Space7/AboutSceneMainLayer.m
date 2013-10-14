@@ -138,9 +138,12 @@
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
-
     [dText removeFromSuperview];
+    dText = nil;
+    
+    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    
+
     
 }
 
@@ -154,6 +157,13 @@
 }
 
 
+- (void) dealloc
+{
+    
+    
+    
+    [super dealloc];
+}
 
 
 @end
