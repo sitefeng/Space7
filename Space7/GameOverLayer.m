@@ -10,6 +10,8 @@
 #import "GameSceneLayer.h"
 #import "MenuSceneLayer.h"
 
+#import "AnimatedCloudBackground.h"
+
 
 @implementation GameOverLayer
 
@@ -19,18 +21,15 @@
     CCScene *scene = [CCScene node];
     
     GameOverLayer* gameOverLayer = [GameOverLayer node];
-    
     gameOverLayer.gameScore = score;
-    
     gameOverLayer.enemiesKilled = enemies;
-    
     gameOverLayer.timeScore = time;
 
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
+
     
-    background.anchorPoint= ccp(0,0);
     
+    AnimatedCloudBackground* background = [AnimatedCloudBackground node];
     [gameOverLayer addChild:background z:-1];
     
     [scene addChild: gameOverLayer z:1 tag:22];

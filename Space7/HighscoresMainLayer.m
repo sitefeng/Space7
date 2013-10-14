@@ -9,6 +9,8 @@
 #import "HighscoresMainLayer.h"
 #import "MenuSceneLayer.h"
 
+#import "AnimatedCloudBackground.h"
+#import "AnimatedCloudCover.h"
 
 @implementation HighscoresMainLayer
 
@@ -18,13 +20,11 @@
     CCScene *scene = [CCScene node];
     
     HighscoresMainLayer* highscoresMainLayer = [HighscoresMainLayer node];
+    AnimatedCloudCover* cloudCover = [AnimatedCloudCover node];
+    AnimatedCloudBackground* animatedBackground = [AnimatedCloudBackground node];
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
-    
-    background.anchorPoint= ccp(0,0);
-    
-    [highscoresMainLayer addChild:background z:-1];
-    
+    [highscoresMainLayer addChild: animatedBackground z:-1];
+    [highscoresMainLayer addChild: cloudCover z:2];
     [scene addChild: highscoresMainLayer];
     
     return scene;

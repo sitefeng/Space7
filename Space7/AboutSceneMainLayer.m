@@ -12,6 +12,9 @@
 #import "MenuSceneLayer.h"
 
 #import "AnimatedCloudBackground.h"
+#import "AnimatedCloudCover.h"
+
+
 
 @implementation AboutSceneMainLayer
 
@@ -22,14 +25,11 @@
     CCScene *scene = [CCScene node];
     
     AboutSceneMainLayer* aboutMainLayer = [AboutSceneMainLayer node];
-    
-    //CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
-    
-    
+    AnimatedCloudCover* cloudCover = [AnimatedCloudCover node];
     AnimatedCloudBackground* cloudBackground= [AnimatedCloudBackground node];
     
     [aboutMainLayer addChild:cloudBackground z:-1];
-   
+    [aboutMainLayer addChild:cloudCover z:2];
     [scene addChild: aboutMainLayer];
     
     return scene;

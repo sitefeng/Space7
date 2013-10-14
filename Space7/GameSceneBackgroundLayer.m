@@ -7,7 +7,8 @@
 //
 
 #import "GameSceneBackgroundLayer.h"
-
+#import "AnimatedCloudBackground.h"
+#import "AnimatedCloudCover.h"
 
 @implementation GameSceneBackgroundLayer
 
@@ -34,11 +35,18 @@
         
         self.touchEnabled = NO;
         
+        //AnimatedCloudCover* cloudCover = [AnimatedCloudCover node];
+        AnimatedCloudBackground* animatedBackground = [AnimatedCloudBackground node];
         
         
+        //[self addChild:cloudCover z:2];
+        [self addChild: animatedBackground z:-1];
         
         
+        CCSprite *background = [CCSprite spriteWithFile:@"cloudy1.png"];
+        background.anchorPoint = ccp(0,0);
         
+        [self addChild:background z:-2];
         
     }
     

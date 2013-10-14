@@ -10,6 +10,7 @@
 #import "GameSceneLayer.h"
 #import "BatttleShips.h"
 #import "AppDelegate.h"
+#import "AnimatedCloudBackground.h"
 
 @implementation SelectShipLayer
 +(CCScene*) scene
@@ -17,15 +18,13 @@
     
     CCScene *scene = [CCScene node];
     
-    SelectShipLayer* gameOverLayer = [SelectShipLayer node];
+    SelectShipLayer* selectShipLayer = [SelectShipLayer node];
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
+    AnimatedCloudBackground* animatedBackground = [AnimatedCloudBackground node];
     
-    background.anchorPoint= ccp(0,0);
+    [selectShipLayer addChild: animatedBackground z:-1];
     
-    [gameOverLayer addChild:background z:-1];
-    
-    [scene addChild: gameOverLayer];
+    [scene addChild: selectShipLayer];
     
     return scene;
 

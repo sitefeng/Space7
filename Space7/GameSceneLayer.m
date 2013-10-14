@@ -14,6 +14,7 @@
 #import "BatttleShips.h"
 #import "GameSceneDisplayLayer.h"
 #import "AppDelegate.h"
+#import "AnimatedCloudCover.h"
 
 #define kHealthBar 56
 #define kEnergyBar 57
@@ -33,11 +34,7 @@
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
     GameSceneDisplayLayer *gameSceneDisplayLayer = [GameSceneDisplayLayer node];
-    
-    CCSprite *background = [CCSprite spriteWithFile:@"bg.png"];
-    background.anchorPoint = ccp(0,0);
-    
-    [gameSceneBackgroundLayer addChild:background];
+
     
     [scene addChild: gameSceneDisplayLayer z:3 tag:66];
     [scene addChild: gameSceneControlsLayer z:2];
@@ -86,6 +83,12 @@
         [self schedule:@selector(updateShip:) interval:1.0/30.0];
         
       
+        
+        
+        AnimatedCloudCover* cloudCover = [AnimatedCloudCover node];
+
+        [self addChild:cloudCover z:2];
+        
     }
     
     return self;
