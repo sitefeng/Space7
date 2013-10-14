@@ -60,8 +60,10 @@
 		5D0654FF180BAEEC000F27C0 /* circ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654FA180BAEEC000F27C0 /* circ5.png */; };
 		5D065503180BB854000F27C0 /* AnimatedCloudCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D065502180BB854000F27C0 /* AnimatedCloudCover.m */; };
 		5D065507180BCAAA000F27C0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D065506180BCAAA000F27C0 /* FacebookSDK.framework */; };
-		5D065512180C8799000F27C0 /* gameButtonShootNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06550D180C8799000F27C0 /* gameButtonShootNormal.png */; };
-		5D065513180C8799000F27C0 /* gameButtonShootPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06550E180C8799000F27C0 /* gameButtonShootPressed.png */; };
+		5D065516180C8BC5000F27C0 /* gameButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065515180C8BC5000F27C0 /* gameButtonNormal.png */; };
+		5D065518180C8C2B000F27C0 /* gameButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065517180C8C2B000F27C0 /* gameButtonPressed.png */; };
+		5D06551A180C8D20000F27C0 /* shootCrystal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065519180C8D20000F27C0 /* shootCrystal.png */; };
+		5D065520180C9BD8000F27C0 /* brushedMetalJoystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
@@ -332,8 +334,10 @@
 		5D065501180BB854000F27C0 /* AnimatedCloudCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedCloudCover.h; sourceTree = "<group>"; };
 		5D065502180BB854000F27C0 /* AnimatedCloudCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedCloudCover.m; sourceTree = "<group>"; };
 		5D065506180BCAAA000F27C0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		5D06550D180C8799000F27C0 /* gameButtonShootNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonShootNormal.png; sourceTree = "<group>"; };
-		5D06550E180C8799000F27C0 /* gameButtonShootPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonShootPressed.png; sourceTree = "<group>"; };
+		5D065515180C8BC5000F27C0 /* gameButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonNormal.png; sourceTree = "<group>"; };
+		5D065517180C8C2B000F27C0 /* gameButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonPressed.png; sourceTree = "<group>"; };
+		5D065519180C8D20000F27C0 /* shootCrystal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shootCrystal.png; sourceTree = "<group>"; };
+		5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushedMetalJoystick.png; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -815,8 +819,9 @@
 		5D065514180C879E000F27C0 /* Shoot */ = {
 			isa = PBXGroup;
 			children = (
-				5D06550D180C8799000F27C0 /* gameButtonShootNormal.png */,
-				5D06550E180C8799000F27C0 /* gameButtonShootPressed.png */,
+				5D065515180C8BC5000F27C0 /* gameButtonNormal.png */,
+				5D065519180C8D20000F27C0 /* shootCrystal.png */,
+				5D065517180C8C2B000F27C0 /* gameButtonPressed.png */,
 			);
 			name = Shoot;
 			sourceTree = "<group>";
@@ -1401,6 +1406,7 @@
 		5D90B2041800A12B0042F3D8 /* ControlItems */ = {
 			isa = PBXGroup;
 			children = (
+				5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */,
 				5D065514180C879E000F27C0 /* Shoot */,
 				5DAF377717F10CAD003326F0 /* circle1.png */,
 				5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */,
@@ -1516,12 +1522,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD60EB318013AA70097FED8 /* gameOverTitle.png in Resources */,
-				5D065512180C8799000F27C0 /* gameButtonShootNormal.png in Resources */,
 				5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */,
 				4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */,
 				4B99490A1800F53500B5DF86 /* explosion.plist in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
-				5D065513180C8799000F27C0 /* gameButtonShootPressed.png in Resources */,
 				4B9948DF17FF9CB000B5DF86 /* star.png in Resources */,
 				5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */,
 				5DD60EB5180150A40097FED8 /* mainMenuButtonDisabled.png in Resources */,
@@ -1529,7 +1533,9 @@
 				5D90B1FD1800945A0042F3D8 /* healthBar.png in Resources */,
 				4B9948E517FFC0BE00B5DF86 /* rock1.png in Resources */,
 				5DBFEA221800F6A3008141F9 /* mainMenuButtonNormal.png in Resources */,
+				5D065516180C8BC5000F27C0 /* gameButtonNormal.png in Resources */,
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
+				5D065520180C9BD8000F27C0 /* brushedMetalJoystick.png in Resources */,
 				4B99492A1801215E00B5DF86 /* hit-hd.png in Resources */,
 				4B6888D618015CF300406F33 /* Explosion Loud.mp3 in Resources */,
 				5D0654FB180BAEEC000F27C0 /* circ1.png in Resources */,
@@ -1554,6 +1560,7 @@
 				4B99493D18012FBE00B5DF86 /* Icon-Small-50@2x.png in Resources */,
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
 				5D4CB8E9180A415D009F37BD /* cloud5.png in Resources */,
+				5D06551A180C8D20000F27C0 /* shootCrystal.png in Resources */,
 				5D4CB8E6180A415D009F37BD /* cloud2.png in Resources */,
 				4B994910180109DA00B5DF86 /* gameoverbg.png in Resources */,
 				4B99492D1801215E00B5DF86 /* hit.plist in Resources */,
@@ -1605,6 +1612,7 @@
 				5DFD62B517F2A92900E0055F /* gameButtonDisabled.png in Resources */,
 				5DD60EB8180150D50097FED8 /* tryAgainButtonDisabled.png in Resources */,
 				5D90B1FB180094560042F3D8 /* energyBar.png in Resources */,
+				5D065518180C8C2B000F27C0 /* gameButtonPressed.png in Resources */,
 				4B99494018012FBE00B5DF86 /* Icon.png in Resources */,
 				4B99492B1801215E00B5DF86 /* hit-ipadhd.plist in Resources */,
 				5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */,

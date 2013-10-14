@@ -45,7 +45,7 @@
         [self initPauseButton];
         
         
-        [self initBombButton];
+        [self initShootButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
@@ -164,21 +164,21 @@
 {
     SneakyJoystickSkinnedBase *joystickBase = [[SneakyJoystickSkinnedBase alloc] init];
     
-    joystickBase.backgroundSprite = [CCSprite spriteWithFile:@"circle1.png"];
+    CCSprite* backSprite = [CCSprite spriteWithFile:@"gameButtonNormal.png"];
     
-    [joystickBase.backgroundSprite setScale: 0.17];
+    CGSize joystickBaseSize = [backSprite contentSize];
+    
+    joystickBase.backgroundSprite = backSprite;
     
     
-    joystickBase.thumbSprite = [CCSprite spriteWithFile:@"plus.png"];
-    
-    [joystickBase.thumbSprite setScale: 0.17];
-    
+    joystickBase.thumbSprite = [CCSprite spriteWithFile:@"brushedMetalJoystick.png"];
     
     joystickBase.joystick = [[SneakyJoystick alloc] initWithRect: CGRectMake(0,0, 2, 2)];
     
     joystickBase.joystick.joystickRadius = 33;
     
-    joystickBase.position = ccp(76,76);
+    joystickBase.position = ccp(joystickBaseSize.width, joystickBaseSize.height);
+    
     
     [self addChild:joystickBase];
     
@@ -187,19 +187,27 @@
 }
 
 
--(void) initBombButton
+-(void) initShootButton
 {
     
-    CCMenuItemImage *bombButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonShootNormal.png" selectedImage:@"gameButtonShootPressed.png" target:self selector:@selector(didPressBombButton)];
+    CCMenuItemImage *ShootButtonImg= [CCMenuItemImage itemWithNormalImage:@"gameButtonNormal.png" selectedImage:@"gameButtonPressed.png" target:self selector:@selector(didPressShootButton)];
     
-    CGSize buttonSize = bombButtonImg.contentSize;
+    CGSize buttonSize = ShootButtonImg.contentSize;
     
-    CCMenu *bombButton = [CCMenu menuWithItems:bombButtonImg, nil];
+    CCMenu *ShootButton = [CCMenu menuWithItems:ShootButtonImg, nil];
     
-    bombButton.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
+    ShootButton.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
     
-    [self addChild: bombButton];
+    [self addChild: ShootButton z:75];
     
+    
+    CCSprite* shootCrystal = [CCSprite spriteWithFile:@"shootCrystal.png"];
+    
+    shootCrystal.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
+
+    [self addChild:shootCrystal z:74 tag: 74];
+    
+    [self schedule:@selector(rotateShootCrystal) interval:3 repeat:kCCRepeatForever delay:0];
     
 }
 
@@ -276,7 +284,7 @@
 
 
 
--(void) didPressBombButton
+-(void) didPressShootButton
 {
     
     CCLOG(@"Button was pressed");
@@ -300,6 +308,28 @@
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
     return gameLayer;
 }
+
+
+
+- (void)rotateShootCrystal
+{
+    
+    CCSprite* crystal = (CCSprite*)[self getChildByTag:74];
+    
+    CCRotateBy* rotateCrystal = [CCRotateBy actionWithDuration:3 angle:360];
+    
+    [crystal runAction:rotateCrystal];
+    
+    
+}
+
+
+
+
+
+
+
+
 
 
 -(void) dealloc
