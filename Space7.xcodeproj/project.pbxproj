@@ -212,6 +212,16 @@
 		5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */; };
 		5D435CF318017CBB001078E7 /* closeButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D435CF218017CBB001078E7 /* closeButtonNormal.png */; };
 		5D435CF518017CC5001078E7 /* closeButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D435CF418017CC5001078E7 /* closeButtonPressed.png */; };
+		5D4CB8D9180A3AD1009F37BD /* cloudy1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8D8180A3AD1009F37BD /* cloudy1.png */; };
+		5D4CB8E5180A415D009F37BD /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8DD180A415D009F37BD /* cloud1.png */; };
+		5D4CB8E6180A415D009F37BD /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8DE180A415D009F37BD /* cloud2.png */; };
+		5D4CB8E7180A415D009F37BD /* cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8DF180A415D009F37BD /* cloud3.png */; };
+		5D4CB8E9180A415D009F37BD /* cloud5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8E1180A415D009F37BD /* cloud5.png */; };
+		5D4CB8EA180A415D009F37BD /* cloud6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8E2180A415D009F37BD /* cloud6.png */; };
+		5D4CB8EB180A415D009F37BD /* cloud7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB8E3180A415D009F37BD /* cloud7.png */; };
+		5D5A8F20180B6FDB0055C752 /* AnimatedCloudBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A8F1F180B6FDB0055C752 /* AnimatedCloudBackground.m */; };
+		5D5A8F22180B77080055C752 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A8F21180B77080055C752 /* cloud4.png */; };
+		5D5A8F24180B775C0055C752 /* cloud8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A8F23180B775C0055C752 /* cloud8.png */; };
 		5D8A304D17F11B7B0098EF26 /* gameSceneBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */; };
 		5D8E998217F0135700F5E574 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E998117F0135700F5E574 /* ship4.png */; };
 		5D90B1FB180094560042F3D8 /* energyBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D90B1FA180094560042F3D8 /* energyBar.png */; };
@@ -618,6 +628,17 @@
 		5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceSevenBackgroundLowResolution.png; sourceTree = "<group>"; };
 		5D435CF218017CBB001078E7 /* closeButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButtonNormal.png; sourceTree = "<group>"; };
 		5D435CF418017CC5001078E7 /* closeButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButtonPressed.png; sourceTree = "<group>"; };
+		5D4CB8D8180A3AD1009F37BD /* cloudy1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy1.png; sourceTree = "<group>"; };
+		5D4CB8DD180A415D009F37BD /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
+		5D4CB8DE180A415D009F37BD /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud2.png; sourceTree = "<group>"; };
+		5D4CB8DF180A415D009F37BD /* cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud3.png; sourceTree = "<group>"; };
+		5D4CB8E1180A415D009F37BD /* cloud5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud5.png; sourceTree = "<group>"; };
+		5D4CB8E2180A415D009F37BD /* cloud6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud6.png; sourceTree = "<group>"; };
+		5D4CB8E3180A415D009F37BD /* cloud7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud7.png; sourceTree = "<group>"; };
+		5D5A8F1E180B6FDB0055C752 /* AnimatedCloudBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedCloudBackground.h; sourceTree = "<group>"; };
+		5D5A8F1F180B6FDB0055C752 /* AnimatedCloudBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedCloudBackground.m; sourceTree = "<group>"; };
+		5D5A8F21180B77080055C752 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud4.png; sourceTree = "<group>"; };
+		5D5A8F23180B775C0055C752 /* cloud8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud8.png; sourceTree = "<group>"; };
 		5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameSceneBackground.png; sourceTree = "<group>"; };
 		5D8E998117F0135700F5E574 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 		5D90B1FA180094560042F3D8 /* energyBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = energyBar.png; sourceTree = "<group>"; };
@@ -824,6 +845,8 @@
 				5DBA5C3217F51EF8007D6D61 /* HighscoresMainLayer.m */,
 				5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */,
 				5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */,
+				5D5A8F1E180B6FDB0055C752 /* AnimatedCloudBackground.h */,
+				5D5A8F1F180B6FDB0055C752 /* AnimatedCloudBackground.m */,
 				5DBFEA1D1800F306008141F9 /* GameOverLayer.h */,
 				5DBFEA1E1800F306008141F9 /* GameOverLayer.m */,
 				5D3FF53A17EFB8E300DAB13D /* Resources */,
@@ -844,10 +867,7 @@
 				5D90B2031800A1190042F3D8 /* GameSceneItems */,
 				5D90B2041800A12B0042F3D8 /* ControlItems */,
 				5D90B2051800A1400042F3D8 /* GameObjects */,
-				4B9948DC17FF91FE00B5DF86 /* ship1.png */,
-				4B6888D81801668100406F33 /* ship2.png */,
-				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
-				5D8E998117F0135700F5E574 /* ship4.png */,
+				5D4CB8DA180A3AD5009F37BD /* Backgrounds */,
 				4B9948E017FF9F4800B5DF86 /* bg.png */,
 				5D8A304C17F11B7B0098EF26 /* gameSceneBackground.png */,
 				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
@@ -1287,6 +1307,31 @@
 			name = "Background Music";
 			sourceTree = "<group>";
 		};
+		5D4CB8DA180A3AD5009F37BD /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
+				5D4CB8D8180A3AD1009F37BD /* cloudy1.png */,
+				5D4CB8ED180A4189009F37BD /* clouds */,
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		5D4CB8ED180A4189009F37BD /* clouds */ = {
+			isa = PBXGroup;
+			children = (
+				5D4CB8DD180A415D009F37BD /* cloud1.png */,
+				5D4CB8DE180A415D009F37BD /* cloud2.png */,
+				5D4CB8DF180A415D009F37BD /* cloud3.png */,
+				5D5A8F21180B77080055C752 /* cloud4.png */,
+				5D4CB8E1180A415D009F37BD /* cloud5.png */,
+				5D4CB8E2180A415D009F37BD /* cloud6.png */,
+				5D4CB8E3180A415D009F37BD /* cloud7.png */,
+				5D5A8F23180B775C0055C752 /* cloud8.png */,
+			);
+			name = clouds;
+			sourceTree = "<group>";
+		};
 		5D90B1F9180090070042F3D8 /* About Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1335,6 +1380,9 @@
 		5D90B2051800A1400042F3D8 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				4B9948DC17FF91FE00B5DF86 /* ship1.png */,
+				4B6888D81801668100406F33 /* ship2.png */,
+				5D8E998117F0135700F5E574 /* ship4.png */,
 				4B9948E617FFC1D200B5DF86 /* blueroid.png */,
 				4B9948E717FFC1D200B5DF86 /* greenroid.png */,
 				4B9948EE17FFCD2800B5DF86 /* target-red.png */,
@@ -1449,6 +1497,7 @@
 				4B9948E317FFBEE300B5DF86 /* rock4.png in Resources */,
 				5D3FF6E517EFBB0900DAB13D /* button.mp3 in Resources */,
 				5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */,
+				5D4CB8EA180A415D009F37BD /* cloud6.png in Resources */,
 				4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */,
 				5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */,
 				4B99490D1800F53500B5DF86 /* explosion-hd.plist in Resources */,
@@ -1461,6 +1510,8 @@
 				5D3FF6FD17EFE4E100DAB13D /* HighScoresTouched.png in Resources */,
 				4B99493D18012FBE00B5DF86 /* Icon-Small-50@2x.png in Resources */,
 				5D3FF70117EFE4E100DAB13D /* NewGameTouched.png in Resources */,
+				5D4CB8E9180A415D009F37BD /* cloud5.png in Resources */,
+				5D4CB8E6180A415D009F37BD /* cloud2.png in Resources */,
 				4B994910180109DA00B5DF86 /* gameoverbg.png in Resources */,
 				4B99492D1801215E00B5DF86 /* hit.plist in Resources */,
 				5DD60EC818017AE40097FED8 /* pauseButtonNormal.png in Resources */,
@@ -1475,8 +1526,10 @@
 				5DBFEA1A1800F04C008141F9 /* shoot.mp3 in Resources */,
 				4B9948E117FF9F4800B5DF86 /* bg.png in Resources */,
 				5D90B2181800E3D30042F3D8 /* LoadGameNormal.png in Resources */,
+				5D4CB8D9180A3AD1009F37BD /* cloudy1.png in Resources */,
 				5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */,
 				4B6888D118015CF300406F33 /* Blast.mp3 in Resources */,
+				5D4CB8E5180A415D009F37BD /* cloud1.png in Resources */,
 				4B6888D518015CF300406F33 /* Explosion 3.mp3 in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				4B99490C1800F53500B5DF86 /* explosion.png in Resources */,
@@ -1486,6 +1539,7 @@
 				5D3FF71317EFF1C100DAB13D /* selectScene.mp3 in Resources */,
 				5D3FF71717EFF1C100DAB13D /* level4.mp3 in Resources */,
 				4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */,
+				5D4CB8EB180A415D009F37BD /* cloud7.png in Resources */,
 				4B6888D318015CF300406F33 /* Explosion 1.mp3 in Resources */,
 				5DD60EC61801783A0097FED8 /* DebugIconNormal.png in Resources */,
 				4B99494318012FBE00B5DF86 /* iTunesArtwork@2x.png in Resources */,
@@ -1512,6 +1566,7 @@
 				4B99494018012FBE00B5DF86 /* Icon.png in Resources */,
 				4B99492B1801215E00B5DF86 /* hit-ipadhd.plist in Resources */,
 				5D3FF54217EFB8E300DAB13D /* Default-Landscape~ipad.png in Resources */,
+				5D5A8F24180B775C0055C752 /* cloud8.png in Resources */,
 				5D3FF70717EFEAD000DAB13D /* AboutButtonNormal.png in Resources */,
 				5DAF377817F10CAD003326F0 /* circle1.png in Resources */,
 				4B6888D018015CF300406F33 /* 0. SFX_Read.pdf in Resources */,
@@ -1519,12 +1574,14 @@
 				4B9949291801215E00B5DF86 /* hit-hd.plist in Resources */,
 				5D3FF6E917EFBB0900DAB13D /* getBomb.mp3 in Resources */,
 				4B99493A18012FBC00B5DF86 /* Icon-76.png in Resources */,
+				5D4CB8E7180A415D009F37BD /* cloud3.png in Resources */,
 				4B9949091800F53500B5DF86 /* explosion-ipadhd.plist in Resources */,
 				4B9948EC17FFC1D200B5DF86 /* redroid.png in Resources */,
 				5DFD62B117F2A8AC00E0055F /* gameButtonNormal.png in Resources */,
 				5DBFEA261800F6C3008141F9 /* tryAgainButtonPressed.png in Resources */,
 				4B99494118012FBE00B5DF86 /* Icon@2x.png in Resources */,
 				4B99493E18012FBE00B5DF86 /* Icon-Small.png in Resources */,
+				5D5A8F22180B77080055C752 /* cloud4.png in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D435CF518017CC5001078E7 /* closeButtonPressed.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
@@ -1674,6 +1731,7 @@
 				5D3FF58617EFB8E400DAB13D /* CCCamera.m in Sources */,
 				5D3FF58017EFB8E400DAB13D /* CCAnimationCache.m in Sources */,
 				5D3FF5A217EFB8E400DAB13D /* CCGLProgram.m in Sources */,
+				5D5A8F20180B6FDB0055C752 /* AnimatedCloudBackground.m in Sources */,
 				5D3FF69217EFB8E600DAB13D /* SimpleAudioEngine.m in Sources */,
 				5D3FF64417EFB8E500DAB13D /* CCTouchDispatcher.m in Sources */,
 				5D3FF5C717EFB8E400DAB13D /* CCNode.m in Sources */,

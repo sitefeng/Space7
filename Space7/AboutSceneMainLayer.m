@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "MenuSceneLayer.h"
 
+#import "AnimatedCloudBackground.h"
 
 @implementation AboutSceneMainLayer
 
@@ -22,11 +23,12 @@
     
     AboutSceneMainLayer* aboutMainLayer = [AboutSceneMainLayer node];
     
-    CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
+    //CCSprite * background = [CCSprite spriteWithFile:@"gameSceneBackground.png"];
     
-    background.anchorPoint= ccp(0,0);
     
-    [aboutMainLayer addChild:background z:-1];
+    AnimatedCloudBackground* cloudBackground= [AnimatedCloudBackground node];
+    
+    [aboutMainLayer addChild:cloudBackground z:-1];
    
     [scene addChild: aboutMainLayer];
     
@@ -46,7 +48,7 @@
         
         dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
         
-        dText.text = @"Well, hi there, commander!\nWe are now lost in a galaxy far far away from Earth. We have an urgent objective to find our way back to the Milky Way Galaxy. During our adventure, we'll explore gorgeous galaxies while trying to avoid evil alien spaceships.\nI hope you'll enjoy!\n\nSincerely,\niOS game devs\n\n-----\n\nPlease email us at technochimera@gmail.com if you have any questions or suggestions about the game. If you like this game, please spread the word and share this on Facebook. \n\nThank you for your support!\n\nOctober 5th, 2013\n\n\n-----\n\nDetails\n\n    This iOS game was made by Si Te Feng and Karim Kawambwa during the 30 hour, 2013 hackMIT. As the authors of the game, we would like to thank the very helpful mentors at \"Make Games With Us\" for talking the time to give some invaluable advices. We also want to thank www.designbolts.com as well as www.freesfx.co.uk for providing to us with some very good sound effects to use in the game. In addition, thanks goes out to subversion.bandcamp.com for its awesome background soundtrack. Last but not least, thank you for supporting and enjoying the game.";
+        dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: September 22, 2013\n\nFirst Completion Date: November 22, 2013\n\nThank you for supporting and enjoying the game.\n\n\nWell, hi there, commander!\nWe are now lost in a galaxy far far away from Earth. We have an urgent objective to find our way back to the Milky Way Galaxy. During our adventure, we'll explore gorgeous galaxies while trying to avoid evil alien spaceships.\nI hope you'll enjoy!\n\nSincerely,\niOS game devs\n\n*****\n\nPlease email us at technochimera@gmail.com if you have any questions or suggestions about the game. If you like this game, please spread the word and share this on Facebook. \n\nThank you for your support!\n\nOctober 5th, 2013\n\n\n";
         
         [dText setEditable:NO];
         

@@ -164,14 +164,8 @@
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
-    {
-        
-        UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:nil delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:nil];
-    
-        [pauseAlert show];
-        
 		[director_ stopAnimation];
-    }
+    
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
