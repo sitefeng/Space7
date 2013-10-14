@@ -48,11 +48,15 @@
         
         dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
         
+        dText.delegate = self;
+        
         dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: September 22, 2013\n\nFirst Completion Date: November 22, 2013\n\nThank you for supporting and enjoying the game.\n\n\nWell, hi there, commander!\nWe are now lost in a galaxy far far away from Earth. We have an urgent objective to find our way back to the Milky Way Galaxy. During our adventure, we'll explore gorgeous galaxies while trying to avoid evil alien spaceships.\nI hope you'll enjoy!\n\nSincerely,\niOS game devs\n\n*****\n\nPlease email us at technochimera@gmail.com if you have any questions or suggestions about the game. If you like this game, please spread the word and share this on Facebook. \n\nThank you for your support!\n\nOctober 5th, 2013\n\n\n";
         
         [dText setEditable:NO];
         
         dText.font = [UIFont fontWithName:@"Helvetica" size:18];
+        
+        dText.textColor = [UIColor colorWithRed:50 green:170 blue:255 alpha:1];
         
         dText.backgroundColor = [UIColor clearColor];
         
@@ -148,22 +152,6 @@
     
     
 }
-
-
-
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    
-    [exTextField resignFirstResponder];
-    
-    return YES;
-    
-    
-}
-
-
-
-
 
 
 

@@ -13,11 +13,11 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 
 
-@interface AboutSceneMainLayer : CCLayer <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
+@interface AboutSceneMainLayer : CCLayer <UITextViewDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate>
 {
     UITextView *dText;
-    UITextField* exTextField;
     
+    NSTimer* _mainLoopTimer;
     
     
 }

@@ -8,7 +8,7 @@
 
 #import "AnimatedCloudBackground.h"
 
-#define kwinSize [[CCDirector sharedDirector] winSize]
+#define kWinSize [[CCDirector sharedDirector] winSize]
 
 #define kNumClouds 8
 
@@ -45,31 +45,35 @@
             
             CGSize contentSize = [sprite contentSize];
             
-            sprite.position = ccp(kwinSize.width+contentSize.width*1.5, kwinSize.height/2.0);
+            sprite.position = ccp(kWinSize.width+contentSize.width*1.5, kWinSize.height/2.0);
             
             
             [self addChild:sprite z:i tag:i];
             
         }
         
-        
-        
-        
-        
-        
-        
-        
+  
         [self schedule:@selector(initNewCloud)];
-        
-        CCSprite* try = [CCSprite spriteWithFile:@"ship4.png"];
-        try.position = ccp(0, kwinSize.height/2.0);
-        
-        [self addChild:try z:9 tag:88];
-        
-        [self schedule:@selector(moveCloud) interval:0.05 repeat:kCCRepeatForever delay:0];
 
         
         
+        
+        for(int i=1; i<= 5; i++)
+        {
+            
+            CCSprite* sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"circ%i.png",i]];
+            
+            sprite.anchorPoint = ccp(0.5f,0.5f);
+            
+            [sprite setScale: 1+ CCRANDOM_0_1()*3];
+            
+            sprite.position = ccp(kWinSize.width * CCRANDOM_0_1(), kWinSize.height * CCRANDOM_0_1());
+            
+            [self addChild:sprite z:14.0+CCRANDOM_0_1()*16.0 tag:100 + i];
+            
+        }
+        
+
         
     }
     
@@ -91,13 +95,13 @@
         CGSize contentSize = [cloudSprite contentSize];
         
         
-        if(cloudSprite.position.x >= kwinSize.width + contentSize.width*1.5 || cloudSprite.position.x <= -1 * contentSize.width*1.5  )
+        if(cloudSprite.position.x >= kWinSize.width + contentSize.width*1.5 || cloudSprite.position.x <= -1 * contentSize.width*1.5  )
         
         {
             
-            float cloudVerticalPosition = CCRANDOM_0_1()*kwinSize.height;
+            float cloudVerticalPosition = CCRANDOM_0_1()*kWinSize.height;
             
-            cloudSprite.position = ccp(kwinSize.width + contentSize.width*1.5, cloudVerticalPosition);
+            cloudSprite.position = ccp(kWinSize.width + contentSize.width*1.5, cloudVerticalPosition);
             
             [cloudSprite setRotation:CCRANDOM_0_1()*360];
             
@@ -105,39 +109,21 @@
             float scaleValue = 1.0 + CCRANDOM_0_1()*1.5;
             [cloudSprite setScale:scaleValue];
             
-            CCMoveTo* moveCloud = [CCMoveTo actionWithDuration:0.3 + CCRANDOM_0_1()*kMaxCloudDuration position:ccp(contentSize.width*1.5 * -1, cloudVerticalPosition)];
+            
+            float cloudDuration = 0.5 + CCRANDOM_0_1()*kMaxCloudDuration;
+            cloudSprite.zOrder = (int)(30 - cloudDuration); //Current range 14-30
+            
+            CCMoveTo* moveCloud = [CCMoveTo actionWithDuration:cloudDuration position:ccp(contentSize.width*1.5 * -1, cloudVerticalPosition)];
             
             [cloudSprite runAction: moveCloud];
-            
-
-            
+        
             break;
         }
         
     }
     
-    
-    
-    
-    
-    
-    
+
     [self schedule:@selector(initNewCloud) interval:1 repeat:kCCRepeatForever delay:CCRANDOM_0_1()* kCloudFrequency];
-    
-}
-
-
-
-
-- (void) moveCloud
-{
-    
-    CCSprite* try = (CCSprite*)[self getChildByTag:88];
-    
-    try.position = ccpAdd(try.position, ccp(5,0));
-    
-    
-    
     
 }
 

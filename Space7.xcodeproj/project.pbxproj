@@ -54,6 +54,11 @@
 		4B99494118012FBE00B5DF86 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B99493718012FBB00B5DF86 /* Icon@2x.png */; };
 		4B99494218012FBE00B5DF86 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B99493818012FBB00B5DF86 /* iTunesArtwork.png */; };
 		4B99494318012FBE00B5DF86 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B99493918012FBB00B5DF86 /* iTunesArtwork@2x.png */; };
+		5D0654FB180BAEEC000F27C0 /* circ1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654F6180BAEEC000F27C0 /* circ1.png */; };
+		5D0654FC180BAEEC000F27C0 /* circ2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654F7180BAEEC000F27C0 /* circ2.png */; };
+		5D0654FD180BAEEC000F27C0 /* circ3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654F8180BAEEC000F27C0 /* circ3.png */; };
+		5D0654FE180BAEEC000F27C0 /* circ4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654F9180BAEEC000F27C0 /* circ4.png */; };
+		5D0654FF180BAEEC000F27C0 /* circ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0654FA180BAEEC000F27C0 /* circ5.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
@@ -320,6 +325,11 @@
 		4B99493718012FBB00B5DF86 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4B99493818012FBB00B5DF86 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		4B99493918012FBB00B5DF86 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		5D0654F6180BAEEC000F27C0 /* circ1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circ1.png; sourceTree = "<group>"; };
+		5D0654F7180BAEEC000F27C0 /* circ2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circ2.png; sourceTree = "<group>"; };
+		5D0654F8180BAEEC000F27C0 /* circ3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circ3.png; sourceTree = "<group>"; };
+		5D0654F9180BAEEC000F27C0 /* circ4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circ4.png; sourceTree = "<group>"; };
+		5D0654FA180BAEEC000F27C0 /* circ5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circ5.png; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -786,6 +796,18 @@
 				4B99493918012FBB00B5DF86 /* iTunesArtwork@2x.png */,
 			);
 			path = "Space7  icons";
+			sourceTree = "<group>";
+		};
+		5D065500180BAEF1000F27C0 /* circles */ = {
+			isa = PBXGroup;
+			children = (
+				5D0654F6180BAEEC000F27C0 /* circ1.png */,
+				5D0654F7180BAEEC000F27C0 /* circ2.png */,
+				5D0654F8180BAEEC000F27C0 /* circ3.png */,
+				5D0654F9180BAEEC000F27C0 /* circ4.png */,
+				5D0654FA180BAEEC000F27C0 /* circ5.png */,
+			);
+			name = circles;
 			sourceTree = "<group>";
 		};
 		5D3FF51917EFB8E300DAB13D = {
@@ -1312,6 +1334,7 @@
 			children = (
 				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
 				5D4CB8D8180A3AD1009F37BD /* cloudy1.png */,
+				5D065500180BAEF1000F27C0 /* circles */,
 				5D4CB8ED180A4189009F37BD /* clouds */,
 			);
 			name = Backgrounds;
@@ -1491,9 +1514,11 @@
 				5D3FF6EC17EFBB0900DAB13D /* shrink.mp3 in Resources */,
 				4B99492A1801215E00B5DF86 /* hit-hd.png in Resources */,
 				4B6888D618015CF300406F33 /* Explosion Loud.mp3 in Resources */,
+				5D0654FB180BAEEC000F27C0 /* circ1.png in Resources */,
 				5D3FF70917EFEB6700DAB13D /* AboutButtonTouched.png in Resources */,
 				4B6888D718015CF300406F33 /* Mortar Explosions x3.mp3 in Resources */,
 				4B99492E1801215E00B5DF86 /* hit.png in Resources */,
+				5D0654FC180BAEEC000F27C0 /* circ2.png in Resources */,
 				4B9948E317FFBEE300B5DF86 /* rock4.png in Resources */,
 				5D3FF6E517EFBB0900DAB13D /* button.mp3 in Resources */,
 				5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */,
@@ -1527,6 +1552,7 @@
 				4B9948E117FF9F4800B5DF86 /* bg.png in Resources */,
 				5D90B2181800E3D30042F3D8 /* LoadGameNormal.png in Resources */,
 				5D4CB8D9180A3AD1009F37BD /* cloudy1.png in Resources */,
+				5D0654FD180BAEEC000F27C0 /* circ3.png in Resources */,
 				5D90B20D1800A4CA0042F3D8 /* gameScoreFont-hd.png in Resources */,
 				4B6888D118015CF300406F33 /* Blast.mp3 in Resources */,
 				5D4CB8E5180A415D009F37BD /* cloud1.png in Resources */,
@@ -1590,11 +1616,13 @@
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
 				5DD60EBE1801759A0097FED8 /* FacebookIconNormal.png in Resources */,
 				5DBFEA161800EB84008141F9 /* homePage.mp3 in Resources */,
+				5D0654FE180BAEEC000F27C0 /* circ4.png in Resources */,
 				5D90B21E1800E4E00042F3D8 /* LoadGameDisabled.png in Resources */,
 				5D3FF71517EFF1C100DAB13D /* about.mp3 in Resources */,
 				4B99493C18012FBE00B5DF86 /* Icon-Small-50.png in Resources */,
 				5D3FF6E417EFBB0900DAB13D /* bombActivate.mp3 in Resources */,
 				4B9948EF17FFCD2800B5DF86 /* target-red.png in Resources */,
+				5D0654FF180BAEEC000F27C0 /* circ5.png in Resources */,
 				5DBFEA1C1800F054008141F9 /* gotHit.mp3 in Resources */,
 				4B99494218012FBE00B5DF86 /* iTunesArtwork.png in Resources */,
 				5DFD62B317F2A8B100E0055F /* gameButtonPressed.png in Resources */,
