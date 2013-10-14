@@ -163,15 +163,15 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"gameOverSceneExplode.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
-    CCParticleExplosion* fire = [[CCParticleExplosion alloc] init];
+    CCParticleExplosion* circles = [[CCParticleExplosion alloc] init];
     
-    fire.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
+    circles.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
     
-    [fire setDuration:0.5];
+    [circles setDuration:0.5];
     
-    fire.position =ccp(winSize.width/2, winSize.height - 50);
+    circles.position =ccp(winSize.width/2, winSize.height - 50);
     
-    [self addChild: fire z:6];
+    [self addChild: circles z:6];
 
     
 }
@@ -215,7 +215,7 @@
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0fs",self.timeScore] fontName:@"Marker Felt" fontSize:30];
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f s",self.timeScore] fontName:@"Marker Felt" fontSize:30];
 
     valueLabel.position =ccp(winSize.width/2, winSize.height - 127.5);
     
@@ -284,18 +284,12 @@
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
     
-    CCLabelTTF* valueLabel;
+    NSMutableString* valueString = [NSMutableString stringWithFormat:@"%.0f",self.gameScore];
     
     if(self.gameScore>=1000)
-    {
-    
-        valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f!",self.gameScore] fontName:@"Marker Felt" fontSize:35];
-    }
-    else
-    {
-        valueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Marker Felt" fontSize:35];
+        [valueString appendString:@" !"];
         
-    }
+    CCLabelTTF* valueLabel = [CCLabelTTF labelWithString: valueString fontName:@"Marker Felt" fontSize:35];;
     
     valueLabel.position =ccp(winSize.width/2, winSize.height - 280);
     
@@ -303,7 +297,6 @@
     
     [_tryAgainItem setIsEnabled:YES];
     [_mainMenuItem setIsEnabled:YES];
-    
     
 }
 
