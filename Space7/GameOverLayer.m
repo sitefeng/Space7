@@ -390,9 +390,7 @@
     
     [picker setSubject:@"Let's play Space 7!"];
     
-    [picker setToRecipients:[NSArray arrayWithObjects:@"technochimera@gmail.com", nil]];
-    
-    NSString *emailBody = @"Please describe the problems that you were experiencing during the game: \n";
+    NSString *emailBody = @"The new Space 7 iOS game for iPhone and iPod touch has arrived! Download the game now on the App Store. \n\nI'm sure you'll enjoy it!";
     
     [picker setMessageBody:emailBody isHTML:NO];
     

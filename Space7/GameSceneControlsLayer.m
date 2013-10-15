@@ -207,7 +207,7 @@
 
     [self addChild:shootCrystal z:74 tag: 74];
     
-    [self schedule:@selector(rotateShootCrystal) interval:3 repeat:kCCRepeatForever delay:0];
+    [self schedule:@selector(rotateShootCrystal) interval:1 repeat:kCCRepeatForever delay:0];
     
 }
 
@@ -316,7 +316,7 @@
     
     CCSprite* crystal = (CCSprite*)[self getChildByTag:74];
     
-    CCRotateBy* rotateCrystal = [CCRotateBy actionWithDuration:3 angle:360];
+    CCRotateBy* rotateCrystal = [CCRotateBy actionWithDuration:1 angle:120];
     
     [crystal runAction:rotateCrystal];
     
