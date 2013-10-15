@@ -29,7 +29,7 @@
 
 
 - (void)updateHealth: (float)newhealth;
-- (void)checkHealth;
+//- (void)checkHealth;
 - (void)updatescore: (float)score;
 - (void)updatekill;
 

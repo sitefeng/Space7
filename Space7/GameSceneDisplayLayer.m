@@ -15,6 +15,8 @@
 #define kProfilePicture 58
 #define kGameScoreLabel 59
 
+#define kWinSize [[CCDirector sharedDirector] winSize]
+
 @implementation GameSceneDisplayLayer
 {
     float updateTime;
@@ -98,20 +100,20 @@
         
         gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
         
-        gameScoreSLabel.position = ccp(490,310);
+        gameScoreSLabel.position = ccp(kWinSize.width - 78,310);
         
         enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
         
-        enemiesKilledKLabel.position = ccp(490,290);
+        enemiesKilledKLabel.position = ccp(kWinSize.width - 78,290);
         
         
         self.gameScoreValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
-        self.gameScoreValueLabel.position = ccp(530,310);
+        self.gameScoreValueLabel.position = ccp(kWinSize.width - 38,310);
         
         self.enemiesKilledValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
         
-        self.enemiesKilledValueLabel.position = ccp(530,290);
+        self.enemiesKilledValueLabel.position = ccp(kWinSize.width - 38,290);
         
         
         [self addChild:gameScoreSLabel z:5 tag:kGameScoreLabel];
