@@ -6,6 +6,7 @@
 //  Copyright 2013 Si Te Feng. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "GameOverLayer.h"
 #import "GameSceneLayer.h"
 #import "MenuSceneLayer.h"
@@ -18,9 +19,8 @@
 
 
 #define kTitleBorderOrder 6
-
 #define kMenuButtonOrder 5
-
+#define kIconOrder 7
 
 
 #define kMenuButtonTag 10
@@ -336,12 +336,80 @@
     [_mainMenuItem setIsEnabled:YES];
     
     
+    //Creating the tappable 3 Icons on the right side
+    CCMenuItemImage *emailIcon = [CCMenuItemImage itemWithNormalImage:@"emailIconNormal.png" selectedImage:@"emailIconPressed.png" target:self selector:@selector(emailIconPressed)];
+    
+    [emailIcon setScale:0.7];
+    
+    
+    CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIconNormal.png" selectedImage:@"facebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
+    
+    [facebookIcon setScale:0.7];
+    
+    CCMenu *iconsMenu = [CCMenu menuWithItems:emailIcon, facebookIcon, nil];
+    
+    iconsMenu.position = CGPointMake(kWinSize.width/2.0,[facebookIcon contentSize].height * -1);
+    
+    [iconsMenu alignItemsHorizontallyWithPadding:90];
+    
+    [self addChild:iconsMenu z:kIconOrder];
+
+    CCMoveTo* shareIconsMove = [CCMoveTo actionWithDuration:0.4 position:CGPointMake(kWinSize.width/2.0, kWinSize.height - 280)];
+    
+    [iconsMenu runAction:shareIconsMove];
+    
+    
+    
+    
+}
+
+
+
+
+- (void)facebookIconPressed
+{
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
+    
     
     
     
     
     
 }
+
+
+
+- (void) emailIconPressed
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    
+    [picker setSubject:@"Let's play Space 7!"];
+    
+    [picker setToRecipients:[NSArray arrayWithObjects:@"technochimera@gmail.com", nil]];
+    
+    NSString *emailBody = @"Please describe the problems that you were experiencing during the game: \n";
+    
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+    [app.navController presentViewController:picker animated:YES completion:nil];
+}
+
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+    [app.navController dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
 
 
 @end

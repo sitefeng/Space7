@@ -15,6 +15,7 @@
 #import "AnimatedCloudCover.h"
 
 
+#define kIconOrder 1
 
 @implementation AboutSceneMainLayer
 
@@ -66,24 +67,23 @@
         
         
         //Creating the tappable 3 Icons on the right side
-        CCMenuItemImage *reportBug = [CCMenuItemImage itemWithNormalImage:@"DebugIconNormal.png" selectedImage:@"DebugIconPressed.png" target:self selector:@selector(reportBugIconPressed)];
+        CCMenuItemImage *reportBug = [CCMenuItemImage itemWithNormalImage:@"emailIconNormal.png" selectedImage:@"emailIconPressed.png" target:self selector:@selector(reportBugIconPressed)];
         
-        [reportBug setScale:0.6];
         
         CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIconNormal.png" selectedImage:@"facebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
-        
-        [facebookIcon setScale:0.6];
+
         
         CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeButtonNormal.png" selectedImage:@"closeButtonPressed.png" target:self selector:@selector(closeIconPressed)];
-        [closeIcon setScale:0.7];
         
         CCMenu *iconsMenu = [CCMenu menuWithItems:reportBug, facebookIcon, closeIcon, nil];
         
         iconsMenu.position = CGPointMake(504, 160);
         
-        [iconsMenu alignItemsVerticallyWithPadding:10];
+        [iconsMenu alignItemsVerticallyWithPadding:35];
         
-        [self addChild:iconsMenu z:1];
+        [self addChild:iconsMenu z:kIconOrder];
+        
+
         
         //Creating the Title of the scene and display on the top
         

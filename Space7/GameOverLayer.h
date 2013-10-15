@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface GameOverLayer : CCLayer {
+
+@interface GameOverLayer : CCLayer <MFMailComposeViewControllerDelegate>
+{
     
     CCMenuItemImage* _tryAgainItem;
     CCMenuItemImage* _mainMenuItem;

@@ -54,18 +54,16 @@
         
         
         //Creating the tappable 3 Icons on the right side
-        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"FacebookIconNormal.png" selectedImage:@"FacebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
+        CCMenuItemImage *facebookIcon = [CCMenuItemImage itemWithNormalImage:@"facebookIconNormal.png" selectedImage:@"facebookIconPressed.png" target:self selector:@selector(facebookIconPressed)];
         
-        [facebookIcon setScale:0.8];
         
         CCMenuItemImage *closeIcon = [CCMenuItemImage itemWithNormalImage:@"closeButtonNormal.png" selectedImage:@"closeButtonPressed.png" target:self selector:@selector(closeIconPressed)];
-        [closeIcon setScale:0.7];
         
         CCMenu *iconsMenu = [CCMenu menuWithItems: facebookIcon, closeIcon, nil];
         
         iconsMenu.position = CGPointMake(504, 160);
         
-        [iconsMenu alignItemsVerticallyWithPadding:40];
+        [iconsMenu alignItemsVerticallyWithPadding:45];
         
         [self addChild:iconsMenu z:1];
         
