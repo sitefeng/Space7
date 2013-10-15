@@ -64,6 +64,8 @@
 		5D065518180C8C2B000F27C0 /* gameButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065517180C8C2B000F27C0 /* gameButtonPressed.png */; };
 		5D06551A180C8D20000F27C0 /* shootCrystal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065519180C8D20000F27C0 /* shootCrystal.png */; };
 		5D065520180C9BD8000F27C0 /* brushedMetalJoystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */; };
+		5D065523180CDDBE000F27C0 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065521180CDDBE000F27C0 /* pauseButtonNormal.png */; };
+		5D065524180CDDBE000F27C0 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065522180CDDBE000F27C0 /* pauseButtonPressed.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D3FF52617EFB8E300DAB13D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */; };
@@ -263,12 +265,8 @@
 		5DD60EB8180150D50097FED8 /* tryAgainButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */; };
 		5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */; };
 		5DD60EBC180157310097FED8 /* shoot2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBB180157310097FED8 /* shoot2.mp3 */; };
-		5DD60EBE1801759A0097FED8 /* FacebookIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBD1801759A0097FED8 /* FacebookIconNormal.png */; };
-		5DD60EC0180175D60097FED8 /* FacebookIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */; };
 		5DD60EC4180177360097FED8 /* DebugIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC3180177360097FED8 /* DebugIconPressed.png */; };
 		5DD60EC61801783A0097FED8 /* DebugIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC51801783A0097FED8 /* DebugIconNormal.png */; };
-		5DD60EC818017AE40097FED8 /* pauseButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */; };
-		5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 		5DFD62B517F2A92900E0055F /* gameButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62B417F2A92900E0055F /* gameButtonDisabled.png */; };
@@ -336,6 +334,8 @@
 		5D065517180C8C2B000F27C0 /* gameButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonPressed.png; sourceTree = "<group>"; };
 		5D065519180C8D20000F27C0 /* shootCrystal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shootCrystal.png; sourceTree = "<group>"; };
 		5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushedMetalJoystick.png; sourceTree = "<group>"; };
+		5D065521180CDDBE000F27C0 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
+		5D065522180CDDBE000F27C0 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -694,12 +694,8 @@
 		5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonDisabled.png; sourceTree = "<group>"; };
 		5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSceneExplode.mp3; sourceTree = "<group>"; };
 		5DD60EBB180157310097FED8 /* shoot2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot2.mp3; sourceTree = "<group>"; };
-		5DD60EBD1801759A0097FED8 /* FacebookIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookIconNormal.png; sourceTree = "<group>"; };
-		5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookIconPressed.png; sourceTree = "<group>"; };
 		5DD60EC3180177360097FED8 /* DebugIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconPressed.png; sourceTree = "<group>"; };
 		5DD60EC51801783A0097FED8 /* DebugIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconNormal.png; sourceTree = "<group>"; };
-		5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonNormal.png; sourceTree = "<group>"; };
-		5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButtonPressed.png; sourceTree = "<group>"; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 		5DFD62B417F2A92900E0055F /* gameButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameButtonDisabled.png; sourceTree = "<group>"; };
@@ -905,8 +901,6 @@
 				5D90B2041800A12B0042F3D8 /* ControlItems */,
 				5D90B2051800A1400042F3D8 /* GameObjects */,
 				5D4CB8DA180A3AD5009F37BD /* Backgrounds */,
-				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
-				5D3FF6F417EFDBC400DAB13D /* SpaceSevenBackground.png */,
 				5D3FF70217EFE4E900DAB13D /* MenuItems */,
 				5D3FF71817EFF1C700DAB13D /* Background Music */,
 				5D3FF6D817EFBB0900DAB13D /* Sound effects */,
@@ -1343,6 +1337,8 @@
 		5D4CB8DA180A3AD5009F37BD /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				5D3FF6F417EFDBC400DAB13D /* SpaceSevenBackground.png */,
+				5D3FF72A17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png */,
 				4B9949001800D3B900B5DF86 /* bg-cloudy.png */,
 				5D4CB8D8180A3AD1009F37BD /* cloudy1.png */,
 				5D065500180BAEF1000F27C0 /* circles */,
@@ -1372,9 +1368,7 @@
 				5DD60EC3180177360097FED8 /* DebugIconPressed.png */,
 				5DD60EC51801783A0097FED8 /* DebugIconNormal.png */,
 				5D435CF218017CBB001078E7 /* closeButtonNormal.png */,
-				5DD60EBD1801759A0097FED8 /* FacebookIconNormal.png */,
 				5D435CF418017CC5001078E7 /* closeButtonPressed.png */,
-				5DD60EBF180175D60097FED8 /* FacebookIconPressed.png */,
 			);
 			name = "About Scene";
 			sourceTree = "<group>";
@@ -1402,10 +1396,10 @@
 		5D90B2041800A12B0042F3D8 /* ControlItems */ = {
 			isa = PBXGroup;
 			children = (
+				5D065521180CDDBE000F27C0 /* pauseButtonNormal.png */,
+				5D065522180CDDBE000F27C0 /* pauseButtonPressed.png */,
 				5D06551F180C9BD8000F27C0 /* brushedMetalJoystick.png */,
 				5D065514180C879E000F27C0 /* Shoot */,
-				5DD60EC718017AE40097FED8 /* pauseButtonNormal.png */,
-				5DD60EC918017AEF0097FED8 /* pauseButtonPressed.png */,
 				5DFD62AA17F2A14500E0055F /* circle2.png */,
 			);
 			name = ControlItems;
@@ -1516,7 +1510,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD60EB318013AA70097FED8 /* gameOverTitle.png in Resources */,
-				5DD60ECA18017AEF0097FED8 /* pauseButtonPressed.png in Resources */,
 				4B9949011800D3B900B5DF86 /* bg-cloudy.png in Resources */,
 				4B99490A1800F53500B5DF86 /* explosion.plist in Resources */,
 				5D3FF72B17F003A500DAB13D /* SpaceSevenBackgroundLowResolution.png in Resources */,
@@ -1548,7 +1541,6 @@
 				4B9948EA17FFC1D200B5DF86 /* blueroid.png in Resources */,
 				5D3FF6FF17EFE4E100DAB13D /* LoadGameTouched.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
-				5DD60EC0180175D60097FED8 /* FacebookIconPressed.png in Resources */,
 				5D3FF53E17EFB8E300DAB13D /* Default@2x.png in Resources */,
 				5D3FF6FD17EFE4E100DAB13D /* HighScoresTouched.png in Resources */,
 				4B99493D18012FBE00B5DF86 /* Icon-Small-50@2x.png in Resources */,
@@ -1558,7 +1550,6 @@
 				5D4CB8E6180A415D009F37BD /* cloud2.png in Resources */,
 				4B994910180109DA00B5DF86 /* gameoverbg.png in Resources */,
 				4B99492D1801215E00B5DF86 /* hit.plist in Resources */,
-				5DD60EC818017AE40097FED8 /* pauseButtonNormal.png in Resources */,
 				5DD60EAF1801244A0097FED8 /* spaceshipNameFont-hd.fnt in Resources */,
 				5D90B20C1800A4CA0042F3D8 /* gameScoreFont-hd.fnt in Resources */,
 				5D90B21A1800E3E00042F3D8 /* NewGameNormal.png in Resources */,
@@ -1576,6 +1567,7 @@
 				5D4CB8E5180A415D009F37BD /* cloud1.png in Resources */,
 				4B6888D518015CF300406F33 /* Explosion 3.mp3 in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
+				5D065524180CDDBE000F27C0 /* pauseButtonPressed.png in Resources */,
 				4B99490C1800F53500B5DF86 /* explosion.png in Resources */,
 				4B99493B18012FBE00B5DF86 /* Icon-76@2x.png in Resources */,
 				5D3FF6E317EFBB0900DAB13D /* alienAppear.wav in Resources */,
@@ -1629,7 +1621,7 @@
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,
 				5D3FF6E717EFBB0900DAB13D /* enlarge.mp3 in Resources */,
 				5D3FF71417EFF1C100DAB13D /* level1.mp3 in Resources */,
-				5DD60EBE1801759A0097FED8 /* FacebookIconNormal.png in Resources */,
+				5D065523180CDDBE000F27C0 /* pauseButtonNormal.png in Resources */,
 				5DBFEA161800EB84008141F9 /* homePage.mp3 in Resources */,
 				5D0654FE180BAEEC000F27C0 /* circ4.png in Resources */,
 				5D90B21E1800E4E00042F3D8 /* LoadGameDisabled.png in Resources */,
@@ -1799,7 +1791,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1818,7 +1810,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

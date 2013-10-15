@@ -218,7 +218,7 @@
     
     CCMenu *pauseButton = [CCMenu menuWithItems:pauseButtonImg, nil];
     
-    pauseButton.position = ccp(525, 250);
+    pauseButton.position = ccp(kWinSize.width - 43, 250);
     
     [self addChild: pauseButton];
     
