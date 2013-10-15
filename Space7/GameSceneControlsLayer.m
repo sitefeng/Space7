@@ -247,7 +247,7 @@
     [[CCDirector sharedDirector] stopAnimation];
     
 
-    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be lost when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
+    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be automatically saved when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
     
     [pauseAlert show];
     
