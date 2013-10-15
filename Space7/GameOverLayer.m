@@ -74,6 +74,15 @@
             self.timeScore = 0;
         }
         
+        [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+        [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+        [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
+        [[NSUserDefaults standardUserDefaults] setFloat:50 forKey:@"energyLevel"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
 
         [_tryAgainItem setIsEnabled:NO];
@@ -350,7 +359,7 @@
     
     iconsMenu.position = CGPointMake(kWinSize.width/2.0,[facebookIcon contentSize].height * -1);
     
-    [iconsMenu alignItemsHorizontallyWithPadding:90];
+    [iconsMenu alignItemsHorizontallyWithPadding:100];
     
     [self addChild:iconsMenu z:kIconOrder];
 

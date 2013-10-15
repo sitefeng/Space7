@@ -23,7 +23,10 @@
 @implementation Geronimo
 
 - (id)init {
-    if ((self = [super initWithFile:@"ship1.png" hp:100 ])) {
+    
+    float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
+    
+    if ((self = [super initWithFile:@"ship1.png" hp:health ])) {
     }
     return self;
 }
@@ -33,7 +36,9 @@
 @implementation Hyperion
 
 - (id)init {
-    if ((self = [super initWithFile:@"ship2.png" hp:100 ])) {
+    
+     float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
+    if ((self = [super initWithFile:@"ship2.png" hp:health ])) {
     }
     return self;
 }
@@ -43,7 +48,9 @@
 @implementation Annihilator
 
 - (id)init {
-    if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {
+    
+    float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
+    if ((self = [super initWithFile:@"ship4.png" hp:health ])) {
     }
     return self;
 }
@@ -53,7 +60,9 @@
 @implementation Prometheus
 
 - (id)init {
-    if ((self = [super initWithFile:@"ship4.png" hp:100 ])) {
+    
+    float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
+    if ((self = [super initWithFile:@"ship4.png" hp:health ])) {
     }
     return self;
 }

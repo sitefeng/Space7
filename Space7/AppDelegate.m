@@ -143,6 +143,15 @@
 	[window_ makeKeyAndVisible];
     
     
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:50 forKey:@"energyLevel"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 	return YES;
 }
 

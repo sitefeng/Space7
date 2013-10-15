@@ -22,6 +22,10 @@
 #define kGameScoreLabel 59
 
 
+
+#define kWinSize [[CCDirector sharedDirector] winSize]
+
+
 @implementation GameSceneLayer
 
 @synthesize mySpaceship, target, _asteroids, _projectiles, _stars;
@@ -122,8 +126,8 @@
    // target = [CCSprite spriteWithFile:@"target-red.png"];
     //target.scale = 0.1;
     mySpaceship.position = ccp(100,200);
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    mySpaceship.position = ccp(winSize.width/2,winSize.height/2);
+
+    mySpaceship.position = ccp(kWinSize.width/2,kWinSize.height/2);
     
     //target.position = ccp(300, mySpaceship.contentSize.height/2);
     
@@ -490,7 +494,7 @@
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
-                CCLOG(@"%d",mySpaceship.hp);
+                CCLOG(@"%d",mySpaceship.hp); //TODO: remove
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                 //[mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];

@@ -43,6 +43,7 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
 	
+    
 	// return the scene
 	return scene;
 }
@@ -67,7 +68,10 @@
         CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"LoadGameNormal.png"  selectedImage:@"LoadGameTouched.png" disabledImage:@"LoadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
         loadGame.scale = 0.7;
         
-        if(true)
+        
+        float gameScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"gameScore"];
+        
+        if(gameScore==0)
         {
             
             [loadGame setIsEnabled:NO];
@@ -104,15 +108,6 @@
 }
 
 
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-    
-    
-    
-    
-}
-
 
 -(void) newGameTouched
 {
@@ -128,6 +123,9 @@
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
+    
+    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     
     
 }

@@ -28,11 +28,12 @@
     
 	if( self=[super init] ) {
         
-        self.gameScore = 0;
-        self.enemiesKilled = 0;
-        updateTime = 0;
-        self.timeScore = 0;
+        self.gameScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"gameScore"];
+        self.enemiesKilled =  [[NSUserDefaults standardUserDefaults] integerForKey:@"enemiesKilled"];
         
+        self.timeScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"timeScore"];
+        
+        updateTime = 0;
         self.touchEnabled = NO;
         
         
@@ -46,7 +47,7 @@
         self.healthBar.type = kCCProgressTimerTypeBar;
         self.healthBar.barChangeRate=ccp(1,0);
         self.healthBar.midpoint=ccp(0.0,0.0f);
-        self.healthBar.percentage = 100;
+        self.healthBar.percentage = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
         self.healthBar.anchorPoint = ccp(0,0);
         self.healthBar.position = ccp(60,300);
         
@@ -57,7 +58,7 @@
         self.energyBar.type = kCCProgressTimerTypeBar;
         self.energyBar.barChangeRate=ccp(1,0);
         self.energyBar.midpoint=ccp(0.0,0.0f);
-        self.energyBar.percentage = 100;
+        self.energyBar.percentage = [[NSUserDefaults standardUserDefaults] floatForKey:@"energyLevel"];
         self.energyBar.anchorPoint = ccp(0,0);
         self.energyBar.position = ccp(60,285);
         
@@ -107,11 +108,11 @@
         enemiesKilledKLabel.position = ccp(kWinSize.width - 78,290);
         
         
-        self.gameScoreValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
+        self.gameScoreValueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Helvetica" fontSize:20];
         
         self.gameScoreValueLabel.position = ccp(kWinSize.width - 38,310);
         
-        self.enemiesKilledValueLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Helvetica" fontSize:20];
+        self.enemiesKilledValueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%u",self.enemiesKilled] fontName:@"Helvetica" fontSize:20];
         
         self.enemiesKilledValueLabel.position = ccp(kWinSize.width - 38,290);
         

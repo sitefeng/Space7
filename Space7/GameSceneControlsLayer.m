@@ -11,6 +11,7 @@
 #import "GameSceneLayer.h"
 #import "GameSceneDisplayLayer.h"
 #import "GameOverLayer.h"
+#import "GameSceneDisplayLayer.h"
 
 #define kWinSize [[CCDirector sharedDirector] winSize]
 
@@ -259,6 +260,18 @@
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
         [[CCDirector sharedDirector] startAnimation];
+        
+        GameSceneDisplayLayer* displayLayer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
+        
+        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.gameScore forKey:@"gameScore"];
+        [[NSUserDefaults standardUserDefaults] setInteger: displayLayer.enemiesKilled forKey:@"enemiesKilled"];
+        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.timeScore forKey:@"timeScore"];
+        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
+        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
         [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
     }
     else
