@@ -81,8 +81,6 @@
         [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
         [[NSUserDefaults standardUserDefaults] setFloat:50 forKey:@"energyLevel"];
         
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
         _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
 
         [_tryAgainItem setIsEnabled:NO];

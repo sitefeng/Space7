@@ -143,15 +143,6 @@
 	[window_ makeKeyAndVisible];
     
     
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
-    
-    [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:50 forKey:@"energyLevel"];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
 	return YES;
 }
 
@@ -161,11 +152,16 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
+    if( [navController_ visibleViewController] == director_ )
+		[director_ startAnimation];
+    
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
 	
 }
@@ -177,18 +173,11 @@
     
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void) applicationWillEnterForeground:(UIApplication*)application
 {
     if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
-    
-}
-
-
--(void) applicationWillEnterForeground:(UIApplication*)application
-{
-	if( [navController_ visibleViewController] == director_ )
-		[director_ startAnimation];
+	
 }
 
 // application will be killed

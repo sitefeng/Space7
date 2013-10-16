@@ -269,7 +269,6 @@
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
         
-        [[NSUserDefaults standardUserDefaults] synchronize];
         
         
         [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];

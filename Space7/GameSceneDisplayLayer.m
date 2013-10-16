@@ -28,10 +28,19 @@
     
 	if( self=[super init] ) {
         
+        
         self.gameScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"gameScore"];
         self.enemiesKilled =  [[NSUserDefaults standardUserDefaults] integerForKey:@"enemiesKilled"];
         
         self.timeScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"timeScore"];
+        
+        
+        
+        if(self.gameScore == 0)
+        {
+            
+        }
+        
         
         updateTime = 0;
         self.touchEnabled = NO;
