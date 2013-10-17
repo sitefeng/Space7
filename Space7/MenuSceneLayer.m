@@ -45,10 +45,10 @@
     [scene addChild: layer];
     
     //Play the background music
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
     
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
 	
     
 	// return the scene
@@ -111,8 +111,8 @@
 
 -(void) newGameTouched
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
@@ -126,9 +126,9 @@
 
 -(void) loadGameTouched
 {
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
@@ -138,8 +138,8 @@
 
 -(void) highscoresTouched
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
     
@@ -148,8 +148,8 @@
 
 -(void) aboutButtonTouched
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
 
