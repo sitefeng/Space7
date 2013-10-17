@@ -17,7 +17,6 @@
 
 @implementation GameSceneControlsLayer
 
-
 +(CCScene*) scene
 {
     
@@ -37,6 +36,7 @@
     
 	if( self=[super init] ) {
         
+        _alertViewIsShowing = NO;
         self.touchEnabled =YES;
         
         [self initJoystick];
@@ -247,15 +247,18 @@
     
     [[CCDirector sharedDirector] stopAnimation];
     
-
     UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be automatically saved when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
     
     [pauseAlert show];
+    
+    self.alertViewIsShowing = YES;
     
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    self.alertViewIsShowing = NO;
+    
     if(buttonIndex==1)
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];

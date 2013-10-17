@@ -10,6 +10,7 @@
 #import "MenuSceneLayer.h"
 #import "AppDelegate.h"
 #include "ApplicationConstants.c"
+#import "GameSceneControlsLayer.h"
 
 @implementation MyNavigationController
 
@@ -175,7 +176,23 @@
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
-    if( [navController_ visibleViewController] == director_ )
+    CCScene * scene = [[CCDirector sharedDirector] runningScene];
+    
+    GameSceneControlsLayer *gameLayer = nil;
+    
+    if([[scene getChildByTag:kGameSceneControlsLayerTag] isKindOfClass:[GameSceneControlsLayer class]])
+    {
+        gameLayer = (GameSceneControlsLayer*)[scene getChildByTag:kGameSceneControlsLayerTag];
+    }
+    
+    BOOL alertViewIsUp = NO;
+    
+    if(gameLayer!=nil)
+    {
+        alertViewIsUp = gameLayer.alertViewIsShowing;
+    }
+    
+    if( ([navController_ visibleViewController] == director_) && !alertViewIsUp)
 		[director_ startAnimation];
     
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	

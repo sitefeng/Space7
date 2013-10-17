@@ -14,3 +14,4 @@
 #define kUserDefaults [NSUserDefaults standardUserDefaults]
 
 #define kGameSceneLayerTag 111
+#define kGameSceneControlsLayerTag 222

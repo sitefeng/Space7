@@ -28,7 +28,7 @@
 
 @property (nonatomic, assign) BOOL accelerationMode;
 
-
+@property (nonatomic, assign) BOOL alertViewIsShowing;
 
 +(CCScene*) scene;
 -(void) didPressPauseButton;

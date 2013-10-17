@@ -44,7 +44,7 @@
 
     
     [scene addChild: gameSceneDisplayLayer z:3 tag:66];
-    [scene addChild: gameSceneControlsLayer z:2];
+    [scene addChild: gameSceneControlsLayer z:2 tag:kGameSceneControlsLayerTag];
     [scene addChild: gameSceneLayer z:1 tag:kGameSceneLayerTag];
     [scene addChild: gameSceneBackgroundLayer z:0];
     
