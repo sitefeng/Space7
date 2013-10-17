@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "MenuSceneLayer.h"
 #import "AppDelegate.h"
-
+#include "ApplicationConstants.c"
 
 @implementation MyNavigationController
 
@@ -141,6 +141,22 @@
 
 	// make main window visible
 	[window_ makeKeyAndVisible];
+    
+    
+//FALIED ATTEMPT TO ALTER THE USER DEFAULT VALUES
+//    NSDictionary *userDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                          [NSNumber numberWithFloat:-1.0], @"gameScore",
+//                                          [NSNumber numberWithInt:-1], @"enemiesKilled",
+//                                          [NSNumber numberWithFloat:-1.0], @"timeScore",
+//                                        [NSNumber numberWithFloat:-1.0], @"healthLevel",
+//                                            [NSNumber numberWithFloat:-1.0], @"energyLevel",
+//                                            [NSNumber numberWithInteger:-1], @"selectedShip",
+//                                          nil];
+//    
+//    [kUserDefaults registerDefaults:userDefaults];
+//    [kUserDefaults synchronize];
+
+    self.shipToStart = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"];
     
     
 	return YES;

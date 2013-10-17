@@ -16,6 +16,9 @@
 #import "AppDelegate.h"
 #import "AnimatedCloudCover.h"
 
+#include "ApplicationConstants.c"
+
+
 #define kHealthBar 56
 #define kEnergyBar 57
 #define kProfilePicture 58
@@ -23,7 +26,7 @@
 
 
 
-#define kWinSize [[CCDirector sharedDirector] winSize]
+
 
 
 @implementation GameSceneLayer
@@ -42,7 +45,7 @@
     
     [scene addChild: gameSceneDisplayLayer z:3 tag:66];
     [scene addChild: gameSceneControlsLayer z:2];
-    [scene addChild: gameSceneLayer z:1];
+    [scene addChild: gameSceneLayer z:1 tag:kGameSceneLayerTag];
     [scene addChild: gameSceneBackgroundLayer z:0];
     
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"level1.mp3" loop:YES ];
@@ -102,25 +105,35 @@
 - (void)initializeShip: (NSInteger) type
 {
     //INITIALIZE THE SPACESHIP
-    switch (type) {
-        case _Geronimo:
-            mySpaceship = [[Geronimo alloc] init];
-            break;
+    if(type!=-1)
+    {
+        switch (type) {
+            case _Geronimo:
+                mySpaceship = [[Geronimo alloc] init];
+                break;
             
-        case _Hyperion:
-            mySpaceship = [[Hyperion alloc] init];
-            break;
+            case _Hyperion:
+                mySpaceship = [[Hyperion alloc] init];
+                break;
             
-        case _Annihilator:
-            mySpaceship = [[Annihilator alloc] init];
-            break;
+            case _Annihilator:
+                mySpaceship = [[Annihilator alloc] init];
+                break;
         
-        case _Prometheus:
-            mySpaceship = [[Prometheus alloc] init];
-            break;
-            
-        default:
-            break;
+            case _Prometheus:
+                mySpaceship = [[Prometheus alloc] init];
+                break;
+                
+            default:
+                NSLog(@"Ship type was not specified correctly!!");
+                break;
+        }
+        
+    }
+    else
+    {
+         NSLog(@"No ship type was specified!!");
+    
     }
     
    // target = [CCSprite spriteWithFile:@"target-red.png"];
@@ -494,7 +507,7 @@
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
-                CCLOG(@"%d",mySpaceship.hp); //TODO: remove
+                CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                 //[mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];

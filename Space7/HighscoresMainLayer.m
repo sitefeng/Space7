@@ -12,6 +12,8 @@
 #import "AnimatedCloudBackground.h"
 #import "AnimatedCloudCover.h"
 
+#include "ApplicationConstants.c"
+
 @implementation HighscoresMainLayer
 
 +(CCScene*) scene
@@ -38,7 +40,15 @@
     {
         self.touchEnabled =YES;
         
-        dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
+        if(IS_IPHONE_5)
+        {
+            dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
+        }
+        else
+        {
+            dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 380, 270)];
+        }
+        
         
         dText.text = @"1)Si Te Feng -- 5000\n2)Si Te Feng -- 2400\n";
         
@@ -61,7 +71,15 @@
         
         CCMenu *iconsMenu = [CCMenu menuWithItems: facebookIcon, closeIcon, nil];
         
+        if(IS_IPHONE_5)
+        {
         iconsMenu.position = CGPointMake(504, 160);
+        }
+        else
+        {
+        iconsMenu.position = CGPointMake(430, 160);
+        }
+        
         
         [iconsMenu alignItemsVerticallyWithPadding:45];
         
@@ -73,7 +91,7 @@
         title.color = ccc3(255,255,255);
         
         title.anchorPoint = ccp(0,0);
-        title.position = ccp(140,270);
+        title.position = ccp(30,270);
         
         [self addChild:title];
         

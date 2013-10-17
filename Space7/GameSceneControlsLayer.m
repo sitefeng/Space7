@@ -13,7 +13,7 @@
 #import "GameOverLayer.h"
 #import "GameSceneDisplayLayer.h"
 
-#define kWinSize [[CCDirector sharedDirector] winSize]
+#include "ApplicationConstants.c"
 
 @implementation GameSceneControlsLayer
 
@@ -80,6 +80,7 @@
 {
     CCScene * scene = [[CCDirector sharedDirector] runningScene];
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
+    
     CGSize windowSize = [[CCDirector sharedDirector] winSize];
     
     if(!self.accelerationMode)
@@ -316,9 +317,17 @@
 
 - (GameSceneLayer *) gameLayer
 {
-    CCScene * scene = [[CCDirector sharedDirector] runningScene];
-    GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
-    return gameLayer;
+//    CCScene * scene = [[CCDirector sharedDirector] runningScene];
+//    GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
+//    return gameLayer;
+
+    GameSceneLayer* layer = (GameSceneLayer*)[[self parent] getChildByTag:kGameSceneLayerTag];
+
+    return layer;
+
+
+
+
 }
 
 

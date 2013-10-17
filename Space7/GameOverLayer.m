@@ -74,12 +74,8 @@
             self.timeScore = 0;
         }
         
-        [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+
         
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
-        [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
-        [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
-        [[NSUserDefaults standardUserDefaults] setFloat:50 forKey:@"energyLevel"];
         
         _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
 
@@ -324,6 +320,18 @@
 -(void) showMenuButtons
 {
     
+    ////////FINAL CLEAN UP OF THE NSUSERDEFAULTS
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"healthLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"selectedShip"];
+    
+    
+    
+    ////////////////////////////////////////
     
     CCMenu* menu = (CCMenu*)[self getChildByTag:kMenuButtonTag];
     CCMenu* tryAgain = (CCMenu*)[self getChildByTag: kTryAgainButtonTag];

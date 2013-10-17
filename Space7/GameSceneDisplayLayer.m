@@ -10,12 +10,13 @@
 #import "AppDelegate.h"
 #import "BatttleShips.h"
 
+#include "ApplicationConstants.c"
+
 #define kHealthBar 56
 #define kEnergyBar 57
 #define kProfilePicture 58
 #define kGameScoreLabel 59
 
-#define kWinSize [[CCDirector sharedDirector] winSize]
 
 @implementation GameSceneDisplayLayer
 {
@@ -34,14 +35,7 @@
         
         self.timeScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"timeScore"];
         
-        
-        
-        if(self.gameScore == 0)
-        {
-            
-        }
-        
-        
+
         updateTime = 0;
         self.touchEnabled = NO;
         
@@ -56,7 +50,14 @@
         self.healthBar.type = kCCProgressTimerTypeBar;
         self.healthBar.barChangeRate=ccp(1,0);
         self.healthBar.midpoint=ccp(0.0,0.0f);
+
         self.healthBar.percentage = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
+        
+        if(self.healthBar.percentage == 0)
+        {
+            self.healthBar.percentage = 100;
+        }
+        
         self.healthBar.anchorPoint = ccp(0,0);
         self.healthBar.position = ccp(60,300);
         
@@ -67,7 +68,9 @@
         self.energyBar.type = kCCProgressTimerTypeBar;
         self.energyBar.barChangeRate=ccp(1,0);
         self.energyBar.midpoint=ccp(0.0,0.0f);
+    
         self.energyBar.percentage = [[NSUserDefaults standardUserDefaults] floatForKey:@"energyLevel"];
+        
         self.energyBar.anchorPoint = ccp(0,0);
         self.energyBar.position = ccp(60,285);
         
@@ -77,21 +80,32 @@
         AppController *appC = [UIApplication sharedApplication].delegate;
         CCSprite* profileSprite;
         
+        
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"]==-1)
+        {
+            NSLog(@"In NSUserDefaults, the selected Ship wasn't set up");
+        }
+        
         switch (appC.shipToStart) {
             case _Geronimo:
                 profileSprite = [CCSprite spriteWithFile:@"ship1.png"];
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:_Geronimo forKey:@"selectedShip"];
                 break;
                 
             case _Hyperion:
                 profileSprite = [CCSprite spriteWithFile:@"ship2.png"];
+                [[NSUserDefaults standardUserDefaults] setInteger:_Hyperion forKey:@"selectedShip"];
                 break;
                 
             case _Annihilator:
                 profileSprite = [CCSprite spriteWithFile:@"ship4.png"];
+                [[NSUserDefaults standardUserDefaults] setInteger:_Annihilator forKey:@"selectedShip"];
                 break;
                 
             case _Prometheus:
                 
+                [[NSUserDefaults standardUserDefaults] setInteger:_Prometheus forKey:@"selectedShip"];
                 break;
                 
             default:

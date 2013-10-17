@@ -11,12 +11,11 @@
 #import "HighscoresMainLayer.h"
 #import "AboutSceneMainLayer.h"
 #import "SelectShipLayer.h"
+#include "ApplicationConstants.c"
 
 //delete after
 #import "GameOverLayer.h"
 
-
-#define kWinSize [[CCDirector sharedDirector] winSize]
 
 
 @implementation MenuSceneLayer
@@ -24,12 +23,20 @@
 +(CCScene *) scene
 {
     
-    
 	MenuSceneLayer *layer = [MenuSceneLayer node];
 	
     CCScene *scene = [CCScene node];
     
-    CCSprite *background = [CCSprite spriteWithFile:@"SpaceSevenBackground.png"];
+    CCSprite *background;
+    
+    if(IS_IPHONE_5)
+    {
+        background = [CCSprite spriteWithFile:@"Background-568h@2x.png"];
+    }
+    else if(IS_IPHONE_4)
+    {
+        background = [CCSprite spriteWithFile:@"Background@2x.png"];
+    }
     
     background.anchorPoint = ccp(0,0);
     
@@ -38,10 +45,10 @@
     [scene addChild: layer];
     
     //Play the background music
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
     
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
 	
     
 	// return the scene
@@ -55,10 +62,6 @@
 	if( (self=[super init]) ) {
         
         self.touchEnabled = YES;
-    
-        //Getting the window size
-        CGSize windowSize = [[CCDirector sharedDirector] winSize];
-        
 		
         //Creating the Main Menu:
         
@@ -67,15 +70,12 @@
         
         CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"LoadGameNormal.png"  selectedImage:@"LoadGameTouched.png" disabledImage:@"LoadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
         loadGame.scale = 0.7;
+
+        NSInteger selectedShip = [kUserDefaults integerForKey:@"selectedShip"];
         
-        
-        float gameScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"gameScore"];
-        
-        if(gameScore==0)
+        if(selectedShip == 0)
         {
-            
             [loadGame setIsEnabled:NO];
-            
         }
         
         CCMenuItemImage* highscores = [CCMenuItemImage itemWithNormalImage:@"HighScoresNormal.png"  selectedImage:@"HighScoresTouched.png" target:self selector:@selector(highscoresTouched) ];
@@ -84,7 +84,7 @@
         
         CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, highscores, nil];
         
-        mainMenu.position = ccp(windowSize.width/2, (windowSize.height/2) - 60);
+        mainMenu.position = ccp(kWinSize.width/2, (kWinSize.height/2) - 60);
         
         [mainMenu alignItemsVerticallyWithPadding: 12];
         
@@ -96,7 +96,7 @@
         
         CCMenu* about = [CCMenu menuWithItems:aboutButton, nil];
   
-        about.position = ccp(windowSize.width - aboutButtonSize.width, aboutButtonSize.height);
+        about.position = ccp(kWinSize.width - aboutButtonSize.width, aboutButtonSize.height);
         
         
         //Adding Main Menu and the About button to the Menu Scene        
@@ -111,8 +111,14 @@
 
 -(void) newGameTouched
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+    [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
     
     [[CCDirector sharedDirector] replaceScene:[SelectShipLayer scene]];
     
@@ -120,9 +126,9 @@
 
 -(void) loadGameTouched
 {
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
@@ -132,8 +138,8 @@
 
 -(void) highscoresTouched
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
     
@@ -142,8 +148,8 @@
 
 -(void) aboutButtonTouched
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
 
