@@ -50,7 +50,7 @@
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
-        
+        [self schedule:@selector(saveGame) interval:15];
         
         ////////////////////////
         /////////////////////////
@@ -247,7 +247,7 @@
     
     [[CCDirector sharedDirector] stopAnimation];
     
-    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current level scores will be automatically saved when you return to main menu" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:@"Main Menu", nil];
+    UIAlertView* pauseAlert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"Current progress will be automatically saved when you return to main menu" delegate:self cancelButtonTitle:@"Main Menu" otherButtonTitles:@"Resume", nil];
     
     [pauseAlert show];
     
@@ -259,7 +259,7 @@
 {
     self.alertViewIsShowing = NO;
     
-    if(buttonIndex==1)
+    if(buttonIndex==0)
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
@@ -351,7 +351,16 @@
 
 
 
-
+-(void) saveGame
+{
+    GameSceneDisplayLayer* displayLayer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.gameScore forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger: displayLayer.enemiesKilled forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.timeScore forKey:@"timeScore"];
+    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
+}
 
 
 
