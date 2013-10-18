@@ -154,7 +154,7 @@
          {
              if(error)
              {
-                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please ensure that you are connected to the internet" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
                  
              }
          }];

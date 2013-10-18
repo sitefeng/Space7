@@ -370,7 +370,7 @@
          {
              if(error)
              {
-                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please ensure that you are connected to the internet" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
                  
              }
          }];
@@ -383,17 +383,25 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-    picker.mailComposeDelegate = self;
+    if( [MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
     
-    [picker setSubject:@"Let's play Space 7!"];
+        [picker setSubject:@"Let's play Space 7!"];
     
-    NSString *emailBody = [NSString stringWithFormat: @"Hey, \n I just played a round of the new Space 7 iOS game for iPhone and iPod touch and got %.0f points. You should try this game too, it's pretty good! \n\nI'm pretty sure you'll enjoy it!", self.gameScore];
+        NSString *emailBody = [NSString stringWithFormat: @"Hey, \n I just played a round of the new Space 7 iOS game for iPhone and iPod touch and got %.0f points. You should try this game too, it's pretty good! \n\nI'm pretty sure you'll enjoy it!", self.gameScore];
     
-    [picker setMessageBody:emailBody isHTML:NO];
+        [picker setMessageBody:emailBody isHTML:NO];
     
-    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
-    [app.navController presentViewController:picker animated:YES completion:nil];
+        AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+        [app.navController presentViewController:picker animated:YES completion:nil];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot send email" message:@"Please ensure that you have logged into your mail account" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    }
+    
 }
 
 
