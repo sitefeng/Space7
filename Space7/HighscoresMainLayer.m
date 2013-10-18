@@ -7,6 +7,7 @@
 //
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
 
 #import "HighscoresMainLayer.h"
 #import "MenuSceneLayer.h"

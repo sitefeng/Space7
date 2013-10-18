@@ -270,10 +270,11 @@
 		5DD60EB8180150D50097FED8 /* tryAgainButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */; };
 		5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */; };
 		5DD60EBC180157310097FED8 /* shoot2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBB180157310097FED8 /* shoot2.mp3 */; };
-		5DD60EC4180177360097FED8 /* DebugIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC3180177360097FED8 /* DebugIconPressed.png */; };
-		5DD60EC61801783A0097FED8 /* DebugIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EC51801783A0097FED8 /* DebugIconNormal.png */; };
 		5DECCD49180F3C1200F19B40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DECCD48180F3C1200F19B40 /* Default-568h@2x.png */; };
 		5DECCD4B180F3C7300F19B40 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DECCD4A180F3C7300F19B40 /* Background@2x.png */; };
+		5DFC9C0C1811906600D871C5 /* twitterButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFC9C0A1811906600D871C5 /* twitterButtonNormal.png */; };
+		5DFC9C0D1811906600D871C5 /* twitterButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFC9C0B1811906600D871C5 /* twitterButtonPressed.png */; };
+		5DFC9C0F181190D600D871C5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFC9C0E181190D600D871C5 /* Social.framework */; };
 		5DFD62AB17F2A14500E0055F /* circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AA17F2A14500E0055F /* circle2.png */; };
 		5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */; };
 /* End PBXBuildFile section */
@@ -705,10 +706,11 @@
 		5DD60EB7180150D50097FED8 /* tryAgainButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tryAgainButtonDisabled.png; sourceTree = "<group>"; };
 		5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSceneExplode.mp3; sourceTree = "<group>"; };
 		5DD60EBB180157310097FED8 /* shoot2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot2.mp3; sourceTree = "<group>"; };
-		5DD60EC3180177360097FED8 /* DebugIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconPressed.png; sourceTree = "<group>"; };
-		5DD60EC51801783A0097FED8 /* DebugIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DebugIconNormal.png; sourceTree = "<group>"; };
 		5DECCD48180F3C1200F19B40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5DECCD4A180F3C7300F19B40 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		5DFC9C0A1811906600D871C5 /* twitterButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterButtonNormal.png; sourceTree = "<group>"; };
+		5DFC9C0B1811906600D871C5 /* twitterButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterButtonPressed.png; sourceTree = "<group>"; };
+		5DFC9C0E181190D600D871C5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5DFD62AA17F2A14500E0055F /* circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle2.png; sourceTree = "<group>"; };
 		5DFD62AE17F2A69400E0055F /* HighScoresDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScoresDisabled.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -718,6 +720,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DFC9C0F181190D600D871C5 /* Social.framework in Frameworks */,
 				5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */,
 				5D3FF52A17EFB8E300DAB13D /* OpenAL.framework in Frameworks */,
 				5D3FF53017EFB8E300DAB13D /* UIKit.framework in Frameworks */,
@@ -851,6 +854,7 @@
 		5D3FF52417EFB8E300DAB13D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DFC9C0E181190D600D871C5 /* Social.framework */,
 				5D065506180BCAAA000F27C0 /* FacebookSDK.framework */,
 				5D0E36CD17FFC86A0009918C /* MessageUI.framework */,
 				5D3FF52517EFB8E300DAB13D /* QuartzCore.framework */,
@@ -1379,8 +1383,8 @@
 		5D90B1F9180090070042F3D8 /* About Scene */ = {
 			isa = PBXGroup;
 			children = (
-				5DD60EC3180177360097FED8 /* DebugIconPressed.png */,
-				5DD60EC51801783A0097FED8 /* DebugIconNormal.png */,
+				5DFC9C0A1811906600D871C5 /* twitterButtonNormal.png */,
+				5DFC9C0B1811906600D871C5 /* twitterButtonPressed.png */,
 				5D6ADEA7180CECFB001215AD /* closeButtonNormal.png */,
 				5D6ADEA8180CECFB001215AD /* closeButtonPressed.png */,
 				5D06553B180CE979000F27C0 /* facebookIconNormal.png */,
@@ -1553,6 +1557,7 @@
 				5D3FF6E517EFBB0900DAB13D /* button.mp3 in Resources */,
 				5DBFEA241800F6AD008141F9 /* tryAgainButtonNormal.png in Resources */,
 				5D4CB8EA180A415D009F37BD /* cloud6.png in Resources */,
+				5DFC9C0D1811906600D871C5 /* twitterButtonPressed.png in Resources */,
 				5DECCD49180F3C1200F19B40 /* Default-568h@2x.png in Resources */,
 				4B9948ED17FFC1D200B5DF86 /* yellowroid.png in Resources */,
 				5D3FF6EA17EFBB0900DAB13D /* gotHitBad.mp3 in Resources */,
@@ -1599,10 +1604,8 @@
 				4B9948DD17FF91FE00B5DF86 /* ship1.png in Resources */,
 				5D4CB8EB180A415D009F37BD /* cloud7.png in Resources */,
 				4B6888D318015CF300406F33 /* Explosion 1.mp3 in Resources */,
-				5DD60EC61801783A0097FED8 /* DebugIconNormal.png in Resources */,
 				4B99494318012FBE00B5DF86 /* iTunesArtwork@2x.png in Resources */,
 				5D3FF53C17EFB8E300DAB13D /* Default.png in Resources */,
-				5DD60EC4180177360097FED8 /* DebugIconPressed.png in Resources */,
 				5DD60EBC180157310097FED8 /* shoot2.mp3 in Resources */,
 				5DBFEA281800F6C8008141F9 /* mainMenuButtonPressed.png in Resources */,
 				5D90B2161800E3CA0042F3D8 /* HighScoresNormal.png in Resources */,
@@ -1621,6 +1624,7 @@
 				5D90B1FB180094560042F3D8 /* energyBar.png in Resources */,
 				5D065518180C8C2B000F27C0 /* gameButtonPressed.png in Resources */,
 				4B99494018012FBE00B5DF86 /* Icon.png in Resources */,
+				5DFC9C0C1811906600D871C5 /* twitterButtonNormal.png in Resources */,
 				5D6ADEA9180CECFB001215AD /* closeButtonNormal.png in Resources */,
 				4B99492B1801215E00B5DF86 /* hit-ipadhd.plist in Resources */,
 				5D065542180CEA02000F27C0 /* emailIconPressed.png in Resources */,

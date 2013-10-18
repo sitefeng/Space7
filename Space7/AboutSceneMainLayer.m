@@ -15,6 +15,7 @@
 #import "AnimatedCloudCover.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
 
 #include "ApplicationConstants.c"
 
