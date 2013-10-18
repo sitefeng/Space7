@@ -100,10 +100,8 @@
         [self addChild:iconsMenu z:kIconOrder];
         
 
-        
         //Creating the Title of the scene and display on the top
-        
-        CCLabelTTF *title = [CCLabelTTF labelWithString:@"-About-" fontName:@"Helvetica" fontSize:44];
+        CCLabelTTF *title = [CCLabelTTF labelWithString:@"-About-" fontName:@"Helvetica" fontSize:40];
         title.color = ccc3(255,255,255);
         
         title.anchorPoint = ccp(0,0);
@@ -140,23 +138,6 @@
 
 
 
-
--(void) facebookIconPressed
-{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    
-    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly color and elegant  game designed only for iOS. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
-        if(error)
-        {
-            [self alertView:nil didDismissWithButtonIndex:1];
-            
-        }
-    }];
-    
-    
-}
-
-
 -(void) closeIconPressed
 {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
@@ -182,35 +163,48 @@
 }
 
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+-(void) facebookIconPressed
 {
-    if(buttonIndex == 1)
-    {
-    NSMutableDictionary *params =
-    [NSMutableDictionary dictionaryWithObjectsAndKeys:
-     @"Experience Space 7 for iOS today", @"name",
-     @"Game for iOS", @"caption",
-     @"Space 7 will suprise you with its stunning colors and elegant gaming experience. Try it on your iOS device today!", @"description",
-     @"https://www.facebook.com/spacesevengame", @"link",
-     @"http://i.imgur.com/N4dqI0q.png", @"picture",
-     nil];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    // Invoke the dialog
-    [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params
-                                              handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error)
-     {
-         if(error)
-         {
-             [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
-             
-         }
-     }];
-    }
+    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly colorful and elegant game designed for iOS. Game elements like the responsive star dust and dynamically generated environment create an amazing sense of depth within the game. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+        if(error)
+        {
+            [self alertView:nil didDismissWithButtonIndex:1];
+            
+        }
+    }];
+    
     
 }
 
 
-
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        NSMutableDictionary *params =
+        [NSMutableDictionary dictionaryWithObjectsAndKeys:
+         @"Experience Space 7 for iOS today", @"name",
+         @"Game for iOS", @"caption",
+         @"Space 7 will suprise you with its stunning colors and elegant gaming experience. Game elements like the responsive star dust and dynamically generated environment create an amazing sense of depth within the game. Try it on your iOS device today!", @"description",
+         @"https://www.facebook.com/spacesevengame", @"link",
+         @"http://i.imgur.com/N4dqI0q.png", @"picture",
+         nil];
+        
+        // Invoke the dialog
+        [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params
+        handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error)
+         {
+             if(error)
+             {
+                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+                 
+             }
+         }];
+    }
+    
+}
 
 
 - (void) dealloc
