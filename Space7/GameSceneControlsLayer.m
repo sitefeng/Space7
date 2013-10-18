@@ -230,10 +230,9 @@
 {
     if ([self gameLayer].mySpaceship.hp <= 0) {
         [[CCDirector sharedDirector] startAnimation];
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
         GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
-        
-        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
         [[CCDirector sharedDirector] replaceScene: [GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]];
     }

@@ -69,7 +69,7 @@
 		5D06553D180CE979000F27C0 /* facebookIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06553B180CE979000F27C0 /* facebookIconNormal.png */; };
 		5D065541180CEA02000F27C0 /* emailIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06553F180CEA02000F27C0 /* emailIconNormal.png */; };
 		5D065542180CEA02000F27C0 /* emailIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065540180CEA02000F27C0 /* emailIconPressed.png */; };
-		5D065544180CEB3F000F27C0 /* facebookIconPressed 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065543180CEB3F000F27C0 /* facebookIconPressed 1.png */; };
+		5D065544180CEB3F000F27C0 /* facebookIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D065543180CEB3F000F27C0 /* facebookIconPressed.png */; };
 		5D0E36BF17FF9F840009918C /* AboutSceneMainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */; };
 		5D0E36CE17FFC86A0009918C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0E36CD17FFC86A0009918C /* MessageUI.framework */; };
 		5D329C89180F740E0069103F /* ApplicationConstants.c in Sources */ = {isa = PBXBuildFile; fileRef = 5D329C88180F740E0069103F /* ApplicationConstants.c */; };
@@ -345,7 +345,7 @@
 		5D06553B180CE979000F27C0 /* facebookIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIconNormal.png; sourceTree = "<group>"; };
 		5D06553F180CEA02000F27C0 /* emailIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIconNormal.png; sourceTree = "<group>"; };
 		5D065540180CEA02000F27C0 /* emailIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIconPressed.png; sourceTree = "<group>"; };
-		5D065543180CEB3F000F27C0 /* facebookIconPressed 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebookIconPressed 1.png"; sourceTree = "<group>"; };
+		5D065543180CEB3F000F27C0 /* facebookIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIconPressed.png; sourceTree = "<group>"; };
 		5D0E36BD17FF9F840009918C /* AboutSceneMainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutSceneMainLayer.h; sourceTree = "<group>"; };
 		5D0E36BE17FF9F840009918C /* AboutSceneMainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSceneMainLayer.m; sourceTree = "<group>"; };
 		5D0E36CD17FFC86A0009918C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1384,7 +1384,7 @@
 				5D6ADEA7180CECFB001215AD /* closeButtonNormal.png */,
 				5D6ADEA8180CECFB001215AD /* closeButtonPressed.png */,
 				5D06553B180CE979000F27C0 /* facebookIconNormal.png */,
-				5D065543180CEB3F000F27C0 /* facebookIconPressed 1.png */,
+				5D065543180CEB3F000F27C0 /* facebookIconPressed.png */,
 				5D06553F180CEA02000F27C0 /* emailIconNormal.png */,
 				5D065540180CEA02000F27C0 /* emailIconPressed.png */,
 			);
@@ -1638,7 +1638,7 @@
 				4B99494118012FBE00B5DF86 /* Icon@2x.png in Resources */,
 				4B99493E18012FBE00B5DF86 /* Icon-Small.png in Resources */,
 				5D5A8F22180B77080055C752 /* cloud4.png in Resources */,
-				5D065544180CEB3F000F27C0 /* facebookIconPressed 1.png in Resources */,
+				5D065544180CEB3F000F27C0 /* facebookIconPressed.png in Resources */,
 				5D8E998217F0135700F5E574 /* ship4.png in Resources */,
 				5D3FF6E617EFBB0900DAB13D /* countDown.mp3 in Resources */,
 				5DFD62AF17F2A69400E0055F /* HighScoresDisabled.png in Resources */,

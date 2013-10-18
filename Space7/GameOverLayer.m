@@ -6,6 +6,8 @@
 //  Copyright 2013 Si Te Feng. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
+
 #import "AppDelegate.h"
 #import "GameOverLayer.h"
 #import "GameSceneLayer.h"
@@ -113,8 +115,14 @@
 {
     
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    
+    //Restoring the health to 100 percent
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+    [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 
@@ -381,19 +389,54 @@
 
 
 
-- (void)facebookIconPressed
+-(void) facebookIconPressed
 {
-    
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
+    BOOL presentedIntegratedShareDialog = [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly color and elegant  game designed only for iOS. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+        if(error)
+        {
+            [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+            
+        }
+    }];
     
-    
-    
-    
+    if(!presentedIntegratedShareDialog)
+    {
+        [self alertView:nil didDismissWithButtonIndex:1];
+        
+    }
     
     
 }
 
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        NSMutableDictionary *params =
+        [NSMutableDictionary dictionaryWithObjectsAndKeys:
+         @"Experience Space 7 for iOS today", @"name",
+         @"Game for iOS", @"caption",
+         @"Space 7 will suprise you with its stunning colors and elegant gaming experience. Try it on your iOS device today!", @"description",
+         @"https://www.facebook.com/spacesevengame", @"link",
+         @"http://i.imgur.com/N4dqI0q.png", @"picture",
+         nil];
+        
+        // Invoke the dialog
+        [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params
+                                                  handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error)
+         {
+             if(error)
+             {
+                 [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+                 
+             }
+         }];
+    }
+    
+}
 
 
 - (void) emailIconPressed

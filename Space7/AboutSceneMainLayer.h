@@ -13,7 +13,7 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 
 
-@interface AboutSceneMainLayer : CCLayer <UITextViewDelegate, MFMailComposeViewControllerDelegate>
+@interface AboutSceneMainLayer : CCLayer <UITextViewDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 {
     UITextView *dText;
     

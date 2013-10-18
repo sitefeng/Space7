@@ -204,7 +204,8 @@
     CCAnimation *explode = [CCAnimation
                             animationWithSpriteFrames:exlodeFrames delay:0.025f];
     
-    // CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+    
     self.boom = [CCSprite spriteWithSpriteFrameName:@"hit_1.png"];
     self.boom.position = position;
     
@@ -232,15 +233,14 @@
         star.scale = 0.25;
     
         // Determine where to spawn the asteroid along the Y axis
-        CGSize winSize = [CCDirector sharedDirector].winSize;
         int minY = star.contentSize.height / 2;
-        int maxY = winSize.height - star.contentSize.height/2;
+        int maxY = kWinSize.height - star.contentSize.height/2;
         int rangeY = maxY - minY;
         int actualY = (arc4random() % rangeY) + minY;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        star.position = ccp(winSize.width + star.contentSize.width/2, actualY);
+        star.position = ccp(kWinSize.width + star.contentSize.width/2, actualY);
         star.tag = 3;
         [_stars addObject:star];
         [self addChild:star z:0];
@@ -325,19 +325,18 @@
     
     NSInteger spawn = (arc4random() % 4);
 
-    CGSize winSize = [CCDirector sharedDirector].winSize;
     int actualX;
     int actualY;
     if (spawn == 1 || spawn == 2 ) {
         // Determine where to spawn the asteroid along the X axis
-        int minX = winSize.width /2;
-        int maxX = winSize.width - asteroid.contentSize.width/2;
+        int minX = kWinSize.width /2;
+        int maxX = kWinSize.width - asteroid.contentSize.width/2;
         int rangeX = maxX - minX;
         actualX = (arc4random() % rangeX) + minX;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        asteroid.position = ccp(actualX, winSize.height + asteroid.contentSize.height/2);
+        asteroid.position = ccp(actualX, kWinSize.height + asteroid.contentSize.height/2);
         [_asteroids addObject:asteroid];
         [self addChild:asteroid z:1];
     }
@@ -345,13 +344,13 @@
     {
         // Determine where to spawn the asteroid along the Y axis
         int minY = asteroid.contentSize.height / 2;
-        int maxY = winSize.height - asteroid.contentSize.height/2;
+        int maxY = kWinSize.height - asteroid.contentSize.height/2;
         int rangeY = maxY - minY;
         actualY = (arc4random() % rangeY) + minY;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        asteroid.position = ccp(winSize.width + asteroid.contentSize.width/2, actualY);
+        asteroid.position = ccp(kWinSize.width + asteroid.contentSize.width/2, actualY);
         [_asteroids addObject:asteroid];
         [self addChild:asteroid z:1];
     }
@@ -368,8 +367,8 @@
         // Create the actions
         //CCMoveTo: You use the CCMoveTo action to direct the object to move off-screen to the left.
         actionMove = [CCMoveTo actionWithDuration:actualDuration
-                                         position:ccp(-asteroid.contentSize.width/2 - (arc4random() % (int)winSize.width) ,
-                                                      -asteroid.contentSize.height/2 - (arc4random() % (int)winSize.height))];
+                                         position:ccp(-asteroid.contentSize.width/2 - (arc4random() % (int)kWinSize.width) ,
+                                                      -asteroid.contentSize.height/2 - (arc4random() % (int)kWinSize.height))];
     }
     else
     {
@@ -539,7 +538,8 @@
     
     // Set up initial location of projectile
     [[SimpleAudioEngine sharedEngine] playEffect:@"Laser Shot 4.mp3"];
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+    
     CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
     projectile.position = mySpaceship.position;
     projectile.scaleX = 2;
@@ -587,13 +587,13 @@
     float ratio;
     int realY;
     if (target.x > projectile.position.x) {
-       realX = winSize.width + (projectile.contentSize.width/2);
+       realX = kWinSize.width + (projectile.contentSize.width/2);
        ratio = (float) offset.y / (float) offset.x;
        realY = (realX * ratio) + projectile.position.y;
     }
     else
     {
-        realX = -winSize.width - (projectile.contentSize.width/2);
+        realX = -kWinSize.width - (projectile.contentSize.width/2);
         ratio = (float) offset.y / (float) - offset.x;
         realY =  projectile.position.y + ((-realX) * ratio);
     }
