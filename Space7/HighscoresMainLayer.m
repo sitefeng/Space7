@@ -124,18 +124,13 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    BOOL presentedIntegratedShareDialog = [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly color and elegant  game designed only for iOS. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly color and elegant  game designed only for iOS. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
         if(error)
         {
-            [[[UIAlertView alloc] initWithTitle:@"Unable to share" message:@"Please try again later" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Try Again", nil] show];
+            [self alertView:nil didDismissWithButtonIndex:1];
             
         }
     }];
-    
-    if(!presentedIntegratedShareDialog)
-    {
-        [self alertView:nil didDismissWithButtonIndex:1];
-    }
     
     
 }
