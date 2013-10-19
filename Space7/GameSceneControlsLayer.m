@@ -117,7 +117,6 @@
             
         }
         
-        
         if(gameLayer.mySpaceship.position.x >= kWinSize.width - 12)
         {
             self.scaledVelocityX = -0.5 * self.scaledVelocityX - 30;
@@ -136,64 +135,6 @@
             self.scaledVelocityY = -0.5 * self.scaledVelocityY + 30;
         }
         
-        
-//        if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5 || gameLayer.mySpaceship.position.x <= 5)
-//        {
-//            if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5 || gameLayer.mySpaceship.position.y <= 5)
-//            {
-//                if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5)
-//                {
-//                    if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
-//                    {
-//                        self.scaledVelocityY = -50;
-//                        self.scaledVelocityX = -50;
-//                    }
-//                    else
-//                    {
-//                        self.scaledVelocityY = -50;
-//                        self.scaledVelocityX = 50;
-//                    }
-//                    
-//                    
-//                }
-//                else
-//                {
-//                    if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
-//                    {
-//                        self.scaledVelocityY = 50;
-//                        self.scaledVelocityX = -50;
-//                    }
-//                    else
-//                    {
-//                        self.scaledVelocityY = 50;
-//                        self.scaledVelocityX = 50;
-//                    }
-//                }
-//                
-//            }
-//            else
-//            {
-//                if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
-//                {
-//                    self.scaledVelocityX = -50;
-//                    
-//                }
-//                else
-//                {
-//                    
-//                }
-//                
-//            }
-//        }
-//        else
-//        {
-//            if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5|| gameLayer.mySpaceship.position.y <= 5)
-//            {
-//                self.scaledVelocityY = 0;
-//            }
-//            
-//        }
-//
     }
     
     CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime);
