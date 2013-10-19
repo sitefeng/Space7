@@ -55,7 +55,7 @@
         ////////////////////////
         /////////////////////////
         //VERY IMPORTANT SWITCH
-        self.accelerationMode = NO;
+        self.accelerationMode = YES;
         /////////////////////////
         //////////////////////////
         
@@ -81,8 +81,6 @@
     CCScene * scene = [[CCDirector sharedDirector] runningScene];
     GameSceneLayer *gameLayer = [scene.children objectAtIndex:1];
     
-    CGSize windowSize = [[CCDirector sharedDirector] winSize];
-    
     if(!self.accelerationMode)
     {
         
@@ -101,41 +99,137 @@
     
         if(self.scaledVelocityX > 0)
         {
-            self.scaledVelocityX = self.scaledVelocityX -3 ;
+            self.scaledVelocityX = self.scaledVelocityX - 3 ;
         }
         if(self.scaledVelocityY > 0)
         {
             self.scaledVelocityY = self.scaledVelocityY -3 ;
         }
         
-        if(self.scaledVelocityX<0)
+        if(self.scaledVelocityX < 0)
         {
             self.scaledVelocityX += 3;
             
         }
-        if(self.scaledVelocityY<0)
+        if(self.scaledVelocityY < 0)
         {
-            self.scaledVelocityX += 3;
+            self.scaledVelocityY += 3;
             
         }
         
-        if((self.scaledVelocityX!=0 || self.scaledVelocityY != 0) && (gameLayer.mySpaceship.position.x == _lastPosition.x && gameLayer.mySpaceship.position.y == _lastPosition.y))
+        
+        if(gameLayer.mySpaceship.position.x >= kWinSize.width - 12)
         {
-            self.scaledVelocityX = 0;
-            self.scaledVelocityY = 0;
+            self.scaledVelocityX = -0.5 * self.scaledVelocityX - 30;
+        }
+        else if(gameLayer.mySpaceship.position.x <= 12)
+        {
+            self.scaledVelocityX = -0.5 * self.scaledVelocityX +30 ;
+        }
+        
+        if(gameLayer.mySpaceship.position.y >= kWinSize.height - 12)
+        {
+            self.scaledVelocityY = -0.5 * self.scaledVelocityY - 30;
+        }
+        else if(gameLayer.mySpaceship.position.y <= 12)
+        {
+            self.scaledVelocityY = -0.5 * self.scaledVelocityY + 30;
         }
         
         
+//        if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5 || gameLayer.mySpaceship.position.x <= 5)
+//        {
+//            if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5 || gameLayer.mySpaceship.position.y <= 5)
+//            {
+//                if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5)
+//                {
+//                    if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
+//                    {
+//                        self.scaledVelocityY = -50;
+//                        self.scaledVelocityX = -50;
+//                    }
+//                    else
+//                    {
+//                        self.scaledVelocityY = -50;
+//                        self.scaledVelocityX = 50;
+//                    }
+//                    
+//                    
+//                }
+//                else
+//                {
+//                    if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
+//                    {
+//                        self.scaledVelocityY = 50;
+//                        self.scaledVelocityX = -50;
+//                    }
+//                    else
+//                    {
+//                        self.scaledVelocityY = 50;
+//                        self.scaledVelocityX = 50;
+//                    }
+//                }
+//                
+//            }
+//            else
+//            {
+//                if(gameLayer.mySpaceship.position.x >= kWinSize.width - 5)
+//                {
+//                    self.scaledVelocityX = -50;
+//                    
+//                }
+//                else
+//                {
+//                    
+//                }
+//                
+//            }
+//        }
+//        else
+//        {
+//            if(gameLayer.mySpaceship.position.y >= kWinSize.height - 5|| gameLayer.mySpaceship.position.y <= 5)
+//            {
+//                self.scaledVelocityY = 0;
+//            }
+//            
+//        }
+//
     }
     
-    CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime); //new position for ship
+    CGPoint newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime);
     
+    if ( newPosition.y >= kWinSize.height || newPosition.y <= 0)
+    {
+        
+        if( newPosition.x >= kWinSize.width || newPosition.x <= 0)
+        {
+                newPosition = ccp(gameLayer.mySpaceship.position.x, gameLayer.mySpaceship.position.y);
+        }
+        else
+        {
+            newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y);
+            
+        }
     
-    if (newPosition.y < windowSize.height && newPosition.y > 0 && newPosition.x < windowSize.width && newPosition.x > 0)
-    { //bounds
-        [gameLayer.mySpaceship setPosition: newPosition];
+    }
+    else
+    {
+        if( newPosition.x >= kWinSize.width || newPosition.x <= 0)
+        {
+            newPosition = ccp(gameLayer.mySpaceship.position.x, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime);
+        }
+        else
+        {
+            newPosition = ccp(gameLayer.mySpaceship.position.x + self.scaledVelocityX *deltaTime, gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime);
+        }
+        
     }
     
+    
+//    if ((gameLayer.mySpaceship.position.y + self.scaledVelocityY *deltaTime) < kWinSize.height && newPosition.y > 0 && newPosition.x < kWinSize.width && newPosition.x > 0)
+    
+    [gameLayer.mySpaceship setPosition: newPosition];
+
     
     [gameLayer starParallax:deltaTime velocity:ccp(self.scaledVelocityX, self.scaledVelocityY)];
   //  [gameLayer asteroidParallax:deltaTime velocity:scaledVelocity];
