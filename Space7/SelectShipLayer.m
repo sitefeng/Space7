@@ -6,11 +6,15 @@
 //  Copyright 2013 Si Te Feng. All rights reserved.
 //
 
+#import "MenuSceneLayer.h"
+
 #import "SelectShipLayer.h"
 #import "GameSceneLayer.h"
 #import "BatttleShips.h"
 #import "AppDelegate.h"
 #import "AnimatedCloudBackground.h"
+
+
 
 #import "ApplicationConstants.c"
 
@@ -21,7 +25,8 @@
 #define kShipIconTag 35
 #define kShipCheckMarkTag 36
 
-#define kShipIconSpriteTag 37
+#define kSelectCrystalTag 37
+
 
 enum {
     kShipIcon1Tag = 137,
@@ -58,9 +63,9 @@ enum {
         
         CCLabelBMFont* title = [CCLabelBMFont labelWithString:@"SELECT YOUR SPACESHIP" fntFile:@"spaceshipNameFont.fnt"];
         
-        title.position = ccp(kWinSize.width/2.0, -10);
+        title.position = ccp(kWinSize.width/2.0, kWinSize.height + 10);
         
-        [self addChild:title z:3 tag:kTitleTag];
+        [self addChild:title z:6 tag:kTitleTag];
         
         
         CCMenuItemImage *geronimoImage = [CCMenuItemImage itemWithNormalImage:@"geronimoNormal.png" selectedImage:@"geronimoPressed.png" target:self selector:@selector(getGeronimo)];
@@ -73,36 +78,38 @@ enum {
         
         CCMenu *shipChoiceMenu = [CCMenu menuWithItems:geronimoImage, hyperionImage,annihilatorImage, prometheusImage, nil];
         
-        shipChoiceMenu.position = ccp(kWinSize.width/2.0, kWinSize.height/2.0-20);//-110
+        shipChoiceMenu.position = ccp(kWinSize.width/2.0, kWinSize.height/2.0-400);//-200
         
-        [shipChoiceMenu alignItemsVerticallyWithPadding:20];
+        [shipChoiceMenu alignItemsVerticallyWithPadding:20];//20
         
-        [self addChild:shipChoiceMenu z:2 tag:kShipChoiceMenuTag];
+        [shipChoiceMenu setEnabled:NO];
+        
+        [self addChild:shipChoiceMenu z:5 tag:kShipChoiceMenuTag];
+        
         
         
         CCMenuItemImage *image1 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship1IconToggle)];
-        
         CCMenuItemImage *image2 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship2IconToggle)];
-        
         CCMenuItemImage *image3 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship3IconToggle)];
-        
         CCMenuItemImage *image4 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship4IconToggle)];
         
         CCMenu *shipIconToggleMenu = [CCMenu menuWithItems:image1, image2, image3, image4, nil];
         
         shipIconToggleMenu.anchorPoint= ccp(1.0f, 0.5f);
         
-        shipIconToggleMenu.position = ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0-20);
+        shipIconToggleMenu.position = ccp(kWinSize.width/2.0 +15, kWinSize.height/2.0-400);
         
-        [shipIconToggleMenu alignItemsVerticallyWithPadding:15];
+        [shipIconToggleMenu alignItemsVerticallyWithPadding:15];//15
+        
+        [shipIconToggleMenu setEnabled:NO];
         
         [self addChild:shipIconToggleMenu z:3 tag:kShipIconTag];
         
         
-        CCMenuItemImage *imageA = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipACheckMark)];
-        CCMenuItemImage *imageB = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipBCheckMark)];
-        CCMenuItemImage *imageC = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipCCheckMark)];
-        CCMenuItemImage *imageD = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipDCheckMark)];
+        CCMenuItemImage *imageA = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipDCheckMark)];
+        CCMenuItemImage *imageB = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipCCheckMark)];
+        CCMenuItemImage *imageC = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipBCheckMark)];
+        CCMenuItemImage *imageD = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipACheckMark)];
         
         
         CCMenu *shipCheckMarkMenu = [CCMenu menuWithItems:imageA, imageB, imageC, imageD, nil];
@@ -113,9 +120,11 @@ enum {
         
         shipCheckMarkMenu.anchorPoint = ccp(0, 0.5f);
         
-        shipCheckMarkMenu.position = ccp(kWinSize.width/2.0 +140, kWinSize.height/2.0 -20);//+140 -20
+        shipCheckMarkMenu.position = ccp(kWinSize.width/2.0 -15, kWinSize.height/2.0 -400);//+140 -20
         
-        [shipCheckMarkMenu alignItemsVerticallyWithPadding:15];
+        [shipCheckMarkMenu alignItemsVerticallyWithPadding:15];//15
+        
+        [shipCheckMarkMenu setEnabled:NO];
         
         [self addChild:shipCheckMarkMenu z:4 tag:kShipCheckMarkTag];
         
@@ -123,32 +132,43 @@ enum {
         
         
         
-        CCSprite* ship1 = [CCSprite spriteWithFile:@"ship1.png"];
-        CCSprite* ship2 = [CCSprite spriteWithFile:@"ship2.png"];
-        CCSprite* ship3 = [CCSprite spriteWithFile:@"ship3.png"];
-        CCSprite* ship4 = [CCSprite spriteWithFile:@"ship4.png"];
         
-        [ship4 setRotation:90];
-        [ship1 setScale:0.5];
-        [ship2 setScale:0.5];
-        [ship3 setScale:0.5];
-        [ship4 setScale:0.5];
         
-        ship1.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 +79);
         
-        ship2.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 +12);
-        ship3.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 -52);
         
-        ship4.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 -118);
         
-        [self addChild:ship1 z:1 tag: kShipIcon1Tag];
-        [self addChild:ship2 z:1 tag: kShipIcon2Tag];
-        [self addChild:ship3 z:1 tag: kShipIcon3Tag];
-        [self addChild:ship4 z:1 tag: kShipIcon4Tag];
         
-        [self schedule:@selector(rotateShipIcon) interval:0.1 repeat:kCCRepeatForever delay:0];
+        CCSprite* selectCrystal = [CCSprite spriteWithFile:@"selectCrystal.png"];
         
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
+        selectCrystal.position = ccp(kWinSize.width/2.0, -20);
+        
+        [selectCrystal setScale:0.01];
+        
+        CCRotateBy* rotateCrystal = [CCRotateBy actionWithDuration:1 angle:120];
+        
+        CCRepeat* repeatRotation = [CCRepeat actionWithAction:rotateCrystal times:kCCRepeatForever];
+        
+        [selectCrystal runAction:repeatRotation];
+        
+        [self addChild:selectCrystal z:1 tag:kSelectCrystalTag];
+        
+        
+        
+        //Start the Animations
+        CCMoveTo* moveTitle = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0 +120)];
+        CCEaseBounceOut * bounceMove = [CCEaseBounceOut actionWithAction:moveTitle];
+        
+        [[self getChildByTag:kTitleTag] runAction:bounceMove];
+        
+        
+        
+        
+        
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
+        
+        [self scheduleOnce:@selector(presentShipSelection) delay:0.5];
+        
+        
 
     }
     
@@ -190,10 +210,22 @@ enum {
 - (void) rightPlacesForItems
 {
     
-    //title.position = ccp(kWinSize.width/2.0, kWinSize.height/2.0 +120);
-    //shipChoiceMenu.position = ccp(kWinSize.width/2.0, kWinSize.height/2.0-30);
-    
-    
+
+//    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
+//    
+//    CCEaseElasticOut* elasticizeMoveShipIcon = [CCEaseElasticOut actionWithAction:moveShipIconMenu];
+//    
+//    [[self getChildByTag:kShipIconTag] runAction: elasticizeMoveShipIcon];
+//    
+//    
+//    
+//    
+//    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0+140, kWinSize.height/2.0-30) ];
+//    
+//    CCEaseElasticOut* elasticizeShipChoice = [CCEaseElasticOut actionWithAction:moveShipChoiceMenu];
+//    
+//    [[self getChildByTag:kShipCheckMarkTag] runAction:elasticizeShipChoice];
+
     
 }
 
@@ -208,7 +240,7 @@ enum {
 
 - (void)getGeronimo{
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     [[self controller] setShipToStart:_Geronimo];
     [[CCDirector sharedDirector] replaceScene: [GameSceneLayer scene]];
     
@@ -217,20 +249,20 @@ enum {
 
 
 - (void)getHyperion{
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     [[self controller] setShipToStart:_Hyperion];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 }
 
 - (void)getAnnihilator{
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     [[self controller] setShipToStart:_Annihilator];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 }
 
 - (void)getPrometheus{
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will bring in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     
@@ -241,8 +273,164 @@ enum {
 }
 
 
-- (void)ship1IconToggle
+
+- (void)presentShipSelection
 {
+    
+    CCMoveTo *moveMenuItems = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0-30)];
+    
+//    CCEaseExponentialOut* elasticizeMenu = [CCEaseExponentialOut actionWithAction:moveMenuItems];
+    
+    [[self getChildByTag:kShipChoiceMenuTag] runAction:moveMenuItems];
+    
+    
+
+
+    
+
+    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0 +15 , kWinSize.height/2.0 - 30)];
+    
+//    CCEaseExponentialOut* elasticizeMoveShipIcon = [CCEaseExponentialOut actionWithAction:moveShipIconMenu];
+    
+    [[self getChildByTag:kShipIconTag] runAction: moveShipIconMenu];
+    
+    
+    
+
+    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0 -15 , kWinSize.height/2.0-30) ];
+    
+//    CCEaseExponentialOut* elasticizeShipChoice = [CCEaseExponentialOut actionWithAction:moveShipChoiceMenu];
+    
+    [[self getChildByTag:kShipCheckMarkTag] runAction:moveShipChoiceMenu];
+    
+    
+    [self scheduleOnce:@selector(revealExtensions) delay:2];
+    
+    
+}
+
+
+- (void)revealExtensions
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"extend.mp3"];
+    
+    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
+    
+    CCEaseExponentialOut* elasticizeMoveShipIcon = [CCEaseExponentialOut actionWithAction:moveShipIconMenu];
+    
+    [[self getChildByTag:kShipIconTag] runAction: elasticizeMoveShipIcon];
+    
+
+    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0+140, kWinSize.height/2.0-30) ];
+    CCEaseExponentialOut* elasticizeShipChoice = [CCEaseExponentialOut actionWithAction:moveShipChoiceMenu];
+    
+    [[self getChildByTag:kShipCheckMarkTag] runAction:elasticizeShipChoice];
+    
+    
+
+    
+    
+    
+    
+    [self scheduleOnce:@selector(showNextButton) delay:2];
+    
+}
+
+
+
+- (void)showNextButton
+{
+    // Now Enable the tappable Menus
+    [(CCMenu*)[self getChildByTag:kShipChoiceMenuTag] setEnabled: YES];
+    [(CCMenu*)[self getChildByTag:kShipIconTag] setEnabled: YES];
+    [(CCMenu*)[self getChildByTag:kShipCheckMarkTag] setEnabled: YES];
+    
+    
+    //Initiating the ship icons
+    CCSprite* ship1 = [CCSprite spriteWithFile:@"ship1.png"];
+    CCSprite* ship2 = [CCSprite spriteWithFile:@"ship2.png"];
+    CCSprite* ship3 = [CCSprite spriteWithFile:@"ship3.png"];
+    CCSprite* ship4 = [CCSprite spriteWithFile:@"ship4.png"];
+    
+    [ship4 setRotation:90];
+    [ship1 setScale:0.01];
+    [ship2 setScale:0.01];
+    [ship3 setScale:0.01];
+    [ship4 setScale:0.01];
+    
+    [self schedule:@selector(rotateShipIcon) interval:0.1 repeat:kCCRepeatForever delay:0];
+
+    
+    //Displaying the ship icons
+    CCScaleTo* scaleShip1 = [CCScaleTo actionWithDuration:0.5 scale:0.5];
+    [ship1 setPosition:ccp(kWinSize.width/2 - 155, kWinSize.height/2 +69)];
+    [ship1 runAction:scaleShip1];
+    
+    CCScaleTo* scaleShip2 = [CCScaleTo actionWithDuration:0.5 scale:0.5];
+    [ship2 setPosition:ccp(kWinSize.width/2 - 155, kWinSize.height/2 +2)];
+    [ship2 runAction:scaleShip2];
+    
+    CCScaleTo* scaleShip3 = [CCScaleTo actionWithDuration:0.5 scale:0.5];
+    [ship3 setPosition:ccp(kWinSize.width/2 - 155, kWinSize.height/2 -62)];
+    [ship3 runAction:scaleShip3];
+    
+    CCScaleTo* scaleShip4 = [CCScaleTo actionWithDuration:0.5 scale:0.5];
+    [ship4 setPosition:ccp(kWinSize.width/2 - 155, kWinSize.height/2 -128)];
+    [ship4 runAction:scaleShip4];
+    
+
+    
+    [self addChild:ship1 z:1 tag: kShipIcon1Tag];
+    [self addChild:ship2 z:1 tag: kShipIcon2Tag];
+    [self addChild:ship3 z:1 tag: kShipIcon3Tag];
+    [self addChild:ship4 z:1 tag: kShipIcon4Tag];
+    
+    
+    
+    
+    ///////Show Next button and the Menu Button
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    
+    CCMenuItemImage* menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
+    CCMenu* returnMenu = [CCMenu menuWithItems:menuItem, nil];
+    
+
+    [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
+    [self addChild:returnMenu];
+    
+    CCMoveTo* moveReturnMenu = [CCMoveTo actionWithDuration:1 position:ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2)];
+
+    [returnMenu runAction:moveReturnMenu];
+    
+    
+    CCMenuItemImage* nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
+    CCMenu* nextButton = [CCMenu menuWithItems:nextItem, nil];
+    
+    [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
+    
+    [self addChild:nextButton];
+    CCMoveTo* moveNextButton = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2)];
+    
+    [nextButton runAction:moveNextButton];
+    
+    
+}
+
+
+
+- (void)returnToMenu
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    
+    
+    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    
+}
+
+
+- (void)moveToNext
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     
     
@@ -250,9 +438,20 @@ enum {
 
 
 
-- (void)ship2IconToggle
+
+
+- (void)ship1IconToggle
 {
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
+    
+}
+
+
+
+- (void)ship2IconToggle
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
@@ -262,7 +461,7 @@ enum {
 
 - (void)ship3IconToggle
 {
-    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
@@ -271,7 +470,7 @@ enum {
 
 - (void)ship4IconToggle
 {
-    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
@@ -280,34 +479,66 @@ enum {
 
 -(void) shipACheckMark
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"selectSpaceship.mp3"];
     
+    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
+    [crystalSprite setScale:0.01];
+    CCScaleTo* scaleCrystal = [CCScaleTo actionWithDuration:3 scale:1];
     
+    CCEaseExponentialOut* easeScale = [CCEaseExponentialOut actionWithAction:scaleCrystal];
+
+    [crystalSprite runAction:easeScale];
+    
+    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 +69)];
     
 }
 
 
 -(void) shipBCheckMark
 {
+    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
+    [crystalSprite setScale:0.01];
+    
+    [self shipACheckMark];
     
     
+    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 +2)];
     
 }
 
 
 -(void) shipCCheckMark
 {
+    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
+    [crystalSprite setScale:0.01];
     
+    [self shipACheckMark];
     
+    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -62)];
     
 }
 
 
 -(void) shipDCheckMark
 {
+    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
+    [crystalSprite setScale:0.01];
     
+    [self shipACheckMark];
     
+    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -128)];
     
 }
+
+
+
+
+
+
+
+
+
+
 
 
 - (AppController *) controller
