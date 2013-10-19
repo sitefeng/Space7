@@ -21,6 +21,15 @@
 #define kShipIconTag 35
 #define kShipCheckMarkTag 36
 
+#define kShipIconSpriteTag 37
+
+enum {
+    kShipIcon1Tag = 137,
+    kShipIcon2Tag,
+    kShipIcon3Tag,
+    kShipIcon4Tag,
+    };
+
 @implementation SelectShipLayer
 +(CCScene*) scene
 {
@@ -89,29 +98,6 @@
         
         [self addChild:shipIconToggleMenu z:3 tag:kShipIconTag];
         
-//        
-//        CCSprite* shipCheckMarkSpriteNormal1;
-//        CCSprite* shipCheckMarkSpriteNormal2;
-//        CCSprite* shipCheckMarkSpriteNormal3;
-//        CCSprite* shipCheckMarkSpriteNormal4;
-//        CCSprite* shipCheckMarkSpritePressed1;
-//        CCSprite* shipCheckMarkSpritePressed2;
-//        CCSprite* shipCheckMarkSpritePressed3;
-//        CCSprite* shipCheckMarkSpritePressed4;
-//        
-//        
-//        shipCheckMarkSpriteNormal1 = shipCheckMarkSpriteNormal1 = shipCheckMarkSpriteNormal2= shipCheckMarkSpriteNormal3=shipCheckMarkSpriteNormal4 = [CCSprite spriteWithFile:@"shipPreviewNormal.png"];
-//        [shipCheckMarkSpriteNormal1 setFlipX:YES];
-//        [shipCheckMarkSpriteNormal2 setFlipX:YES];
-//        [shipCheckMarkSpriteNormal4 setFlipX:YES];
-//        [shipCheckMarkSpriteNormal3 setFlipX:YES];
-//        
-//        shipCheckMarkSpritePressed1 = shipCheckMarkSpritePressed1 = shipCheckMarkSpritePressed2 = shipCheckMarkSpritePressed3 = shipCheckMarkSpritePressed4 = [CCSprite spriteWithFile:@"shipPreviewPressed.png"];
-//        [shipCheckMarkSpritePressed1 setFlipX:YES];
-//        [shipCheckMarkSpritePressed2 setFlipX:YES];
-//        [shipCheckMarkSpritePressed3 setFlipX:YES];
-//        [shipCheckMarkSpritePressed4 setFlipX:YES];
-        
         
         CCMenuItemImage *imageA = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipACheckMark)];
         CCMenuItemImage *imageB = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipBCheckMark)];
@@ -137,7 +123,30 @@
         
         
         
+        CCSprite* ship1 = [CCSprite spriteWithFile:@"ship1.png"];
+        CCSprite* ship2 = [CCSprite spriteWithFile:@"ship2.png"];
+        CCSprite* ship3 = [CCSprite spriteWithFile:@"ship3.png"];
+        CCSprite* ship4 = [CCSprite spriteWithFile:@"ship4.png"];
         
+        [ship4 setRotation:90];
+        [ship1 setScale:0.5];
+        [ship2 setScale:0.5];
+        [ship3 setScale:0.5];
+        [ship4 setScale:0.5];
+        
+        ship1.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 +79);
+        
+        ship2.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 +12);
+        ship3.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 -52);
+        
+        ship4.position = ccp(kWinSize.width/2 - 155, kWinSize.height/2 -118);
+        
+        [self addChild:ship1 z:1 tag: kShipIcon1Tag];
+        [self addChild:ship2 z:1 tag: kShipIcon2Tag];
+        [self addChild:ship3 z:1 tag: kShipIcon3Tag];
+        [self addChild:ship4 z:1 tag: kShipIcon4Tag];
+        
+        [self schedule:@selector(rotateShipIcon) interval:1 repeat:kCCRepeatForever delay:0];
         
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
 
@@ -146,6 +155,37 @@
     return self;
     
 }
+
+- (void)rotateShipIcon
+{
+    CCRotateBy* rotateBy1= [CCRotateBy actionWithDuration:1 angle:120];
+    CCRotateBy* rotateBy2= [CCRotateBy actionWithDuration:1 angle:120];
+    CCRotateBy* rotateBy3= [CCRotateBy actionWithDuration:1 angle:120];
+    CCRotateBy* rotateBy4= [CCRotateBy actionWithDuration:1 angle:120];
+    
+    
+    [[self getChildByTag: kShipIcon1Tag] runAction:rotateBy1];
+    [[self getChildByTag: kShipIcon2Tag] runAction:rotateBy2];
+    [[self getChildByTag: kShipIcon3Tag] runAction:rotateBy3];
+    [[self getChildByTag: kShipIcon4Tag] runAction:rotateBy4];
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void) rightPlacesForItems
 {
@@ -192,7 +232,7 @@
     
     //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
-    [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will being in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will bring in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     
     
     

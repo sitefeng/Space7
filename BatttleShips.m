@@ -50,7 +50,7 @@
 - (id)init {
     
     float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
-    if ((self = [super initWithFile:@"ship4.png" hp:health ])) {
+    if ((self = [super initWithFile:@"ship3.png" hp:health ])) {
     }
     return self;
 }
@@ -62,7 +62,7 @@
 - (id)init {
     
     float health = [[NSUserDefaults standardUserDefaults] floatForKey:@"healthLevel"];
-    if ((self = [super initWithFile:@"ship4.png" hp:health ])) {
+    if ((self = [super initWithFile:@"ship3.png" hp:health ])) {
     }
     return self;
 }

@@ -99,7 +99,7 @@
                 break;
                 
             case _Annihilator:
-                profileSprite = [CCSprite spriteWithFile:@"ship4.png"];
+                profileSprite = [CCSprite spriteWithFile:@"ship3.png"];
                 [[NSUserDefaults standardUserDefaults] setInteger:_Annihilator forKey:@"selectedShip"];
                 break;
                 
