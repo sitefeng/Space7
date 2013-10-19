@@ -146,7 +146,7 @@ enum {
         [self addChild:ship3 z:1 tag: kShipIcon3Tag];
         [self addChild:ship4 z:1 tag: kShipIcon4Tag];
         
-        [self schedule:@selector(rotateShipIcon) interval:1 repeat:kCCRepeatForever delay:0];
+        [self schedule:@selector(rotateShipIcon) interval:0.1 repeat:kCCRepeatForever delay:0];
         
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
 
@@ -158,10 +158,10 @@ enum {
 
 - (void)rotateShipIcon
 {
-    CCRotateBy* rotateBy1= [CCRotateBy actionWithDuration:1 angle:120];
-    CCRotateBy* rotateBy2= [CCRotateBy actionWithDuration:1 angle:120];
-    CCRotateBy* rotateBy3= [CCRotateBy actionWithDuration:1 angle:120];
-    CCRotateBy* rotateBy4= [CCRotateBy actionWithDuration:1 angle:120];
+    CCRotateBy* rotateBy1= [CCRotateBy actionWithDuration:0.1 angle:12];
+    CCRotateBy* rotateBy2= [CCRotateBy actionWithDuration:0.1 angle:12];
+    CCRotateBy* rotateBy3= [CCRotateBy actionWithDuration:0.1 angle:12];
+    CCRotateBy* rotateBy4= [CCRotateBy actionWithDuration:0.1 angle:12];
     
     
     [[self getChildByTag: kShipIcon1Tag] runAction:rotateBy1];
