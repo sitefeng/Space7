@@ -8,7 +8,7 @@
 
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
-#import "HighscoresMainLayer.h"
+
 #import "AboutSceneMainLayer.h"
 #import "SelectShipLayer.h"
 #include "ApplicationConstants.c"
@@ -65,11 +65,11 @@
 		
         //Creating the Main Menu:
         
-        CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"NewGameNormal.png" selectedImage:@"NewGameTouched.png" target:self selector:@selector(newGameTouched) ];
-        newGame.scale = 0.7;
+        CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"newGameNormal.png" selectedImage:@"newGamePressed.png" target:self selector:@selector(newGameTouched) ];
+
         
-        CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"LoadGameNormal.png"  selectedImage:@"LoadGameTouched.png" disabledImage:@"LoadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
-        loadGame.scale = 0.7;
+        CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"loadGameNormal.png"  selectedImage:@"loadGamePressed.png" disabledImage:@"loadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
+ 
 
         NSInteger selectedShip = [kUserDefaults integerForKey:@"selectedShip"];
         
@@ -78,25 +78,21 @@
             [loadGame setIsEnabled:NO];
         }
         
-        CCMenuItemImage* highscores = [CCMenuItemImage itemWithNormalImage:@"HighScoresNormal.png"  selectedImage:@"HighScoresTouched.png" target:self selector:@selector(highscoresTouched) ];
-		highscores.scale = 0.7;
-        
-        
-        CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, highscores, nil];
+        CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, nil];
         
         mainMenu.position = ccp(kWinSize.width/2, (kWinSize.height/2) - 60);
         
-        [mainMenu alignItemsVerticallyWithPadding: 12];
+        [mainMenu alignItemsVerticallyWithPadding: 18];
         
         //Creating the About button
         
-        CCMenuItemImage* aboutButton = [CCMenuItemImage itemWithNormalImage:@"AboutButtonNormal.png"  selectedImage:@"AboutButtonTouched.png"  target:self selector:@selector(aboutButtonTouched) ];
+        CCMenuItemImage* aboutButton = [CCMenuItemImage itemWithNormalImage:@"aboutButtonNormal.png"  selectedImage:@"aboutButtonPressed.png"  target:self selector:@selector(aboutButtonTouched) ];
         
         CGSize aboutButtonSize = aboutButton.contentSize;
         
         CCMenu* about = [CCMenu menuWithItems:aboutButton, nil];
   
-        about.position = ccp(kWinSize.width - aboutButtonSize.width, aboutButtonSize.height);
+        about.position = ccp(kWinSize.width - aboutButtonSize.width/1.25, aboutButtonSize.height/1.25);
         
         
         //Adding Main Menu and the About button to the Menu Scene        
@@ -136,15 +132,7 @@
     
 }
 
--(void) highscoresTouched
-{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    
-    [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
-    
-    
-}
+
 
 -(void) aboutButtonTouched
 {

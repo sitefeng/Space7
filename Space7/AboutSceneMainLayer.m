@@ -61,7 +61,7 @@
         }
         dText.delegate = self;
         
-        dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: Sep. 22, 2013\n\nFirst Completion Date: Nov. 22, 2013\n\nThank you for supporting and enjoying the game.\n\n\nWell, hi there, commander!\nWe are now lost in a galaxy far far away from Earth. We have an urgent objective to find our way back to the Milky Way Galaxy. During our adventure, we'll explore gorgeous galaxies while trying to avoid evil alien spaceships.\nI hope you'll enjoy!\n\nSincerely,\niOS game devs\n\n*****\n\nPlease email us at technochimera@gmail.com if you have any questions or suggestions about the game. If you like this game, please spread the word and share this on Facebook. \n\nThank you for your support!\n\nOctober 5th, 2013\n\n\n";
+        dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: Sep. 22, 2013\n\nThank you for supporting and enjoying the game!";
         
         [dText setEditable:NO];
         
@@ -101,7 +101,7 @@
         {
             iconsMenu.position = CGPointMake(504, 160);
         }
-        else
+        else if(IS_IPHONE_4)
         {
             iconsMenu.position = CGPointMake(430, 160);
         }
@@ -202,11 +202,20 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    
-    
-    
-    
-    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *twitterController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [twitterController setInitialText:@"Space 7 is a stunningly colorful and elegant game designed for iOS. Experience it today!\n"];
+        
+        AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+        [app.navController presentViewController:twitterController animated:YES completion:nil];
+        
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot share on Twitter" message:@"Please ensure that you have logged into your twitter account in the \"Settings\" app" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    }
     
 }
 
