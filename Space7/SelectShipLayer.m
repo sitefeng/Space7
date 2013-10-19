@@ -166,7 +166,7 @@ enum {
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
         
-        [self scheduleOnce:@selector(presentShipSelection) delay:0.5];
+        [self scheduleOnce:@selector(presentShipSelection) delay:0];
         
         
 
@@ -192,40 +192,6 @@ enum {
     
     
     
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void) rightPlacesForItems
-{
-    
-
-//    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
-//    
-//    CCEaseElasticOut* elasticizeMoveShipIcon = [CCEaseElasticOut actionWithAction:moveShipIconMenu];
-//    
-//    [[self getChildByTag:kShipIconTag] runAction: elasticizeMoveShipIcon];
-//    
-//    
-//    
-//    
-//    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0+140, kWinSize.height/2.0-30) ];
-//    
-//    CCEaseElasticOut* elasticizeShipChoice = [CCEaseElasticOut actionWithAction:moveShipChoiceMenu];
-//    
-//    [[self getChildByTag:kShipCheckMarkTag] runAction:elasticizeShipChoice];
-
     
 }
 
@@ -277,34 +243,28 @@ enum {
 - (void)presentShipSelection
 {
     
-    CCMoveTo *moveMenuItems = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0-30)];
+    CCMoveTo *moveMenuItems = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0-30)];
     
 //    CCEaseExponentialOut* elasticizeMenu = [CCEaseExponentialOut actionWithAction:moveMenuItems];
     
     [[self getChildByTag:kShipChoiceMenuTag] runAction:moveMenuItems];
-    
-    
-
 
     
-
-    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0 +15 , kWinSize.height/2.0 - 30)];
-    
-//    CCEaseExponentialOut* elasticizeMoveShipIcon = [CCEaseExponentialOut actionWithAction:moveShipIconMenu];
-    
-    [[self getChildByTag:kShipIconTag] runAction: moveShipIconMenu];
-    
-    
-    
-
-    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:1.5 position:ccp(kWinSize.width/2.0 -15 , kWinSize.height/2.0-30) ];
-    
-//    CCEaseExponentialOut* elasticizeShipChoice = [CCEaseExponentialOut actionWithAction:moveShipChoiceMenu];
-    
-    [[self getChildByTag:kShipCheckMarkTag] runAction:moveShipChoiceMenu];
+//    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0 +15 , kWinSize.height/2.0 - 40)];
+//    
+////    CCEaseExponentialOut* elasticizeMoveShipIcon = [CCEaseExponentialOut actionWithAction:moveShipIconMenu];
+//    
+//    [[self getChildByTag:kShipIconTag] runAction: moveShipIconMenu];
+//    
+//
+//    CCMoveTo* moveShipCheckMarkMenu = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0 -15 , kWinSize.height/2.0- 40) ];
+//    
+////    CCEaseExponentialOut* elasticizeShipChoice = [CCEaseExponentialOut actionWithAction:moveShipChoiceMenu];
+//    
+//    [[self getChildByTag:kShipCheckMarkTag] runAction:moveShipCheckMarkMenu];
     
     
-    [self scheduleOnce:@selector(revealExtensions) delay:2];
+    [self scheduleOnce:@selector(revealExtensions) delay:1];
     
     
 }
@@ -314,14 +274,14 @@ enum {
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"extend.mp3"];
     
-    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
+    CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
     
     CCEaseExponentialOut* elasticizeMoveShipIcon = [CCEaseExponentialOut actionWithAction:moveShipIconMenu];
     
     [[self getChildByTag:kShipIconTag] runAction: elasticizeMoveShipIcon];
     
 
-    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:2 position:ccp(kWinSize.width/2.0+140, kWinSize.height/2.0-30) ];
+    CCMoveTo* moveShipChoiceMenu = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0+140, kWinSize.height/2.0-30) ];
     CCEaseExponentialOut* elasticizeShipChoice = [CCEaseExponentialOut actionWithAction:moveShipChoiceMenu];
     
     [[self getChildByTag:kShipCheckMarkTag] runAction:elasticizeShipChoice];
@@ -332,7 +292,7 @@ enum {
     
     
     
-    [self scheduleOnce:@selector(showNextButton) delay:2];
+    [self scheduleOnce:@selector(showNextButton) delay:1];
     
 }
 
@@ -384,8 +344,6 @@ enum {
     [self addChild:ship2 z:1 tag: kShipIcon2Tag];
     [self addChild:ship3 z:1 tag: kShipIcon3Tag];
     [self addChild:ship4 z:1 tag: kShipIcon4Tag];
-    
-    
     
     
     ///////Show Next button and the Menu Button
