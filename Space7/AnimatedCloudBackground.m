@@ -26,6 +26,10 @@
 {
     if(self=[super init])
     {
+        CCSprite* blackBack = [CCSprite spriteWithFile:@"Black.png"];
+        blackBack.anchorPoint = ccp(0,0);
+        blackBack.position = ccp(0,0);
+        [self addChild:blackBack z:-2];
         
         //Adding a static background
         CCSprite* background = [CCSprite spriteWithFile:@"cloudy1.png"];

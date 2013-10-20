@@ -25,19 +25,7 @@
         [self addChild: animatedBackground z:1];
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+ 
     }
     
     return self;

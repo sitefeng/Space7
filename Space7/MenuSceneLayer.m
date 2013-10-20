@@ -8,7 +8,7 @@
 
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
-
+#import "AppDelegate.h"
 #import "AboutSceneMainLayer.h"
 #import "SelectShipLayer.h"
 
@@ -20,9 +20,10 @@
 
 
 
-
-
 @implementation MenuSceneLayer
+{
+    
+}
 
 +(CCScene *) scene
 {
@@ -31,29 +32,22 @@
 	
     CCScene *scene = [CCScene node];
     
-    CCSprite *background;
     
-    if(IS_IPHONE_5)
-    {
-        background = [CCSprite spriteWithFile:@"Background-568h@2x.png"];
-    }
-    else if(IS_IPHONE_4)
-    {
-        background = [CCSprite spriteWithFile:@"Background@2x.png"];
-    }
-    
-    background.anchorPoint = ccp(0,0);
-    
-    [layer addChild:background z:-1];
     
     [scene addChild: layer];
     
-    //Play the background music
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
+	AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
     
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
-	
+    if(app.firstAppLaunch)
+    {
+        app.firstAppLaunch = NO;
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    }
     
 	// return the scene
 	return scene;
@@ -67,8 +61,24 @@
         
         self.touchEnabled = YES;
 		
-        //Creating the Main Menu:
+        //Loading the background
+        CCSprite *background;
         
+        if(IS_IPHONE_5)
+        {
+            background = [CCSprite spriteWithFile:@"Background-568h@2x.png"];
+        }
+        else if(IS_IPHONE_4)
+        {
+            background = [CCSprite spriteWithFile:@"Background@2x.png"];
+        }
+        
+        background.anchorPoint = ccp(0,0);
+        
+        [self addChild:background z:-1];
+        
+        
+        //Creating the Main Menu:
         CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"newGameNormal.png" selectedImage:@"newGamePressed.png" target:self selector:@selector(newGameTouched) ];
 
         
@@ -111,8 +121,8 @@
 
 -(void) newGameTouched
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
 
     [[CCDirector sharedDirector] replaceScene:[LoadingSceneLayer sceneWithReplaceSceneName:@"SelectShipLayer"]];
@@ -121,9 +131,9 @@
 
 -(void) loadGameTouched
 {
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
     [[CCDirector sharedDirector] replaceScene:[LoadingSceneLayer sceneWithReplaceSceneName:@"GameSceneLayer"]];
@@ -135,10 +145,10 @@
 
 -(void) aboutButtonTouched
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[AboutSceneMainLayer scene]]];
 
     
 }

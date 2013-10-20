@@ -78,11 +78,11 @@
     if([self.replaceSceneName isEqualToString:@"SelectShipLayer"])
     {
     
-        [[CCDirector sharedDirector] replaceScene:[SelectShipLayer scene]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[SelectShipLayer scene]]];
     }
     else if([self.replaceSceneName isEqualToString:@"GameSceneLayer"])
     {
-        [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[GameSceneLayer scene]]];
     }
     
 }

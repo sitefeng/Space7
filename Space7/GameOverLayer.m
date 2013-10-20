@@ -113,7 +113,7 @@
     [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
     
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[GameSceneLayer scene]]];
 
 }
 
@@ -121,10 +121,22 @@
 
 - (void)mainMenu
 {
+    
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
-    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    ////////FINAL CLEAN UP OF THE NSUSERDEFAULTS
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"healthLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"selectedShip"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@" " forKey:@"playerName"];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1 scene:[MenuSceneLayer scene]]];
 
 }
 
@@ -280,19 +292,6 @@
 
 -(void) showMenuButtons
 {
-    ////////FINAL CLEAN UP OF THE NSUSERDEFAULTS
-    
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"gameScore"];
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"healthLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"selectedShip"];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:@" " forKey:@"playerName"];
-
-    
-    ////////////////////////////////////////
     
     CCMenu* menu = (CCMenu*)[self getChildByTag:kMenuButtonTag];
     CCMenu* tryAgain = (CCMenu*)[self getChildByTag: kTryAgainButtonTag];
@@ -398,6 +397,7 @@
         AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
         [app.navController presentViewController:picker animated:YES completion:nil];
     }
+    
     else
     {
         [[[UIAlertView alloc] initWithTitle:@"Cannot send email" message:@"Please ensure that you have logged into your mail account" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];

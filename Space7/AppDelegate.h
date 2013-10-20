@@ -25,6 +25,7 @@
 @property (readonly) MyNavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 
+@property (nonatomic, assign) BOOL firstAppLaunch;
 
 @property (nonatomic) NSInteger shipToStart;
 

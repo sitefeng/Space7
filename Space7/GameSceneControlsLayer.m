@@ -55,7 +55,7 @@
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
-        [self schedule:@selector(saveGame) interval:15];
+        [self schedule:@selector(saveGame) interval:10];
         
         ////////////////////////
         /////////////////////////
@@ -297,7 +297,7 @@
         
         GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
         
-        [[CCDirector sharedDirector] replaceScene: [GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]];
+        [[CCDirector sharedDirector] replaceScene: [CCTransitionFadeBL transitionWithDuration:1 scene:[GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]]];
     }
     
 }
@@ -325,7 +325,6 @@
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-        [[CCDirector sharedDirector] startAnimation];
         
         GameSceneDisplayLayer* displayLayer = (GameSceneDisplayLayer*)[[self parent] getChildByTag:66];
         
@@ -335,9 +334,8 @@
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
         
-        
-        
-        [[CCDirector sharedDirector] replaceScene: [MenuSceneLayer scene]];
+        [[CCDirector sharedDirector] startAnimation];
+        [[CCDirector sharedDirector] replaceScene: [CCTransitionFadeBL transitionWithDuration:1 scene:[MenuSceneLayer scene]]];
     }
     else
     {

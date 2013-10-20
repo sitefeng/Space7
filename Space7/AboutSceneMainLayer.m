@@ -51,6 +51,7 @@
         //Creating the UIKit Scrollable text
 //        AboutSceneViewController* aboutViewController = [[AboutSceneViewController alloc] initWithNibName:@"AboutSceneViewController" bundle:nil];
         
+        
         if(IS_IPHONE_5)
         {
             dText= [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 430, 270)];
@@ -61,20 +62,8 @@
         }
         dText.delegate = self;
         
-        dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: Sep. 22, 2013\n\nThank you for supporting and enjoying the game!";
         
-        [dText setEditable:NO];
-        
-        dText.font = [UIFont fontWithName:@"Helvetica" size:18];
-        
-        dText.textColor = [UIColor colorWithRed:50 green:170 blue:255 alpha:1];
-        
-        dText.backgroundColor = [UIColor clearColor];
-        
-        dText.textColor = [UIColor whiteColor];
-        
-        [[[CCDirector sharedDirector] view] addSubview:dText];
-        
+        [self scheduleOnce:@selector(displayTextView) delay:0.65];
         
         //Creating the tappable 3 Icons on the right side
         CCMenuItemImage *reportBug = [CCMenuItemImage itemWithNormalImage:@"emailIconNormal.png" selectedImage:@"emailIconPressed.png" target:self selector:@selector(reportBugIconPressed)];
@@ -128,6 +117,28 @@
     return self;
 }
 
+
+- (void)displayTextView
+{
+
+    
+    dText.text = @"Authors: Si Te Feng and Karim Kawambwa\n\nSpecial Thanks: \"Make Games With Us\"\n\nSound Effects: www.freesfx.co.uk\n\nIcons: www.designbolts.com\n\nProject Start Date: Sep. 22, 2013\n\nThank you for supporting and enjoying the game!";
+    
+    [dText setEditable:NO];
+    
+    dText.font = [UIFont fontWithName:@"Helvetica" size:18];
+    
+    dText.textColor = [UIColor colorWithRed:50 green:170 blue:255 alpha:1];
+    
+    dText.backgroundColor = [UIColor clearColor];
+    
+    dText.textColor = [UIColor whiteColor];
+    
+    [[[CCDirector sharedDirector] view] addSubview:dText];
+    
+}
+
+
 -(void) reportBugIconPressed
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
@@ -168,7 +179,7 @@
     [dText removeFromSuperview];
     dText = nil;
     
-    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1 scene:[MenuSceneLayer scene]]];
     
 
     
