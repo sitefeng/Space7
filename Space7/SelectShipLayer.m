@@ -14,8 +14,6 @@
 #import "AppDelegate.h"
 #import "AnimatedCloudBackground.h"
 
-
-
 #import "ApplicationConstants.c"
 
 
@@ -189,46 +187,34 @@ enum {
     [[self getChildByTag: kShipIcon3Tag] runAction:rotateBy3];
     [[self getChildByTag: kShipIcon4Tag] runAction:rotateBy4];
     
-    
-    
-    
-    
 }
-
-
-
-
-
-
-
 
 
 
 - (void)getGeronimo{
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     [[self controller] setShipToStart:_Geronimo];
     [[CCDirector sharedDirector] replaceScene: [GameSceneLayer scene]];
     
 }
 
 
-
 - (void)getHyperion{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     [[self controller] setShipToStart:_Hyperion];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 }
 
 - (void)getAnnihilator{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     [[self controller] setShipToStart:_Annihilator];
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 }
 
 - (void)getPrometheus{
     
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will bring in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     
@@ -349,25 +335,76 @@ enum {
     ///////Show Next button and the Menu Button
     [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
     
-    CCMenuItemImage* menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
-    CCMenu* returnMenu = [CCMenu menuWithItems:menuItem, nil];
+    CCMenuItemImage* menuItem;
+    CGPoint positionToSet;
+    CCMenu* returnMenu;
     
+    
+    if(IS_IPHONE_5)
+    {
+        menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
+        returnMenu = [CCMenu menuWithItems:menuItem, nil];
+        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
+        
+        positionToSet = ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2);
+    }
+    else if(IS_IPHONE_4)
+    {
+        menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormaliPhone4.png" selectedImage:@"selectionMenuButtonPressediPhone4.png" target:self selector:@selector(returnToMenu)];
+        returnMenu = [CCMenu menuWithItems:menuItem, nil];
+        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, kWinSize.height - menuItem.contentSize.height/2)];
+        
+        positionToSet = ccp(menuItem.contentSize.width/2, kWinSize.height - menuItem.contentSize.height/2);
+    }
+    else
+    {
+        menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
+        returnMenu = [CCMenu menuWithItems:menuItem, nil];
+        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
+        
+        positionToSet = ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2);
+    }
 
-    [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
     [self addChild:returnMenu];
     
-    CCMoveTo* moveReturnMenu = [CCMoveTo actionWithDuration:1 position:ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2)];
+    CCMoveTo* moveReturnMenu = [CCMoveTo actionWithDuration:1 position:positionToSet];
 
     [returnMenu runAction:moveReturnMenu];
     
+    //Setting the Nexts button now
+    CCMenuItemImage* nextItem;
+    CGPoint positionToSet2;
+    CCMenu* nextButton;
     
-    CCMenuItemImage* nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
-    CCMenu* nextButton = [CCMenu menuWithItems:nextItem, nil];
-    
+    if(IS_IPHONE_5)
+    {
+        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
+        nextButton = [CCMenu menuWithItems:nextItem, nil];
+        [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
+        
+        positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2);
+    }
+    else if(IS_IPHONE_4)
+    {
+        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormaliPhone4.png" selectedImage:@"selectionNextButtonPressediPhone4.png" target:self selector:@selector(moveToNext)];
+        nextButton = [CCMenu menuWithItems:nextItem, nil];
+        [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , kWinSize.height - nextItem.contentSize.height/2)];
+        
+        positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, kWinSize.height - nextItem.contentSize.height/2);
+
+    }
+    else
+    {
+        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
+        nextButton = [CCMenu menuWithItems:nextItem, nil];
     [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
     
+    positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2);
+        
+    }
+
     [self addChild:nextButton];
-    CCMoveTo* moveNextButton = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2)];
+    CCMoveTo* moveNextButton = [CCMoveTo actionWithDuration:1 position:positionToSet2];
     
     [nextButton runAction:moveNextButton];
     

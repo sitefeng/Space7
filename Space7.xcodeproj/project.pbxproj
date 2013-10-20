@@ -78,6 +78,10 @@
 		5D184EED18132989003736F2 /* selectionNextButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EEB18132989003736F2 /* selectionNextButtonPressed.png */; };
 		5D184EF018132D37003736F2 /* selectionMenuButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EEE18132D37003736F2 /* selectionMenuButtonNormal.png */; };
 		5D184EF118132D37003736F2 /* selectionNextButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EEF18132D37003736F2 /* selectionNextButtonNormal.png */; };
+		5D184EF6181344AA003736F2 /* selectionMenuButtonNormaliPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EF2181344AA003736F2 /* selectionMenuButtonNormaliPhone4.png */; };
+		5D184EF7181344AA003736F2 /* selectionMenuButtonPressediPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EF3181344AA003736F2 /* selectionMenuButtonPressediPhone4.png */; };
+		5D184EF8181344AA003736F2 /* selectionNextButtonNormaliPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EF4181344AA003736F2 /* selectionNextButtonNormaliPhone4.png */; };
+		5D184EF9181344AA003736F2 /* selectionNextButtonPressediPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D184EF5181344AA003736F2 /* selectionNextButtonPressediPhone4.png */; };
 		5D24074D1812FDEF006417D9 /* selectCrystal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D24074C1812FDEF006417D9 /* selectCrystal.png */; };
 		5D303D6318128699003D7AD1 /* ship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D303D6218128699003D7AD1 /* ship4.png */; };
 		5D303D65181286B7003D7AD1 /* ship6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D303D64181286B7003D7AD1 /* ship6.png */; };
@@ -373,6 +377,10 @@
 		5D184EEB18132989003736F2 /* selectionNextButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionNextButtonPressed.png; sourceTree = "<group>"; };
 		5D184EEE18132D37003736F2 /* selectionMenuButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionMenuButtonNormal.png; sourceTree = "<group>"; };
 		5D184EEF18132D37003736F2 /* selectionNextButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionNextButtonNormal.png; sourceTree = "<group>"; };
+		5D184EF2181344AA003736F2 /* selectionMenuButtonNormaliPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionMenuButtonNormaliPhone4.png; sourceTree = "<group>"; };
+		5D184EF3181344AA003736F2 /* selectionMenuButtonPressediPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionMenuButtonPressediPhone4.png; sourceTree = "<group>"; };
+		5D184EF4181344AA003736F2 /* selectionNextButtonNormaliPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionNextButtonNormaliPhone4.png; sourceTree = "<group>"; };
+		5D184EF5181344AA003736F2 /* selectionNextButtonPressediPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionNextButtonPressediPhone4.png; sourceTree = "<group>"; };
 		5D24074C1812FDEF006417D9 /* selectCrystal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectCrystal.png; sourceTree = "<group>"; };
 		5D303D6218128699003D7AD1 /* ship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship4.png; sourceTree = "<group>"; };
 		5D303D64181286B7003D7AD1 /* ship6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship6.png; sourceTree = "<group>"; };
@@ -879,6 +887,10 @@
 		5D3CEAB318126C6B000FAA73 /* SelectShip Scene */ = {
 			isa = PBXGroup;
 			children = (
+				5D184EF2181344AA003736F2 /* selectionMenuButtonNormaliPhone4.png */,
+				5D184EF3181344AA003736F2 /* selectionMenuButtonPressediPhone4.png */,
+				5D184EF4181344AA003736F2 /* selectionNextButtonNormaliPhone4.png */,
+				5D184EF5181344AA003736F2 /* selectionNextButtonPressediPhone4.png */,
 				5D184EEA18132989003736F2 /* selectionMenuButtonPressed.png */,
 				5D184EEB18132989003736F2 /* selectionNextButtonPressed.png */,
 				5D184EEE18132D37003736F2 /* selectionMenuButtonNormal.png */,
@@ -1604,6 +1616,7 @@
 				5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */,
 				5DD60EB5180150A40097FED8 /* mainMenuButtonDisabled.png in Resources */,
 				5D3FF6E817EFBB0900DAB13D /* gained.mp3 in Resources */,
+				5D184EF9181344AA003736F2 /* selectionNextButtonPressediPhone4.png in Resources */,
 				5D303D67181286C4003D7AD1 /* ship5.png in Resources */,
 				5D5E95391812FC18004ABC3B /* geronimoPressed.png in Resources */,
 				5DFC9C181812276300D871C5 /* aboutButtonPressed.png in Resources */,
@@ -1636,6 +1649,7 @@
 				5DD60EB01801244A0097FED8 /* spaceshipNameFont-hd.png in Resources */,
 				5D5E95311812FB0A004ABC3B /* prometheusNormal.png in Resources */,
 				4B9948EA17FFC1D200B5DF86 /* blueroid.png in Resources */,
+				5D184EF7181344AA003736F2 /* selectionMenuButtonPressediPhone4.png in Resources */,
 				5D184EF118132D37003736F2 /* selectionNextButtonNormal.png in Resources */,
 				5D3FF6AA17EFB8E600DAB13D /* ChangeLog in Resources */,
 				5D3FF53E17EFB8E300DAB13D /* Default@2x.png in Resources */,
@@ -1664,6 +1678,7 @@
 				4B6888D118015CF300406F33 /* Blast.mp3 in Resources */,
 				5D4CB8E5180A415D009F37BD /* cloud1.png in Resources */,
 				4B6888D518015CF300406F33 /* Explosion 3.mp3 in Resources */,
+				5D184EF6181344AA003736F2 /* selectionMenuButtonNormaliPhone4.png in Resources */,
 				5D3FF6F017EFBB6C00DAB13D /* click1.mp3 in Resources */,
 				5D065524180CDDBE000F27C0 /* pauseButtonPressed.png in Resources */,
 				4B99490C1800F53500B5DF86 /* explosion.png in Resources */,
@@ -1672,6 +1687,7 @@
 				5DFC9C1A1812276300D871C5 /* loadGameNormal.png in Resources */,
 				4B99490B1800F53500B5DF86 /* explosion-ipadhd.png in Resources */,
 				5D3FF71317EFF1C100DAB13D /* selectScene.mp3 in Resources */,
+				5D184EF8181344AA003736F2 /* selectionNextButtonNormaliPhone4.png in Resources */,
 				5D3FF71717EFF1C100DAB13D /* level3.mp3 in Resources */,
 				5DFC9C171812276300D871C5 /* aboutButtonNormal.png in Resources */,
 				5D329C8B180F7AD70069103F /* level2.mp3 in Resources */,
