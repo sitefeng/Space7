@@ -307,6 +307,7 @@
 		5DD60EBA180156480097FED8 /* gameOverSceneExplode.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */; };
 		5DD60EBC180157310097FED8 /* shoot2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD60EBB180157310097FED8 /* shoot2.mp3 */; };
 		5DECCD49180F3C1200F19B40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DECCD48180F3C1200F19B40 /* Default-568h@2x.png */; };
+		5DFB460F18145F36000A20C2 /* LoadingSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB460E18145F36000A20C2 /* LoadingSceneLayer.m */; };
 		5DFC9C0C1811906600D871C5 /* twitterIconNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFC9C0A1811906600D871C5 /* twitterIconNormal.png */; };
 		5DFC9C0D1811906600D871C5 /* twitterIconPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DFC9C0B1811906600D871C5 /* twitterIconPressed.png */; };
 		5DFC9C0F181190D600D871C5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFC9C0E181190D600D871C5 /* Social.framework */; };
@@ -784,6 +785,8 @@
 		5DD60EB9180156480097FED8 /* gameOverSceneExplode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSceneExplode.mp3; sourceTree = "<group>"; };
 		5DD60EBB180157310097FED8 /* shoot2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot2.mp3; sourceTree = "<group>"; };
 		5DECCD48180F3C1200F19B40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5DFB460D18145F36000A20C2 /* LoadingSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingSceneLayer.h; path = ../LoadingSceneLayer.h; sourceTree = "<group>"; };
+		5DFB460E18145F36000A20C2 /* LoadingSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingSceneLayer.m; path = ../LoadingSceneLayer.m; sourceTree = "<group>"; };
 		5DFC9C0A1811906600D871C5 /* twitterIconNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterIconNormal.png; sourceTree = "<group>"; };
 		5DFC9C0B1811906600D871C5 /* twitterIconPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterIconPressed.png; sourceTree = "<group>"; };
 		5DFC9C0E181190D600D871C5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -1032,6 +1035,8 @@
 				5D3FF6CB17EFB8E600DAB13D /* AppDelegate.m */,
 				5D3FF6F117EFD55B00DAB13D /* MenuSceneLayer.h */,
 				5D3FF6F217EFD55B00DAB13D /* MenuSceneLayer.m */,
+				5DFB460D18145F36000A20C2 /* LoadingSceneLayer.h */,
+				5DFB460E18145F36000A20C2 /* LoadingSceneLayer.m */,
 				5DD60EAA1801175D0097FED8 /* SelectShipLayer.h */,
 				5DD60EAB1801175D0097FED8 /* SelectShipLayer.m */,
 				5D184EFE18135F81003736F2 /* SelectShipBackgroundLayer.h */,
@@ -1888,6 +1893,7 @@
 				5D3FF57A17EFB8E400DAB13D /* CCActionTween.m in Sources */,
 				5D3FF5B117EFB8E400DAB13D /* CCLabelBMFont.m in Sources */,
 				5D3FF65E17EFB8E500DAB13D /* ccCArray.m in Sources */,
+				5DFB460F18145F36000A20C2 /* LoadingSceneLayer.m in Sources */,
 				5D3FF72917F0012500DAB13D /* GameSceneBackgroundLayer.m in Sources */,
 				5D3FF68817EFB8E600DAB13D /* CDXMacOSXSupport.m in Sources */,
 				5D3FF67C17EFB8E600DAB13D /* ZipUtils.m in Sources */,
