@@ -28,6 +28,14 @@
 
 #define kGlideMenuTag 38
 #define kJoystickMenuTag 39
+#define kNextButtonTag 40
+
+#define kReturnMenuButtonTag 41
+#define kBackMenuTag 42
+#define kPlayMenuTag 43
+
+
+#define kNicknameArraySize 7
 
 
 enum {
@@ -37,13 +45,18 @@ enum {
     kShipIcon4Tag,
     };
 
+//DONT FORGET TO SET NEXT BUTTON ENABLED WHEN BACK BUTTON WAS TAPPED!!!!!!!!!!!!!!!!!!!
+
 @implementation SelectShipLayer
 {
     CCLabelBMFont* _nickNameLabel;
     
     BOOL _glideMode;
-    BOOL _changeJoystickPosition; //NO is left, YES is right
+    
     NSArray* _namesArray;
+    NSInteger _shipSelected;
+    BOOL _joystickPosition;
+    
 }
 
 
@@ -70,11 +83,13 @@ enum {
     {
         self.touchEnabled =YES;
         
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
+        
         _glideMode = NO;
-        _changeJoystickPosition = NO;
+        _joystickPosition = NO;
         
-        _namesArray = [NSArray arrayWithObjects:@"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", nil];
-        
+        //Set up the _namesArray
+        _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", nil];
         
         CCLabelBMFont* title = [CCLabelBMFont labelWithString:@"SELECT YOUR SPACESHIP" fntFile:@"spaceshipNameFont.fnt"];
         
@@ -116,10 +131,10 @@ enum {
         [self addChild:shipIconToggleMenu z:3 tag:kShipIconTag];
         
         
-        CCMenuItemImage *imageA = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipDCheckMark)];
-        CCMenuItemImage *imageB = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipCCheckMark)];
-        CCMenuItemImage *imageC = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipBCheckMark)];
-        CCMenuItemImage *imageD = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(shipACheckMark)];
+        CCMenuItemImage *imageA = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(getPrometheus)];
+        CCMenuItemImage *imageB = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(getAnnihilator)];
+        CCMenuItemImage *imageC = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(getHyperion)];
+        CCMenuItemImage *imageD = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector: @selector(getGeronimo)];
         
         
         CCMenu *shipCheckMarkMenu = [CCMenu menuWithItems:imageA, imageB, imageC, imageD, nil];
@@ -159,7 +174,7 @@ enum {
         
         [[self getChildByTag:kTitleTag] runAction:bounceMove];
         
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
+        
         
         [self scheduleOnce:@selector(presentShipSelection) delay:0];
         
@@ -181,12 +196,17 @@ enum {
         [nicknameMenu setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0 +70 - kWinSize.height)];
         
         CCSprite* nameFieldSprite = [CCSprite spriteWithFile:@"nameField.png"];
-        [nameFieldSprite setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0 + 30 - kWinSize.height)];
+        [nameFieldSprite setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0 + 28 - kWinSize.height)];
          
         [self addChild:nicknameMenu z:8];
         [self addChild:nameFieldSprite z:9];
-         
-         _nickNameLabel = [CCLabelBMFont labelWithString:@"Karim" fntFile:@"spaceshipNameFont.fnt"];
+        
+        
+        //Setting up the user nickname
+        
+        NSUInteger nameInteger = arc4random() % kNicknameArraySize;
+        
+        _nickNameLabel = [CCLabelBMFont labelWithString:[_namesArray objectAtIndex: nameInteger] fntFile:@"spaceshipNameFont.fnt"];
         [_nickNameLabel setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0 + 29 - kWinSize.height)];
         
         [self addChild: _nickNameLabel z:10];
@@ -212,13 +232,12 @@ enum {
         
         CCLabelBMFont* glideLabel = [CCLabelBMFont labelWithString:@"Glide\nMode" fntFile:@"spaceshipNameFont.fnt"];
         
-        [glideLabel setPosition:ccp(kWinSize.width/2.0 - 75, kWinSize.height/2.0 - 50 - kWinSize.height)];
+        [glideLabel setPosition:ccp(kWinSize.width/2.0 - 75, kWinSize.height/2.0 - 57 - kWinSize.height)];
         
         [self addChild: glideLabel];
         
         CCLabelBMFont* joystickLabel = [CCLabelBMFont labelWithString:@"Joystick\nPosition" fntFile:@"spaceshipNameFont.fnt"];
-        
-        [joystickLabel setPosition:ccp(kWinSize.width/2.0 + 75, kWinSize.height/2.0 - 50 - kWinSize.height)];
+        [joystickLabel setPosition:ccp(kWinSize.width/2.0 + 75, kWinSize.height/2.0 - 57 - kWinSize.height)];
         
         [self addChild: joystickLabel];
         
@@ -250,6 +269,11 @@ enum {
         
         
         
+        
+        //periodically check whether CCMenu highlight are deselected
+        
+        [self schedule:@selector(rehighlightMenu) interval:1 repeat:kCCRepeatForever delay:0];
+        
     }
     
     return self;
@@ -269,41 +293,6 @@ enum {
     [[self getChildByTag: kShipIcon3Tag] runAction:rotateBy3];
     [[self getChildByTag: kShipIcon4Tag] runAction:rotateBy4];
     
-}
-
-
-
-- (void)getGeronimo{
-    
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[self controller] setShipToStart:_Geronimo];
-    [[CCDirector sharedDirector] replaceScene: [GameSceneLayer scene]];
-    
-}
-
-
-- (void)getHyperion{
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[self controller] setShipToStart:_Hyperion];
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-}
-
-- (void)getAnnihilator{
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[self controller] setShipToStart:_Annihilator];
-    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
-}
-
-- (void)getPrometheus{
-    
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    
-    [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will bring in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
-    
-    
-    
-//    [[self controller] setShipToStart:_Prometheus];
-//    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
 }
 
 
@@ -340,7 +329,7 @@ enum {
 
 - (void)revealExtensions
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"extend.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"extend.mp3"];
     
     CCMoveTo* moveShipIconMenu = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0 - 140, kWinSize.height/2.0 - 30)];
     
@@ -356,9 +345,6 @@ enum {
     
     
 
-    
-    
-    
     
     [self scheduleOnce:@selector(showNextButton) delay:1];
     
@@ -415,7 +401,8 @@ enum {
     
     
     ///////Show Next button and the Menu Button
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
     
     CCMenuItemImage* menuItem;
     CGPoint positionToSet;
@@ -426,9 +413,9 @@ enum {
     {
         menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
         returnMenu = [CCMenu menuWithItems:menuItem, nil];
-        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
+        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, kWinSize.height/2)];
         
-        positionToSet = ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2);
+        positionToSet = ccp(menuItem.contentSize.width/2, kWinSize.height/2);
     }
     else if(IS_IPHONE_4)
     {
@@ -442,18 +429,18 @@ enum {
     {
         menuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(returnToMenu)];
         returnMenu = [CCMenu menuWithItems:menuItem, nil];
-        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, menuItem.contentSize.height/2)];
+        [returnMenu setPosition:ccp(-0.5 * menuItem.contentSize.width, kWinSize.height/2)];
         
-        positionToSet = ccp(menuItem.contentSize.width/2, menuItem.contentSize.height/2);
+        positionToSet = ccp(menuItem.contentSize.width/2, kWinSize.height/2);
     }
 
-    [self addChild:returnMenu];
+    [self addChild:returnMenu z:15 tag: kReturnMenuButtonTag];
     
     CCMoveTo* moveReturnMenu = [CCMoveTo actionWithDuration:1 position:positionToSet];
 
     [returnMenu runAction:moveReturnMenu];
     
-    //Setting the Nexts button now
+    //Setting the Next button now
     CCMenuItemImage* nextItem;
     CGPoint positionToSet2;
     CCMenu* nextButton;
@@ -462,9 +449,9 @@ enum {
     {
         nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" disabledImage:@"selectionNextButtonDisabled.png" target:self selector:@selector(moveToNext)];
         nextButton = [CCMenu menuWithItems:nextItem, nil];
-        [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
+        [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 ,  kWinSize.height/2)];
         
-        positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2);
+        positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2,  kWinSize.height/2);
     }
     else if(IS_IPHONE_4)
     {
@@ -479,16 +466,20 @@ enum {
     {
         nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
         nextButton = [CCMenu menuWithItems:nextItem, nil];
-    [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
+        
+    [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , kWinSize.height/2)];
     
-    positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, nextItem.contentSize.height/2);
+    positionToSet2 = ccp(kWinSize.width - nextItem.contentSize.width/2, kWinSize.height/2);
         
     }
-
-    [self addChild:nextButton];
-    CCMoveTo* moveNextButton = [CCMoveTo actionWithDuration:1 position:positionToSet2];
     
-    [nextButton runAction:moveNextButton];
+    [nextItem setIsEnabled: NO];
+
+    [self addChild:nextButton z:12 tag:kNextButtonTag];
+    CCMoveTo* moveInNextButton = [CCMoveTo actionWithDuration:1 position:positionToSet2];
+    
+    [nextButton runAction:moveInNextButton];
+
     
     
 }
@@ -497,39 +488,70 @@ enum {
 
 - (void)returnToMenu
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
-    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
     [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
     
 }
 
 
+
 - (void)moveToNext
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
+    //Let the two menu buttons move to sides
+    [self moveFirstMenusAside];
     
+    //Moving the layer up
     CCMoveBy* moveEntireLayer = [CCMoveBy actionWithDuration:2 position:ccp(0, kWinSize.height)];
-    
     CCEaseElasticInOut* easeForLayerMove = [CCEaseElasticInOut actionWithAction:moveEntireLayer];
-    
     [self runAction:easeForLayerMove];
     
+    //Ensure the button does't get tapped twice!
+    [(CCMenu*)[self getChildByTag: kNextButtonTag] setEnabled:NO];
+    [(CCMenu*)[self getChildByTag:kReturnMenuButtonTag] setEnabled: NO];
     
-    
-    
+    [self scheduleOnce:@selector(initSecondMenus) delay:2];
     
 }
 
-
+- (void) initSecondMenus
+{
+    //Creating the next two menu items
+    CCMenuItemImage* backItem = [CCMenuItemImage itemWithNormalImage:@"selectionBackButtonNormal.png" selectedImage:@"selectionBackButtonPressed.png" target:self selector:@selector(backButtonPressed)];
+    
+    CCMenu* backMenu = [CCMenu menuWithItems:backItem, nil];
+    
+//    backMenu.anchorPoint = ccp(0.5,0.5);
+    
+    [backMenu setPosition:ccp( -1 * backItem.contentSize.width/2.0,  -1 * kWinSize.height/2)];
+    
+    [self addChild:backMenu z:15 tag: kBackMenuTag];
+    
+    
+    CCMenuItemImage* playItem = [CCMenuItemImage itemWithNormalImage:@"selectionPlayButtonNormal.png" selectedImage:@"selectionPlayButtonPressed.png" target:self selector:@selector(playButtonPressed)];
+    
+    CCMenu* playMenu = [CCMenu menuWithItems:playItem, nil];
+    
+//    playMenu.anchorPoint = ccp(0.5,0.5);
+    
+    
+    [playMenu setPosition:ccp( kWinSize.width + playItem.contentSize.width/2.0 ,  -1 * kWinSize.height/2.0)];
+    
+    [self addChild:playMenu z:15 tag: kPlayMenuTag];
+    
+    
+    [self scheduleOnce:@selector(moveSecondMenusBackIn) delay:0];
+}
 
 
 
 - (void)ship1IconToggle
 {
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
 }
 
@@ -537,7 +559,7 @@ enum {
 
 - (void)ship2IconToggle
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
@@ -547,7 +569,7 @@ enum {
 
 - (void)ship3IconToggle
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
@@ -556,16 +578,19 @@ enum {
 
 - (void)ship4IconToggle
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"previewSpaceship.mp3"];
     
     
 }
 
 
 
--(void) shipACheckMark
+-(void) getGeronimo
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"selectSpaceship.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"selectSpaceship.mp3"];
+    [(CCMenuItem*)[[[self getChildByTag:kNextButtonTag] children] objectAtIndex: 0] setIsEnabled: YES];
+    
+    
     
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
@@ -577,43 +602,59 @@ enum {
     
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 +69)];
     
+    _shipSelected = _Geronimo;
+    
 }
 
 
--(void) shipBCheckMark
+-(void) getHyperion
 {
+    
+    
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
     
-    [self shipACheckMark];
-    
+    [self getGeronimo];
     
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 +2)];
     
+    
+    
+    _shipSelected = _Hyperion;
+    
 }
 
 
--(void) shipCCheckMark
+-(void) getAnnihilator
 {
+    
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
     
-    [self shipACheckMark];
+    [self getGeronimo];
     
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -62)];
     
+    
+    
+    _shipSelected = _Annihilator;
+    
 }
 
 
--(void) shipDCheckMark
+-(void) getPrometheus
 {
-    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
-    [crystalSprite setScale:0.01];
     
-    [self shipACheckMark];
+//    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
+//    [crystalSprite setScale:0.01];
+//    
+//    [self getGeronimo];
+//    
+//    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -128)];
     
-    [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -128)];
+    [[[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"Each app update will bring in a new exotic spaceship. Stay tuned!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     
+//    _shipSelected = _Annihilator;
 }
 
 
@@ -630,9 +671,10 @@ enum {
 - (void)shuffleNickname
 {
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    NSUInteger tryInt = arc4random() % 7;
     
-    NSString* nameToSet = (NSString*)[_namesArray objectAtIndex:arc4random() % 7];
+    NSString* nameToSet = [_namesArray objectAtIndex:tryInt];
     
     if([nameToSet isEqualToString:_nickNameLabel.string])
     {
@@ -649,7 +691,7 @@ enum {
 
 - (void)onSwitch
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     _glideMode = YES;
     
@@ -661,7 +703,7 @@ enum {
 
 - (void)offSwitch
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     _glideMode = NO;
     
@@ -673,9 +715,9 @@ enum {
 
 - (void)leftSwitch
 {
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    _changeJoystickPosition = NO;
+    _joystickPosition = NO;
     
     [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:0] selected];
     [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:1] unselected];
@@ -687,9 +729,9 @@ enum {
 - (void)rightSwitch
 {
     
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    _changeJoystickPosition = YES;
+    _joystickPosition = YES;
     
     [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:0] unselected];
     [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:1] selected];
@@ -698,5 +740,131 @@ enum {
 }
 
 
+
+- (void)rehighlightMenu
+{
+    if(_glideMode)
+    {
+        [[[self getChildByTag:kGlideMenuTag].children objectAtIndex:0] selected];
+        [[[self getChildByTag:kGlideMenuTag].children objectAtIndex:1] unselected];
+    }
+    else
+    {
+        [[[self getChildByTag:kGlideMenuTag].children objectAtIndex:0] unselected];
+        [[[self getChildByTag:kGlideMenuTag].children objectAtIndex:1] selected];
+    }
+    if(_joystickPosition)
+    {
+        [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:0] unselected];
+        [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:1] selected];
+    }
+    else
+    {
+        [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:0] selected];
+        [[[self getChildByTag:kJoystickMenuTag].children objectAtIndex:1] unselected];
+    }
+    
+    
+}
+
+
+- (void)backButtonPressed
+{
+    CCMoveBy* moveLayer = [CCMoveBy actionWithDuration:2 position:ccp(0, -1* kWinSize.height)];
+    
+    CCEaseElasticInOut* moveEase = [CCEaseElasticInOut actionWithAction:moveLayer];
+    
+    [self runAction:moveEase];
+    
+    [self moveSecondMenusAside];
+    
+    [self scheduleOnce:@selector(moveFirstMenusBackIn) delay:2];
+    
+}
+
+
+- (void)playButtonPressed
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
+    
+    [[self controller] setShipToStart:_shipSelected];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:_glideMode forKey:@"glideMode"];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:_joystickPosition forKey:@"joystickPosition"];
+    
+    
+    [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
+    
+    
+}
+
+
+- (void)moveFirstMenusAside
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    
+    CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kReturnMenuButtonTag] children] objectAtIndex:0];
+    
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0)];
+    [[self getChildByTag:kReturnMenuButtonTag] runAction:moveReturnMenu];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0 )];
+    [[self getChildByTag:kNextButtonTag] runAction:moveNext];
+
+    [(CCMenu*)[self getChildByTag:kNextButtonTag] setEnabled: NO];
+    [(CCMenu*)[self getChildByTag:kReturnMenuButtonTag] setEnabled: NO];
+}
+
+
+- (void)moveFirstMenusBackIn
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kReturnMenuButtonTag] children] objectAtIndex:0];
+    
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0)];
+    [[self getChildByTag:kReturnMenuButtonTag] runAction:moveReturnMenu];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0 )];
+    [[self getChildByTag:kNextButtonTag] runAction:moveNext];
+    
+    [(CCMenu*)[self getChildByTag:kNextButtonTag] setEnabled: YES];
+    [(CCMenu*)[self getChildByTag:kReturnMenuButtonTag] setEnabled: YES];
+
+    
+}
+
+
+- (void)moveSecondMenusAside
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kBackMenuTag] children] objectAtIndex:0];
+    
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0)];
+    [[self getChildByTag:kBackMenuTag] runAction:moveReturnMenu];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0 )];
+    [[self getChildByTag:kPlayMenuTag] runAction:moveNext];
+    
+
+    [(CCMenu*)[self getChildByTag:kBackMenuTag] setEnabled:NO];
+    [(CCMenu*)[self getChildByTag:kPlayMenuTag] setEnabled:NO];
+    
+    
+}
+
+- (void)moveSecondMenusBackIn
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
+    CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kBackMenuTag] children] objectAtIndex:0];
+
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0)];
+    [[self getChildByTag:kBackMenuTag] runAction:moveReturnMenu];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0 )];
+    [[self getChildByTag:kPlayMenuTag] runAction:moveNext];
+    
+
+    [(CCMenu*)[self getChildByTag:kBackMenuTag] setEnabled:YES];
+    [(CCMenu*)[self getChildByTag:kPlayMenuTag] setEnabled:YES];
+
+
+}
 
 @end

@@ -41,7 +41,6 @@
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
     GameSceneDisplayLayer *gameSceneDisplayLayer = [GameSceneDisplayLayer node];
-
     
     [scene addChild: gameSceneDisplayLayer z:3 tag:66];
     [scene addChild: gameSceneControlsLayer z:2 tag:kGameSceneControlsLayerTag];

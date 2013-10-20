@@ -940,6 +940,11 @@
 				5D184F1218138372003736F2 /* selectionRightNormal.png */,
 				5D816B6118139CF900F53203 /* selectionLeftPressed.png */,
 				5D816B6218139CF900F53203 /* selectionRightPressed.png */,
+				5D184F0118136CEB003736F2 /* selectionBackButtonNormal.png */,
+				5D184F0218136CEB003736F2 /* selectionBackButtonPressed.png */,
+				5D184F0318136CEB003736F2 /* selectionPlayButtonNormal.png */,
+				5D184F0418136CEB003736F2 /* selectionPlayButtonPressed.png */,
+				5D184F0918136D56003736F2 /* selectionPlayButtonDisabled.png */,
 			);
 			name = secondDisplay;
 			sourceTree = "<group>";
@@ -969,11 +974,6 @@
 				5D5E95361812FC18004ABC3B /* hyperionPressed.png */,
 				5D5E95371812FC18004ABC3B /* prometheusPressed.png */,
 				5D24074C1812FDEF006417D9 /* selectCrystal.png */,
-				5D184F0118136CEB003736F2 /* selectionBackButtonNormal.png */,
-				5D184F0218136CEB003736F2 /* selectionBackButtonPressed.png */,
-				5D184F0318136CEB003736F2 /* selectionPlayButtonNormal.png */,
-				5D184F0418136CEB003736F2 /* selectionPlayButtonPressed.png */,
-				5D184F0918136D56003736F2 /* selectionPlayButtonDisabled.png */,
 			);
 			name = firstDisplay;
 			sourceTree = "<group>";

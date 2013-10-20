@@ -38,9 +38,14 @@
         
         _alertViewIsShowing = NO;
         self.touchEnabled =YES;
+        self.joystickPosition = NO;
+        self.accelerationMode = NO;
+        
+        self.joystickPosition = [[NSUserDefaults standardUserDefaults] boolForKey:@"joystickPosition"];
+        
+        self.accelerationMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
         
         [self initJoystick];
-        
         
         
         [self initPauseButton];
@@ -55,7 +60,7 @@
         ////////////////////////
         /////////////////////////
         //VERY IMPORTANT SWITCH
-        self.accelerationMode = YES;
+//        self.accelerationMode = YES;
         /////////////////////////
         //////////////////////////
         
@@ -214,7 +219,16 @@
     
     joystickBase.joystick.joystickRadius = 33;
     
-    joystickBase.position = ccp(joystickBaseSize.width, joystickBaseSize.height);
+    
+    if(!self.joystickPosition)
+    {
+        joystickBase.position = ccp(joystickBaseSize.width, joystickBaseSize.height);
+        
+    }
+    else
+    {
+        joystickBase.position = ccp(kWinSize.width - joystickBaseSize.width, joystickBaseSize.height);
+    }
     
     
     [self addChild:joystickBase];
@@ -231,17 +245,31 @@
     
     CGSize buttonSize = ShootButtonImg.contentSize;
     
-    CCMenu *ShootButton = [CCMenu menuWithItems:ShootButtonImg, nil];
+    CCMenu *shootButton = [CCMenu menuWithItems:ShootButtonImg, nil];
     
-    ShootButton.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
+    if(!self.joystickPosition)
+    {
+        shootButton.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
+    }
+    else
+    {
+        shootButton.position = ccp(buttonSize.width, buttonSize.height);
+    }
     
-    [self addChild: ShootButton z:75];
+    [self addChild: shootButton z:75];
     
     
     CCSprite* shootCrystal = [CCSprite spriteWithFile:@"shootCrystal.png"];
     
-    shootCrystal.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
-
+    if(!self.joystickPosition)
+    {
+        shootCrystal.position = ccp(kWinSize.width - buttonSize.width, buttonSize.height);
+    }
+    else
+    {
+        shootCrystal.position = ccp(buttonSize.width, buttonSize.height);
+    }
+    
     [self addChild:shootCrystal z:74 tag: 74];
     
     [self schedule:@selector(rotateShootCrystal) interval:1 repeat:kCCRepeatForever delay:0];
@@ -250,7 +278,7 @@
 
 - (void)initPauseButton
 {
-    CCMenuItemImage *pauseButtonImg = [CCMenuItemImage itemWithNormalImage:@"pauseButtonNormal.png" selectedImage:@"pauseButtonPressed.png" disabledImage:@"pauseButtonDisabled.png" target:self selector:@selector(didPressPauseButton)];
+    CCMenuItemImage *pauseButtonImg = [CCMenuItemImage itemWithNormalImage:@"pauseButtonNormal.png" selectedImage:@"pauseButtonPressed.png" target:self selector:@selector(didPressPauseButton)];
     
     
     CCMenu *pauseButton = [CCMenu menuWithItems:pauseButtonImg, nil];

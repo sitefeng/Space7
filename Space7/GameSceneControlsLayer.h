@@ -28,6 +28,9 @@
 
 @property (nonatomic, assign) BOOL accelerationMode;
 
+@property (nonatomic, assign) BOOL joystickPosition;
+
+
 @property (nonatomic, assign) BOOL alertViewIsShowing;
 
 +(CCScene*) scene;
