@@ -102,7 +102,6 @@
             
             [cloudSprite setRotation:CCRANDOM_0_1()*360];
             
-            
             float scaleValue = 1.0 + CCRANDOM_0_1()*1.5;
             [cloudSprite setScale:scaleValue];
             

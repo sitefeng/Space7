@@ -12,7 +12,8 @@
 #import "GameSceneLayer.h"
 #import "BatttleShips.h"
 #import "AppDelegate.h"
-#import "AnimatedCloudBackground.h"
+
+#import "SelectShipBackgroundLayer.h"
 
 #import "ApplicationConstants.c"
 
@@ -41,15 +42,12 @@ enum {
     
     SelectShipLayer* selectShipLayer = [SelectShipLayer node];
     
-    AnimatedCloudBackground* animatedBackground = [AnimatedCloudBackground node];
+    SelectShipBackgroundLayer* backgroundLayer = [SelectShipBackgroundLayer node];
     
-    [selectShipLayer addChild: animatedBackground z:-1];
-    
-    [scene addChild: selectShipLayer];
+    [scene addChild: selectShipLayer z:1 tag:1];
+    [scene addChild: backgroundLayer z:0 tag:0];
     
     return scene;
-
-    
 }
 
 
@@ -83,8 +81,6 @@ enum {
         [shipChoiceMenu setEnabled:NO];
         
         [self addChild:shipChoiceMenu z:5 tag:kShipChoiceMenuTag];
-        
-        
         
         CCMenuItemImage *image1 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship1IconToggle)];
         CCMenuItemImage *image2 = [CCMenuItemImage itemWithNormalImage:@"shipPreviewNormal.png" selectedImage:@"shipPreviewPressed.png" target:self selector:@selector(ship2IconToggle)];
@@ -127,15 +123,6 @@ enum {
         [self addChild:shipCheckMarkMenu z:4 tag:kShipCheckMarkTag];
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
         CCSprite* selectCrystal = [CCSprite spriteWithFile:@"selectCrystal.png"];
         
         selectCrystal.position = ccp(kWinSize.width/2.0, -20);
@@ -150,21 +137,32 @@ enum {
         
         [self addChild:selectCrystal z:1 tag:kSelectCrystalTag];
         
-        
-        
         //Start the Animations
         CCMoveTo* moveTitle = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0 +120)];
         CCEaseBounceOut * bounceMove = [CCEaseBounceOut actionWithAction:moveTitle];
         
         [[self getChildByTag:kTitleTag] runAction:bounceMove];
         
-        
-        
-        
-        
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
         
         [self scheduleOnce:@selector(presentShipSelection) delay:0];
+        
+        
+        
+        
+        //////////////////////////////////////
+        //Second Display
+        //////////////////////////////////////
+        
+        CCLabelBMFont* title2 = [CCLabelBMFont labelWithString:@"SETTINGS" fntFile:@"spaceshipNameFont.fnt"];
+        [title2 setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0 +120)];
+        
+        [self addChild:title2];
+        
+        
+        
+        
+        
         
         
 
@@ -378,7 +376,7 @@ enum {
     
     if(IS_IPHONE_5)
     {
-        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" target:self selector:@selector(moveToNext)];
+        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormal.png" selectedImage:@"selectionNextButtonPressed.png" disabledImage:@"selectionNextButtonDisabled.png" target:self selector:@selector(moveToNext)];
         nextButton = [CCMenu menuWithItems:nextItem, nil];
         [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , nextItem.contentSize.height/2)];
         
@@ -386,7 +384,7 @@ enum {
     }
     else if(IS_IPHONE_4)
     {
-        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormaliPhone4.png" selectedImage:@"selectionNextButtonPressediPhone4.png" target:self selector:@selector(moveToNext)];
+        nextItem = [CCMenuItemImage itemWithNormalImage:@"selectionNextButtonNormaliPhone4.png" selectedImage:@"selectionNextButtonPressediPhone4.png" disabledImage:@"selectionNextButtonDisablediPhone4.png" target:self selector:@selector(moveToNext)];
         nextButton = [CCMenu menuWithItems:nextItem, nil];
         [nextButton setPosition:ccp(kWinSize.width + nextItem.contentSize.width / 2 , kWinSize.height - nextItem.contentSize.height/2)];
         
@@ -524,14 +522,6 @@ enum {
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -128)];
     
 }
-
-
-
-
-
-
-
-
 
 
 
