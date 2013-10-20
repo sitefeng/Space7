@@ -156,8 +156,12 @@
 //    
 //    [kUserDefaults registerDefaults:userDefaults];
 //    [kUserDefaults synchronize];
-
+    
+    // For load game purposes
     self.shipToStart = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"];
+    
+    //getting rid of the FPS display
+    director_.displayStats = NO;
     
     
 	return YES;
@@ -176,6 +180,23 @@
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
+    
+    if( [navController_ visibleViewController] == director_ )
+		[director_ resume];
+    
+	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
+	
+}
+
+-(void) applicationDidEnterBackground:(UIApplication*)application
+{
+	if( [navController_ visibleViewController] == director_ )
+		[director_ stopAnimation];
+    
+}
+
+-(void) applicationWillEnterForeground:(UIApplication*)application
+{
     CCScene * scene = [[CCDirector sharedDirector] runningScene];
     
     GameSceneControlsLayer *gameLayer = nil;
@@ -193,23 +214,10 @@
     }
     
     if( ([navController_ visibleViewController] == director_) && !alertViewIsUp)
-		[director_ startAnimation];
+    {
+        [director_ startAnimation];
+    }
     
-	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
-	
-}
-
--(void) applicationDidEnterBackground:(UIApplication*)application
-{
-	if( [navController_ visibleViewController] == director_ )
-		[director_ stopAnimation];
-    
-}
-
--(void) applicationWillEnterForeground:(UIApplication*)application
-{
-    if( [navController_ visibleViewController] == director_ )
-		[director_ resume];
 	
 }
 

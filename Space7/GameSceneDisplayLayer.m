@@ -81,7 +81,7 @@
         CCSprite* profileSprite;
         
         
-        if([[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"]==-1)
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"]==0)
         {
             NSLog(@"In NSUserDefaults, the selected Ship wasn't set up");
         }

@@ -35,7 +35,7 @@
 #define kPlayMenuTag 43
 
 
-#define kNicknameArraySize 7
+#define kNicknameArraySize 27
 
 
 enum {
@@ -85,11 +85,11 @@ enum {
         
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
         
-        _glideMode = NO;
-        _joystickPosition = NO;
+        _glideMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
+        _joystickPosition = [[NSUserDefaults standardUserDefaults] boolForKey:@"joystickPosition"];
         
         //Set up the _namesArray
-        _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", nil];
+        _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", @"Wesley", @"Ben", @"Steven", @"Chris", @"Calvin", @"Colin", @"Aditya", @"Alex", @"David", @"Edison", @"Abs", @"Cary", @"Mike", @"Lisa", @"Alicia", @"Kathryn", @"Jessie", @"Taylor", @"Christina", @"Fiona", nil];
         
         CCLabelBMFont* title = [CCLabelBMFont labelWithString:@"SELECT YOUR SPACESHIP" fntFile:@"spaceshipNameFont.fnt"];
         
@@ -672,7 +672,7 @@ enum {
 {
     
     //[[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    NSUInteger tryInt = arc4random() % 7;
+    NSUInteger tryInt = arc4random() % kNicknameArraySize;
     
     NSString* nameToSet = [_namesArray objectAtIndex:tryInt];
     
@@ -797,6 +797,7 @@ enum {
     
     [[NSUserDefaults standardUserDefaults] setBool:_glideMode forKey:@"glideMode"];
     [[NSUserDefaults standardUserDefaults] setBool:_joystickPosition forKey:@"joystickPosition"];
+    [[NSUserDefaults standardUserDefaults] setObject:[_nickNameLabel string] forKey:@"playerName"];
     
     [[CCDirector sharedDirector] replaceScene:[GameSceneLayer scene]];
     

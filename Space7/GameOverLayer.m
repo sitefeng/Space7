@@ -289,7 +289,8 @@
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"selectedShip"];
     
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@" " forKey:@"playerName"];
+
     
     ////////////////////////////////////////
     
