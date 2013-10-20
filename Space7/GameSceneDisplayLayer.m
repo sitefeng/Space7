@@ -122,11 +122,11 @@
         
         //Making the top right elements
         
-        gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont-hd.fnt"];
+        gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont.fnt"];
         
         gameScoreSLabel.position = ccp(kWinSize.width - 78,310);
         
-        enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont-hd.fnt"];
+        enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont.fnt"];
         
         enemiesKilledKLabel.position = ccp(kWinSize.width - 78,290);
         

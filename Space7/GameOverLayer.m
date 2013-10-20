@@ -180,7 +180,7 @@
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
-    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Time Elapsed" fntFile:@"spaceshipNameFont-hd.fnt"];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Time Elapsed" fntFile:@"spaceshipNameFont.fnt"];
     [titleLabel setScale:0.9];
     titleLabel.position =ccp(winSize.width/2, winSize.height - 90);
     
@@ -212,7 +212,7 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
-    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Units Destroyed" fntFile:@"spaceshipNameFont-hd.fnt"];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Units Destroyed" fntFile:@"spaceshipNameFont.fnt"];
     [titleLabel setScale:0.9];
     titleLabel.position =ccp(winSize.width/2, winSize.height - 165);
     
