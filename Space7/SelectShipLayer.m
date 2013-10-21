@@ -56,6 +56,8 @@ enum {
     NSInteger _shipSelected;
     BOOL _joystickPosition;
     
+    int _selectedShipMenuItem;
+    
 }
 
 
@@ -86,6 +88,7 @@ enum {
         
         _glideMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
         _joystickPosition = [[NSUserDefaults standardUserDefaults] boolForKey:@"joystickPosition"];
+        _selectedShipMenuItem -0;
         
         //Set up the _namesArray
         _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", @"Wesley", @"Ben", @"Steven", @"Chris", @"Calvin", @"Colin", @"Aditya", @"Alex", @"David", @"Edison", @"Abs", @"Cary", @"Mike", @"Lisa", @"Alicia", @"Kathryn", @"Jessie", @"Taylor", @"Christina", @"Fiona", nil];
@@ -180,9 +183,12 @@ enum {
         [self scheduleOnce:@selector(revealExtensions) delay:1];
         [self scheduleOnce:@selector(showNextButton) delay:2];
         
+        //Make sure the ship selection menu item keeps highlighting
+        [self schedule:@selector(shipSelectionMenuKeepHighlight) interval:0.5];
+        
         //////////////////////////////////////////////////////////////////
         //////////////////////////////////////
-        //Second Display
+        //Init Second Display
         //////////////////////////////////////
         
         CCLabelBMFont* title2 = [CCLabelBMFont labelWithString:@"SETTINGS" fntFile:@"spaceshipNameFont.fnt"];
@@ -559,9 +565,19 @@ enum {
 -(void) getGeronimo
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"selectSpaceship.mp3"];
+    
+    //Setting the next button to be enabled
     [(CCMenuItem*)[[[self getChildByTag:kNextButtonTag] children] objectAtIndex: 0] setIsEnabled: YES];
     
+    //Making the highlight to stay
+    CCMenuItemImage* itemImage = (CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0];
+    [itemImage selected];
     
+    _selectedShipMenuItem = 1;
+    
+    //Deselect the rest of the menu items
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1] unselected];
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2] unselected];
     
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
@@ -581,7 +597,6 @@ enum {
 -(void) getHyperion
 {
     
-    
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
     
@@ -589,15 +604,24 @@ enum {
     
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 +2)];
     
-    
-    
     _shipSelected = _Hyperion;
+    
+    //Making the highlight to stay
+    CCMenuItemImage* itemImage = (CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1];
+    [itemImage selected];
+    
+    _selectedShipMenuItem = 2;
+    
+    //Deselect the rest of the menu items
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] unselected];
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2] unselected];
     
 }
 
 
 -(void) getAnnihilator
 {
+
     
     CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
     [crystalSprite setScale:0.01];
@@ -606,9 +630,17 @@ enum {
     
     [crystalSprite setPosition:ccp(kWinSize.width/2 + 155, kWinSize.height/2 -62)];
     
-    
-    
     _shipSelected = _Annihilator;
+    
+    //Making the highlight to stay
+    CCMenuItemImage* itemImage = (CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2];
+    [itemImage selected];
+    
+    _selectedShipMenuItem = 3;
+    
+    //Deselect the rest of the menu items
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1] unselected];
+    [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] unselected];
     
 }
 
@@ -844,5 +876,33 @@ enum {
 
 
 }
+
+
+
+- (void)shipSelectionMenuKeepHighlight
+{
+    
+    switch (_selectedShipMenuItem) {
+        case 1:
+            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] selected];
+            break;
+        case 2:
+            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1] selected];
+            break;
+        case 3:
+            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2] selected];
+            break;
+        default:
+            break;
+    }
+    
+    
+    
+}
+
+
+
+
+
 
 @end
