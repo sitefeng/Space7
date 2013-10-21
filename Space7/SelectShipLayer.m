@@ -82,7 +82,7 @@ enum {
     {
         self.touchEnabled =YES;
         
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"selectScene.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"shipSelection.mp3" loop:YES];
         
         _glideMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
         _joystickPosition = [[NSUserDefaults standardUserDefaults] boolForKey:@"joystickPosition"];
@@ -756,6 +756,7 @@ enum {
 
 - (void)playButtonPressed
 {
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     [[self controller] setShipToStart:_shipSelected];

@@ -25,11 +25,15 @@
 #define kGameScoreLabel 59
 
 
-
+#define kNumGameLevelMusic 3
 
 
 
 @implementation GameSceneLayer
+{
+    
+    NSMutableArray* _explodeFrames;
+}
 
 @synthesize mySpaceship, target, _asteroids, _projectiles, _stars;
 
@@ -63,7 +67,28 @@
         _projectiles = [[NSMutableArray alloc] init];
         _stars = [[NSMutableArray alloc] init];
 
+        //Preload the explosion effect
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+        _explodeFrames = [[NSMutableArray alloc] init];
+        for (int i=1; i<=32; i++) {
+            NSString *string;
+            if (i/10 == 0){
+                string = [NSString stringWithFormat:@"slice0%d_0%d.png",i,i];
+            }else{
+                string = [NSString stringWithFormat:@"slice%d_%d.png",i,i];
+            }
+            
+            [_explodeFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              string]];
+        }
         
+        
+        
+        
+        
+        
+        //Set touch not enabled
         self.touchEnabled =NO;
         AppController *appC = [UIApplication sharedApplication].delegate;
         [self initializeShip:appC.shipToStart];
@@ -151,32 +176,22 @@
 
 - (void)blowUpAtPosition: (CGPoint)position
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+    
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"explosion.png"];
     [self addChild:spriteSheet];
     
-    NSMutableArray *exlodeFrames = [NSMutableArray array];
-    for (int i=1; i<=32; i++) {
-        NSString *string;
-        if (i/10 == 0){
-            string = [NSString stringWithFormat:@"slice0%d_0%d.png",i,i];
-        }else{
-            string = [NSString stringWithFormat:@"slice%d_%d.png",i,i];
-        }
-        
-        [exlodeFrames addObject:
-         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          string]];
-    }
     
-    CCAnimation *explode = [CCAnimation
-                             animationWithSpriteFrames:exlodeFrames delay:0.025f];
     
-   // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    
+    
+    CCAnimation* explosion = [CCAnimation animationWithSpriteFrames:_explodeFrames delay:0.025f];
+    
+    
     self.boom = [CCSprite spriteWithSpriteFrameName:@"slice01_01.png"];
     self.boom.position = position;
    
-    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explode], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explosion], [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node removeFromParentAndCleanup:YES];
     }],nil] ];
     self.boom.scale = 2.5;

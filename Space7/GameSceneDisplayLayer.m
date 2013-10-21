@@ -212,7 +212,16 @@
         self.energyBar.percentage =  percentageToSet;
         
         //Setting the level label
-        self.gameLevel = level;
+        if(self.gameLevel < level)
+        {
+            self.gameLevel = level;
+            [[SimpleAudioEngine sharedEngine] playEffect:@"levelUp.mp3"];
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+            
+            NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (level-1)%3 + 1];
+            
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:YES];
+        }
         
         //Setting the GUI elements
         [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%.0f",self.gameScore]];
@@ -224,11 +233,12 @@
     
     updateTime+=delta;
     
+    
+    float bonusPoints = self.gameScore - self.timeScore;
+    
     self.timeScore = self.timeScore + delta *3;
     
-    
-    
-    
+    self.gameScore = bonusPoints + self.timeScore;
     
 }
 

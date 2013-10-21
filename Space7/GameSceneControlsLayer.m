@@ -294,7 +294,7 @@
 - (void)checkHealth
 {
     if ([self gameLayer].mySpaceship.hp <= 0) {
-        [[CCDirector sharedDirector] startAnimation];
+
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         
         GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
