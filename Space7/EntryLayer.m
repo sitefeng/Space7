@@ -30,7 +30,7 @@
         background = [CCSprite spriteWithFile:@"LaunchImage@2x.png"];
     }
     
-    [background setRotation:270];
+    [background setRotation:90];
     background.anchorPoint = ccp(0.5,0.5);
     [background setPosition:ccp(kWinSize.width/2.0, kWinSize.height/2.0)];
     
@@ -53,7 +53,7 @@
     
     if(self=[super init])
     {
-        [self scheduleOnce:@selector(replaceScene) delay:2.84];
+        [self scheduleOnce:@selector(replaceScene) delay:2.4];
    
     }
     

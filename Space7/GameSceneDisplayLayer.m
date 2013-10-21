@@ -23,7 +23,6 @@
     float updateTime;
 }
 
-
 - (id) init
 {
     
@@ -34,8 +33,10 @@
         self.enemiesKilled =  [[NSUserDefaults standardUserDefaults] integerForKey:@"enemiesKilled"];
         
         self.timeScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"timeScore"];
-        
+        self.energyScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"energyScore"];
 
+        self.gameLevel = self.gameScore / 10.0 + 1;
+        
         updateTime = 0;
         self.touchEnabled = NO;
         
@@ -59,7 +60,7 @@
         }
         
         self.healthBar.anchorPoint = ccp(0,0);
-        self.healthBar.position = ccp(60,300);
+        self.healthBar.position = ccp(56,300);
         
         CCSprite* energyBarSprite = [CCSprite spriteWithFile:@"energyBar.png"];
         
@@ -69,14 +70,31 @@
         self.energyBar.barChangeRate=ccp(1,0);
         self.energyBar.midpoint=ccp(0.0,0.0f);
     
-        self.energyBar.percentage = [[NSUserDefaults standardUserDefaults] floatForKey:@"energyLevel"];
         
+
+        float eScore = self.energyScore;
+        float currentLevelReq = 10000;
+        int i = 1;
+        
+        while(eScore >= 500 * i)
+        {
+            eScore = eScore - 500* i;
+            ++i;
+        }
+        
+        currentLevelReq = i * 500;
+        
+        float percentageToSet = eScore / currentLevelReq * 100;
+        
+        self.energyBar.percentage =  percentageToSet;
         self.energyBar.anchorPoint = ccp(0,0);
-        self.energyBar.position = ccp(60,285);
+        self.energyBar.position = ccp(56, 285);
         
         [self addChild:self.healthBar z:5 tag:kHealthBar];
         [self addChild:self.energyBar z:5 tag:kEnergyBar];
         
+        
+        //Setting up the profile ship icon picture
         AppController *appC = [UIApplication sharedApplication].delegate;
         CCSprite* profileSprite;
         
@@ -114,22 +132,38 @@
     
         [profileSprite setRotation:270];
         [profileSprite setScale:0.5];
-        profileSprite.anchorPoint = ccp(0,0);
-        profileSprite.position = ccp(50, 280);
+        profileSprite.anchorPoint = ccp(0.5,0.5);
+        profileSprite.position = ccp(30, kWinSize.height-24);
         
         [self addChild: profileSprite z:5 tag:kProfilePicture];
+        
+        
+        //Displaying the player's name
+        CCLabelBMFont* playerNameLabel = [CCLabelBMFont labelWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"playerName"] fntFile:@"gameScoreFont.fnt"];
+        
+        playerNameLabel.anchorPoint = ccp(0,1);
+        playerNameLabel.position = ccp(11, kWinSize.height - 43);
+        
+        [self addChild:playerNameLabel z:5];
+        
+        
+        //Displaying the Level Label
+        
+        NSString* level = [NSString stringWithFormat:@"Level %u", self.gameLevel];
+        
+        self.levelLabel = [CCLabelBMFont labelWithString:level fntFile:@"gameScoreFont.fnt"];
+        
+        self.levelLabel.anchorPoint = ccp(0.5,1);
+        self.levelLabel.position = ccp(kWinSize.width/2.0, kWinSize.height - 5);
+        [self addChild:self.levelLabel z:5];
         
         
         //Making the top right elements
         
         gameScoreSLabel = [CCLabelBMFont labelWithString:@"S:" fntFile:@"gameScoreFont.fnt"];
-        
         gameScoreSLabel.position = ccp(kWinSize.width - 78,310);
-        
         enemiesKilledKLabel = [CCLabelBMFont labelWithString:@"K:" fntFile:@"gameScoreFont.fnt"];
-        
         enemiesKilledKLabel.position = ccp(kWinSize.width - 78,290);
-        
         
         self.gameScoreValueLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f",self.gameScore] fontName:@"Helvetica" fontSize:20];
         
@@ -160,36 +194,66 @@
 {
     
     if (updateTime>0.5) {
-        [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%.0f",self.gameScore]];
+
+        //Setting the Energy Bar level
+        float eScore = self.energyScore;
+        float currentLevelReq = 0;
+        int level = 1;
         
+        while(eScore >= 500 * level)
+        {
+            eScore = eScore - 500* level;
+            ++level;
+        }
+        
+        currentLevelReq = level * 500;
+        
+        float percentageToSet = eScore / currentLevelReq * 100;
+        self.energyBar.percentage =  percentageToSet;
+        
+        //Setting the level label
+        self.gameLevel = level;
+        
+        //Setting the GUI elements
+        [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%.0f",self.gameScore]];
         [self.enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",self.enemiesKilled]];
+        [self.levelLabel setString:[NSString stringWithFormat:@"Level %u", self.gameLevel]];
         
         updateTime =0;
     }
     
     updateTime+=delta;
     
-    self.timeScore = self.timeScore+ delta *3;
+    self.timeScore = self.timeScore + delta *3;
     
-    self.gameScore = self.timeScore + self.enemiesKilled*20;
+    
     
     
     
 }
 
+
 - (void)updateHealth: (float)newhealth
 {
-    self.healthBar.percentage = newhealth;
+     self.healthBar.percentage = newhealth;
 }
 
 - (void)updatescore: (float)score
 {
     self.gameScore += score;
     //[self.gameScoreValueLabel runAction:[CCBlink actionWithDuration:.5 blinks:1]];
+    
+    //scale the scores label up and down
     id scaleUpAction =  [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:.5 scaleX:1.2 scaleY:1.2] rate:2.0];
     id scaleDownAction = [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5 scaleX:0.8 scaleY:0.8] rate:2.0];
     CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
     [self.gameScoreValueLabel runAction:scaleSeq];
+    
+    
+    //Updating the energyScore
+    self.energyScore += score;
+    
+    
 }
 
 - (void)updatekill

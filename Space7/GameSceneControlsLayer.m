@@ -55,6 +55,8 @@
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
+        
+        //Save the game every 10 seconds
         [self schedule:@selector(saveGame) interval:10];
         
         ////////////////////////
@@ -331,7 +333,7 @@
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.gameScore forKey:@"gameScore"];
         [[NSUserDefaults standardUserDefaults] setInteger: displayLayer.enemiesKilled forKey:@"enemiesKilled"];
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.timeScore forKey:@"timeScore"];
-        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
+        [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyScore"];
         [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
         
         [[CCDirector sharedDirector] startAnimation];
@@ -418,7 +420,7 @@
     [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.gameScore forKey:@"gameScore"];
     [[NSUserDefaults standardUserDefaults] setInteger: displayLayer.enemiesKilled forKey:@"enemiesKilled"];
     [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.timeScore forKey:@"timeScore"];
-    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyBar.percentage forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.energyScore forKey:@"energyScore"];
     [[NSUserDefaults standardUserDefaults] setFloat:displayLayer.healthBar.percentage forKey:@"healthLevel"];
 }
 

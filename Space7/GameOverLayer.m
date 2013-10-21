@@ -16,9 +16,8 @@
 
 #import "AnimatedCloudBackground.h"
 
+#import "ApplicationConstants.c"
 
-
-#define kWinSize [[CCDirector sharedDirector] winSize]
 
 
 #define kTitleBorderOrder 6
@@ -45,8 +44,6 @@
     [gameOverLayer addChild:background z:-1];
     
     [scene addChild: gameOverLayer z:1 tag:22];
-    
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
     
     return scene;
     
@@ -95,6 +92,8 @@
         
         [self scheduleOnce:@selector(gameOver) delay:0.5];
         
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
+        
     }
     
     return self;
@@ -111,7 +110,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
     [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyScore"];
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[GameSceneLayer scene]]];
 
@@ -131,7 +130,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"healthLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyScore"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"selectedShip"];
     
     [[NSUserDefaults standardUserDefaults] setObject:@" " forKey:@"playerName"];
@@ -256,7 +255,7 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     
     CGSize winSize= [[CCDirector sharedDirector] winSize];
-    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Total Score" fntFile:@"spaceshipNameFont-hd.fnt"];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:@"Total Score" fntFile:@"spaceshipNameFont.fnt"];
     
     titleLabel.position =ccp(winSize.width/2, winSize.height - 240);
     
@@ -340,7 +339,7 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:@"Space 7 is a stunningly colorful and elegant game designed for iOS. Game elements like the responsive star dust and dynamically generated environment create an amazing sense of depth within the game. Experience it today!" image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:[NSString stringWithFormat:@"Space 7 is a stunningly colorful and elegant game designed for iOS. I just played the game and got %.0f points! Download the gmae on an iOS device today!", self.gameScore] image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
         if(error)
         {
             [self alertView:nil didDismissWithButtonIndex:1];
@@ -357,9 +356,9 @@
     {
         NSMutableDictionary *params =
         [NSMutableDictionary dictionaryWithObjectsAndKeys:
-         @"Experience Space 7 for iOS today", @"name",
+         [NSString stringWithFormat:@"I just got %.0f points on Space 7!", self.gameScore], @"name",
          @"Game for iOS", @"caption",
-         @"Space 7 will suprise you with its stunning colors and elegant gaming experience. Game elements like the responsive star dust and dynamically generated environment create an amazing sense of depth within the game. Try it on your iOS device today!", @"description",
+         @"Space 7 will suprise you with its stunning colors and elegant gaming experience. Game elements like the responsive star dust and dynamically generated environment create an amazing sense of depth within the game. Experience the game on your iOS device today!", @"description",
          @"https://www.facebook.com/spacesevengame", @"link",
          @"http://i.imgur.com/N4dqI0q.png", @"picture",
          nil];

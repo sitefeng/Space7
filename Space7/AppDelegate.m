@@ -144,19 +144,6 @@
 	[window_ makeKeyAndVisible];
     
     
-//FALIED ATTEMPT TO ALTER THE USER DEFAULT VALUES
-//    NSDictionary *userDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                          [NSNumber numberWithFloat:-1.0], @"gameScore",
-//                                          [NSNumber numberWithInt:-1], @"enemiesKilled",
-//                                          [NSNumber numberWithFloat:-1.0], @"timeScore",
-//                                        [NSNumber numberWithFloat:-1.0], @"healthLevel",
-//                                            [NSNumber numberWithFloat:-1.0], @"energyLevel",
-//                                            [NSNumber numberWithInteger:-1], @"selectedShip",
-//                                          nil];
-//    
-//    [kUserDefaults registerDefaults:userDefaults];
-//    [kUserDefaults synchronize];
-    
     // For load game purposes
     self.shipToStart = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"];
     

@@ -229,7 +229,7 @@
     for (int i = 0; i < 8 ; ++i){ //create many stars
         
         CCSprite * star = [CCSprite spriteWithFile:@"star.png"];
-        star.scale = 0.25;
+        star.scale = 0.3;
     
         // Determine where to spawn the asteroid along the Y axis
         int minY = star.contentSize.height / 2;
@@ -286,19 +286,19 @@
 
 }
 
-- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity //KK not used
-{
-    
-    for (Asteroid *asteroid in _asteroids) {
-        
-        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.8) *deltaTime, asteroid.position.y - (velocity.y * 0.8) *deltaTime); //new position for ship
-        
-        [asteroid setPosition: newPosition];
-        
-        
-    }
-    
-}
+//- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity //KK not used
+//{
+//    
+//    for (Asteroid *asteroid in _asteroids) {
+//        
+//        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.8) *deltaTime, asteroid.position.y - (velocity.y * 0.8) *deltaTime); //new position for ship
+//        
+//        [asteroid setPosition: newPosition];
+//        
+//        
+//    }
+//    
+//}
 
 
 - (void) asteroid {//By Karim Kawambwa
@@ -307,16 +307,16 @@
     
     Asteroid *  asteroid;
     if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-        asteroid = [[WeakAndFastAsteroid alloc] init];
+        asteroid = [[WeakAsteroid alloc] init];
     }else {
         
         if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-            asteroid = [[WeakAndSlowAsteroid alloc] init];
+            asteroid = [[MedWeakAsteroid alloc] init];
         }else {
             if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-                asteroid = [[StrongAndFastwAsteroid alloc] init];
+                asteroid = [[MedStrongAsteroid alloc] init];
             }else {
-                asteroid = [[StrongAndSlowAsteroid alloc] init];
+                asteroid = [[StrongAsteroid alloc] init];
             }
         }
     }
@@ -416,17 +416,17 @@
                     [updateLayer updatekill];
                     
                     switch (asteroid.type) { //Bonus point on each Kill
-                        case WeakAndFastroid:
-                            [updateLayer updatescore:2];
+                        case WeakAstroid:
+                            [updateLayer updatescore:5];
                             break;
-                        case WeakAndSlowroid:
-                            [updateLayer updatescore:1];
+                        case MedWeakAstroid:
+                            [updateLayer updatescore:11];
                             break;
-                        case StrongAndFastroid:
-                            [updateLayer updatescore:6];
+                        case MedStrongAstroid:
+                            [updateLayer updatescore:17];
                             break;
-                        case StrongAndSlowroid:
-                            [updateLayer updatescore:4];
+                        case StrongAstroid:
+                            [updateLayer updatescore:23];
                             break;
                         default:
                             break;
@@ -481,20 +481,20 @@
             [asteroidToAnnialate addObject:asteroid];
             
             if (shipHit) {
-                if (asteroid.type == StrongAndFastroid){
-                    mySpaceship.hp -= 10;
+                if (asteroid.type == StrongAstroid){
+                    mySpaceship.hp -= 9;
                 }
-                else if (asteroid.type == StrongAndSlowroid)
+                else if (asteroid.type == MedStrongAstroid)
+                {
+                    mySpaceship.hp -= 7;
+                }
+                else if (asteroid.type == MedWeakAstroid)
                 {
                     mySpaceship.hp -= 5;
                 }
-                else if (asteroid.type == WeakAndSlowroid)
+                else if (asteroid.type == WeakAstroid)
                 {
-                    mySpaceship.hp -= 1;
-                }
-                else if (asteroid.type == WeakAndFastroid)
-                {
-                    mySpaceship.hp -= 2;
+                    mySpaceship.hp -= 3;
                 }
                 else{
                     //nothing
@@ -505,7 +505,7 @@
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
-                CCLOG(@"%d",mySpaceship.hp);
+                //CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                 //[mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];
@@ -539,40 +539,39 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"Laser Shot 4.mp3"];
 
     
-    CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
+    CCSprite *projectile = [CCSprite spriteWithFile:@"bullet.png"];
     projectile.position = mySpaceship.position;
-    projectile.scaleX = 2;
     
     // Determine offset of location to projectile
-    CCLOG(@"rotation %f",mySpaceship.rotation);
+    //CCLOG(@"rotation %f",mySpaceship.rotation);
     
     float x ; //= 200 - (sin(gameLayer.mySpaceship.rotation) * 200);
     float y ; //= 200 - (cos(gameLayer.mySpaceship.rotation) * 200);
     
     if (mySpaceship.rotation <= 0.0f) {
-        CCLOG(@"rotation %f", -mySpaceship.rotation);
+        //CCLOG(@"rotation %f", -mySpaceship.rotation);
         
         x = (cos(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
         y = (sin(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
         
     }else{
-        CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
+        //CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
         
         x = (cos(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
         y = (sin(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
     }
     
-    CCLOG(@"x %f", x);
-    CCLOG(@"y %f", y);
+    //CCLOG(@"x %f", x);
+    //CCLOG(@"y %f", y);
     
-    CGPoint target = CGPointMake(mySpaceship.position.x + x,
+    CGPoint targetPoint = CGPointMake(mySpaceship.position.x + x,
                                  mySpaceship.position.y + y );
     
-    CCLOG(@"target, postion x %f %f", target.x, projectile.position.x);
-    CCLOG(@"target, postion y %f %f", target.y, projectile.position.y);
+    //CCLOG(@"target, postion x %f %f", targetPoint.x, projectile.position.x);
+    //CCLOG(@"target, postion y %f %f", targetPoint.y, projectile.position.y);
     
-    CGPoint offset = ccpSub(target , projectile.position);
-    CCLOG(@"offset %f %f", offset.x, offset.y);
+    CGPoint offset = ccpSub(targetPoint , projectile.position);
+    //CCLOG(@"offset %f %f", offset.x, offset.y);
     
     // Bail out if you are shooting down or backwards
     //if (offset.x <= 0) return; //doesn't allow back shooting
@@ -585,7 +584,7 @@
     int realX ;
     float ratio;
     int realY;
-    if (target.x > projectile.position.x) {
+    if (targetPoint.x > projectile.position.x) {
        realX = kWinSize.width + (projectile.contentSize.width/2);
        ratio = (float) offset.y / (float) offset.x;
        realY = (realX * ratio) + projectile.position.y;

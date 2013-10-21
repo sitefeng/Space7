@@ -18,13 +18,16 @@
 @property (nonatomic, assign) float gameScore;
 @property (nonatomic, assign) unsigned int enemiesKilled;
 @property (nonatomic, assign) float timeScore;
+@property (nonatomic, assign) unsigned int gameLevel;
+@property (nonatomic, assign) float energyScore; // to track the number of bonus point recieved by destrying asteroids, for calculating experience level(aka energy level)
+
 
 @property (nonatomic, retain) CCProgressTimer* energyBar;
 @property (nonatomic, retain) CCProgressTimer* healthBar;
 
 @property (nonatomic, retain) CCLabelTTF* gameScoreValueLabel;
 @property (nonatomic, retain) CCLabelTTF* enemiesKilledValueLabel;
-
+@property (nonatomic, retain) CCLabelBMFont* levelLabel;
 
 
 

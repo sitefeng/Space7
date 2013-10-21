@@ -43,11 +43,6 @@
         [self addChild: animatedBackground z:-1];
         
         
-        CCSprite *background = [CCSprite spriteWithFile:@"cloudy1.png"];
-        background.anchorPoint = ccp(0,0);
-        
-        [self addChild:background z:-2];
-        
     }
     
     

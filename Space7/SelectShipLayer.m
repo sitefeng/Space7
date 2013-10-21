@@ -765,7 +765,7 @@ enum {
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"enemiesKilled"];
     [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"timeScore"];
     [[NSUserDefaults standardUserDefaults] setFloat:100 forKey:@"healthLevel"];
-    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyLevel"];
+    [[NSUserDefaults standardUserDefaults] setFloat:0 forKey:@"energyScore"];
     
     [[NSUserDefaults standardUserDefaults] setBool:_glideMode forKey:@"glideMode"];
     [[NSUserDefaults standardUserDefaults] setBool:_joystickPosition forKey:@"joystickPosition"];
@@ -783,9 +783,9 @@ enum {
     
     CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kReturnMenuButtonTag] children] objectAtIndex:0];
     
-    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0)];
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:0.8 position:ccp(-1 * menuItem.contentSize.width, 0)];
     [[self getChildByTag:kReturnMenuButtonTag] runAction:moveReturnMenu];
-    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0 )];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:0.8 position:ccp(menuItem.contentSize.width, 0 )];
     [[self getChildByTag:kNextButtonTag] runAction:moveNext];
 
     [(CCMenu*)[self getChildByTag:kNextButtonTag] setEnabled: NO];
@@ -798,9 +798,9 @@ enum {
     [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
     CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kReturnMenuButtonTag] children] objectAtIndex:0];
     
-    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0)];
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:0.8 position:ccp(menuItem.contentSize.width, 0)];
     [[self getChildByTag:kReturnMenuButtonTag] runAction:moveReturnMenu];
-    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0 )];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:0.8 position:ccp(-1 * menuItem.contentSize.width, 0 )];
     [[self getChildByTag:kNextButtonTag] runAction:moveNext];
     
     [(CCMenu*)[self getChildByTag:kNextButtonTag] setEnabled: YES];
@@ -815,9 +815,9 @@ enum {
     [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
     CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kBackMenuTag] children] objectAtIndex:0];
     
-    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0)];
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:0.8 position:ccp(-1 * menuItem.contentSize.width, 0)];
     [[self getChildByTag:kBackMenuTag] runAction:moveReturnMenu];
-    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0 )];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:0.8 position:ccp(menuItem.contentSize.width, 0 )];
     [[self getChildByTag:kPlayMenuTag] runAction:moveNext];
     
 
@@ -832,9 +832,9 @@ enum {
     [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];
     CCMenuItem* menuItem = (CCMenuItemImage*)[[[self getChildByTag:kBackMenuTag] children] objectAtIndex:0];
 
-    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:1 position:ccp(menuItem.contentSize.width, 0)];
+    CCMoveBy* moveReturnMenu = [CCMoveBy actionWithDuration:0.8 position:ccp(menuItem.contentSize.width, 0)];
     [[self getChildByTag:kBackMenuTag] runAction:moveReturnMenu];
-    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:1 position:ccp(-1 * menuItem.contentSize.width, 0 )];
+    CCMoveBy* moveNext = [CCMoveBy actionWithDuration:0.8 position:ccp(-1 * menuItem.contentSize.width, 0 )];
     [[self getChildByTag:kPlayMenuTag] runAction:moveNext];
     
 
