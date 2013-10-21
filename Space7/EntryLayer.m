@@ -53,7 +53,7 @@
     
     if(self=[super init])
     {
-        [self scheduleOnce:@selector(replaceScene) delay:2.4];
+        [self scheduleOnce:@selector(replaceScene) delay:2.7];
    
     }
     

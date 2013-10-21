@@ -45,7 +45,6 @@ enum {
     kShipIcon4Tag,
     };
 
-//DONT FORGET TO SET NEXT BUTTON ENABLED WHEN BACK BUTTON WAS TAPPED!!!!!!!!!!!!!!!!!!!
 
 @implementation SelectShipLayer
 {

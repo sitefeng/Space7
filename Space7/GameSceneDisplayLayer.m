@@ -73,16 +73,16 @@
         
 
         float eScore = self.energyScore;
-        float currentLevelReq = 10000;
+        float currentLevelReq = 0;
         int i = 1;
         
-        while(eScore >= 500 * i)
+        while(eScore >= 100 * i)
         {
-            eScore = eScore - 500* i;
+            eScore = eScore - 100* i;
             ++i;
         }
         
-        currentLevelReq = i * 500;
+        currentLevelReq = i * 100;
         
         float percentageToSet = eScore / currentLevelReq * 100;
         
@@ -200,13 +200,13 @@
         float currentLevelReq = 0;
         int level = 1;
         
-        while(eScore >= 500 * level)
+        while(eScore >= 100 * level)
         {
-            eScore = eScore - 500* level;
+            eScore = eScore - 100* level;
             ++level;
         }
         
-        currentLevelReq = level * 500;
+        currentLevelReq = level * 100;
         
         float percentageToSet = eScore / currentLevelReq * 100;
         self.energyBar.percentage =  percentageToSet;
