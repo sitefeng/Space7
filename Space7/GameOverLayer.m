@@ -93,7 +93,7 @@
         
         [self scheduleOnce:@selector(gameOver) delay:0.5];
         
-//        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
         
     }
     
@@ -178,11 +178,11 @@
     
     [gameOverBar setPosition:ccp(kWinSize.width/2.0, gameOverBar.contentSize.height/2.0 + kWinSize.height)];
     
-    CCMoveTo *barMove = [CCMoveTo actionWithDuration:1.0 position: ccp(kWinSize.width/2, kWinSize.height - 40)];
+    CCMoveTo *barMove = [CCMoveTo actionWithDuration:1.0 position: ccp(kWinSize.width/2, kWinSize.height - gameOverBar.contentSize.height/2.0 - 11)];
     CCEaseExponentialOut *barDrop = [CCEaseExponentialOut actionWithAction:barMove];
     
     [gameOverBar runAction:barDrop];
-
+    [self addChild:gameOverBar z:1];
     
     [self scheduleOnce:@selector(displayTitle) delay:1];
     
@@ -193,6 +193,7 @@
 
 - (void) displayTitle
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"landed.mp3"];
     NSString* userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"playerName"];
     
     NSString* stringRepOfLevel;
@@ -233,11 +234,11 @@
     NSString* titleToDisplay = [NSString stringWithFormat:@"%@ %@", stringRepOfLevel, userName];
     
     
-    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:[titleToDisplay capitalizedString] fntFile:@"spaceshipNameFont.fnt"];
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:[titleToDisplay uppercaseString] fntFile:@"spaceshipNameFont.fnt"];
     
-    titleLabel.position = ccp(kWinSize.width/2, kWinSize.height - 40);
+    titleLabel.position = ccp(kWinSize.width/2, kWinSize.height - 36);
     
-    [self addChild:titleLabel];
+    [self addChild:titleLabel z:2];
 
     
 }
