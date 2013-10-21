@@ -30,7 +30,7 @@
 
 @implementation GameOverLayer
 
-+(CCScene*) sceneWithGameScore:(float)score enemiesKilled:(unsigned int)enemies andTimeScore:(float)time
++(CCScene*) sceneWithGameScore:(float)score enemiesKilled:(unsigned int)enemies andTimeScore:(float)time andGameLevel:(unsigned int)level
 {
     
     CCScene *scene = [CCScene node];
@@ -39,6 +39,7 @@
     gameOverLayer.gameScore = score;
     gameOverLayer.enemiesKilled = enemies;
     gameOverLayer.timeScore = time;
+    gameOverLayer.gameLevel = level;
 
     AnimatedCloudBackground* background = [AnimatedCloudBackground node];
     [gameOverLayer addChild:background z:-1];
@@ -92,7 +93,7 @@
         
         [self scheduleOnce:@selector(gameOver) delay:0.5];
         
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
+//        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3"];
         
     }
     
@@ -148,15 +149,15 @@
     CCSprite* title = [CCSprite spriteWithFile:@"gameOverTitle.png"];
     title.position = ccp(kWinSize.width/2, kWinSize.height + 50);
     
-    [self addChild:title];
+    [self addChild:title z:6 tag: 99];
     
     CCMoveTo *titleMove = [CCMoveTo actionWithDuration:1.5 position: ccp(kWinSize.width/2, kWinSize.height - 40)];
     
-    CCEaseBounceOut *titleDrop = [CCEaseBounceOut actionWithAction:titleMove];
+    CCEaseElasticOut *titleDrop = [CCEaseElasticOut actionWithAction:titleMove];
     
     [title runAction:titleDrop];
     
-    [self scheduleOnce:@selector(setTitleBorder) delay:1.0];
+    [self scheduleOnce:@selector(setTitleBorder) delay:1.5];
     
     [self scheduleOnce:@selector(displayStats1) delay:1.0];
     
@@ -167,25 +168,82 @@
 
 -(void) setTitleBorder
 {
-//    [[SimpleAudioEngine sharedEngine] playEffect:@"gameOverSceneExplode.mp3"];
-//    
-//    CGSize winSize= [[CCDirector sharedDirector] winSize];
-//    CCParticleExplosion* circles = [[CCParticleExplosion alloc] init];
-//    
-//    circles.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
-//    
-//    [circles setDuration:0.5];
-//    
-//    circles.position =ccp(winSize.width/2, winSize.height - 50);
-//    
-//    [self addChild: circles z: kTitleBorderOrder];
-    
-    
-    
-    
-    
 
+    CCMoveTo *titleMove = [CCMoveTo actionWithDuration:1.5 position: ccp(kWinSize.width/2, kWinSize.height + 50)];
+    CCEaseElasticOut *titleRaise = [CCEaseElasticOut actionWithAction:titleMove];
+    [[self getChildByTag:99] runAction:titleRaise];
+    
+    
+    CCSprite* gameOverBar = [CCSprite spriteWithFile:@"gameOverBar.png"];
+    
+    [gameOverBar setPosition:ccp(kWinSize.width/2.0, gameOverBar.contentSize.height/2.0 + kWinSize.height)];
+    
+    CCMoveTo *barMove = [CCMoveTo actionWithDuration:1.0 position: ccp(kWinSize.width/2, kWinSize.height - 40)];
+    CCEaseExponentialOut *barDrop = [CCEaseExponentialOut actionWithAction:barMove];
+    
+    [gameOverBar runAction:barDrop];
+
+    
+    [self scheduleOnce:@selector(displayTitle) delay:1];
+    
+    
+    
 }
+
+
+- (void) displayTitle
+{
+    NSString* userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"playerName"];
+    
+    NSString* stringRepOfLevel;
+    
+    switch (self.gameLevel)
+    {
+        case 1:
+            stringRepOfLevel = @"Recruit";
+            break;
+        case 2:
+            stringRepOfLevel = @"Private";
+            break;
+        case 3:
+            stringRepOfLevel = @"Corporal";
+            break;
+        case 4:
+            stringRepOfLevel = @"Sergeant";
+            break;
+        case 5:
+            stringRepOfLevel = @"Lieutenant";
+            break;
+        case 6:
+            stringRepOfLevel = @"Captain";
+            break;
+        case 7:
+            stringRepOfLevel = @"Major";
+            break;
+        case 8:
+            stringRepOfLevel = @"Colonel";
+            break;
+        default:
+            stringRepOfLevel = @"General";
+            break;
+            
+    }
+    
+    
+    NSString* titleToDisplay = [NSString stringWithFormat:@"%@ %@", stringRepOfLevel, userName];
+    
+    
+    CCLabelBMFont* titleLabel = [CCLabelBMFont labelWithString:[titleToDisplay capitalizedString] fntFile:@"spaceshipNameFont.fnt"];
+    
+    titleLabel.position = ccp(kWinSize.width/2, kWinSize.height - 40);
+    
+    [self addChild:titleLabel];
+
+    
+}
+
+
+
 
 
 

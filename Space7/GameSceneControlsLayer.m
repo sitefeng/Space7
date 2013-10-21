@@ -299,7 +299,7 @@
         
         GameSceneDisplayLayer* layer = (GameSceneDisplayLayer*)[[self parent]getChildByTag:66];
         
-        [[CCDirector sharedDirector] replaceScene: [CCTransitionFadeBL transitionWithDuration:1 scene:[GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore]]];
+        [[CCDirector sharedDirector] replaceScene: [CCTransitionFadeBL transitionWithDuration:1 scene:[GameOverLayer sceneWithGameScore:layer.gameScore enemiesKilled:layer.enemiesKilled andTimeScore:layer.timeScore andGameLevel: layer.gameLevel]]];
     }
     
 }

@@ -615,6 +615,7 @@ enum {
 
 -(void) getPrometheus
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"comingSoon.mp3"];
     
 //    CCSprite* crystalSprite =(CCSprite*)[self getChildByTag:kSelectCrystalTag];
 //    [crystalSprite setScale:0.01];

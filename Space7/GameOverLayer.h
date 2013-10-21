@@ -25,13 +25,12 @@
 @property (nonatomic, assign) float gameScore;
 @property (nonatomic, assign) unsigned int enemiesKilled;
 @property (nonatomic, assign) float timeScore;
+@property (nonatomic, assign) unsigned int gameLevel;
 
 
 
 
 
-
-
-+(CCScene*) sceneWithGameScore: (float)score enemiesKilled: (unsigned int) enemies andTimeScore:(float)time;
++(CCScene*) sceneWithGameScore: (float)score enemiesKilled: (unsigned int) enemies andTimeScore:(float)time andGameLevel: (unsigned int) level;
 
 @end
