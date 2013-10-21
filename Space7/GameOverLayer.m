@@ -70,22 +70,22 @@
         }
         
         
-        _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" disabledImage:@"tryAgainButtonDisabled.png" target:self selector:@selector(tryAgain)];
+        _tryAgainItem = [CCMenuItemImage itemWithNormalImage:@"tryAgainButtonNormal.png" selectedImage:@"tryAgainButtonPressed.png" target:self selector:@selector(tryAgain)];
 
         [_tryAgainItem setIsEnabled:NO];
         
-        _mainMenuItem = [CCMenuItemImage itemWithNormalImage:@"mainMenuButtonNormal.png" selectedImage:@"mainMenuButtonPressed.png" disabledImage:@"mainMenuButtonDisabled.png" target:self selector:@selector(mainMenu)];
+        _mainMenuItem = [CCMenuItemImage itemWithNormalImage:@"selectionMenuButtonNormal.png" selectedImage:@"selectionMenuButtonPressed.png" target:self selector:@selector(mainMenu)];
         
         [_mainMenuItem setIsEnabled:NO];
         
         CCMenu* menuTry = [CCMenu menuWithItems:_tryAgainItem, nil];
         
         
-        menuTry.position = ccp(kWinSize.width + [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0);
+        menuTry.position = ccp(kWinSize.width + [_tryAgainItem contentSize].width/2.0,kWinSize.height/2.0);
         
         CCMenu* menuMenu = [CCMenu menuWithItems:_mainMenuItem, nil];
         
-        menuMenu.position =ccp(-1 * [_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0);
+        menuMenu.position =ccp(-1 * [_mainMenuItem contentSize].width/2.0,kWinSize.height/2.0);
         
         [self addChild: menuMenu z:kMenuButtonOrder tag:kMenuButtonTag];
         [self addChild: menuTry z:kMenuButtonOrder tag:kTryAgainButtonTag];
@@ -156,29 +156,34 @@
     
     [title runAction:titleDrop];
     
-    [self scheduleOnce:@selector(setExplosion) delay:2.0];
+    [self scheduleOnce:@selector(setTitleBorder) delay:1.0];
     
-    [self scheduleOnce:@selector(displayStats1) delay:4.0];
+    [self scheduleOnce:@selector(displayStats1) delay:1.0];
     
 }
 
 
 
 
--(void) setExplosion
+-(void) setTitleBorder
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"gameOverSceneExplode.mp3"];
+//    [[SimpleAudioEngine sharedEngine] playEffect:@"gameOverSceneExplode.mp3"];
+//    
+//    CGSize winSize= [[CCDirector sharedDirector] winSize];
+//    CCParticleExplosion* circles = [[CCParticleExplosion alloc] init];
+//    
+//    circles.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
+//    
+//    [circles setDuration:0.5];
+//    
+//    circles.position =ccp(winSize.width/2, winSize.height - 50);
+//    
+//    [self addChild: circles z: kTitleBorderOrder];
     
-    CGSize winSize= [[CCDirector sharedDirector] winSize];
-    CCParticleExplosion* circles = [[CCParticleExplosion alloc] init];
     
-    circles.texture =[[CCSprite spriteWithFile:@"circle2.png"] texture];
     
-    [circles setDuration:0.5];
     
-    circles.position =ccp(winSize.width/2, winSize.height - 50);
     
-    [self addChild: circles z: kTitleBorderOrder];
 
 }
 
@@ -197,7 +202,7 @@
     
     [self addChild:titleLabel];
     
-    [self scheduleOnce:@selector(displayStats2) delay:1.0];
+    [self scheduleOnce:@selector(displayStats2) delay:0.6];
     
 }
 
@@ -214,7 +219,7 @@
     
     [self addChild:valueLabel];
     
-    [self scheduleOnce:@selector(displayStats3) delay:1.0];
+    [self scheduleOnce:@selector(displayStats3) delay:0.6];
 
 }
 
@@ -229,7 +234,7 @@
     
     [self addChild:titleLabel];
     
-    [self scheduleOnce:@selector(displayStats4) delay:1.0];
+    [self scheduleOnce:@selector(displayStats4) delay:0.6];
 }
 
 -(void) displayStats4
@@ -246,7 +251,7 @@
     
     [self addChild:valueLabel];
     
-    [self scheduleOnce:@selector(displayStats5) delay:1.0];
+    [self scheduleOnce:@selector(displayStats5) delay:0.6];
     
 }
 
@@ -261,7 +266,7 @@
     
     [self addChild:titleLabel];
     
-    [self scheduleOnce:@selector(displayStats6) delay:1.0];
+    [self scheduleOnce:@selector(displayStats6) delay:0.6];
     
 }
 
@@ -283,7 +288,7 @@
     
     [self addChild:valueLabel];
     
-    [self scheduleOnce:@selector(showMenuButtons) delay:0.5];
+    [self scheduleOnce:@selector(showMenuButtons) delay:0.4];
     
 }
 
@@ -295,8 +300,8 @@
     CCMenu* menu = (CCMenu*)[self getChildByTag:kMenuButtonTag];
     CCMenu* tryAgain = (CCMenu*)[self getChildByTag: kTryAgainButtonTag];
     
-    CCMoveTo* menuMove = [CCMoveTo actionWithDuration:1.0 position:ccp([_mainMenuItem contentSize].width/2.0,[_mainMenuItem contentSize].height/2.0)];
-    CCMoveTo* tryAgainMove = [CCMoveTo actionWithDuration:1.0 position:ccp(kWinSize.width - [_tryAgainItem contentSize].width/2.0,[_tryAgainItem contentSize].height/2.0)];
+    CCMoveTo* menuMove = [CCMoveTo actionWithDuration:0.8 position:ccp([_mainMenuItem contentSize].width/2.0,kWinSize.height/2.0)];
+    CCMoveTo* tryAgainMove = [CCMoveTo actionWithDuration:0.8 position:ccp(kWinSize.width - _tryAgainItem.contentSize.width/2.0,kWinSize.height/2.0)];
     
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"button.mp3"];

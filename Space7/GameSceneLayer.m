@@ -25,9 +25,6 @@
 #define kGameScoreLabel 59
 
 
-#define kNumGameLevelMusic 3
-
-
 
 @implementation GameSceneLayer
 {
@@ -50,8 +47,6 @@
     [scene addChild: gameSceneControlsLayer z:2 tag:kGameSceneControlsLayerTag];
     [scene addChild: gameSceneLayer z:1 tag:kGameSceneLayerTag];
     [scene addChild: gameSceneBackgroundLayer z:0];
-    
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"level1.mp3" loop:YES ];
     
     return scene;
     

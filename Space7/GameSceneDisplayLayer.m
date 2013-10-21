@@ -18,6 +18,10 @@
 #define kGameScoreLabel 59
 
 
+
+#define kNumGameLevelMusic 4
+
+
 @implementation GameSceneDisplayLayer
 {
     float updateTime;
@@ -34,8 +38,7 @@
         
         self.timeScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"timeScore"];
         self.energyScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"energyScore"];
-
-        self.gameLevel = self.gameScore / 10.0 + 1;
+        
         
         updateTime = 0;
         self.touchEnabled = NO;
@@ -82,6 +85,7 @@
             ++i;
         }
         
+        self.gameLevel = i;
         currentLevelReq = i * 100;
         
         float percentageToSet = eScore / currentLevelReq * 100;
@@ -181,6 +185,9 @@
         
         [self scheduleUpdate];
         
+        NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (self.gameLevel-1)% kNumGameLevelMusic + 1];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:YES];
+        
     }
     
     return self;
@@ -218,9 +225,9 @@
             [[SimpleAudioEngine sharedEngine] playEffect:@"levelUp.mp3"];
             [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
             
-            NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (level-1)%3 + 1];
-            
+            NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (level-1)% kNumGameLevelMusic + 1];
             [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:YES];
+            
         }
         
         //Setting the GUI elements
