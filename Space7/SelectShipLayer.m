@@ -88,7 +88,7 @@ enum {
         
         _glideMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
         _joystickPosition = [[NSUserDefaults standardUserDefaults] boolForKey:@"joystickPosition"];
-        _selectedShipMenuItem -0;
+        _selectedShipMenuItem =0;
         
         //Set up the _namesArray
         _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", @"Wesley", @"Ben", @"Steven", @"Chris", @"Calvin", @"Colin", @"Aditya", @"Alex", @"David", @"Edison", @"Abs", @"Cary", @"Mike", @"Lisa", @"Alicia", @"Kathryn", @"Jessie", @"Taylor", @"Christina", @"Fiona", nil];
@@ -881,22 +881,9 @@ enum {
 
 - (void)shipSelectionMenuKeepHighlight
 {
-    
-    switch (_selectedShipMenuItem) {
-        case 1:
-            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] selected];
-            break;
-        case 2:
-            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1] selected];
-            break;
-        case 3:
-            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2] selected];
-            break;
-        default:
-            break;
-    }
-    
-    
+
+            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:(_selectedShipMenuItem -1)] selected];
+
     
 }
 
