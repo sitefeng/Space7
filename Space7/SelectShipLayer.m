@@ -182,9 +182,7 @@ enum {
         [self scheduleOnce:@selector(presentShipSelection) delay:0];
         [self scheduleOnce:@selector(revealExtensions) delay:1];
         [self scheduleOnce:@selector(showNextButton) delay:2];
-        
-        //Make sure the ship selection menu item keeps highlighting
-        [self schedule:@selector(shipSelectionMenuKeepHighlight) interval:0.5];
+
         
         //////////////////////////////////////////////////////////////////
         //////////////////////////////////////
@@ -591,6 +589,10 @@ enum {
     
     _shipSelected = _Geronimo;
     
+    //Make sure the ship selection menu item keeps highlighting
+    [self schedule:@selector(shipSelectionMenuKeepHighlight) interval:0.5];
+
+    
 }
 
 
@@ -615,6 +617,10 @@ enum {
     //Deselect the rest of the menu items
     [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] unselected];
     [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:2] unselected];
+    
+    //Make sure the ship selection menu item keeps highlighting
+    [self schedule:@selector(shipSelectionMenuKeepHighlight) interval:0.5];
+
     
 }
 
@@ -642,6 +648,10 @@ enum {
     [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:1] unselected];
     [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:0] unselected];
     
+    
+    //Make sure the ship selection menu item keeps highlighting
+    [self schedule:@selector(shipSelectionMenuKeepHighlight) interval:0.5];
+
 }
 
 
@@ -882,7 +892,7 @@ enum {
 - (void)shipSelectionMenuKeepHighlight
 {
 
-            [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:(_selectedShipMenuItem -1)] selected];
+        [(CCMenuItemImage*)[[[self getChildByTag:kShipChoiceMenuTag] children] objectAtIndex:(_selectedShipMenuItem -1)] selected];
 
     
 }
