@@ -10,14 +10,9 @@
 #import "cocos2d.h"
 
 @interface HighscoresMainLayer : CCLayer <UITextFieldDelegate>
-    
 {
         UITextView *dText;
-        UITextField* exTextField;
-        
-        
-        
-    
+        UITextField* exTextField;        
 }
 
 

@@ -26,6 +26,10 @@
 {
     if(self=[super init])
     {
+        CCSprite* blackBack = [CCSprite spriteWithFile:@"Black.png"];
+        blackBack.anchorPoint = ccp(0,0);
+        blackBack.position = ccp(0,0);
+        [self addChild:blackBack z:-2];
         
         //Adding a static background
         CCSprite* background = [CCSprite spriteWithFile:@"cloudy1.png"];
@@ -101,7 +105,6 @@
             cloudSprite.position = ccp(kWinSize.width + contentSize.width*1.5, cloudVerticalPosition);
             
             [cloudSprite setRotation:CCRANDOM_0_1()*360];
-            
             
             float scaleValue = 1.0 + CCRANDOM_0_1()*1.5;
             [cloudSprite setScale:scaleValue];

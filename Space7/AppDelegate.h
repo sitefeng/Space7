@@ -13,7 +13,7 @@
 @interface MyNavigationController : UINavigationController <CCDirectorDelegate>
 @end
 
-@interface AppController : NSObject <UIApplicationDelegate, UIAlertViewDelegate>
+@interface AppController : NSObject <UIApplicationDelegate>
 {
 	UIWindow *window_;
 	MyNavigationController *navController_;
@@ -25,7 +25,9 @@
 @property (readonly) MyNavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 
+@property (nonatomic, assign) BOOL firstAppLaunch;
 
 @property (nonatomic) NSInteger shipToStart;
+
 
 @end

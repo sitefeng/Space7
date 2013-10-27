@@ -43,10 +43,8 @@
             [self addChild:sprite z:i tag:i];
             
         }
-        
-        
+
         [self schedule:@selector(initNewCloud)];
-        
         
     }
     
@@ -57,9 +55,7 @@
 
 - (void)initNewCloud
 {
-    
     [self unschedule:@selector(initNewCloud)];
-    
     
     for(int i = 1; i<= kNumClouds ; i++)
     {

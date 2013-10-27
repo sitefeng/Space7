@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface GameOverLayer : CCLayer {
+
+@interface GameOverLayer : CCLayer <MFMailComposeViewControllerDelegate>
+{
     
     CCMenuItemImage* _tryAgainItem;
     CCMenuItemImage* _mainMenuItem;
@@ -20,13 +25,12 @@
 @property (nonatomic, assign) float gameScore;
 @property (nonatomic, assign) unsigned int enemiesKilled;
 @property (nonatomic, assign) float timeScore;
+@property (nonatomic, assign) unsigned int gameLevel;
 
 
 
 
 
-
-
-+(CCScene*) sceneWithGameScore: (float)score enemiesKilled: (unsigned int) enemies andTimeScore:(float)time;
++(CCScene*) sceneWithGameScore: (float)score enemiesKilled: (unsigned int) enemies andTimeScore:(float)time andGameLevel: (unsigned int) level;
 
 @end

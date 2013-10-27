@@ -8,37 +8,47 @@
 
 #import "MenuSceneLayer.h"
 #import "GameSceneLayer.h"
-#import "HighscoresMainLayer.h"
+#import "AppDelegate.h"
 #import "AboutSceneMainLayer.h"
 #import "SelectShipLayer.h"
 
-//delete after
-#import "GameOverLayer.h"
+#import "MenuSceneLayer.h"
+
+#import "LoadingSceneLayer.h"
+
+#include "ApplicationConstants.c"
+
+
 
 @implementation MenuSceneLayer
+{
+    
+}
 
 +(CCScene *) scene
 {
-    
     
 	MenuSceneLayer *layer = [MenuSceneLayer node];
 	
     CCScene *scene = [CCScene node];
     
-    CCSprite *background = [CCSprite spriteWithFile:@"SpaceSevenBackground.png"];
     
-    background.anchorPoint = ccp(0,0);
-    
-    [layer addChild:background z:-1];
     
     [scene addChild: layer];
     
-    //Play the background music
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
-    
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
-	
+	AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+    
+    if(app.firstAppLaunch)
+    {
+        app.firstAppLaunch = NO;
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"homePage.mp3" loop:YES];
+    }
+    
 	// return the scene
 	return scene;
 }
@@ -50,45 +60,53 @@
 	if( (self=[super init]) ) {
         
         self.touchEnabled = YES;
-    
-        //Getting the window size
-        CGSize windowSize = [[CCDirector sharedDirector] winSize];
-        
 		
-        //Creating the Main Menu:
+        //Loading the background
+        CCSprite *background;
         
-        CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"NewGameNormal.png" selectedImage:@"NewGameTouched.png" target:self selector:@selector(newGameTouched) ];
-        newGame.scale = 0.7;
-        
-        CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"LoadGameNormal.png"  selectedImage:@"LoadGameTouched.png" disabledImage:@"LoadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
-        loadGame.scale = 0.7;
-        
-        if(true)
+        if(IS_IPHONE_5)
         {
-            
-            [loadGame setIsEnabled:NO];
-            
+            background = [CCSprite spriteWithFile:@"Background-568h@2x.png"];
+        }
+        else if(IS_IPHONE_4)
+        {
+            background = [CCSprite spriteWithFile:@"Background@2x.png"];
         }
         
-        CCMenuItemImage* highscores = [CCMenuItemImage itemWithNormalImage:@"HighScoresNormal.png"  selectedImage:@"HighScoresTouched.png" target:self selector:@selector(highscoresTouched) ];
-		highscores.scale = 0.7;
+        background.anchorPoint = ccp(0,0);
+        
+        [self addChild:background z:-1];
         
         
-        CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, highscores, nil];
+        //Creating the Main Menu:
+        CCMenuItemImage* newGame = [CCMenuItemImage itemWithNormalImage:@"newGameNormal.png" selectedImage:@"newGamePressed.png" target:self selector:@selector(newGameTouched) ];
+
         
-        mainMenu.position = ccp(windowSize.width/2, (windowSize.height/2) - 60);
+        CCMenuItemImage* loadGame = [CCMenuItemImage itemWithNormalImage:@"loadGameNormal.png"  selectedImage:@"loadGamePressed.png" disabledImage:@"loadGameDisabled.png" target:self selector:@selector(loadGameTouched) ];
+ 
+
+        NSInteger selectedShip = [kUserDefaults integerForKey:@"selectedShip"];
         
-        [mainMenu alignItemsVerticallyWithPadding: 12];
+        if(selectedShip == 0)
+        {
+            [loadGame setIsEnabled:NO];
+        }
+        
+        CCMenu* mainMenu = [CCMenu menuWithItems:newGame, loadGame, nil];
+        
+        mainMenu.position = ccp(kWinSize.width/2, (kWinSize.height/2) - 60);
+        
+        [mainMenu alignItemsVerticallyWithPadding: 18];
         
         //Creating the About button
         
-        CCMenuItemImage* aboutButton = [CCMenuItemImage itemWithNormalImage:@"AboutButtonNormal.png"  selectedImage:@"AboutButtonTouched.png"  target:self selector:@selector(aboutButtonTouched) ];
+        CCMenuItemImage* aboutButton = [CCMenuItemImage itemWithNormalImage:@"aboutButtonNormal.png"  selectedImage:@"aboutButtonPressed.png"  target:self selector:@selector(aboutButtonTouched) ];
         
         CGSize aboutButtonSize = aboutButton.contentSize;
         
         CCMenu* about = [CCMenu menuWithItems:aboutButton, nil];
   
-        about.position = ccp(windowSize.width - aboutButtonSize.width, aboutButtonSize.height);
+        about.position = ccp(kWinSize.width - aboutButtonSize.width/1.25, aboutButtonSize.height/1.25);
         
         
         //Adding Main Menu and the About button to the Menu Scene        
@@ -100,22 +118,14 @@
 }
 
 
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-    
-    
-    
-    
-}
-
 
 -(void) newGameTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] replaceScene:[SelectShipLayer scene]];
+
+    [[CCDirector sharedDirector] replaceScene:[LoadingSceneLayer sceneWithReplaceSceneName:@"SelectShipLayer"]];
     
 }
 
@@ -126,24 +136,19 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
     
+    [[CCDirector sharedDirector] replaceScene:[LoadingSceneLayer sceneWithReplaceSceneName:@"GameSceneLayer"]];
+    
+    
 }
 
--(void) highscoresTouched
-{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-    
-    [[CCDirector sharedDirector] replaceScene:[HighscoresMainLayer scene]];
-    
-    
-}
+
 
 -(void) aboutButtonTouched
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click1.mp3"];
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     
-    [[CCDirector sharedDirector] replaceScene:[AboutSceneMainLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:1 scene:[AboutSceneMainLayer scene]]];
 
     
 }

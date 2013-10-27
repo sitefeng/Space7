@@ -16,13 +16,21 @@
 #import "AppDelegate.h"
 #import "AnimatedCloudCover.h"
 
+#include "ApplicationConstants.c"
+
+
 #define kHealthBar 56
 #define kEnergyBar 57
 #define kProfilePicture 58
 #define kGameScoreLabel 59
 
 
+
 @implementation GameSceneLayer
+{
+    
+    NSMutableArray* _explodeFrames;
+}
 
 @synthesize mySpaceship, target, _asteroids, _projectiles, _stars;
 
@@ -34,14 +42,11 @@
     GameSceneControlsLayer *gameSceneControlsLayer = [GameSceneControlsLayer node];
     GameSceneBackgroundLayer *gameSceneBackgroundLayer = [GameSceneBackgroundLayer node];
     GameSceneDisplayLayer *gameSceneDisplayLayer = [GameSceneDisplayLayer node];
-
     
     [scene addChild: gameSceneDisplayLayer z:3 tag:66];
-    [scene addChild: gameSceneControlsLayer z:2];
-    [scene addChild: gameSceneLayer z:1];
+    [scene addChild: gameSceneControlsLayer z:2 tag:kGameSceneControlsLayerTag];
+    [scene addChild: gameSceneLayer z:1 tag:kGameSceneLayerTag];
     [scene addChild: gameSceneBackgroundLayer z:0];
-    
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"level1.mp3" loop:YES ];
     
     return scene;
     
@@ -57,7 +62,28 @@
         _projectiles = [[NSMutableArray alloc] init];
         _stars = [[NSMutableArray alloc] init];
 
+        //Preload the explosion effect
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+        _explodeFrames = [[NSMutableArray alloc] init];
+        for (int i=1; i<=32; i++) {
+            NSString *string;
+            if (i/10 == 0){
+                string = [NSString stringWithFormat:@"slice0%d_0%d.png",i,i];
+            }else{
+                string = [NSString stringWithFormat:@"slice%d_%d.png",i,i];
+            }
+            
+            [_explodeFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              string]];
+        }
         
+        
+        
+        
+        
+        
+        //Set touch not enabled
         self.touchEnabled =NO;
         AppController *appC = [UIApplication sharedApplication].delegate;
         [self initializeShip:appC.shipToStart];
@@ -98,32 +124,42 @@
 - (void)initializeShip: (NSInteger) type
 {
     //INITIALIZE THE SPACESHIP
-    switch (type) {
-        case _Geronimo:
-            mySpaceship = [[Geronimo alloc] init];
-            break;
+    if(type!=-1)
+    {
+        switch (type) {
+            case _Geronimo:
+                mySpaceship = [[Geronimo alloc] init];
+                break;
             
-        case _Hyperion:
-            mySpaceship = [[Hyperion alloc] init];
-            break;
+            case _Hyperion:
+                mySpaceship = [[Hyperion alloc] init];
+                break;
             
-        case _Annihilator:
-            mySpaceship = [[Annihilator alloc] init];
-            break;
+            case _Annihilator:
+                mySpaceship = [[Annihilator alloc] init];
+                break;
         
-        case _Prometheus:
-            mySpaceship = [[Prometheus alloc] init];
-            break;
-            
-        default:
-            break;
+            case _Prometheus:
+                mySpaceship = [[Prometheus alloc] init];
+                break;
+                
+            default:
+                NSLog(@"Ship type was not specified correctly!!");
+                break;
+        }
+        
+    }
+    else
+    {
+         NSLog(@"No ship type was specified!!");
+    
     }
     
    // target = [CCSprite spriteWithFile:@"target-red.png"];
     //target.scale = 0.1;
     mySpaceship.position = ccp(100,200);
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    mySpaceship.position = ccp(winSize.width/2,winSize.height/2);
+
+    mySpaceship.position = ccp(kWinSize.width/2,kWinSize.height/2);
     
     //target.position = ccp(300, mySpaceship.contentSize.height/2);
     
@@ -135,32 +171,22 @@
 
 - (void)blowUpAtPosition: (CGPoint)position
 {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+    
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"explosion.png"];
     [self addChild:spriteSheet];
     
-    NSMutableArray *exlodeFrames = [NSMutableArray array];
-    for (int i=1; i<=32; i++) {
-        NSString *string;
-        if (i/10 == 0){
-            string = [NSString stringWithFormat:@"slice0%d_0%d.png",i,i];
-        }else{
-            string = [NSString stringWithFormat:@"slice%d_%d.png",i,i];
-        }
-        
-        [exlodeFrames addObject:
-         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          string]];
-    }
     
-    CCAnimation *explode = [CCAnimation
-                             animationWithSpriteFrames:exlodeFrames delay:0.025f];
     
-   // CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    
+    
+    CCAnimation* explosion = [CCAnimation animationWithSpriteFrames:_explodeFrames delay:0.025f];
+    
+    
     self.boom = [CCSprite spriteWithSpriteFrameName:@"slice01_01.png"];
     self.boom.position = position;
    
-    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explode], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+    [self.boom runAction: [CCSequence actions:[CCAnimate actionWithAnimation:explosion], [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node removeFromParentAndCleanup:YES];
     }],nil] ];
     self.boom.scale = 2.5;
@@ -187,7 +213,8 @@
     CCAnimation *explode = [CCAnimation
                             animationWithSpriteFrames:exlodeFrames delay:0.025f];
     
-    // CGSize winSize = [[CCDirector sharedDirector] winSize];
+
+    
     self.boom = [CCSprite spriteWithSpriteFrameName:@"hit_1.png"];
     self.boom.position = position;
     
@@ -212,18 +239,17 @@
     for (int i = 0; i < 8 ; ++i){ //create many stars
         
         CCSprite * star = [CCSprite spriteWithFile:@"star.png"];
-        star.scale = 0.25;
+        star.scale = 0.3;
     
         // Determine where to spawn the asteroid along the Y axis
-        CGSize winSize = [CCDirector sharedDirector].winSize;
         int minY = star.contentSize.height / 2;
-        int maxY = winSize.height - star.contentSize.height/2;
+        int maxY = kWinSize.height - star.contentSize.height/2;
         int rangeY = maxY - minY;
         int actualY = (arc4random() % rangeY) + minY;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        star.position = ccp(winSize.width + star.contentSize.width/2, actualY);
+        star.position = ccp(kWinSize.width + star.contentSize.width/2, actualY);
         star.tag = 3;
         [_stars addObject:star];
         [self addChild:star z:0];
@@ -270,19 +296,19 @@
 
 }
 
-- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity //KK not used
-{
-    
-    for (Asteroid *asteroid in _asteroids) {
-        
-        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.8) *deltaTime, asteroid.position.y - (velocity.y * 0.8) *deltaTime); //new position for ship
-        
-        [asteroid setPosition: newPosition];
-        
-        
-    }
-    
-}
+//- (void) asteroidParallax: (ccTime)deltaTime velocity: (CGPoint)velocity //KK not used
+//{
+//    
+//    for (Asteroid *asteroid in _asteroids) {
+//        
+//        CGPoint newPosition = ccp(asteroid.position.x - (velocity.x * 0.8) *deltaTime, asteroid.position.y - (velocity.y * 0.8) *deltaTime); //new position for ship
+//        
+//        [asteroid setPosition: newPosition];
+//        
+//        
+//    }
+//    
+//}
 
 
 - (void) asteroid {//By Karim Kawambwa
@@ -291,16 +317,16 @@
     
     Asteroid *  asteroid;
     if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-        asteroid = [[WeakAndFastAsteroid alloc] init];
+        asteroid = [[WeakAsteroid alloc] init];
     }else {
         
         if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-            asteroid = [[WeakAndSlowAsteroid alloc] init];
+            asteroid = [[MedWeakAsteroid alloc] init];
         }else {
             if (arc4random() % 2 == 0) { //Used for asteroid type randomizing
-                asteroid = [[StrongAndFastwAsteroid alloc] init];
+                asteroid = [[MedStrongAsteroid alloc] init];
             }else {
-                asteroid = [[StrongAndSlowAsteroid alloc] init];
+                asteroid = [[StrongAsteroid alloc] init];
             }
         }
     }
@@ -308,19 +334,18 @@
     
     NSInteger spawn = (arc4random() % 4);
 
-    CGSize winSize = [CCDirector sharedDirector].winSize;
     int actualX;
     int actualY;
     if (spawn == 1 || spawn == 2 ) {
         // Determine where to spawn the asteroid along the X axis
-        int minX = winSize.width /2;
-        int maxX = winSize.width - asteroid.contentSize.width/2;
+        int minX = kWinSize.width /2;
+        int maxX = kWinSize.width - asteroid.contentSize.width/2;
         int rangeX = maxX - minX;
         actualX = (arc4random() % rangeX) + minX;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        asteroid.position = ccp(actualX, winSize.height + asteroid.contentSize.height/2);
+        asteroid.position = ccp(actualX, kWinSize.height + asteroid.contentSize.height/2);
         [_asteroids addObject:asteroid];
         [self addChild:asteroid z:1];
     }
@@ -328,13 +353,13 @@
     {
         // Determine where to spawn the asteroid along the Y axis
         int minY = asteroid.contentSize.height / 2;
-        int maxY = winSize.height - asteroid.contentSize.height/2;
+        int maxY = kWinSize.height - asteroid.contentSize.height/2;
         int rangeY = maxY - minY;
         actualY = (arc4random() % rangeY) + minY;
         
         // Create the asteroid slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        asteroid.position = ccp(winSize.width + asteroid.contentSize.width/2, actualY);
+        asteroid.position = ccp(kWinSize.width + asteroid.contentSize.width/2, actualY);
         [_asteroids addObject:asteroid];
         [self addChild:asteroid z:1];
     }
@@ -351,8 +376,8 @@
         // Create the actions
         //CCMoveTo: You use the CCMoveTo action to direct the object to move off-screen to the left.
         actionMove = [CCMoveTo actionWithDuration:actualDuration
-                                         position:ccp(-asteroid.contentSize.width/2 - (arc4random() % (int)winSize.width) ,
-                                                      -asteroid.contentSize.height/2 - (arc4random() % (int)winSize.height))];
+                                         position:ccp(-asteroid.contentSize.width/2 - (arc4random() % (int)kWinSize.width) ,
+                                                      -asteroid.contentSize.height/2 - (arc4random() % (int)kWinSize.height))];
     }
     else
     {
@@ -401,17 +426,17 @@
                     [updateLayer updatekill];
                     
                     switch (asteroid.type) { //Bonus point on each Kill
-                        case WeakAndFastroid:
-                            [updateLayer updatescore:2];
+                        case WeakAstroid:
+                            [updateLayer updatescore:5];
                             break;
-                        case WeakAndSlowroid:
-                            [updateLayer updatescore:1];
+                        case MedWeakAstroid:
+                            [updateLayer updatescore:11];
                             break;
-                        case StrongAndFastroid:
-                            [updateLayer updatescore:6];
+                        case MedStrongAstroid:
+                            [updateLayer updatescore:17];
                             break;
-                        case StrongAndSlowroid:
-                            [updateLayer updatescore:4];
+                        case StrongAstroid:
+                            [updateLayer updatescore:23];
                             break;
                         default:
                             break;
@@ -466,20 +491,20 @@
             [asteroidToAnnialate addObject:asteroid];
             
             if (shipHit) {
-                if (asteroid.type == StrongAndFastroid){
-                    mySpaceship.hp -= 10;
+                if (asteroid.type == StrongAstroid){
+                    mySpaceship.hp -= 9;
                 }
-                else if (asteroid.type == StrongAndSlowroid)
+                else if (asteroid.type == MedStrongAstroid)
+                {
+                    mySpaceship.hp -= 7;
+                }
+                else if (asteroid.type == MedWeakAstroid)
                 {
                     mySpaceship.hp -= 5;
                 }
-                else if (asteroid.type == WeakAndSlowroid)
+                else if (asteroid.type == WeakAstroid)
                 {
-                    mySpaceship.hp -= 1;
-                }
-                else if (asteroid.type == WeakAndFastroid)
-                {
-                    mySpaceship.hp -= 2;
+                    mySpaceship.hp -= 3;
                 }
                 else{
                     //nothing
@@ -490,7 +515,7 @@
                 CCScene * scene = [[CCDirector sharedDirector] runningScene];
                 GameSceneDisplayLayer *displayLayer = [scene.children objectAtIndex:3];
                 
-                CCLOG(@"%d",mySpaceship.hp);
+                //CCLOG(@"%d",mySpaceship.hp);
                 [displayLayer updateHealth:mySpaceship.hp];
                 
                 //[mySpaceship runAction:[CCBlink actionWithDuration:.5 blinks:3]];
@@ -522,41 +547,41 @@
     
     // Set up initial location of projectile
     [[SimpleAudioEngine sharedEngine] playEffect:@"Laser Shot 4.mp3"];
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CCSprite *projectile = [CCSprite spriteWithFile:@"star.png"];
+
+    
+    CCSprite *projectile = [CCSprite spriteWithFile:@"bullet.png"];
     projectile.position = mySpaceship.position;
-    projectile.scaleX = 2;
     
     // Determine offset of location to projectile
-    CCLOG(@"rotation %f",mySpaceship.rotation);
+    //CCLOG(@"rotation %f",mySpaceship.rotation);
     
     float x ; //= 200 - (sin(gameLayer.mySpaceship.rotation) * 200);
     float y ; //= 200 - (cos(gameLayer.mySpaceship.rotation) * 200);
     
     if (mySpaceship.rotation <= 0.0f) {
-        CCLOG(@"rotation %f", -mySpaceship.rotation);
+        //CCLOG(@"rotation %f", -mySpaceship.rotation);
         
         x = (cos(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
         y = (sin(CC_DEGREES_TO_RADIANS(-mySpaceship.rotation)) * 50.0f);
         
     }else{
-        CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
+        //CCLOG(@"rotation %f", 360.0f - mySpaceship.rotation);
         
         x = (cos(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
         y = (sin(CC_DEGREES_TO_RADIANS(360.0f - mySpaceship.rotation)) * 50.0f);
     }
     
-    CCLOG(@"x %f", x);
-    CCLOG(@"y %f", y);
+    //CCLOG(@"x %f", x);
+    //CCLOG(@"y %f", y);
     
-    CGPoint target = CGPointMake(mySpaceship.position.x + x,
+    CGPoint targetPoint = CGPointMake(mySpaceship.position.x + x,
                                  mySpaceship.position.y + y );
     
-    CCLOG(@"target, postion x %f %f", target.x, projectile.position.x);
-    CCLOG(@"target, postion y %f %f", target.y, projectile.position.y);
+    //CCLOG(@"target, postion x %f %f", targetPoint.x, projectile.position.x);
+    //CCLOG(@"target, postion y %f %f", targetPoint.y, projectile.position.y);
     
-    CGPoint offset = ccpSub(target , projectile.position);
-    CCLOG(@"offset %f %f", offset.x, offset.y);
+    CGPoint offset = ccpSub(targetPoint , projectile.position);
+    //CCLOG(@"offset %f %f", offset.x, offset.y);
     
     // Bail out if you are shooting down or backwards
     //if (offset.x <= 0) return; //doesn't allow back shooting
@@ -569,14 +594,14 @@
     int realX ;
     float ratio;
     int realY;
-    if (target.x > projectile.position.x) {
-       realX = winSize.width + (projectile.contentSize.width/2);
+    if (targetPoint.x > projectile.position.x) {
+       realX = kWinSize.width + (projectile.contentSize.width/2);
        ratio = (float) offset.y / (float) offset.x;
        realY = (realX * ratio) + projectile.position.y;
     }
     else
     {
-        realX = -winSize.width - (projectile.contentSize.width/2);
+        realX = -kWinSize.width - (projectile.contentSize.width/2);
         ratio = (float) offset.y / (float) - offset.x;
         realY =  projectile.position.y + ((-realX) * ratio);
     }

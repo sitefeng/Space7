@@ -11,10 +11,10 @@
 
 enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids to know the type
     
-    WeakAndFastroid = 1000,
-    StrongAndSlowroid,
-    WeakAndSlowroid,
-    StrongAndFastroid
+    WeakAstroid = 1000,
+    MedWeakAstroid,
+    MedStrongAstroid,
+    StrongAstroid
     
 }asteroidTypes;
 
@@ -31,14 +31,14 @@ enum { //Karim Kawambwa  asteroid types enumeration. Used to tage the asteroids 
 
 @end
 
-@interface WeakAndFastAsteroid : Asteroid
+@interface MedWeakAsteroid : Asteroid
 @end
 
-@interface StrongAndSlowAsteroid : Asteroid
+@interface MedStrongAsteroid : Asteroid
 @end
 
-@interface WeakAndSlowAsteroid : Asteroid
+@interface WeakAsteroid : Asteroid
 @end
 
-@interface StrongAndFastwAsteroid : Asteroid
+@interface StrongAsteroid : Asteroid
 @end

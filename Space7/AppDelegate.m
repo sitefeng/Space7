@@ -7,9 +7,10 @@
 //
 
 #import "cocos2d.h"
-#import "MenuSceneLayer.h"
+#import "EntryLayer.h"
 #import "AppDelegate.h"
-
+#include "ApplicationConstants.c"
+#import "GameSceneControlsLayer.h"
 
 @implementation MyNavigationController
 
@@ -47,7 +48,7 @@
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
 		// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-		[director runWithScene: [MenuSceneLayer scene]];
+		[director runWithScene: [EntryLayer scene]];
 	}
 }
 @end
@@ -143,6 +144,16 @@
 	[window_ makeKeyAndVisible];
     
     
+    // For load game purposes
+    self.shipToStart = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedShip"];
+    
+    //getting rid of the FPS display
+    director_.displayStats = NO;
+    
+    //
+    self.firstAppLaunch = YES;
+    
+    
 	return YES;
 }
 
@@ -152,11 +163,17 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
+    
+    if( [navController_ visibleViewController] == director_ )
+		[director_ resume];
+    
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
 	
 }
@@ -168,18 +185,30 @@
     
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if( [navController_ visibleViewController] == director_ )
-		[director_ resume];
-    
-}
-
-
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
-	if( [navController_ visibleViewController] == director_ )
-		[director_ startAnimation];
+    CCScene * scene = [[CCDirector sharedDirector] runningScene];
+    
+    GameSceneControlsLayer *gameLayer = nil;
+    
+    if([[scene getChildByTag:kGameSceneControlsLayerTag] isKindOfClass:[GameSceneControlsLayer class]])
+    {
+        gameLayer = (GameSceneControlsLayer*)[scene getChildByTag:kGameSceneControlsLayerTag];
+    }
+    
+    BOOL alertViewIsUp = NO;
+    
+    if(gameLayer!=nil)
+    {
+        alertViewIsUp = gameLayer.alertViewIsShowing;
+    }
+    
+    if( ([navController_ visibleViewController] == director_) && !alertViewIsUp)
+    {
+        [director_ startAnimation];
+    }
+    
+	
 }
 
 // application will be killed
