@@ -34,6 +34,7 @@
 #define kBackMenuTag 42
 #define kPlayMenuTag 43
 
+#define kInstructionTag 44
 
 #define kNicknameArraySize 27
 
@@ -91,11 +92,13 @@ enum {
         _selectedShipMenuItem =0;
         
         //Set up the _namesArray
-        _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", @"Wesley", @"Ben", @"Steven", @"Chris", @"Calvin", @"Colin", @"Aditya", @"Alex", @"David", @"Edison", @"Abs", @"Cary", @"Mike", @"Lisa", @"Alicia", @"Kathryn", @"Jessie", @"Taylor", @"Christina", @"Fiona", nil];
+        _namesArray = [[NSArray alloc] initWithObjects: @"Andy", @"Sam", @"Max", @"Sherry", @"Dennis", @"Eric", @"Jack", @"Wesley", @"Ben", @"Steven", @"Chris", @"Calvin", @"Colin", @"Charlie", @"Justin", @"Aditya", @"Alex", @"David", @"Edison", @"Abs", @"Cary", @"Mike", @"Lisa", @"Alicia", @"Kathryn", @"Jessie", @"Taylor", @"Christina", @"Fiona", nil];
         
-        CCLabelBMFont* title = [CCLabelBMFont labelWithString:@"SELECT YOUR SPACESHIP" fntFile:@"spaceshipNameFont.fnt"];
+        CCLabelBMFont* title = [CCLabelBMFont labelWithString:@"SELECT YOUR SPACESHIP" fntFile:@"spaceshipNameFont-hd.fnt"];
         
         title.position = ccp(kWinSize.width/2.0, kWinSize.height + 10);
+        
+        NSLog(@"%f, %f",kWinSize.width, kWinSize.height);
         
         [self addChild:title z:6 tag:kTitleTag];
         
@@ -686,6 +689,12 @@ enum {
 {
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
+    
+    if([self getChildByTag:kInstructionTag] != nil)
+    {
+        [self removeChildByTag:kInstructionTag cleanup:YES];
+    }
+    
     NSUInteger tryInt = arc4random() % kNicknameArraySize;
     
     NSString* nameToSet = [_namesArray objectAtIndex:tryInt];
@@ -699,6 +708,8 @@ enum {
         [_nickNameLabel setString:nameToSet];
     }
 
+    
+    
 }
 
 
@@ -883,8 +894,44 @@ enum {
 
     [(CCMenu*)[self getChildByTag:kBackMenuTag] setEnabled:YES];
     [(CCMenu*)[self getChildByTag:kPlayMenuTag] setEnabled:YES];
+    
+    
+
+    
+    
+    
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"experiencedPlayer"] == 0)
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"experiencedPlayer"];
+        [self scheduleOnce:@selector(presentInstructions) delay:2];
+        
+    }
 
 
+}
+
+
+- (void)presentInstructions
+{
+    CCSprite* tapSprite = [CCSprite spriteWithFile:@"instructionTap.png"];
+    
+    tapSprite.anchorPoint = ccp(0,0);
+    
+    [tapSprite setPosition:ccp(kWinSize.width/2.0 + 85, -kWinSize.height/2.0 + 70)];
+    
+    [tapSprite setScale:0.01];
+    [self addChild:tapSprite z:10 tag: kInstructionTag];
+    
+    
+    CCScaleTo* scaleLarger = [CCScaleTo actionWithDuration:0.8 scale:1];
+    CCScaleTo* scaleSmaller = [CCScaleTo actionWithDuration:0.8 scale:0.8];
+
+    CCSequence* scalingSequence = [CCSequence actions:scaleLarger, scaleSmaller, nil];
+    
+    CCRepeatForever* repeatScaling = [CCRepeatForever actionWithAction:scalingSequence];
+
+    [tapSprite runAction:repeatScaling];
+    
 }
 
 

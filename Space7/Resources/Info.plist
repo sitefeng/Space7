@@ -12,13 +12,12 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon</string>
-		<string>Icon.png</string>
-		<string>Icon@2x.png</string>
-		<string>Icon-72.png</string>
-		<string>Icon-Small-50.png</string>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small@2x.png</string>
+		<string>Icon-57 v2</string>
+		<string>Icon-114 v2</string>
+		<string>Icon-120 v2</string>
+		<string>Icon-80 v2</string>
+		<string>Icon-29 v2</string>
+		<string>Icon-58 v2</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.technochimera.${PRODUCT_NAME:rfc1034identifier}</string>
@@ -28,6 +27,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.02</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -40,7 +41,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.02</string>
 	<key>FacebookAppID</key>
 	<string>402947769828393</string>
 	<key>FacebookDisplayName</key>
@@ -207,8 +208,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<dict>
 		<key>accelerometer</key>
-		<true/>
-		<key>gamekit</key>
 		<true/>
 		<key>opengles-2</key>
 		<true/>

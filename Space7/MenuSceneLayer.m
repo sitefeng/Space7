@@ -32,12 +32,8 @@
 	
     CCScene *scene = [CCScene node];
     
-    
-    
     [scene addChild: layer];
     
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click1.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"click2.mp3"];
 	AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
     
     if(app.firstAppLaunch)
@@ -60,6 +56,9 @@
 	if( (self=[super init]) ) {
         
         self.touchEnabled = YES;
+        
+        [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.35];
+        
 		
         //Loading the background
         CCSprite *background;

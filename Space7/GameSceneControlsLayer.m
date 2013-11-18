@@ -15,6 +15,11 @@
 
 #include "ApplicationConstants.c"
 
+
+
+#define kInstructionJoystickTag 55
+#define kInstructionShootTag 56
+
 @implementation GameSceneControlsLayer
 
 +(CCScene*) scene
@@ -46,12 +51,10 @@
         self.accelerationMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"glideMode"];
         
         [self initJoystick];
-        
+        [self initShootButton];
+        [self initInstructions];
         
         [self initPauseButton];
-        
-        
-        [self initShootButton];
         
         [self schedule:@selector(joystickUpdate:) interval:1.0/30.0];
         [self schedule:@selector(gameLogic:) interval:1.0];//By Karim Kawambwa
@@ -226,19 +229,81 @@
     {
         joystickBase.position = ccp(joystickBaseSize.width, joystickBaseSize.height);
         
+        
+        
     }
     else
     {
-        joystickBase.position = ccp(kWinSize.width - joystickBaseSize.width, joystickBaseSize.height);
+        joystickBase.position = ccp(kWinSize.width - joystickBaseSize.width, joystickBaseSize.height);\
+        
+        
+        
     }
     
-    
     [self addChild:joystickBase];
+     myJoystick = joystickBase.joystick;
     
-    myJoystick = joystickBase.joystick;
+    
+    
+   
+    
+    
+   
     
 }
 
+
+- (void) initInstructions
+{
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"experiencedPlayer"] != 1)
+    {
+        return;
+    }
+    
+    CCSprite* backSprite = [CCSprite spriteWithFile:@"gameButtonNormal.png"];
+    
+    CGSize joystickBaseSize = [backSprite contentSize];
+    
+    CCLabelBMFont* joystickInstruction = [CCLabelBMFont labelWithString:@"JOYSTICK: Hold To Move Spaceship" fntFile:@"gameScoreFont.fnt"];
+    
+    CCLabelBMFont* shootInstruction = [CCLabelBMFont labelWithString:@"Tap To SHOOT!" fntFile:@"gameScoreFont.fnt"];
+    
+    if(!self.joystickPosition)
+    {
+    
+        joystickInstruction.anchorPoint = ccp(0,0.5);
+        joystickInstruction.position = ccp(10, 20);
+        
+        shootInstruction.anchorPoint = ccp(0.5,0.5);
+        shootInstruction.position = ccp (kWinSize.width - joystickBaseSize.width, 20);
+    }
+    else
+    {
+        joystickInstruction.anchorPoint = ccp(1,0.5);
+        joystickInstruction.position = ccp(kWinSize.width - 10, 20);
+        
+        shootInstruction.anchorPoint = ccp(0.5,0.5);
+        shootInstruction.position = ccp (joystickBaseSize.width, 20);
+
+    }
+    
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"experiencedPlayer"];
+        
+    [self addChild:joystickInstruction];
+    [self addChild:shootInstruction];
+    
+    CCScaleTo* scaleDown1 = [CCScaleTo actionWithDuration:37 scale:0];
+    CCEaseExponentialIn* e1 = [CCEaseExponentialIn actionWithAction:scaleDown1];
+    
+    CCScaleTo* scaleDown2 = [CCScaleTo actionWithDuration:37 scale:0];
+    CCEaseExponentialIn* e2 = [CCEaseExponentialIn actionWithAction:scaleDown2];
+    
+    [joystickInstruction runAction:e1];
+    [shootInstruction runAction:e2];
+    
+
+}
 
 -(void) initShootButton
 {
@@ -348,16 +413,6 @@
 
 }
 
--(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    //commented out by Karim
-    
-//    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-//    
-//    [[CCDirector sharedDirector] replaceScene:[MenuSceneLayer scene]];
-
-    
-}
 
 
 

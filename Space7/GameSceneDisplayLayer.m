@@ -17,9 +17,12 @@
 #define kProfilePicture 58
 #define kGameScoreLabel 59
 
-
-
 #define kNumGameLevelMusic 4
+
+#define kBasicLevelReq 50
+
+
+#define kLevelLabelPosition ccp(kWinSize.width/2.0, kWinSize.height - 5)
 
 
 @implementation GameSceneDisplayLayer
@@ -79,14 +82,14 @@
         float currentLevelReq = 0;
         int i = 1;
         
-        while(eScore >= 100 * i)
+        while(eScore >= kBasicLevelReq * i)
         {
-            eScore = eScore - 100* i;
+            eScore = eScore - kBasicLevelReq* i;
             ++i;
         }
         
         self.gameLevel = i;
-        currentLevelReq = i * 100;
+        currentLevelReq = i * kBasicLevelReq;
         
         float percentageToSet = eScore / currentLevelReq * 100;
         
@@ -158,9 +161,8 @@
         self.levelLabel = [CCLabelBMFont labelWithString:level fntFile:@"gameScoreFont.fnt"];
         
         self.levelLabel.anchorPoint = ccp(0.5,1);
-        self.levelLabel.position = ccp(kWinSize.width/2.0, kWinSize.height - 5);
+        self.levelLabel.position = kLevelLabelPosition;
         [self addChild:self.levelLabel z:5];
-        
         
         //Making the top right elements
         
@@ -207,13 +209,13 @@
         float currentLevelReq = 0;
         int level = 1;
         
-        while(eScore >= 100 * level)
+        while(eScore >= kBasicLevelReq * level)
         {
-            eScore = eScore - 100* level;
+            eScore = eScore - kBasicLevelReq* level;
             ++level;
         }
         
-        currentLevelReq = level * 100;
+        currentLevelReq = level * kBasicLevelReq;
         
         float percentageToSet = eScore / currentLevelReq * 100;
         self.energyBar.percentage =  percentageToSet;
@@ -222,18 +224,16 @@
         if(self.gameLevel < level)
         {
             self.gameLevel = level;
-            [[SimpleAudioEngine sharedEngine] playEffect:@"levelUp.mp3"];
-            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-            
-            NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (level-1)% kNumGameLevelMusic + 1];
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:YES];
+
+            //Adding an animation and new music for leveling up
+            [self scheduleOnce:@selector(levelUpTransition) delay:0];
             
         }
         
         //Setting the GUI elements
         [self.gameScoreValueLabel setString:[NSString stringWithFormat:@"%.0f",self.gameScore]];
         [self.enemiesKilledValueLabel setString:[NSString stringWithFormat:@"%u",self.enemiesKilled]];
-        [self.levelLabel setString:[NSString stringWithFormat:@"Level %u", self.gameLevel]];
+        
         
         updateTime =0;
     }
@@ -282,6 +282,72 @@
     CCSequence *scaleSeq = [CCSequence actions:scaleUpAction, scaleDownAction, nil];
     [self.enemiesKilledValueLabel runAction:scaleSeq];
 }
+
+
+- (void)levelUpTransition
+{
+    
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+
+    CCMoveBy* moveLevelUpwards = [CCMoveBy actionWithDuration:0.5 position:ccp(0,self.levelLabel.contentSize.height)];
+    [self.levelLabel runAction:moveLevelUpwards];
+    
+    [self scheduleOnce:@selector(initLevelUpAnimation) delay:0.5];
+    [self scheduleOnce:@selector(levelUpLabelGoUpScreen) delay:3];
+
+}
+
+#pragma mark - Level up private helper methods
+
+
+- (void)initLevelUpAnimation
+{
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"levelUp.mp3"];
+    
+    //Putting the label on the left side of the screen and preparing for screen entrance
+    [self.levelLabel setPosition:ccp(-kWinSize.width - self.levelLabel.contentSize.width/2.0, kWinSize.height/2.0 + 45)];
+
+    [self.levelLabel setScale:1.7];
+    [self.levelLabel setScaleX:2.2];
+    
+    //Updating the level string itself
+    [self.levelLabel setString:[NSString stringWithFormat:@"Level %u", self.gameLevel]];
+    
+    
+    //Run the rest of the animations
+    CCMoveTo* presentLevelLabel = [CCMoveTo actionWithDuration:1 position:ccp(kWinSize.width/2.0, kWinSize.height/2.0 + 45)];
+    
+    CCScaleTo* scaleX = [CCScaleTo actionWithDuration:0.4 scale:1.7];
+    
+    CCSequence* levelUpAnimation = [CCSequence actions:presentLevelLabel, scaleX, nil];
+    
+    [self.levelLabel runAction:levelUpAnimation];
+
+}
+
+
+- (void)levelUpLabelGoUpScreen
+{
+    //Change the background music to the next one
+    NSString* musicName = [NSString stringWithFormat:@"level%i.mp3", (self.gameLevel-1)% kNumGameLevelMusic + 1];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:YES];
+    
+    
+    CCMoveTo* moveToOriginalPosition = [CCMoveTo actionWithDuration:0.6 position:kLevelLabelPosition];
+    
+    CCScaleTo* scaleBackToNorm = [CCScaleTo actionWithDuration:0.6 scale:1];
+    
+    [self.levelLabel runAction:moveToOriginalPosition];
+    [self.levelLabel runAction:scaleBackToNorm];
+    
+    
+}
+
+
+
+
 
 -(void) dealloc
 {

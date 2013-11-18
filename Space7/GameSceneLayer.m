@@ -48,6 +48,9 @@
     [scene addChild: gameSceneLayer z:1 tag:kGameSceneLayerTag];
     [scene addChild: gameSceneBackgroundLayer z:0];
     
+   
+
+    
     return scene;
     
 }

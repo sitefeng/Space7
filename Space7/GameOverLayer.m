@@ -403,7 +403,7 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"click2.mp3"];
     
-    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:[NSString stringWithFormat:@"Space 7 is a stunningly colorful and elegant game designed for iOS. I just played the game and got %.0f points! Download the gmae on an iOS device today!", self.gameScore] image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+    [FBDialogs presentOSIntegratedShareDialogModallyFrom:[[CCDirector sharedDirector] parentViewController] initialText:[NSString stringWithFormat:@"Space 7 is a stunningly colorful and elegant game designed for iOS. I just played the game and got %.0f points! Download the game on an iOS device today!", self.gameScore] image:nil url:[NSURL URLWithString:@"https://www.facebook.com/spacesevengame"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
         if(error)
         {
             [self alertView:nil didDismissWithButtonIndex:1];
