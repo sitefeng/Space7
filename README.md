@@ -5,10 +5,7 @@ Space7
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).  
 
-The game will be available for all iPhones and iPods that are running on iOS 5 or above.
-
-~~Currently, the temporary release date for version 1.01 of the game is set to be December 5th, 2013. Stay tuned.~~  
-Update: The game will be available before November 7th if the verification proccess goes well
+The game is now available for all iPhones and iPods that are running on iOS 6 or above.
 
 ##Project Details
 - **Authors:** Si Te F and Karim K
