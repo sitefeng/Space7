@@ -11,7 +11,7 @@ The game is now available for all iPhones and iPods that are running on iOS 6 or
 - **Authors:** Si Te F and Karim K
 - **Project Start Date:** September 22nd, 2013
 - **Version 1.01 Finish Date:** October 27th, 2013
-- **Shound Effects:** http://www.freesfx.co.uk
+- **Sound Effects:** http://www.freesfx.co.uk
 
 ##Goal  
 **Initial Plan:** To fight aliens in different galaxies until the spaceship returns to the Milky Way galaxy.  
